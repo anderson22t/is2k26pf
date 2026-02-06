@@ -23,6 +23,7 @@ namespace Capa_Vista_Seguridad
             InitializeComponent();
             txtContrasena.UseSystemPasswordChar = true;
             this.FormClosing += Frm_Login_FormClosing;
+            this.AcceptButton = btnIniciarSesion; // ENTER = Iniciar sesión
         }
 
         private void Frm_Login_FormClosing(object sender, FormClosingEventArgs e)

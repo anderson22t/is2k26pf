@@ -80,7 +80,6 @@ namespace Capa_Vista_Seguridad
         {
             menuItems = new Dictionary<MenuOpciones, ToolStripMenuItem>
             {
-                { MenuOpciones.Archivo, archivoToolStripMenuItem },
                 { MenuOpciones.Catalogos, catálogosToolStripMenuItem },
                 { MenuOpciones.Procesos, procesosToolStripMenuItem },
                 { MenuOpciones.Herramientas, herramientasToolStripMenuItem },
