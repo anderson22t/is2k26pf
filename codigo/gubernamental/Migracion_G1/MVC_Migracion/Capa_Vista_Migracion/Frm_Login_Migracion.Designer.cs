@@ -31,7 +31,6 @@ namespace Capa_Vista_Migracion
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Login_Migracion));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblModuloSeguridad = new System.Windows.Forms.Label();
             this.chkMostrarContrasena = new System.Windows.Forms.CheckBox();
             this.lblContrasena = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -39,78 +38,76 @@ namespace Capa_Vista_Migracion
             this.lblkRecuperarContrasena = new System.Windows.Forms.LinkLabel();
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(523, 118);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(230, 204);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(151, 136);
+            this.pictureBox1.Size = new System.Drawing.Size(78, 76);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 51;
             this.pictureBox1.TabStop = false;
             // 
-            // lblModuloSeguridad
-            // 
-            this.lblModuloSeguridad.AutoSize = true;
-            this.lblModuloSeguridad.Font = new System.Drawing.Font("Rockwell", 18F);
-            this.lblModuloSeguridad.Location = new System.Drawing.Point(315, 90);
-            this.lblModuloSeguridad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblModuloSeguridad.Name = "lblModuloSeguridad";
-            this.lblModuloSeguridad.Size = new System.Drawing.Size(126, 27);
-            this.lblModuloSeguridad.TabIndex = 49;
-            this.lblModuloSeguridad.Text = "Migración";
-            this.lblModuloSeguridad.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // chkMostrarContrasena
             // 
             this.chkMostrarContrasena.AutoSize = true;
+            this.chkMostrarContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(231)))), ((int)(((byte)(248)))));
             this.chkMostrarContrasena.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.chkMostrarContrasena.Location = new System.Drawing.Point(394, 230);
-            this.chkMostrarContrasena.Margin = new System.Windows.Forms.Padding(2);
+            this.chkMostrarContrasena.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.chkMostrarContrasena.Location = new System.Drawing.Point(393, 334);
+            this.chkMostrarContrasena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkMostrarContrasena.Name = "chkMostrarContrasena";
-            this.chkMostrarContrasena.Size = new System.Drawing.Size(96, 38);
+            this.chkMostrarContrasena.Size = new System.Drawing.Size(118, 44);
             this.chkMostrarContrasena.TabIndex = 50;
             this.chkMostrarContrasena.Text = "mostrar\r\ncontraseña";
-            this.chkMostrarContrasena.UseVisualStyleBackColor = true;
+            this.chkMostrarContrasena.UseVisualStyleBackColor = false;
             this.chkMostrarContrasena.CheckedChanged += new System.EventHandler(this.chkMostrarContrasena_CheckedChanged_1);
             // 
             // lblContrasena
             // 
             this.lblContrasena.AutoSize = true;
+            this.lblContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(231)))), ((int)(((byte)(248)))));
             this.lblContrasena.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.lblContrasena.Location = new System.Drawing.Point(127, 239);
-            this.lblContrasena.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblContrasena.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblContrasena.Location = new System.Drawing.Point(34, 345);
             this.lblContrasena.Name = "lblContrasena";
-            this.lblContrasena.Size = new System.Drawing.Size(85, 17);
+            this.lblContrasena.Size = new System.Drawing.Size(105, 20);
             this.lblContrasena.TabIndex = 48;
             this.lblContrasena.Text = "Contraseña:";
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
+            this.lblUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(231)))), ((int)(((byte)(248)))));
             this.lblUsuario.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.lblUsuario.Location = new System.Drawing.Point(150, 189);
-            this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsuario.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblUsuario.Location = new System.Drawing.Point(65, 284);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(60, 17);
+            this.lblUsuario.Size = new System.Drawing.Size(75, 20);
             this.lblUsuario.TabIndex = 47;
             this.lblUsuario.Text = "Usuario:";
             // 
             // btnIniciarSesion
             // 
-            this.btnIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(78)))), ((int)(((byte)(88)))));
+            this.btnIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(151)))), ((int)(((byte)(208)))));
             this.btnIniciarSesion.FlatAppearance.BorderSize = 0;
             this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciarSesion.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.btnIniciarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(214)))), ((int)(((byte)(221)))));
-            this.btnIniciarSesion.Location = new System.Drawing.Point(260, 321);
-            this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(2);
+            this.btnIniciarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(231)))), ((int)(((byte)(248)))));
+            this.btnIniciarSesion.Location = new System.Drawing.Point(195, 437);
+            this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(106, 39);
+            this.btnIniciarSesion.Size = new System.Drawing.Size(141, 48);
             this.btnIniciarSesion.TabIndex = 46;
             this.btnIniciarSesion.Text = "Iniciar Sesión";
             this.btnIniciarSesion.UseVisualStyleBackColor = false;
@@ -119,11 +116,11 @@ namespace Capa_Vista_Migracion
             // lblkRecuperarContrasena
             // 
             this.lblkRecuperarContrasena.AutoSize = true;
+            this.lblkRecuperarContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(231)))), ((int)(((byte)(248)))));
             this.lblkRecuperarContrasena.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.lblkRecuperarContrasena.Location = new System.Drawing.Point(246, 272);
-            this.lblkRecuperarContrasena.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblkRecuperarContrasena.Location = new System.Drawing.Point(176, 390);
             this.lblkRecuperarContrasena.Name = "lblkRecuperarContrasena";
-            this.lblkRecuperarContrasena.Size = new System.Drawing.Size(148, 17);
+            this.lblkRecuperarContrasena.Size = new System.Drawing.Size(182, 20);
             this.lblkRecuperarContrasena.TabIndex = 45;
             this.lblkRecuperarContrasena.TabStop = true;
             this.lblkRecuperarContrasena.Text = "Recuperar contraseña";
@@ -131,51 +128,87 @@ namespace Capa_Vista_Migracion
             // 
             // txtContrasena
             // 
-            this.txtContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
+            this.txtContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(151)))), ((int)(((byte)(208)))));
+            this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtContrasena.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.txtContrasena.Location = new System.Drawing.Point(222, 233);
-            this.txtContrasena.Margin = new System.Windows.Forms.Padding(2);
+            this.txtContrasena.Location = new System.Drawing.Point(161, 338);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(161, 23);
+            this.txtContrasena.Size = new System.Drawing.Size(213, 27);
             this.txtContrasena.TabIndex = 44;
             this.txtContrasena.UseSystemPasswordChar = true;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
+            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(151)))), ((int)(((byte)(208)))));
+            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUsuario.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.txtUsuario.Location = new System.Drawing.Point(222, 189);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUsuario.Location = new System.Drawing.Point(161, 284);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(161, 23);
+            this.txtUsuario.Size = new System.Drawing.Size(213, 27);
             this.txtUsuario.TabIndex = 43;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(231)))), ((int)(((byte)(248)))));
+            this.panel1.Controls.Add(this.chkMostrarContrasena);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.btnIniciarSesion);
+            this.panel1.Controls.Add(this.lblContrasena);
+            this.panel1.Controls.Add(this.lblkRecuperarContrasena);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.lblUsuario);
+            this.panel1.Controls.Add(this.txtUsuario);
+            this.panel1.Controls.Add(this.txtContrasena);
+            this.panel1.Location = new System.Drawing.Point(-2, -5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(548, 570);
+            this.panel1.TabIndex = 52;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(125, 37);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(269, 140);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(543, -15);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(528, 625);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 53;
+            this.pictureBox3.TabStop = false;
             // 
             // Frm_Login_Migracion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lblModuloSeguridad);
-            this.Controls.Add(this.chkMostrarContrasena);
-            this.Controls.Add(this.lblContrasena);
-            this.Controls.Add(this.lblUsuario);
-            this.Controls.Add(this.btnIniciarSesion);
-            this.Controls.Add(this.lblkRecuperarContrasena);
-            this.Controls.Add(this.txtContrasena);
-            this.Controls.Add(this.txtUsuario);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(151)))), ((int)(((byte)(208)))));
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Frm_Login_Migracion";
             this.Text = "Frm_Login_migracion";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblModuloSeguridad;
         private System.Windows.Forms.CheckBox chkMostrarContrasena;
         private System.Windows.Forms.Label lblContrasena;
         private System.Windows.Forms.Label lblUsuario;
@@ -183,5 +216,8 @@ namespace Capa_Vista_Migracion
         private System.Windows.Forms.LinkLabel lblkRecuperarContrasena;
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
