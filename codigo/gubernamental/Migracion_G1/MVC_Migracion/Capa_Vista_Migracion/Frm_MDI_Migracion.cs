@@ -49,5 +49,10 @@ namespace Capa_Vista_Migracion
             Frm_Cambiar_Contrasenea ventana = new Frm_Cambiar_Contrasenea(Capa_Controlador_Seguridad.Cls_Usuario_Conectado.iIdUsuario);
             ventana.Show();
         }
+
+        private void mantenimientosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
