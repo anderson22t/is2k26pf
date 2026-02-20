@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVC_Agendar_Cita
+namespace Capa_Modelo_Citas
 {
-    public class Class1
+    internal class Cls_Modelo_Citas
     {
     }
 }
