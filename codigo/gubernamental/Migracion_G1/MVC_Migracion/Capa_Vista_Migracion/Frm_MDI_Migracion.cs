@@ -54,5 +54,15 @@ namespace Capa_Vista_Migracion
         {
 
         }
+
+
+        // Ruben Lopez 19/02/1016
+        private void emisionPasaporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Pasaporte.Frm_pasaporte pasaporte = new Capa_Vista_Pasaporte.Frm_pasaporte();
+            pasaporte.MdiParent = this;
+            pasaporte.Show();
+
+        }
     }
 }
