@@ -43,8 +43,13 @@
     <Reference Include="Capa_Controlador_Seguridad">
       <HintPath>..\..\..\..\componentes\seguridad\SeguridadMVC\SeguridadMVC\CapaControlador\bin\Debug\Capa_Controlador_Seguridad.dll</HintPath>
     </Reference>
+
+    <Reference Include="Capa_Vista_Horario">
+      <HintPath>..\..\DLLS_Migracion_G1\Horario_Cesar\Capa_Vista_Horario\Capa_Vista_Horario\bin\Debug\Capa_Vista_Horario.dll</HintPath>
+
     <Reference Include="Capa_Vista_Navegador">
       <HintPath>..\..\..\..\componentes\navegador\NavegadorMVC\CapaVistaNavegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
+
     </Reference>
     <Reference Include="Capa_Vista_Pasaporte">
       <HintPath>..\..\DLLS_Migracion_G1\Pasaporte_Ruben\Formulario_Pasaporte\Capa_Vista_Pasaporte\bin\Debug\Capa_Vista_Pasaporte.dll</HintPath>

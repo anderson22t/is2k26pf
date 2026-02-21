@@ -145,32 +145,45 @@ namespace Capa_Vista_Migracion
             // tipoPasaporteToolStripMenuItem
             // 
             this.tipoPasaporteToolStripMenuItem.Name = "tipoPasaporteToolStripMenuItem";
+
+           
+
             this.tipoPasaporteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+
             this.tipoPasaporteToolStripMenuItem.Text = "Tipo Pasaporte";
             // 
             // horariosDeCitaToolStripMenuItem
             // 
             this.horariosDeCitaToolStripMenuItem.Name = "horariosDeCitaToolStripMenuItem";
+
             this.horariosDeCitaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+
             this.horariosDeCitaToolStripMenuItem.Text = "Horarios de Cita";
+            this.horariosDeCitaToolStripMenuItem.Click += new System.EventHandler(this.horariosDeCitaToolStripMenuItem_Click);
             // 
             // sedesToolStripMenuItem
             // 
             this.sedesToolStripMenuItem.Name = "sedesToolStripMenuItem";
+
             this.sedesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+
             this.sedesToolStripMenuItem.Text = "Sedes";
             // 
             // estadoCitaToolStripMenuItem
             // 
             this.estadoCitaToolStripMenuItem.Name = "estadoCitaToolStripMenuItem";
+
             this.estadoCitaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+
             this.estadoCitaToolStripMenuItem.Text = "Estado Cita";
             this.estadoCitaToolStripMenuItem.Click += new System.EventHandler(this.estadoCitaToolStripMenuItem_Click);
             // 
             // paísEmisorToolStripMenuItem
             // 
             this.paísEmisorToolStripMenuItem.Name = "paísEmisorToolStripMenuItem";
+
             this.paísEmisorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+
             this.paísEmisorToolStripMenuItem.Text = "País Emisor";
             // 
             // emitirPasaporteToolStripMenuItem
@@ -185,13 +198,17 @@ namespace Capa_Vista_Migracion
             // asignaciónCitaToolStripMenuItem
             // 
             this.asignaciónCitaToolStripMenuItem.Name = "asignaciónCitaToolStripMenuItem";
+
             this.asignaciónCitaToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+
             this.asignaciónCitaToolStripMenuItem.Text = "Asignación Cita";
             // 
             // emisionPasaporteToolStripMenuItem
             // 
             this.emisionPasaporteToolStripMenuItem.Name = "emisionPasaporteToolStripMenuItem";
+
             this.emisionPasaporteToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+
             this.emisionPasaporteToolStripMenuItem.Text = "Emisión Pasaporte";
             this.emisionPasaporteToolStripMenuItem.Click += new System.EventHandler(this.emisionPasaporteToolStripMenuItem_Click);
             // 
