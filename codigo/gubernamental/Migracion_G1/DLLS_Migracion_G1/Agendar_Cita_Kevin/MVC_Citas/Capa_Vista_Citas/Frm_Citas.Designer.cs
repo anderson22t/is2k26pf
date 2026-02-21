@@ -52,7 +52,7 @@
             this.lbl_AgendarCita.AutoSize = true;
             this.lbl_AgendarCita.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_AgendarCita.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(151)))), ((int)(((byte)(208)))));
-            this.lbl_AgendarCita.Location = new System.Drawing.Point(262, 51);
+            this.lbl_AgendarCita.Location = new System.Drawing.Point(278, 85);
             this.lbl_AgendarCita.Name = "lbl_AgendarCita";
             this.lbl_AgendarCita.Size = new System.Drawing.Size(169, 29);
             this.lbl_AgendarCita.TabIndex = 0;
@@ -169,10 +169,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(148, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(109, 24);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(110, 101);
+            this.pictureBox1.Size = new System.Drawing.Size(152, 133);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
@@ -191,7 +191,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.Dtp_Fecha_Cita);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(99, 115);
+            this.groupBox1.Location = new System.Drawing.Point(109, 177);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(417, 417);
             this.groupBox1.TabIndex = 12;
@@ -209,13 +209,14 @@
             this.button1.TabIndex = 11;
             this.button1.Text = "Agendar Cita";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Frm_Citas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(636, 544);
+            this.ClientSize = new System.Drawing.Size(659, 635);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_AgendarCita);
