@@ -10,24 +10,11 @@ using System.Windows.Forms;
 
 namespace Capa_Vista_Banrural
 {
-    public partial class Frm_Banrural : Form
+    public partial class Frm_BuscarBoleta : Form
     {
-        public Frm_Banrural()
+        public Frm_BuscarBoleta()
         {
             InitializeComponent();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Btn_Buscar_Click(object sender, EventArgs e)
-        {
-            Frm_BuscarBoleta frm = new Frm_BuscarBoleta();
-            this.Hide();
-            frm.ShowDialog();
-            this.Show();
         }
 
         private void Btn_Salir_Click(object sender, EventArgs e)

@@ -57,6 +57,7 @@ namespace Capa_Vista_Banrural
             this.Btn_Guardar = new System.Windows.Forms.Button();
             this.Btn_Imprimir = new System.Windows.Forms.Button();
             this.Btn_Buscar = new System.Windows.Forms.Button();
+            this.Btn_BuscarDpi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_Banrural)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,6 +121,7 @@ namespace Capa_Vista_Banrural
             this.Btn_Salir.Size = new System.Drawing.Size(60, 47);
             this.Btn_Salir.TabIndex = 5;
             this.Btn_Salir.UseVisualStyleBackColor = true;
+            this.Btn_Salir.Click += new System.EventHandler(this.Btn_Salir_Click);
             // 
             // Lbl_DatosBoleta
             // 
@@ -231,7 +233,7 @@ namespace Capa_Vista_Banrural
             // 
             this.Lbl_Edad.AutoSize = true;
             this.Lbl_Edad.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Edad.Location = new System.Drawing.Point(504, 208);
+            this.Lbl_Edad.Location = new System.Drawing.Point(812, 289);
             this.Lbl_Edad.Name = "Lbl_Edad";
             this.Lbl_Edad.Size = new System.Drawing.Size(54, 20);
             this.Lbl_Edad.TabIndex = 16;
@@ -243,7 +245,7 @@ namespace Capa_Vista_Banrural
             this.Txt_Edad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Txt_Edad.Enabled = false;
             this.Txt_Edad.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_Edad.Location = new System.Drawing.Point(565, 206);
+            this.Txt_Edad.Location = new System.Drawing.Point(873, 287);
             this.Txt_Edad.Name = "Txt_Edad";
             this.Txt_Edad.Size = new System.Drawing.Size(123, 27);
             this.Txt_Edad.TabIndex = 17;
@@ -312,7 +314,7 @@ namespace Capa_Vista_Banrural
             // 
             this.Btn_Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Guardar.Image")));
-            this.Btn_Guardar.Location = new System.Drawing.Point(12, 614);
+            this.Btn_Guardar.Location = new System.Drawing.Point(266, 610);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(200, 47);
             this.Btn_Guardar.TabIndex = 24;
@@ -322,7 +324,7 @@ namespace Capa_Vista_Banrural
             // 
             this.Btn_Imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Imprimir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Imprimir.Image")));
-            this.Btn_Imprimir.Location = new System.Drawing.Point(218, 614);
+            this.Btn_Imprimir.Location = new System.Drawing.Point(472, 610);
             this.Btn_Imprimir.Name = "Btn_Imprimir";
             this.Btn_Imprimir.Size = new System.Drawing.Size(200, 47);
             this.Btn_Imprimir.TabIndex = 25;
@@ -332,11 +334,22 @@ namespace Capa_Vista_Banrural
             // 
             this.Btn_Buscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Buscar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Buscar.Image")));
-            this.Btn_Buscar.Location = new System.Drawing.Point(424, 614);
+            this.Btn_Buscar.Location = new System.Drawing.Point(678, 610);
             this.Btn_Buscar.Name = "Btn_Buscar";
             this.Btn_Buscar.Size = new System.Drawing.Size(200, 47);
             this.Btn_Buscar.TabIndex = 26;
             this.Btn_Buscar.UseVisualStyleBackColor = true;
+            this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
+            // 
+            // Btn_BuscarDpi
+            // 
+            this.Btn_BuscarDpi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_BuscarDpi.Image = ((System.Drawing.Image)(resources.GetObject("Btn_BuscarDpi.Image")));
+            this.Btn_BuscarDpi.Location = new System.Drawing.Point(456, 196);
+            this.Btn_BuscarDpi.Name = "Btn_BuscarDpi";
+            this.Btn_BuscarDpi.Size = new System.Drawing.Size(60, 47);
+            this.Btn_BuscarDpi.TabIndex = 27;
+            this.Btn_BuscarDpi.UseVisualStyleBackColor = true;
             // 
             // Frm_Banrural
             // 
@@ -344,6 +357,7 @@ namespace Capa_Vista_Banrural
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1082, 703);
+            this.Controls.Add(this.Btn_BuscarDpi);
             this.Controls.Add(this.Btn_Buscar);
             this.Controls.Add(this.Btn_Imprimir);
             this.Controls.Add(this.Btn_Guardar);
@@ -409,5 +423,6 @@ namespace Capa_Vista_Banrural
         private System.Windows.Forms.Button Btn_Guardar;
         private System.Windows.Forms.Button Btn_Imprimir;
         private System.Windows.Forms.Button Btn_Buscar;
+        private System.Windows.Forms.Button Btn_BuscarDpi;
     }
 }
