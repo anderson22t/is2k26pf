@@ -64,5 +64,13 @@ namespace Capa_Vista_Migracion
             pasaporte.Show();
 
         }
+
+        //Arón Esquit 21/2/2026
+        private void estadoCitaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Estado_Cita estado = new Frm_Estado_Cita();
+            estado.MdiParent = this;
+            estado.Show();
+        }
     }
 }
