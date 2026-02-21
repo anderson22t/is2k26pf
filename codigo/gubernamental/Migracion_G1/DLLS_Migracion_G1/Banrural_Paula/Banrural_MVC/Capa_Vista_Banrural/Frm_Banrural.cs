@@ -16,5 +16,10 @@ namespace Capa_Vista_Banrural
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
