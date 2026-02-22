@@ -64,5 +64,29 @@ namespace Capa_Vista_Migracion
             pasaporte.Show();
 
         }
+
+
+        private void horariosDeCitaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Capa_Vista_Horario.Frm_Horario pasaporte = new Capa_Vista_Horario.Frm_Horario();
+            pasaporte.MdiParent = this;
+            pasaporte.Show();
+        }
+        //Arón Esquit 21/2/2026
+        private void estadoCitaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Estado_Cita estado = new Frm_Estado_Cita();
+            estado.MdiParent = this;
+            estado.Show();
+
+        }
+
+        //Sergio Izeppi 21/02/2026
+        private void tipoPasaporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        //    Capa_Vista_Tipo_Pasaporte.Frm_Tipo_Pasaporte tipo_pasaporte = new Capa_Vista_Tipo_Pasaporte.Frm_Tipo_Pasaporte();
+        //    tipo_pasaporte.MdiParent = this;
+        //    tipo_pasaporte.Show();
+        }
     }
 }

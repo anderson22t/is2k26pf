@@ -37,11 +37,23 @@
     <Reference Include="Capa_Controlador_Migracion">
       <HintPath>..\Capa_Controlador_Migracion\bin\Debug\Capa_Controlador_Migracion.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Controlador_Navegador">
+      <HintPath>..\..\..\..\componentes\navegador\NavegadorMVC\CapaControladorNavegador\bin\Debug\Capa_Controlador_Navegador.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Controlador_Seguridad">
       <HintPath>..\..\..\..\componentes\seguridad\SeguridadMVC\SeguridadMVC\CapaControlador\bin\Debug\Capa_Controlador_Seguridad.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_Horario">
+      <HintPath>..\..\DLLS_Migracion_G1\Horario_Cesar\Capa_Vista_Horario\Capa_Vista_Horario\bin\Debug\Capa_Vista_Horario.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Navegador">
+      <HintPath>..\..\..\..\componentes\navegador\NavegadorMVC\CapaVistaNavegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_Pasaporte">
       <HintPath>..\..\DLLS_Migracion_G1\Pasaporte_Ruben\Formulario_Pasaporte\Capa_Vista_Pasaporte\bin\Debug\Capa_Vista_Pasaporte.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Tipo_Pasaporte">
+      <HintPath>..\..\DLLS_Migracion_G1\Tipo_Pasaporte_Izeppi\Capa_Vista_Tipo_Pasaporte\Capa_Vista_Tipo_Pasaporte\bin\Debug\Capa_Vista_Tipo_Pasaporte.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,6 +74,12 @@
     </Compile>
     <Compile Include="Frm_Cambiar_Contrasenea.Designer.cs">
       <DependentUpon>Frm_Cambiar_Contrasenea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Estado_Cita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Estado_Cita.Designer.cs">
+      <DependentUpon>Frm_Estado_Cita.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Login_Migracion.cs">
       <SubType>Form</SubType>
@@ -98,6 +116,9 @@
     <EmbeddedResource Include="Frm_Cambiar_Contrasenea.resx">
       <DependentUpon>Frm_Cambiar_Contrasenea.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Estado_Cita.resx">
+      <DependentUpon>Frm_Estado_Cita.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Login_Migracion.resx">
       <DependentUpon>Frm_Login_Migracion.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,12 +136,6 @@
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Capa_Modelo_Migracion\Capa_Modelo_Migracion.csproj">
-      <Project>{19478963-afa2-4492-81a1-cc72e75b8c94}</Project>
-      <Name>Capa_Modelo_Migracion</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pug.gif" />
