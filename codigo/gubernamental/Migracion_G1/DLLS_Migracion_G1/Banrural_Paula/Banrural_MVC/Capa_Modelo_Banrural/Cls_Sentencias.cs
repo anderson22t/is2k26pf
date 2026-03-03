@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Data;
 using System.Data.Odbc;
-using Capa_Modelo_Seguridad;  // Referencia a la capa de seguridad Paula Daniela Leonardo Paredes 0901-22-9580
+using Capa_Modelo_Seguridad; // Referencia a la capa de seguridad
 
-namespace Capa_Modelo_Banrural // Paula Daniela Leonardo Paredes 0901-22-9580
+namespace Capa_Modelo_Banrural //Paula Leonardo 0901-22-9580
 {
     public class Cls_Sentencias
     {
         // Instancia de la conexión de seguridad
         private readonly Cls_Conexion conexion = new Cls_Conexion();
 
-        // ===============================
-        // 1) BUSCAR CIUDADANO POR DPI
-        // ===============================
+        // 1. BUSCAR CIUDADANO POR DPI
         public DataTable BuscarCiudadanoPorDpi(long dpi)
         {
-            string sql = @"
+            const string sql = @"
                 SELECT 
                     Pk_Id_Ciudadano,
                     Cmp_Dpi_Ciudadano,
@@ -39,15 +37,13 @@ namespace Capa_Modelo_Banrural // Paula Daniela Leonardo Paredes 0901-22-9580
             }
         }
 
-        // ===============================
-        // 2) OBTENER TIPOS DE PASAPORTE (COMBO)
-        // ===============================
+        // 2. OBTENER TIPOS DE PASAPORTE (ComboBox)
         public DataTable ObtenerTiposPasaporte()
         {
-            string sql = @"
-        SELECT DISTINCT Cmp_Tipo_Pasaporte
-        FROM Tbl_Tipo_Pasaporte
-        ORDER BY Cmp_Tipo_Pasaporte;";
+            const string sql = @"
+                SELECT DISTINCT Cmp_Tipo_Pasaporte
+                FROM Tbl_Tipo_Pasaporte
+                ORDER BY Cmp_Tipo_Pasaporte;";
 
             using (OdbcConnection conn = conexion.conexion())
             using (OdbcDataAdapter da = new OdbcDataAdapter(sql, conn))
@@ -58,18 +54,14 @@ namespace Capa_Modelo_Banrural // Paula Daniela Leonardo Paredes 0901-22-9580
             }
         }
 
-        // ===============================
-        // 3) OBTENER DURACIÓN POR TIPO (COMBO)
-        // OJO: según tu tabla, duración está en Tbl_Tipo_Pasaporte.
-        // Si solo hay 1 fila por tipo, este combo mostrará solo 1 valor.
-        // ===============================
+        // 3) OBTENER DURACIÓN POR TIPO (ComboBox)
         public DataTable ObtenerDuracionesPorTipo(string tipoPasaporte)
         {
-            string sql = @"
-        SELECT DISTINCT Cmp_Duracion_Pasaporte
-        FROM Tbl_Tipo_Pasaporte
-        WHERE Cmp_Tipo_Pasaporte = ?
-        ORDER BY Cmp_Duracion_Pasaporte;";
+            const string sql = @"
+                SELECT DISTINCT Cmp_Duracion_Pasaporte
+                FROM Tbl_Tipo_Pasaporte
+                WHERE Cmp_Tipo_Pasaporte = ?
+                ORDER BY Cmp_Duracion_Pasaporte;";
 
             using (OdbcConnection conn = conexion.conexion())
             using (OdbcCommand cmd = new OdbcCommand(sql, conn))
@@ -85,17 +77,15 @@ namespace Capa_Modelo_Banrural // Paula Daniela Leonardo Paredes 0901-22-9580
             }
         }
 
-        // ===============================
-        // 4) OBTENER PRECIO POR TIPO
-        // ===============================
+        // 4. OBTENER PRECIO POR TIPO
         public decimal ObtenerPrecio(string tipoPasaporte, int duracion)
         {
-            string sql = @"
-        SELECT Precio
-        FROM Tbl_Tipo_Pasaporte
-        WHERE Cmp_Tipo_Pasaporte = ?
-          AND Cmp_Duracion_Pasaporte = ?
-        LIMIT 1;";
+            const string sql = @"
+                SELECT Precio
+                FROM Tbl_Tipo_Pasaporte
+                WHERE Cmp_Tipo_Pasaporte = ?
+                  AND Cmp_Duracion_Pasaporte = ?
+                LIMIT 1;";
 
             using (OdbcConnection conn = conexion.conexion())
             using (OdbcCommand cmd = new OdbcCommand(sql, conn))
@@ -104,17 +94,17 @@ namespace Capa_Modelo_Banrural // Paula Daniela Leonardo Paredes 0901-22-9580
                 cmd.Parameters.Add("dur", OdbcType.Int).Value = duracion;
 
                 object result = cmd.ExecuteScalar();
-                if (result == null || result == DBNull.Value) return 0m;
+                if (result == null || result == DBNull.Value)
+                    return 0m;
+
                 return Convert.ToDecimal(result);
             }
         }
 
-        // ===============================
         // 5) INSERTAR BOLETA (GUARDAR PAGO)
-        // ===============================
         public int InsertarBoleta(int numeroBoleta, int idCiudadano, int idTipoPasaporte)
         {
-            string sql = @"
+            const string sql = @"
                 INSERT INTO Tbl_Generar_Boleta
                     (Cmp_Numero_Boleta, Fk_Id_Ciudadano, Fk_Id_Tipo_Pasaporte)
                 VALUES (?, ?, ?);";
@@ -130,13 +120,10 @@ namespace Capa_Modelo_Banrural // Paula Daniela Leonardo Paredes 0901-22-9580
             }
         }
 
-        // ===============================
-        // 6) VALIDAR SI YA EXISTE NÚMERO DE BOLETA
-        // (para que el random sea único)
-        // ===============================
+        // 6. VALIDAR SI YA EXISTE NÚMERO DE BOLETA
         public bool ExisteNumeroBoleta(int numeroBoleta)
         {
-            string sql = @"
+            const string sql = @"
                 SELECT COUNT(*)
                 FROM Tbl_Generar_Boleta
                 WHERE Cmp_Numero_Boleta = ?;";
@@ -151,17 +138,15 @@ namespace Capa_Modelo_Banrural // Paula Daniela Leonardo Paredes 0901-22-9580
             }
         }
 
-        // ===============================
-        // 7) OBTENER ID REAL SEGÚN TIPO + DURACION
-        // ===============================
+        // 7) OBTENER ID REAL SEGÚN TIPO + DURACIÓN
         public int ObtenerIdTipoPasaporte(string tipoPasaporte, int duracion)
         {
-            string sql = @"
-        SELECT Pk_Id_Tipo_Pasaporte
-        FROM Tbl_Tipo_Pasaporte
-        WHERE Cmp_Tipo_Pasaporte = ?
-          AND Cmp_Duracion_Pasaporte = ?
-        LIMIT 1;";
+            const string sql = @"
+                SELECT Pk_Id_Tipo_Pasaporte
+                FROM Tbl_Tipo_Pasaporte
+                WHERE Cmp_Tipo_Pasaporte = ?
+                  AND Cmp_Duracion_Pasaporte = ?
+                LIMIT 1;";
 
             using (OdbcConnection conn = conexion.conexion())
             using (OdbcCommand cmd = new OdbcCommand(sql, conn))
@@ -170,7 +155,8 @@ namespace Capa_Modelo_Banrural // Paula Daniela Leonardo Paredes 0901-22-9580
                 cmd.Parameters.Add("dur", OdbcType.Int).Value = duracion;
 
                 object result = cmd.ExecuteScalar();
-                if (result == null || result == DBNull.Value) return 0;
+                if (result == null || result == DBNull.Value)
+                    return 0;
 
                 return Convert.ToInt32(result);
             }
