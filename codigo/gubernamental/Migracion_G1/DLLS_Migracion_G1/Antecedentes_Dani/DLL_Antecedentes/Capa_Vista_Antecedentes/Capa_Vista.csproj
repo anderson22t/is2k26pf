@@ -37,6 +37,9 @@
     <Reference Include="Capa_Modelo_Antecedentes">
       <HintPath>..\Capa_Modelo_Antecedentes\bin\Debug\Capa_Modelo_Antecedentes.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_Migracion">
+      <HintPath>..\..\..\..\MVC_Migracion\Capa_Vista_Migracion\bin\Debug\Capa_Vista_Migracion.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -100,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\CrossWay Logo Blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
