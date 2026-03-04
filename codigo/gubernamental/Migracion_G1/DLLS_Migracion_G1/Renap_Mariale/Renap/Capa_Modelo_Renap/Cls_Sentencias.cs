@@ -71,6 +71,32 @@ namespace Capa_Modelo_Renap
         }
 
 
+        public bool EliminarCiudadano(int idCiudadano)
+        {
+            try
+            {
+                OdbcConnection conn = cn.AbrirConexion();
+
+                string sql = "DELETE FROM Tbl_Ciudadano WHERE Pk_Id_Ciudadano = ?";
+
+                OdbcCommand cmd = new OdbcCommand(sql, conn);
+                cmd.Parameters.AddWithValue("", idCiudadano);
+
+                cmd.ExecuteNonQuery();
+
+                cn.desconexion(conn);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+
+
         public DataTable MostrarCiudadanos()
         {
             DataTable tabla = new DataTable();

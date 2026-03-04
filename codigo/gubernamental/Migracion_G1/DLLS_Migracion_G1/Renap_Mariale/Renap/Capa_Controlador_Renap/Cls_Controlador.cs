@@ -46,6 +46,13 @@ namespace Capa_Controlador_Renap
         }
 
 
+        public bool Eliminar(int idCiudadano)
+        {
+            return modelo.EliminarCiudadano(idCiudadano);
+        }
+
+
+
         public DataTable Mostrar()
         {
             return modelo.MostrarCiudadanos();

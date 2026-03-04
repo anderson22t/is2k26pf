@@ -84,5 +84,40 @@ namespace Capa_Vista_Renap
         {
             actualizardatagriew();
         }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            if (dgv_renap.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un registro.");
+                return;
+            }
+
+            int idCiudadano = Convert.ToInt32(
+                dgv_renap.CurrentRow.Cells["Pk_Id_Ciudadano"].Value
+            );
+
+            DialogResult r = MessageBox.Show(
+                "¿Está seguro de eliminar este registro?",
+                "Confirmar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (r == DialogResult.No)
+                return;
+
+            bool eliminado = controlador.Eliminar(idCiudadano);
+
+            if (eliminado)
+            {
+                MessageBox.Show("Registro eliminado correctamente.");
+                actualizardatagriew();   // refresca el grid
+            }
+            else
+            {
+                MessageBox.Show("Error al eliminar el registro.");
+            }
+        }
     }
 }
