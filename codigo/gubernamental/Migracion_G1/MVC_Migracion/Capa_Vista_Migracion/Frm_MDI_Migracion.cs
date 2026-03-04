@@ -139,6 +139,16 @@ namespace Capa_Vista_Migracion
             cita.Show();
         }
 
+
+        private void Btn_Bitacora(object sender, EventArgs e)
+        {
+            //Arón Esquit 4/3/26
+            Capa_Vista_Seguridad.Frm_Bitacora bitacora = new Capa_Vista_Seguridad.Frm_Bitacora();
+            bitacora.MdiParent = this;
+            bitacora.Show();
+
+        }
+
         //===== Kevin Natareno , 22/02/2026 =================================
     }
 }

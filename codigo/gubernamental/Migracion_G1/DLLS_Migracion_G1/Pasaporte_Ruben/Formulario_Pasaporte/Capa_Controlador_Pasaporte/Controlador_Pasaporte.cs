@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Data;
 using Capa_Modelo_Pasaporte;
+using Capa_Controlador_Seguridad;
 
 namespace Capa_Controlador_Pasaporte
 {
     public class Controlador_Pasaporte
     {
         Sentencias_Pasaporte modelo = new Sentencias_Pasaporte();
+        //Aron Esquit 4/3/26
+        private Cls_BitacoraControlador gCtrlBitacora = new Cls_BitacoraControlador();
 
         // =====================================================
         // CONSULTAR BOLETA
@@ -92,6 +95,10 @@ namespace Capa_Controlador_Pasaporte
                 cartaNotariada,
                 autorizacionJudicial,
                 dpiPadreRep);
+       
+
+            gCtrlBitacora.RegistrarAccion(Capa_Controlador_Seguridad.Cls_Usuario_Conectado.iIdUsuario, 1, $"Se emitio el pasaporte '{numeroPasaporte}'", true);
+
         }
 
         // =====================================================

@@ -5,12 +5,15 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 using Capa_Controlador_Pasaporte;
+using Capa_Controlador_Seguridad;
 
 namespace Capa_Vista_Pasaporte
 {
     public partial class Frm_pasaporte : Form
     {
         Controlador_Pasaporte controlador = new Controlador_Pasaporte();
+        //Aron Esquit 4/3/26
+        private Cls_BitacoraControlador gCtrlBitacora = new Cls_BitacoraControlador();
 
         private byte[] fotoBytes;
         private int idCitaGlobal;
@@ -283,8 +286,14 @@ namespace Capa_Vista_Pasaporte
                 else
                     pasaporteCompletoGlobal.Save(guardar.FileName, ImageFormat.Png);
 
+                gCtrlBitacora.RegistrarAccion(Capa_Controlador_Seguridad.Cls_Usuario_Conectado.iIdUsuario, 1, $"Se ha impreso un pasaporte", true);
                 MessageBox.Show("Pasaporte guardado correctamente.");
+
+                
             }
+
+         
+
         }
     }
 }

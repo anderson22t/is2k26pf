@@ -73,6 +73,9 @@
     <Reference Include="Capa_Vista_Sedes">
       <HintPath>..\..\DLLS_Migracion_G1\Sede_Gerber\Capa_Vista_Sedes\Capa_Vista_Sedes\bin\Debug\Capa_Vista_Sedes.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_Seguridad">
+      <HintPath>..\..\..\..\componentes\seguridad\SeguridadMVC\SeguridadMVC\CapaVista\bin\Debug\Capa_Vista_Seguridad.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_Tipo_Pasaporte">
       <HintPath>..\..\DLLS_Migracion_G1\Tipo_Pasaporte_Izeppi\Capa_Vista_Tipo_Pasaporte\Capa_Vista_Tipo_Pasaporte\bin\Debug\Capa_Vista_Tipo_Pasaporte.dll</HintPath>
     </Reference>
