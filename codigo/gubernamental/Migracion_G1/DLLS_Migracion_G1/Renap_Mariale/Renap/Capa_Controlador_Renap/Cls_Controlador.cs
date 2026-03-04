@@ -52,6 +52,23 @@ namespace Capa_Controlador_Renap
         }
 
 
+        public bool Modificar(int idCiudadano, long dpi, string nombres, string apellidos,
+                      int sexo, string nacionalidad,
+                      string lugarNacimiento, DateTime fechaNacimiento)
+        {
+            return modelo.ModificarCiudadano(
+                idCiudadano,
+                dpi,
+                nombres,
+                apellidos,
+                sexo,
+                nacionalidad,
+                lugarNacimiento,
+                fechaNacimiento
+            );
+        }
+
+
 
         public DataTable Mostrar()
         {

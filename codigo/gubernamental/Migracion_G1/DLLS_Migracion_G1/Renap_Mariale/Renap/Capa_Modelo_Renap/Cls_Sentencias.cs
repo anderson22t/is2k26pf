@@ -95,6 +95,48 @@ namespace Capa_Modelo_Renap
         }
 
 
+        public bool ModificarCiudadano(int idCiudadano, long dpi, string nombres, string apellidos,
+                                int sexo, string nacionalidad,
+                                string lugarNacimiento, DateTime fechaNacimiento)
+        {
+            try
+            {
+                OdbcConnection conn = cn.AbrirConexion();
+
+                string sql = @"UPDATE Tbl_Ciudadano SET
+                        Cmp_Dpi_Ciudadano = ?,
+                        Cmp_Nombres_Ciudadano = ?,
+                        Cmp_Apellidos_Ciudadano = ?,
+                        Cmp_Sexo_Ciudadano = ?,
+                        Cmp_Nacionalidad_Ciudadano = ?,
+                        Cmp_Lugar_Nacimiento_Ciudadano = ?,
+                        Cmp_Fecha_Nacimiento_Ciudadano = ?
+                       WHERE Pk_Id_Ciudadano = ?";
+
+                OdbcCommand cmd = new OdbcCommand(sql, conn);
+
+                // orden exacto
+                cmd.Parameters.AddWithValue("", dpi);
+                cmd.Parameters.AddWithValue("", nombres);
+                cmd.Parameters.AddWithValue("", apellidos);
+                cmd.Parameters.AddWithValue("", sexo);
+                cmd.Parameters.AddWithValue("", nacionalidad);
+                cmd.Parameters.AddWithValue("", lugarNacimiento);
+                cmd.Parameters.AddWithValue("", fechaNacimiento);
+                cmd.Parameters.AddWithValue("", idCiudadano);
+
+                cmd.ExecuteNonQuery();
+                cn.desconexion(conn);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
 
 
         public DataTable MostrarCiudadanos()

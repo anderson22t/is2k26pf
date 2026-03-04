@@ -18,6 +18,8 @@ namespace Capa_Vista_Renap
             InitializeComponent();
         }
 
+        int idCiudadanoSeleccionado = 0;
+
         string ciu = "Tbl_Ciudadano";
         Cls_Controlador controlador = new Cls_Controlador();
 
@@ -117,6 +119,86 @@ namespace Capa_Vista_Renap
             else
             {
                 MessageBox.Show("Error al eliminar el registro.");
+            }
+        }
+
+        private void dgv_renap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            DataGridViewRow fila = dgv_renap.Rows[e.RowIndex];
+
+            idCiudadanoSeleccionado =
+                Convert.ToInt32(fila.Cells["Pk_Id_Ciudadano"].Value);
+
+            txt_dpi.Text = fila.Cells["Cmp_Dpi_Ciudadano"].Value.ToString();
+            txt_nombres.Text = fila.Cells["Cmp_Nombres_Ciudadano"].Value.ToString();
+            txt_apellidos.Text = fila.Cells["Cmp_Apellidos_Ciudadano"].Value.ToString();
+            txt_nacionalidad.Text = fila.Cells["Cmp_Nacionalidad_Ciudadano"].Value.ToString();
+            txt_lugarnac.Text = fila.Cells["Cmp_Lugar_Nacimiento_Ciudadano"].Value.ToString();
+
+            dtp_fecha.Value = Convert.ToDateTime(
+                fila.Cells["Cmp_Fecha_Nacimiento_Ciudadano"].Value
+            );
+
+            int sexo = Convert.ToInt32(
+                fila.Cells["Cmp_Sexo_Ciudadano"].Value
+            );
+
+            if (sexo == 1)
+                rdb_masculino.Checked = true;
+            else
+                rdb_femenino.Checked = true;
+        }
+
+        private void btn_modificar_Click(object sender, EventArgs e)
+        {
+            if (idCiudadanoSeleccionado == 0)
+            {
+                MessageBox.Show("Seleccione un ciudadano de la tabla.");
+                return;
+            }
+
+            if (!long.TryParse(txt_dpi.Text.Trim(), out long dpi))
+            {
+                MessageBox.Show("Ingrese un número de identificación válido.");
+                return;
+            }
+
+            if (!rdb_femenino.Checked && !rdb_masculino.Checked)
+            {
+                MessageBox.Show("Seleccione el sexo.");
+                return;
+            }
+
+            string nombres = txt_nombres.Text.Trim();
+            string apellidos = txt_apellidos.Text.Trim();
+            string nacionalidad = txt_nacionalidad.Text.Trim();
+            string lugarNacimiento = txt_lugarnac.Text.Trim();
+            DateTime fechaNacimiento = dtp_fecha.Value;
+
+            int sexo = rdb_masculino.Checked ? 1 : 0;
+
+            bool modificado = controlador.Modificar(
+                                    idCiudadanoSeleccionado,
+                                    dpi,
+                                    nombres,
+                                    apellidos,
+                                    sexo,
+                                    nacionalidad,
+                                    lugarNacimiento,
+                                    fechaNacimiento
+                               );
+
+            if (modificado)
+            {
+                MessageBox.Show("Registro modificado correctamente.");
+                actualizardatagriew();
+            }
+            else
+            {
+                MessageBox.Show("Error al modificar el registro.");
             }
         }
     }

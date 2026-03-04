@@ -299,6 +299,7 @@ namespace Capa_Vista_Renap
             this.dgv_renap.RowTemplate.Height = 24;
             this.dgv_renap.Size = new System.Drawing.Size(1037, 197);
             this.dgv_renap.TabIndex = 25;
+            this.dgv_renap.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_renap_CellContentClick);
             // 
             // btn_modificar
             // 
@@ -310,6 +311,7 @@ namespace Capa_Vista_Renap
             this.btn_modificar.Size = new System.Drawing.Size(60, 47);
             this.btn_modificar.TabIndex = 26;
             this.btn_modificar.UseVisualStyleBackColor = false;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
             // btn_eliminar
             // 
