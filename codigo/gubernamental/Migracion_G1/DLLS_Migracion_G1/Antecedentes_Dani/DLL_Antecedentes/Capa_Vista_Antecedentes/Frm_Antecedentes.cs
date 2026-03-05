@@ -167,7 +167,6 @@ namespace Capa_Vista_Antecedentes
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void Txt_Descripcion_TextChanged(object sender, EventArgs e)
@@ -211,7 +210,14 @@ namespace Capa_Vista_Antecedentes
             }
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            pictureBox1.BringToFront();
+        }
     }
 }
