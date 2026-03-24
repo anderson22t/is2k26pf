@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Capa_Controlador_MRP
+namespace Capa_Modelo_MRP
 {
-    public class Class1
+    internal class Cls_Modelo_MRP
     {
     }
 }
