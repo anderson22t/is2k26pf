@@ -108,6 +108,7 @@ namespace Capa_Vista_Migracion
             this.picFondo.Size = new System.Drawing.Size(862, 477);
             this.picFondo.TabIndex = 4;
             this.picFondo.TabStop = false;
+            this.picFondo.Click += new System.EventHandler(this.picFondo_Click);
             // 
             // Splash
             // 

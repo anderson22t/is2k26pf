@@ -80,5 +80,10 @@ namespace Capa_Vista_Migracion
             picGif.Parent = picFondo;
             picGif.BackColor = Color.Transparent;
         }
+
+        private void picFondo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
