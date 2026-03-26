@@ -80,6 +80,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Splash_MRP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Splash_MRP.Designer.cs">
+      <DependentUpon>Splash_MRP.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Frm_Login.resx">
@@ -94,13 +103,28 @@
     <EmbeddedResource Include="Frm_Recuperar_Contrasena.resx">
       <DependentUpon>Frm_Recuperar_Contrasena.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="Splash_MRP.resx">
+      <DependentUpon>Splash_MRP.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\WhatsApp Image 2026-02-14 at 4.01.39 PM.jpeg" />
+    <None Include="Resources\Fondo de Minecraft para pc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gatito martillando.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gatito martillando1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gatito.gif" />
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

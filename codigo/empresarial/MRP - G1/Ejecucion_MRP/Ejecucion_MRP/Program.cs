@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Vista_MRP;
 
 namespace Ejecucion_MRP
 {
@@ -16,7 +17,10 @@ namespace Ejecucion_MRP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Capa_Vista_MRP.Frm_Cambiar_Contrasena());
+
+            Application.Run(new Splash_MRP());
+
+
         }
     }
 }

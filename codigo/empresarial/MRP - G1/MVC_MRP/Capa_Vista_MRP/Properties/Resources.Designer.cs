@@ -63,9 +63,42 @@ namespace Capa_Vista_MRP.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap WhatsApp_Image_2026_02_14_at_4_01_39_PM {
+
+        internal static System.Drawing.Bitmap Fondo_de_Minecraft_para_pc {
             get {
-                object obj = ResourceManager.GetObject("WhatsApp Image 2026-02-14 at 4.01.39 PM", resourceCulture);
+                object obj = ResourceManager.GetObject("Fondo de Minecraft para pc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gatito {
+            get {
+                object obj = ResourceManager.GetObject("gatito", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gatito_martillando {
+            get {
+                object obj = ResourceManager.GetObject("gatito martillando", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gatito_martillando1 {
+            get {
+                object obj = ResourceManager.GetObject("gatito martillando1", resourceCulture);
+
+       
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
