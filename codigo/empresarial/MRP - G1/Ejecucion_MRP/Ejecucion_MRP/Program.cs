@@ -16,7 +16,7 @@ namespace Ejecucion_MRP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Capa_Vista_MRP.Frm_MDI_MRP());
         }
     }
 }

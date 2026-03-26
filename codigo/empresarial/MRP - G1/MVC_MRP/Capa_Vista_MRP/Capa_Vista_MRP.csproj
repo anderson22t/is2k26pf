@@ -34,8 +34,13 @@
     <Reference Include="Capa_Controlador_MRP">
       <HintPath>..\Capa_Controlador_MRP\bin\Debug\Capa_Controlador_MRP.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Controlador_Seguridad">
+      <HintPath>..\..\..\..\componentes\seguridad\SeguridadMVC\SeguridadMVC\CapaControlador\bin\Debug\Capa_Controlador_Seguridad.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,7 +50,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cls_Vista_MRP.cs" />
+    <Compile Include="Frm_MDI_MRP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_MDI_MRP.Designer.cs">
+      <DependentUpon>Frm_MDI_MRP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Cambiar_Contrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Cambiar_Contrasena.Designer.cs">
+      <DependentUpon>Frm_Cambiar_Contrasena.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Frm_MDI_MRP.resx">
+      <DependentUpon>Frm_MDI_MRP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Cambiar_Contrasena.resx">
+      <DependentUpon>Frm_Cambiar_Contrasena.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
