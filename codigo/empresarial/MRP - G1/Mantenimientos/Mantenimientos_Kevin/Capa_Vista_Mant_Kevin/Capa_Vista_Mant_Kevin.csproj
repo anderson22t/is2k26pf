@@ -51,6 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Frm_Categoria_Material.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Categoria_Material.Designer.cs">
+      <DependentUpon>Frm_Categoria_Material.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Materiales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Frm_Categoria_Material.resx">
+      <DependentUpon>Frm_Categoria_Material.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Materiales.resx">
       <DependentUpon>Frm_Materiales.cs</DependentUpon>
     </EmbeddedResource>

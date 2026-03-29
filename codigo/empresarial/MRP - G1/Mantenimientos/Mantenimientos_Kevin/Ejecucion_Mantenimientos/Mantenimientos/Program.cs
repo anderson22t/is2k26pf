@@ -17,7 +17,7 @@ namespace Mantenimientos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Materiales());
+            Application.Run(new Form1());
         }
     }
 }
