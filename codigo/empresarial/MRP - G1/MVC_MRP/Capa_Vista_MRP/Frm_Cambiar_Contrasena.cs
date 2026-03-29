@@ -9,6 +9,8 @@ namespace Capa_Vista_MRP
     public partial class Frm_Cambiar_Contrasena : Form
     {
 
+        //Arón Ricardo Esquit Silva 0901-22-13036
+        Cls_BitacoraControlador bit = new Cls_BitacoraControlador(); //Bitacora
         private Cls_controlador_cambio_contrasena controlador = new Cls_controlador_cambio_contrasena();
         private int iIdUsuario;
         
@@ -65,6 +67,9 @@ namespace Capa_Vista_MRP
             {
                 MessageBox.Show("Contraseña cambiada correctamente.",
                                 "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Registrar en Bitácora
+                bit.RegistrarAccion(iIdUsuario, 0, "Cambio de contraseña", true);
 
                 // Limpiar campos
                 Txt_contrasena_actual.Clear();
