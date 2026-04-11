@@ -45,7 +45,7 @@ namespace Capa_Vista_Mant_DiegoM
 
 
 
-            int id_aplicacion = 401;
+            int id_aplicacion = 703;
             int id_modulo = 5;
 
             navegador1.IPkId_Aplicacion = id_aplicacion;
