@@ -29,7 +29,7 @@ namespace Capa_Vista_recepcion
                 PosY = 300,
                 ColorFondo = Color.AliceBlue,
                 TipoScrollBars = ScrollBars.Both,
-                Nombre = "dgv_recepcion_material"
+                Nombre = "dgv_empleados"
             };
 
             // COLUMNAS (IMPORTANTE ORDEN)
@@ -49,19 +49,19 @@ namespace Capa_Vista_recepcion
 
             // ETIQUETAS
             string[] sEtiquetas = {
-                "ID:",
-                "ID Externo:",
-                "Material:",
-                "Almacen Destino:",
-                "Estado:",
-                "Cantidad Recibida:",
-                "Costo Unitario:",
-                "Fecha Notificacion:",
-                "Fecha Ingreso:",
-                "Observacion:"
+                "ID",
+                "ID Externo",
+                "Material",
+                "Almacen Destino",
+                "Estado",
+                "Cantidad Recibida",
+                "Costo Unitario",
+                "Fecha Notificacion",
+                "Fecha Ingreso",
+                "Observacion"
             };
 
-            // CONFIGURACION DE FK 🔥
+            // CONFIGURACION DE FK 
             List<Cls_ConfiguracionFK> fks = new List<Cls_ConfiguracionFK>
             {
                 new Cls_ConfiguracionFK
@@ -69,7 +69,7 @@ namespace Capa_Vista_recepcion
                     CampoFK = "Fk_Id_Material",
                     TablaReferencia = "Tbl_Materiales",
                     CampoPK = "Pk_Id_Materiales",
-                    CampoMostrar = "Codigo_Material"
+                    CampoMostrar = "Nombre_Material"
                 },
 
                 new Cls_ConfiguracionFK
@@ -89,7 +89,7 @@ namespace Capa_Vista_recepcion
                 }
             };
 
-            int id_aplicacion = 711; // usa el mismo si te dieron ese
+            int id_aplicacion = 711; 
             int id_modulo = 5;
 
             navegador1.IPkId_Aplicacion = id_aplicacion;
