@@ -26,7 +26,6 @@ using Capa_Vista_Plan;
 using Capa_Vista_Fases;
 using Capa_Vista_Cronograma;
 using Capa_vista_Orden;
-using Capa_Vista_Orden_Produccion;
 
 namespace Capa_Vista_MRP
 {
@@ -160,8 +159,8 @@ namespace Capa_Vista_MRP
 
         private void ordenProduccionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Capa_Vista_Orden_Produccion.Frm_Orden_Produccion orden = new Capa_Vista_Orden_Produccion.Frm_Orden_Produccion();
-            orden.Show();
+            //Capa_Vista_Orden_Produccion.Frm_Orden_Produccion orden = new Capa_Vista_Orden_Produccion.Frm_Orden_Produccion();
+            //orden.Show();
         }
 
         private void materialesToolStripMenuItem1_Click(object sender, EventArgs e)
