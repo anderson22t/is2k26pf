@@ -61,6 +61,12 @@ namespace Capa_Vista_Expl_Mat
             this.Gpb_Stock = new System.Windows.Forms.GroupBox();
             this.Gpb_Deficit = new System.Windows.Forms.GroupBox();
             this.Gpb_Factibilidad = new System.Windows.Forms.GroupBox();
+            this.Btn_guardar = new System.Windows.Forms.Button();
+            this.Btn_modificar = new System.Windows.Forms.Button();
+            this.Btn_eliminar = new System.Windows.Forms.Button();
+            this.Btn_refrescar = new System.Windows.Forms.Button();
+            this.Btn_inicio = new System.Windows.Forms.Button();
+            this.Btn_fin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -89,9 +95,9 @@ namespace Capa_Vista_Expl_Mat
             this.Lbl_Producto.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Producto.Location = new System.Drawing.Point(15, 81);
             this.Lbl_Producto.Name = "Lbl_Producto";
-            this.Lbl_Producto.Size = new System.Drawing.Size(86, 20);
+            this.Lbl_Producto.Size = new System.Drawing.Size(162, 20);
             this.Lbl_Producto.TabIndex = 2;
-            this.Lbl_Producto.Text = "Producto";
+            this.Lbl_Producto.Text = "Orden de Compra";
             // 
             // Cmb_Producto
             // 
@@ -136,9 +142,9 @@ namespace Capa_Vista_Expl_Mat
             this.Lbl_Cantidad.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Cantidad.Location = new System.Drawing.Point(548, 81);
             this.Lbl_Cantidad.Name = "Lbl_Cantidad";
-            this.Lbl_Cantidad.Size = new System.Drawing.Size(86, 20);
+            this.Lbl_Cantidad.Size = new System.Drawing.Size(87, 20);
             this.Lbl_Cantidad.TabIndex = 9;
-            this.Lbl_Cantidad.Text = "Producto";
+            this.Lbl_Cantidad.Text = "Cantidad";
             // 
             // Btn_Explosion
             // 
@@ -299,11 +305,11 @@ namespace Capa_Vista_Expl_Mat
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 379);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 370);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(952, 423);
+            this.dataGridView1.Size = new System.Drawing.Size(952, 381);
             this.dataGridView1.TabIndex = 31;
             // 
             // Pnl_4
@@ -350,12 +356,90 @@ namespace Capa_Vista_Expl_Mat
             this.Gpb_Factibilidad.TabStop = false;
             this.Gpb_Factibilidad.Text = "Factibilidad";
             // 
+            // Btn_guardar
+            // 
+            this.Btn_guardar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_guardar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_guardar.Image")));
+            this.Btn_guardar.Location = new System.Drawing.Point(500, 5);
+            this.Btn_guardar.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_guardar.Name = "Btn_guardar";
+            this.Btn_guardar.Size = new System.Drawing.Size(60, 47);
+            this.Btn_guardar.TabIndex = 36;
+            this.Btn_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_guardar.UseVisualStyleBackColor = true;
+            // 
+            // Btn_modificar
+            // 
+            this.Btn_modificar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_modificar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_modificar.Image")));
+            this.Btn_modificar.Location = new System.Drawing.Point(568, 5);
+            this.Btn_modificar.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_modificar.Name = "Btn_modificar";
+            this.Btn_modificar.Size = new System.Drawing.Size(60, 47);
+            this.Btn_modificar.TabIndex = 37;
+            this.Btn_modificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_modificar.UseVisualStyleBackColor = true;
+            // 
+            // Btn_eliminar
+            // 
+            this.Btn_eliminar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_eliminar.Image")));
+            this.Btn_eliminar.Location = new System.Drawing.Point(636, 5);
+            this.Btn_eliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_eliminar.Name = "Btn_eliminar";
+            this.Btn_eliminar.Size = new System.Drawing.Size(60, 47);
+            this.Btn_eliminar.TabIndex = 38;
+            this.Btn_eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_eliminar.UseVisualStyleBackColor = true;
+            // 
+            // Btn_refrescar
+            // 
+            this.Btn_refrescar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_refrescar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_refrescar.Image")));
+            this.Btn_refrescar.Location = new System.Drawing.Point(704, 5);
+            this.Btn_refrescar.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_refrescar.Name = "Btn_refrescar";
+            this.Btn_refrescar.Size = new System.Drawing.Size(60, 47);
+            this.Btn_refrescar.TabIndex = 39;
+            this.Btn_refrescar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_refrescar.UseVisualStyleBackColor = true;
+            // 
+            // Btn_inicio
+            // 
+            this.Btn_inicio.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_inicio.Image = ((System.Drawing.Image)(resources.GetObject("Btn_inicio.Image")));
+            this.Btn_inicio.Location = new System.Drawing.Point(837, 758);
+            this.Btn_inicio.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_inicio.Name = "Btn_inicio";
+            this.Btn_inicio.Size = new System.Drawing.Size(60, 47);
+            this.Btn_inicio.TabIndex = 40;
+            this.Btn_inicio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_inicio.UseVisualStyleBackColor = true;
+            // 
+            // Btn_fin
+            // 
+            this.Btn_fin.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_fin.Image = ((System.Drawing.Image)(resources.GetObject("Btn_fin.Image")));
+            this.Btn_fin.Location = new System.Drawing.Point(903, 758);
+            this.Btn_fin.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_fin.Name = "Btn_fin";
+            this.Btn_fin.Size = new System.Drawing.Size(60, 47);
+            this.Btn_fin.TabIndex = 41;
+            this.Btn_fin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_fin.UseVisualStyleBackColor = true;
+            // 
             // Frm_Expl_Mat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(982, 953);
+            this.Controls.Add(this.Btn_fin);
+            this.Controls.Add(this.Btn_inicio);
+            this.Controls.Add(this.Btn_refrescar);
+            this.Controls.Add(this.Btn_eliminar);
+            this.Controls.Add(this.Btn_modificar);
+            this.Controls.Add(this.Btn_guardar);
             this.Controls.Add(this.Gpb_Factibilidad);
             this.Controls.Add(this.Gpb_Deficit);
             this.Controls.Add(this.Gpb_Stock);
@@ -429,5 +513,11 @@ namespace Capa_Vista_Expl_Mat
         private System.Windows.Forms.GroupBox Gpb_Stock;
         private System.Windows.Forms.GroupBox Gpb_Deficit;
         private System.Windows.Forms.GroupBox Gpb_Factibilidad;
+        private System.Windows.Forms.Button Btn_guardar;
+        private System.Windows.Forms.Button Btn_modificar;
+        private System.Windows.Forms.Button Btn_eliminar;
+        private System.Windows.Forms.Button Btn_refrescar;
+        private System.Windows.Forms.Button Btn_inicio;
+        private System.Windows.Forms.Button Btn_fin;
     }
 }
