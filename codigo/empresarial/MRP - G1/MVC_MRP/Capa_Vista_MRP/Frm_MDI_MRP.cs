@@ -76,84 +76,98 @@ namespace Capa_Vista_MRP
         private void tipoDeMaterialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Mantenimiento_Tipo_Material m = new Frm_Mantenimiento_Tipo_Material();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void categoríaDeMaterialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Categoria_Material m = new Frm_Categoria_Material();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void unidadDeMedidaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_UDM m = new Frm_UDM();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void almacenesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Mantenimiento_Almacen m = new Frm_Mantenimiento_Almacen();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void materialesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Capa_Vista_Mant_Kevin.Frm_Materiales m = new Capa_Vista_Mant_Kevin.Frm_Materiales();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void tipoDeMermaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Tipo_Merma m = new Frm_Tipo_Merma();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void estadoDeProducciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_produccion m = new Frm_produccion();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void tipoDeMovimientoDeInventarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Tipo_de_movimineto_inventario m = new Frm_Tipo_de_movimineto_inventario();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void estadoBOMToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Bom m = new Frm_Bom();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void estadoPlanDeProducciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Estado_Plan_Produccion m = new Frm_Estado_Plan_Produccion();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void estadoOrdenDeProducciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Mantenimiento_Estado_OP m = new Frm_Mantenimiento_Estado_OP();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void estadoOrdenRecibidaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Estado_Orden_Recibida m = new Frm_Estado_Orden_Recibida();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void estadoRecepciónMaterialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_estado_recepcion_material m = new Frm_estado_recepcion_material();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void tipoDeInventarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_TipoInve m = new Frm_TipoInve();
+            m.MdiParent = this;
             m.Show();
         }
 
@@ -166,36 +180,42 @@ namespace Capa_Vista_MRP
         private void materialesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Capa_Vista_Materiales.Frm_Materiales m = new Capa_Vista_Materiales.Frm_Materiales();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void inventarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Inventario_EntregaPT m = new Frm_Inventario_EntregaPT();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void movimientoInventarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Movimiento_Inventario m = new Frm_Movimiento_Inventario();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void recibirOrdenDeLogísticaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Recibir_Orden m = new Frm_Recibir_Orden();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void bOMYFactibilidadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Recetas m = new Frm_Recetas();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void explosiónDeMaterialesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Expl_Mat m = new Frm_Expl_Mat();
+            m.MdiParent = this;
             m.Show();
 
         }
@@ -203,30 +223,35 @@ namespace Capa_Vista_MRP
         private void recepciónDeMaterialesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_recepcion_material m = new Frm_recepcion_material();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void planDeProducciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Plan_Produccion m = new Frm_Plan_Produccion();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void cronogramaFasesDeProducciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Cronograma_Fases m = new Frm_Cronograma_Fases();
+            m.MdiParent = this;
             m.Show();
         }
 
         private void fasesDeProducciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Fases_Produccion m = new Frm_Fases_Produccion();
+            m.MdiParent = this; 
             m.Show();
         }
 
         private void ordenDeProducciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Capa_vista_Orden.Frm_Orden_Produccion m = new Capa_vista_Orden.Frm_Orden_Produccion();
+            m.MdiParent = this;
             m.Show();
         }
     }
