@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Capa_Vista;
+using Capa_Vista_DispoInve;
 
 namespace Exe_Dispo_Inve
 {
@@ -17,7 +17,7 @@ namespace Exe_Dispo_Inve
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Disponibilidad_Inventario());
+            Application.Run(new Frm_DispoInve());
         }
     }
 }
