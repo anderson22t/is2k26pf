@@ -49,6 +49,9 @@
     <Reference Include="Capa_Vista_CVRecetas">
       <HintPath>..\..\DLLS\MVC_Consultar_Receta\Receta_Mariale\Capa_Vista_CVRecetas\bin\Debug\Capa_Vista_CVRecetas.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_DispoInve">
+      <HintPath>..\..\DLLS\MVC_Dispo_Inv\MVC_DispoInve2\MVC__DispoInve\Capa_Vista_DispoInve\bin\Debug\Capa_Vista_DispoInve.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_Estado_Fases">
       <HintPath>..\..\Mantenimientos\Estado_Fase_Produccion\Estado_Fase_Produccion\Capa_Vista_Estado_Fases\bin\Debug\Capa_Vista_Estado_Fases.dll</HintPath>
     </Reference>

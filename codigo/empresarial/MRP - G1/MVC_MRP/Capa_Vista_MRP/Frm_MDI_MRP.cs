@@ -26,6 +26,7 @@ using Capa_Vista_Plan;
 using Capa_Vista_Fases;
 using Capa_Vista_Cronograma;
 using Capa_vista_Orden;
+using Capa_Vista_DispoInve;
 
 namespace Capa_Vista_MRP
 {
@@ -251,6 +252,13 @@ namespace Capa_Vista_MRP
         private void ordenDeProducciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Capa_vista_Orden.Frm_Orden_Produccion m = new Capa_vista_Orden.Frm_Orden_Produccion();
+            m.MdiParent = this;
+            m.Show();
+        }
+
+        private void disponibilidadDeInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_DispoInve m = new Frm_DispoInve();
             m.MdiParent = this;
             m.Show();
         }

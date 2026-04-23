@@ -50,15 +50,6 @@ namespace Capa_Vista_MRP
             this.estadoRecepciónMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoDeInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.procesosMRPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entregaDeProductoTerminadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.materialesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.movimientoInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.recibirOrdenDeLogísticaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bOMYFactibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.explosiónDeMaterialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +60,15 @@ namespace Capa_Vista_MRP
             this.cronogramaFasesDeProducciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fasesDeProducciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ordenDeProducciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entregaDeProductoTerminadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.materialesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.movimientoInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -244,6 +244,80 @@ namespace Capa_Vista_MRP
             this.procesosMRPToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.procesosMRPToolStripMenuItem.Text = "Procesos MRP";
             // 
+            // recibirOrdenDeLogísticaToolStripMenuItem
+            // 
+            this.recibirOrdenDeLogísticaToolStripMenuItem.Name = "recibirOrdenDeLogísticaToolStripMenuItem";
+            this.recibirOrdenDeLogísticaToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.recibirOrdenDeLogísticaToolStripMenuItem.Text = "Recibir Orden de Logística";
+            this.recibirOrdenDeLogísticaToolStripMenuItem.Click += new System.EventHandler(this.recibirOrdenDeLogísticaToolStripMenuItem_Click);
+            // 
+            // bOMYFactibilidadToolStripMenuItem
+            // 
+            this.bOMYFactibilidadToolStripMenuItem.Name = "bOMYFactibilidadToolStripMenuItem";
+            this.bOMYFactibilidadToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.bOMYFactibilidadToolStripMenuItem.Text = "BOM y Factibilidad";
+            this.bOMYFactibilidadToolStripMenuItem.Click += new System.EventHandler(this.bOMYFactibilidadToolStripMenuItem_Click);
+            // 
+            // explosiónDeMaterialesToolStripMenuItem
+            // 
+            this.explosiónDeMaterialesToolStripMenuItem.Name = "explosiónDeMaterialesToolStripMenuItem";
+            this.explosiónDeMaterialesToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.explosiónDeMaterialesToolStripMenuItem.Text = "Explosión de Materiales";
+            this.explosiónDeMaterialesToolStripMenuItem.Click += new System.EventHandler(this.explosiónDeMaterialesToolStripMenuItem_Click);
+            // 
+            // disponibilidadDeInventarioToolStripMenuItem
+            // 
+            this.disponibilidadDeInventarioToolStripMenuItem.Name = "disponibilidadDeInventarioToolStripMenuItem";
+            this.disponibilidadDeInventarioToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.disponibilidadDeInventarioToolStripMenuItem.Text = "Disponibilidad de inventario";
+            this.disponibilidadDeInventarioToolStripMenuItem.Click += new System.EventHandler(this.disponibilidadDeInventarioToolStripMenuItem_Click);
+            // 
+            // recepciónDeMaterialesToolStripMenuItem
+            // 
+            this.recepciónDeMaterialesToolStripMenuItem.Name = "recepciónDeMaterialesToolStripMenuItem";
+            this.recepciónDeMaterialesToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.recepciónDeMaterialesToolStripMenuItem.Text = "Recepción de Materiales";
+            this.recepciónDeMaterialesToolStripMenuItem.Click += new System.EventHandler(this.recepciónDeMaterialesToolStripMenuItem_Click);
+            // 
+            // produccionToolStripMenuItem
+            // 
+            this.produccionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.planDeProducciónToolStripMenuItem,
+            this.cronogramaFasesDeProducciónToolStripMenuItem,
+            this.fasesDeProducciónToolStripMenuItem,
+            this.ordenDeProducciónToolStripMenuItem});
+            this.produccionToolStripMenuItem.Name = "produccionToolStripMenuItem";
+            this.produccionToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.produccionToolStripMenuItem.Text = "Produccion";
+            // 
+            // planDeProducciónToolStripMenuItem
+            // 
+            this.planDeProducciónToolStripMenuItem.Name = "planDeProducciónToolStripMenuItem";
+            this.planDeProducciónToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.planDeProducciónToolStripMenuItem.Text = "Plan de producción";
+            this.planDeProducciónToolStripMenuItem.Click += new System.EventHandler(this.planDeProducciónToolStripMenuItem_Click);
+            // 
+            // cronogramaFasesDeProducciónToolStripMenuItem
+            // 
+            this.cronogramaFasesDeProducciónToolStripMenuItem.Name = "cronogramaFasesDeProducciónToolStripMenuItem";
+            this.cronogramaFasesDeProducciónToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.cronogramaFasesDeProducciónToolStripMenuItem.Text = "Cronograma fases de producción";
+            this.cronogramaFasesDeProducciónToolStripMenuItem.Click += new System.EventHandler(this.cronogramaFasesDeProducciónToolStripMenuItem_Click);
+            // 
+            // fasesDeProducciónToolStripMenuItem
+            // 
+            this.fasesDeProducciónToolStripMenuItem.Name = "fasesDeProducciónToolStripMenuItem";
+            this.fasesDeProducciónToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.fasesDeProducciónToolStripMenuItem.Text = "Fases de producción";
+            this.fasesDeProducciónToolStripMenuItem.Click += new System.EventHandler(this.fasesDeProducciónToolStripMenuItem_Click);
+            // 
+            // ordenDeProducciónToolStripMenuItem
+            // 
+            this.ordenDeProducciónToolStripMenuItem.Name = "ordenDeProducciónToolStripMenuItem";
+            this.ordenDeProducciónToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.ordenDeProducciónToolStripMenuItem.Text = "Orden de producción";
+            this.ordenDeProducciónToolStripMenuItem.Click += new System.EventHandler(this.ordenDeProducciónToolStripMenuItem_Click);
+            // 
             // entregaDeProductoTerminadoToolStripMenuItem
             // 
             this.entregaDeProductoTerminadoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -303,79 +377,6 @@ namespace Capa_Vista_MRP
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // recibirOrdenDeLogísticaToolStripMenuItem
-            // 
-            this.recibirOrdenDeLogísticaToolStripMenuItem.Name = "recibirOrdenDeLogísticaToolStripMenuItem";
-            this.recibirOrdenDeLogísticaToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.recibirOrdenDeLogísticaToolStripMenuItem.Text = "Recibir Orden de Logística";
-            this.recibirOrdenDeLogísticaToolStripMenuItem.Click += new System.EventHandler(this.recibirOrdenDeLogísticaToolStripMenuItem_Click);
-            // 
-            // bOMYFactibilidadToolStripMenuItem
-            // 
-            this.bOMYFactibilidadToolStripMenuItem.Name = "bOMYFactibilidadToolStripMenuItem";
-            this.bOMYFactibilidadToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.bOMYFactibilidadToolStripMenuItem.Text = "BOM y Factibilidad";
-            this.bOMYFactibilidadToolStripMenuItem.Click += new System.EventHandler(this.bOMYFactibilidadToolStripMenuItem_Click);
-            // 
-            // explosiónDeMaterialesToolStripMenuItem
-            // 
-            this.explosiónDeMaterialesToolStripMenuItem.Name = "explosiónDeMaterialesToolStripMenuItem";
-            this.explosiónDeMaterialesToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.explosiónDeMaterialesToolStripMenuItem.Text = "Explosión de Materiales";
-            this.explosiónDeMaterialesToolStripMenuItem.Click += new System.EventHandler(this.explosiónDeMaterialesToolStripMenuItem_Click);
-            // 
-            // disponibilidadDeInventarioToolStripMenuItem
-            // 
-            this.disponibilidadDeInventarioToolStripMenuItem.Name = "disponibilidadDeInventarioToolStripMenuItem";
-            this.disponibilidadDeInventarioToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.disponibilidadDeInventarioToolStripMenuItem.Text = "Disponibilidad de inventario";
-            // 
-            // recepciónDeMaterialesToolStripMenuItem
-            // 
-            this.recepciónDeMaterialesToolStripMenuItem.Name = "recepciónDeMaterialesToolStripMenuItem";
-            this.recepciónDeMaterialesToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.recepciónDeMaterialesToolStripMenuItem.Text = "Recepción de Materiales";
-            this.recepciónDeMaterialesToolStripMenuItem.Click += new System.EventHandler(this.recepciónDeMaterialesToolStripMenuItem_Click);
-            // 
-            // produccionToolStripMenuItem
-            // 
-            this.produccionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.planDeProducciónToolStripMenuItem,
-            this.cronogramaFasesDeProducciónToolStripMenuItem,
-            this.fasesDeProducciónToolStripMenuItem,
-            this.ordenDeProducciónToolStripMenuItem});
-            this.produccionToolStripMenuItem.Name = "produccionToolStripMenuItem";
-            this.produccionToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.produccionToolStripMenuItem.Text = "Produccion";
-            // 
-            // planDeProducciónToolStripMenuItem
-            // 
-            this.planDeProducciónToolStripMenuItem.Name = "planDeProducciónToolStripMenuItem";
-            this.planDeProducciónToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
-            this.planDeProducciónToolStripMenuItem.Text = "Plan de producción";
-            this.planDeProducciónToolStripMenuItem.Click += new System.EventHandler(this.planDeProducciónToolStripMenuItem_Click);
-            // 
-            // cronogramaFasesDeProducciónToolStripMenuItem
-            // 
-            this.cronogramaFasesDeProducciónToolStripMenuItem.Name = "cronogramaFasesDeProducciónToolStripMenuItem";
-            this.cronogramaFasesDeProducciónToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
-            this.cronogramaFasesDeProducciónToolStripMenuItem.Text = "Cronograma fases de producción";
-            this.cronogramaFasesDeProducciónToolStripMenuItem.Click += new System.EventHandler(this.cronogramaFasesDeProducciónToolStripMenuItem_Click);
-            // 
-            // fasesDeProducciónToolStripMenuItem
-            // 
-            this.fasesDeProducciónToolStripMenuItem.Name = "fasesDeProducciónToolStripMenuItem";
-            this.fasesDeProducciónToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
-            this.fasesDeProducciónToolStripMenuItem.Text = "Fases de producción";
-            this.fasesDeProducciónToolStripMenuItem.Click += new System.EventHandler(this.fasesDeProducciónToolStripMenuItem_Click);
-            // 
-            // ordenDeProducciónToolStripMenuItem
-            // 
-            this.ordenDeProducciónToolStripMenuItem.Name = "ordenDeProducciónToolStripMenuItem";
-            this.ordenDeProducciónToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
-            this.ordenDeProducciónToolStripMenuItem.Text = "Orden de producción";
-            this.ordenDeProducciónToolStripMenuItem.Click += new System.EventHandler(this.ordenDeProducciónToolStripMenuItem_Click);
             // 
             // Frm_MDI_MRP
             // 
