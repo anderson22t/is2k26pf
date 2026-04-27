@@ -152,6 +152,12 @@ namespace Capa_Vista_DispoInve
         {
             if (e.KeyCode == Keys.Enter) Consultar();
         }
+
+        private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+            Frm_Reporte f2 = new Frm_Reporte();
+            f2.Show();
+        }
     }
     internal class ComboItem
     {
