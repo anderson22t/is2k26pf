@@ -60,6 +60,7 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.flowLayoutPanel3);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
@@ -72,6 +73,7 @@
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.dataGridView1);
@@ -82,6 +84,7 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.richTextBox1);
             this.panel2.Controls.Add(this.dateTimePicker2);
             this.panel2.Controls.Add(this.dateTimePicker1);
@@ -119,21 +122,23 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel2.Controls.Add(this.label2);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(20, 15, 15, 15);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(293, 59);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(291, 59);
             this.flowLayoutPanel2.TabIndex = 16;
             // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.BackColor = System.Drawing.SystemColors.Highlight;
+            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel3.Controls.Add(this.label3);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(320, 88);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(321, 90);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(20, 15, 15, 15);
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(769, 59);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(768, 59);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // label2
