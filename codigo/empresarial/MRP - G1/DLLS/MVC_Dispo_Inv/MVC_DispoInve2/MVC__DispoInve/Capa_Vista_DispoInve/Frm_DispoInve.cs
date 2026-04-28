@@ -158,6 +158,11 @@ namespace Capa_Vista_DispoInve
             Frm_Reporte f2 = new Frm_Reporte();
             f2.Show();
         }
+
+        private void dgvInventario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
     internal class ComboItem
     {
