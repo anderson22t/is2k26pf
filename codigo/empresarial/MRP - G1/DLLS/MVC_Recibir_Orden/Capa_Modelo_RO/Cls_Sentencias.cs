@@ -10,7 +10,7 @@ using System.Data.Odbc;
 
 namespace Capa_Modelo_RO
 {
-    internal class Cls_Sentencias
+    public class Cls_Sentencias
     {
         private readonly Cls_Conexion conexion = new Cls_Conexion();
 
