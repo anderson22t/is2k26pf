@@ -35,6 +35,9 @@
     <Reference Include="Capa_Controlador_NavegadorTrs">
       <HintPath>..\..\..\NavegadorTransaccionalMVC\CapaControladorNavegador\bin\Debug\Capa_Controlador_NavegadorTrs.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Controlador_RO">
+      <HintPath>..\Capa_Controlador_RO\bin\Debug\Capa_Controlador_RO.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_NavegadorTrs">
       <HintPath>..\..\..\NavegadorTransaccionalMVC\CapaVistaNavegador\bin\Debug\Capa_Vista_NavegadorTrs.dll</HintPath>
     </Reference>
@@ -57,6 +60,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Frm_Detalle_Orden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Detalle_Orden.Designer.cs">
+      <DependentUpon>Frm_Detalle_Orden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Encabezado_Orden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Encabezado_Orden.Designer.cs">
+      <DependentUpon>Frm_Encabezado_Orden.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Orden_Recibida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +93,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Frm_Encabezado_Orden.resx">
+      <DependentUpon>Frm_Encabezado_Orden.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Orden_Recibida.resx">
       <DependentUpon>Frm_Orden_Recibida.cs</DependentUpon>
     </EmbeddedResource>
