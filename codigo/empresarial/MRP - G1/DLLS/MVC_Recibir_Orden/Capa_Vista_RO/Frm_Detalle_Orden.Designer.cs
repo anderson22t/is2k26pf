@@ -51,36 +51,40 @@
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.Btn_ingresar = new System.Windows.Forms.Button();
+            this.Btn_modificar = new System.Windows.Forms.Button();
+            this.Btn_guardar = new System.Windows.Forms.Button();
+            this.Btn_cancelar = new System.Windows.Forms.Button();
+            this.Btn_eliminar = new System.Windows.Forms.Button();
+            this.Btn_consultar = new System.Windows.Forms.Button();
+            this.Btn_imprimir = new System.Windows.Forms.Button();
+            this.Btn_refrescar = new System.Windows.Forms.Button();
+            this.Btn_inicio = new System.Windows.Forms.Button();
+            this.Btn_anterior = new System.Windows.Forms.Button();
+            this.Btn_sig = new System.Windows.Forms.Button();
+            this.Btn_fin = new System.Windows.Forms.Button();
+            this.Btn_ayuda = new System.Windows.Forms.Button();
+            this.Btn_salir = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.flowLayoutPanel1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 5);
+            this.panel1.Location = new System.Drawing.Point(12, 201);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1114, 594);
+            this.panel1.Size = new System.Drawing.Size(1139, 528);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -112,7 +116,7 @@
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Location = new System.Drawing.Point(320, 93);
+            this.panel3.Location = new System.Drawing.Point(351, 20);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(769, 476);
             this.panel3.TabIndex = 14;
@@ -160,16 +164,16 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.flowLayoutPanel2);
-            this.panel2.Location = new System.Drawing.Point(21, 93);
+            this.panel2.Location = new System.Drawing.Point(21, 20);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(293, 476);
+            this.panel2.Size = new System.Drawing.Size(309, 476);
             this.panel2.TabIndex = 13;
             // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(18, 307);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(255, 75);
+            this.richTextBox1.Size = new System.Drawing.Size(273, 87);
             this.richTextBox1.TabIndex = 27;
             this.richTextBox1.Text = "";
             // 
@@ -177,14 +181,14 @@
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(18, 245);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(255, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(273, 20);
             this.dateTimePicker2.TabIndex = 25;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(18, 196);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(255, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(273, 20);
             this.dateTimePicker1.TabIndex = 24;
             // 
             // comboBox2
@@ -192,7 +196,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(18, 147);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(255, 21);
+            this.comboBox2.Size = new System.Drawing.Size(273, 21);
             this.comboBox2.TabIndex = 23;
             // 
             // comboBox1
@@ -200,7 +204,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(18, 98);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(255, 21);
+            this.comboBox1.Size = new System.Drawing.Size(273, 21);
             this.comboBox1.TabIndex = 22;
             // 
             // label8
@@ -261,7 +265,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(20, 15, 15, 15);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(291, 59);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(307, 59);
             this.flowLayoutPanel2.TabIndex = 16;
             // 
             // label2
@@ -278,7 +282,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(21, 64);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 43);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1068, 11);
             this.flowLayoutPanel1.TabIndex = 12;
@@ -287,76 +291,222 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 32);
+            this.label1.Location = new System.Drawing.Point(17, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(327, 29);
             this.label1.TabIndex = 11;
             this.label1.Text = "Detalle de Orden Recibida";
             // 
-            // button1
+            // Btn_ingresar
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(746, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 45);
-            this.button1.TabIndex = 15;
-            this.button1.UseVisualStyleBackColor = true;
+            this.Btn_ingresar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_ingresar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ingresar.Image")));
+            this.Btn_ingresar.Location = new System.Drawing.Point(3, 3);
+            this.Btn_ingresar.Name = "Btn_ingresar";
+            this.Btn_ingresar.Size = new System.Drawing.Size(74, 87);
+            this.Btn_ingresar.TabIndex = 0;
+            this.Btn_ingresar.Text = "Ingresar";
+            this.Btn_ingresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_ingresar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // Btn_modificar
             // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(800, 8);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(48, 45);
-            this.button2.TabIndex = 16;
-            this.button2.UseVisualStyleBackColor = true;
+            this.Btn_modificar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_modificar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_modificar.Image")));
+            this.Btn_modificar.Location = new System.Drawing.Point(83, 3);
+            this.Btn_modificar.Name = "Btn_modificar";
+            this.Btn_modificar.Size = new System.Drawing.Size(74, 87);
+            this.Btn_modificar.TabIndex = 1;
+            this.Btn_modificar.Text = "Modificar";
+            this.Btn_modificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_modificar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // Btn_guardar
             // 
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(854, 8);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(48, 45);
-            this.button3.TabIndex = 17;
-            this.button3.UseVisualStyleBackColor = true;
+            this.Btn_guardar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_guardar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_guardar.Image")));
+            this.Btn_guardar.Location = new System.Drawing.Point(163, 3);
+            this.Btn_guardar.Name = "Btn_guardar";
+            this.Btn_guardar.Size = new System.Drawing.Size(74, 87);
+            this.Btn_guardar.TabIndex = 2;
+            this.Btn_guardar.Text = "Guardar";
+            this.Btn_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_guardar.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // Btn_cancelar
             // 
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(908, 8);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(48, 45);
-            this.button4.TabIndex = 18;
-            this.button4.UseVisualStyleBackColor = true;
+            this.Btn_cancelar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_cancelar.Image")));
+            this.Btn_cancelar.Location = new System.Drawing.Point(243, 3);
+            this.Btn_cancelar.Name = "Btn_cancelar";
+            this.Btn_cancelar.Size = new System.Drawing.Size(74, 87);
+            this.Btn_cancelar.TabIndex = 3;
+            this.Btn_cancelar.Text = "Cancelar";
+            this.Btn_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_cancelar.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // Btn_eliminar
             // 
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(987, 8);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(48, 45);
-            this.button5.TabIndex = 19;
-            this.button5.UseVisualStyleBackColor = true;
+            this.Btn_eliminar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_eliminar.Image")));
+            this.Btn_eliminar.Location = new System.Drawing.Point(323, 3);
+            this.Btn_eliminar.Name = "Btn_eliminar";
+            this.Btn_eliminar.Size = new System.Drawing.Size(74, 87);
+            this.Btn_eliminar.TabIndex = 4;
+            this.Btn_eliminar.Text = "Eliminar";
+            this.Btn_eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_eliminar.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // Btn_consultar
             // 
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(1041, 8);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(48, 45);
-            this.button6.TabIndex = 20;
-            this.button6.UseVisualStyleBackColor = true;
+            this.Btn_consultar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_consultar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_consultar.Image")));
+            this.Btn_consultar.Location = new System.Drawing.Point(403, 3);
+            this.Btn_consultar.Name = "Btn_consultar";
+            this.Btn_consultar.Size = new System.Drawing.Size(74, 87);
+            this.Btn_consultar.TabIndex = 5;
+            this.Btn_consultar.Text = "Consultar";
+            this.Btn_consultar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_consultar.UseVisualStyleBackColor = true;
+            // 
+            // Btn_imprimir
+            // 
+            this.Btn_imprimir.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_imprimir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_imprimir.Image")));
+            this.Btn_imprimir.Location = new System.Drawing.Point(483, 3);
+            this.Btn_imprimir.Name = "Btn_imprimir";
+            this.Btn_imprimir.Size = new System.Drawing.Size(74, 87);
+            this.Btn_imprimir.TabIndex = 6;
+            this.Btn_imprimir.Text = "Imprimir";
+            this.Btn_imprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_imprimir.UseVisualStyleBackColor = true;
+            // 
+            // Btn_refrescar
+            // 
+            this.Btn_refrescar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_refrescar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_refrescar.Image")));
+            this.Btn_refrescar.Location = new System.Drawing.Point(563, 3);
+            this.Btn_refrescar.Name = "Btn_refrescar";
+            this.Btn_refrescar.Size = new System.Drawing.Size(74, 87);
+            this.Btn_refrescar.TabIndex = 7;
+            this.Btn_refrescar.Text = "Refrescar";
+            this.Btn_refrescar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_refrescar.UseVisualStyleBackColor = true;
+            // 
+            // Btn_inicio
+            // 
+            this.Btn_inicio.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_inicio.Image = ((System.Drawing.Image)(resources.GetObject("Btn_inicio.Image")));
+            this.Btn_inicio.Location = new System.Drawing.Point(643, 3);
+            this.Btn_inicio.Name = "Btn_inicio";
+            this.Btn_inicio.Size = new System.Drawing.Size(74, 87);
+            this.Btn_inicio.TabIndex = 8;
+            this.Btn_inicio.Text = "Inicio";
+            this.Btn_inicio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_inicio.UseVisualStyleBackColor = true;
+            // 
+            // Btn_anterior
+            // 
+            this.Btn_anterior.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_anterior.Image = ((System.Drawing.Image)(resources.GetObject("Btn_anterior.Image")));
+            this.Btn_anterior.Location = new System.Drawing.Point(723, 3);
+            this.Btn_anterior.Name = "Btn_anterior";
+            this.Btn_anterior.Size = new System.Drawing.Size(74, 87);
+            this.Btn_anterior.TabIndex = 9;
+            this.Btn_anterior.Text = "Anterior";
+            this.Btn_anterior.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_anterior.UseVisualStyleBackColor = true;
+            // 
+            // Btn_sig
+            // 
+            this.Btn_sig.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_sig.Image = ((System.Drawing.Image)(resources.GetObject("Btn_sig.Image")));
+            this.Btn_sig.Location = new System.Drawing.Point(803, 3);
+            this.Btn_sig.Name = "Btn_sig";
+            this.Btn_sig.Size = new System.Drawing.Size(74, 87);
+            this.Btn_sig.TabIndex = 10;
+            this.Btn_sig.Text = "Siguiente";
+            this.Btn_sig.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_sig.UseVisualStyleBackColor = true;
+            // 
+            // Btn_fin
+            // 
+            this.Btn_fin.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_fin.Image = ((System.Drawing.Image)(resources.GetObject("Btn_fin.Image")));
+            this.Btn_fin.Location = new System.Drawing.Point(883, 3);
+            this.Btn_fin.Name = "Btn_fin";
+            this.Btn_fin.Size = new System.Drawing.Size(74, 87);
+            this.Btn_fin.TabIndex = 11;
+            this.Btn_fin.Text = "Fin";
+            this.Btn_fin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_fin.UseVisualStyleBackColor = true;
+            // 
+            // Btn_ayuda
+            // 
+            this.Btn_ayuda.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_ayuda.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ayuda.Image")));
+            this.Btn_ayuda.Location = new System.Drawing.Point(963, 3);
+            this.Btn_ayuda.Name = "Btn_ayuda";
+            this.Btn_ayuda.Size = new System.Drawing.Size(74, 87);
+            this.Btn_ayuda.TabIndex = 12;
+            this.Btn_ayuda.Text = "Ayuda";
+            this.Btn_ayuda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_ayuda.UseVisualStyleBackColor = true;
+            // 
+            // Btn_salir
+            // 
+            this.Btn_salir.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_salir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_salir.Image")));
+            this.Btn_salir.Location = new System.Drawing.Point(1043, 3);
+            this.Btn_salir.Name = "Btn_salir";
+            this.Btn_salir.Size = new System.Drawing.Size(74, 87);
+            this.Btn_salir.TabIndex = 13;
+            this.Btn_salir.Text = "Salir";
+            this.Btn_salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_salir.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.flowLayoutPanel1);
+            this.panel4.Location = new System.Drawing.Point(12, 12);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1139, 183);
+            this.panel4.TabIndex = 6;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.Btn_salir);
+            this.panel5.Controls.Add(this.Btn_ayuda);
+            this.panel5.Controls.Add(this.Btn_fin);
+            this.panel5.Controls.Add(this.Btn_sig);
+            this.panel5.Controls.Add(this.Btn_anterior);
+            this.panel5.Controls.Add(this.Btn_inicio);
+            this.panel5.Controls.Add(this.Btn_refrescar);
+            this.panel5.Controls.Add(this.Btn_imprimir);
+            this.panel5.Controls.Add(this.Btn_consultar);
+            this.panel5.Controls.Add(this.Btn_eliminar);
+            this.panel5.Controls.Add(this.Btn_cancelar);
+            this.panel5.Controls.Add(this.Btn_guardar);
+            this.panel5.Controls.Add(this.Btn_modificar);
+            this.panel5.Controls.Add(this.Btn_ingresar);
+            this.panel5.Location = new System.Drawing.Point(3, 69);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1124, 102);
+            this.panel5.TabIndex = 7;
             // 
             // Frm_Detalle_Orden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1138, 611);
+            this.ClientSize = new System.Drawing.Size(1163, 744);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Name = "Frm_Detalle_Orden";
             this.Text = "Frm_Detalle_Orden";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -366,6 +516,9 @@
             this.panel2.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -394,11 +547,21 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Btn_ingresar;
+        private System.Windows.Forms.Button Btn_modificar;
+        private System.Windows.Forms.Button Btn_guardar;
+        private System.Windows.Forms.Button Btn_cancelar;
+        private System.Windows.Forms.Button Btn_eliminar;
+        private System.Windows.Forms.Button Btn_consultar;
+        private System.Windows.Forms.Button Btn_imprimir;
+        private System.Windows.Forms.Button Btn_refrescar;
+        private System.Windows.Forms.Button Btn_inicio;
+        private System.Windows.Forms.Button Btn_anterior;
+        private System.Windows.Forms.Button Btn_sig;
+        private System.Windows.Forms.Button Btn_fin;
+        private System.Windows.Forms.Button Btn_ayuda;
+        private System.Windows.Forms.Button Btn_salir;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
     }
 }
