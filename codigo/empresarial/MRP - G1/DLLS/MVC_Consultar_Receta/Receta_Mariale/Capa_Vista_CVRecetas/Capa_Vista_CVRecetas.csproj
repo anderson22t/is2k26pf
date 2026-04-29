@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Capa_Controlador_Recetas">
+      <HintPath>..\Capa_Controlador_Recetas\bin\Debug\Capa_Controlador_Recetas.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Fases">
+      <HintPath>..\..\..\Plan y Orden de Producción\Fases de Produccion\Capa_Vista_Fases\bin\Debug\Capa_Vista_Fases.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -44,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Detalle_Materiales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detalle_Materiales.Designer.cs">
+      <DependentUpon>Detalle_Materiales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Recetas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,14 +68,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Ver_Recetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_Recetas.Designer.cs">
+      <DependentUpon>Ver_Recetas.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Detalle_Materiales.resx">
+      <DependentUpon>Detalle_Materiales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Recetas.resx">
       <DependentUpon>Frm_Recetas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_Recetas.resx">
+      <DependentUpon>Ver_Recetas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
