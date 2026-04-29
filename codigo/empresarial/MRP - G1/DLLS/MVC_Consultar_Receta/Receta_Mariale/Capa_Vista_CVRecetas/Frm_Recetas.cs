@@ -172,5 +172,10 @@ namespace Capa_Vista_CVRecetas
                 Cbo_estado.Text = fila.Cells["Estado"].Value.ToString();
             }
         }
+
+        private void dgv_detalle_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -36,24 +36,24 @@ namespace Capa_Vista_Materiales
             // 
             this.navegador1.IPkId_Aplicacion = 0;
             this.navegador1.IPkId_Modulo = 0;
-            this.navegador1.Location = new System.Drawing.Point(3, 3);
-            this.navegador1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.navegador1.Location = new System.Drawing.Point(2, 2);
             this.navegador1.Name = "navegador1";
             this.navegador1.SAlias = null;
             this.navegador1.SConfiguracionFK = null;
             this.navegador1.SEtiquetas = null;
-            this.navegador1.Size = new System.Drawing.Size(1500, 903);
+            this.navegador1.Size = new System.Drawing.Size(1125, 734);
             this.navegador1.SNombreTabla = null;
             this.navegador1.TabIndex = 0;
             // 
             // Frm_Materiales
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1482, 856);
+            this.ClientSize = new System.Drawing.Size(1112, 696);
             this.Controls.Add(this.navegador1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Frm_Materiales";
-            this.Text = "Frm_Materiales";
+            this.Text = "Materiales";
             this.ResumeLayout(false);
 
         }
