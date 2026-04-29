@@ -42,14 +42,14 @@ namespace Capa_Vista_RO
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ReportSource = this.Reporte_Orden_Recibida1;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1050, 580);
             this.crystalReportViewer1.TabIndex = 0;
             // 
             // Frm_Orden_Recibida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1050, 580);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "Frm_Orden_Recibida";
             this.Text = "Frm_Orden_Recibida";

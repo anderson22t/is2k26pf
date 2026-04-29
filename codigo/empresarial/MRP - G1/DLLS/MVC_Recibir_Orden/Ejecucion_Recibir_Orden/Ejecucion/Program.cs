@@ -19,6 +19,9 @@ namespace Ejecucion
             Application.SetCompatibleTextRenderingDefault(false);
             /// Application.Run(new Frm_Recibir_Orden());
             Application.Run(new Frm_Detalle_Orden());
+
+            
+
         }
     }
 }

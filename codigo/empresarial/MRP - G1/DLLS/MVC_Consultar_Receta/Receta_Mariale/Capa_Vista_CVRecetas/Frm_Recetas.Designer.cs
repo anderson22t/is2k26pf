@@ -31,341 +31,363 @@ namespace Capa_Vista_CVRecetas
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Recetas));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_bom = new System.Windows.Forms.Label();
+            this.Txt_versionBOM = new System.Windows.Forms.TextBox();
+            this.lbl_descripcion = new System.Windows.Forms.Label();
+            this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
+            this.Txt_descripcion = new System.Windows.Forms.TextBox();
+            this.Cbo_estado = new System.Windows.Forms.ComboBox();
+            this.Cbo_producto = new System.Windows.Forms.ComboBox();
+            this.lbl_estado = new System.Windows.Forms.Label();
+            this.lbl_fecha_creacion = new System.Windows.Forms.Label();
+            this.lbl_producto = new System.Windows.Forms.Label();
+            this.btn_consultar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btn_produccion = new System.Windows.Forms.Button();
+            this.btn_salir = new System.Windows.Forms.Button();
+            this.btn_ingresar = new System.Windows.Forms.Button();
+            this.btn_guardar = new System.Windows.Forms.Button();
+            this.btn_editar = new System.Windows.Forms.Button();
+            this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_ayuda = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.btn_reporte = new System.Windows.Forms.Button();
+            this.btn_ver_detalle = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.dgv_detalle = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_detalle)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.dgv_detalle);
+            this.groupBox1.Controls.Add(this.btn_ver_detalle);
+            this.groupBox1.Controls.Add(this.lbl_bom);
+            this.groupBox1.Controls.Add(this.Txt_versionBOM);
+            this.groupBox1.Controls.Add(this.lbl_descripcion);
+            this.groupBox1.Controls.Add(this.dtp_fecha);
+            this.groupBox1.Controls.Add(this.Txt_descripcion);
+            this.groupBox1.Controls.Add(this.Cbo_estado);
+            this.groupBox1.Controls.Add(this.Cbo_producto);
+            this.groupBox1.Controls.Add(this.lbl_estado);
+            this.groupBox1.Controls.Add(this.lbl_fecha_creacion);
+            this.groupBox1.Controls.Add(this.lbl_producto);
             this.groupBox1.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(18, 109);
+            this.groupBox1.Location = new System.Drawing.Point(18, 193);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(524, 178);
+            this.groupBox1.Size = new System.Drawing.Size(830, 382);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Consulta";
             // 
+            // lbl_bom
+            // 
+            this.lbl_bom.AutoSize = true;
+            this.lbl_bom.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_bom.Location = new System.Drawing.Point(463, 75);
+            this.lbl_bom.Name = "lbl_bom";
+            this.lbl_bom.Size = new System.Drawing.Size(106, 17);
+            this.lbl_bom.TabIndex = 9;
+            this.lbl_bom.Text = "Version BOM:";
+            // 
+            // Txt_versionBOM
+            // 
+            this.Txt_versionBOM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Txt_versionBOM.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_versionBOM.Location = new System.Drawing.Point(592, 73);
+            this.Txt_versionBOM.Name = "Txt_versionBOM";
+            this.Txt_versionBOM.Size = new System.Drawing.Size(221, 25);
+            this.Txt_versionBOM.TabIndex = 5;
+            // 
+            // lbl_descripcion
+            // 
+            this.lbl_descripcion.AutoSize = true;
+            this.lbl_descripcion.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_descripcion.Location = new System.Drawing.Point(463, 32);
+            this.lbl_descripcion.Name = "lbl_descripcion";
+            this.lbl_descripcion.Size = new System.Drawing.Size(98, 17);
+            this.lbl_descripcion.TabIndex = 8;
+            this.lbl_descripcion.Text = "Descripcion:";
+            // 
+            // dtp_fecha
+            // 
+            this.dtp_fecha.CalendarFont = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_fecha.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_fecha.Location = new System.Drawing.Point(150, 114);
+            this.dtp_fecha.Name = "dtp_fecha";
+            this.dtp_fecha.Size = new System.Drawing.Size(200, 23);
+            this.dtp_fecha.TabIndex = 5;
+            // 
+            // Txt_descripcion
+            // 
+            this.Txt_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Txt_descripcion.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_descripcion.Location = new System.Drawing.Point(584, 30);
+            this.Txt_descripcion.Name = "Txt_descripcion";
+            this.Txt_descripcion.Size = new System.Drawing.Size(229, 25);
+            this.Txt_descripcion.TabIndex = 3;
+            // 
+            // Cbo_estado
+            // 
+            this.Cbo_estado.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cbo_estado.FormattingEnabled = true;
+            this.Cbo_estado.Location = new System.Drawing.Point(129, 73);
+            this.Cbo_estado.Name = "Cbo_estado";
+            this.Cbo_estado.Size = new System.Drawing.Size(221, 25);
+            this.Cbo_estado.TabIndex = 4;
+            // 
+            // Cbo_producto
+            // 
+            this.Cbo_producto.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cbo_producto.FormattingEnabled = true;
+            this.Cbo_producto.Location = new System.Drawing.Point(99, 30);
+            this.Cbo_producto.Name = "Cbo_producto";
+            this.Cbo_producto.Size = new System.Drawing.Size(251, 25);
+            this.Cbo_producto.TabIndex = 3;
+            // 
+            // lbl_estado
+            // 
+            this.lbl_estado.AutoSize = true;
+            this.lbl_estado.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_estado.Location = new System.Drawing.Point(17, 76);
+            this.lbl_estado.Name = "lbl_estado";
+            this.lbl_estado.Size = new System.Drawing.Size(59, 17);
+            this.lbl_estado.TabIndex = 0;
+            this.lbl_estado.Text = "Estado:";
+            // 
+            // lbl_fecha_creacion
+            // 
+            this.lbl_fecha_creacion.AutoSize = true;
+            this.lbl_fecha_creacion.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_fecha_creacion.Location = new System.Drawing.Point(16, 117);
+            this.lbl_fecha_creacion.Name = "lbl_fecha_creacion";
+            this.lbl_fecha_creacion.Size = new System.Drawing.Size(120, 17);
+            this.lbl_fecha_creacion.TabIndex = 1;
+            this.lbl_fecha_creacion.Text = "Fecha creacion:";
+            // 
+            // lbl_producto
+            // 
+            this.lbl_producto.AutoSize = true;
+            this.lbl_producto.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_producto.Location = new System.Drawing.Point(17, 33);
+            this.lbl_producto.Name = "lbl_producto";
+            this.lbl_producto.Size = new System.Drawing.Size(76, 17);
+            this.lbl_producto.TabIndex = 0;
+            this.lbl_producto.Text = "Producto:";
+            // 
+            // btn_consultar
+            // 
+            this.btn_consultar.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_consultar.Image = ((System.Drawing.Image)(resources.GetObject("btn_consultar.Image")));
+            this.btn_consultar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_consultar.Location = new System.Drawing.Point(482, 17);
+            this.btn_consultar.Name = "btn_consultar";
+            this.btn_consultar.Size = new System.Drawing.Size(87, 64);
+            this.btn_consultar.TabIndex = 6;
+            this.btn_consultar.Text = "Consultar";
+            this.btn_consultar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_consultar.UseVisualStyleBackColor = true;
+            this.btn_consultar.Click += new System.EventHandler(this.btn_consultar_Click_1);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Rockwell", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 28);
+            this.label1.Location = new System.Drawing.Point(12, 134);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(454, 33);
+            this.label1.Size = new System.Drawing.Size(196, 33);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Consultar Receta y Factibilidad";
+            this.label1.Text = "Crear Receta";
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(18, 78);
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(-3, 96);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(932, 13);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(872, 10);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
-            // label3
+            // btn_produccion
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Producto:";
+            this.btn_produccion.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_produccion.Image = ((System.Drawing.Image)(resources.GetObject("btn_produccion.Image")));
+            this.btn_produccion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_produccion.Location = new System.Drawing.Point(740, 112);
+            this.btn_produccion.Name = "btn_produccion";
+            this.btn_produccion.Size = new System.Drawing.Size(108, 78);
+            this.btn_produccion.TabIndex = 19;
+            this.btn_produccion.Text = "Fases de produccion";
+            this.btn_produccion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_produccion.UseVisualStyleBackColor = true;
+            this.btn_produccion.Click += new System.EventHandler(this.btn_produccion_Click_1);
             // 
-            // label4
+            // btn_salir
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 131);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 17);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Fecha requerida:";
+            this.btn_salir.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_salir.Image = ((System.Drawing.Image)(resources.GetObject("btn_salir.Image")));
+            this.btn_salir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_salir.Location = new System.Drawing.Point(761, 16);
+            this.btn_salir.Name = "btn_salir";
+            this.btn_salir.Size = new System.Drawing.Size(87, 63);
+            this.btn_salir.TabIndex = 10;
+            this.btn_salir.Text = "Salir";
+            this.btn_salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_salir.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // btn_ingresar
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 90);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Versión BOM:";
+            this.btn_ingresar.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ingresar.Image = ((System.Drawing.Image)(resources.GetObject("btn_ingresar.Image")));
+            this.btn_ingresar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_ingresar.Location = new System.Drawing.Point(12, 17);
+            this.btn_ingresar.Name = "btn_ingresar";
+            this.btn_ingresar.Size = new System.Drawing.Size(87, 62);
+            this.btn_ingresar.TabIndex = 7;
+            this.btn_ingresar.Text = "Ingresar";
+            this.btn_ingresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_ingresar.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // btn_guardar
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(99, 44);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(251, 25);
-            this.comboBox1.TabIndex = 3;
+            this.btn_guardar.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_guardar.Image = ((System.Drawing.Image)(resources.GetObject("btn_guardar.Image")));
+            this.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_guardar.Location = new System.Drawing.Point(198, 18);
+            this.btn_guardar.Name = "btn_guardar";
+            this.btn_guardar.Size = new System.Drawing.Size(87, 62);
+            this.btn_guardar.TabIndex = 16;
+            this.btn_guardar.Text = "Guardar";
+            this.btn_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_guardar.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // btn_editar
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(129, 87);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(221, 25);
-            this.comboBox2.TabIndex = 4;
+            this.btn_editar.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_editar.Image = ((System.Drawing.Image)(resources.GetObject("btn_editar.Image")));
+            this.btn_editar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_editar.Location = new System.Drawing.Point(105, 17);
+            this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Size = new System.Drawing.Size(87, 62);
+            this.btn_editar.TabIndex = 17;
+            this.btn_editar.Text = "Editar";
+            this.btn_editar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_editar.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // btn_eliminar
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(150, 128);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker1.TabIndex = 5;
+            this.btn_eliminar.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.Image")));
+            this.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_eliminar.Location = new System.Drawing.Point(389, 17);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Size = new System.Drawing.Size(87, 64);
+            this.btn_eliminar.TabIndex = 18;
+            this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_eliminar.UseVisualStyleBackColor = true;
+            // 
+            // btn_ayuda
+            // 
+            this.btn_ayuda.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ayuda.Image = ((System.Drawing.Image)(resources.GetObject("btn_ayuda.Image")));
+            this.btn_ayuda.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_ayuda.Location = new System.Drawing.Point(668, 15);
+            this.btn_ayuda.Name = "btn_ayuda";
+            this.btn_ayuda.Size = new System.Drawing.Size(87, 64);
+            this.btn_ayuda.TabIndex = 11;
+            this.btn_ayuda.Text = "Ayuda";
+            this.btn_ayuda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_ayuda.UseVisualStyleBackColor = true;
+            // 
+            // btn_cancelar
+            // 
+            this.btn_cancelar.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("btn_cancelar.Image")));
+            this.btn_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_cancelar.Location = new System.Drawing.Point(291, 18);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(87, 64);
+            this.btn_cancelar.TabIndex = 19;
+            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_cancelar.UseVisualStyleBackColor = true;
+            // 
+            // btn_reporte
+            // 
+            this.btn_reporte.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_reporte.Image = ((System.Drawing.Image)(resources.GetObject("btn_reporte.Image")));
+            this.btn_reporte.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_reporte.Location = new System.Drawing.Point(575, 16);
+            this.btn_reporte.Name = "btn_reporte";
+            this.btn_reporte.Size = new System.Drawing.Size(87, 64);
+            this.btn_reporte.TabIndex = 20;
+            this.btn_reporte.Text = "Reporte";
+            this.btn_reporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_reporte.UseVisualStyleBackColor = true;
+            // 
+            // btn_ver_detalle
+            // 
+            this.btn_ver_detalle.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ver_detalle.Image = ((System.Drawing.Image)(resources.GetObject("btn_ver_detalle.Image")));
+            this.btn_ver_detalle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_ver_detalle.Location = new System.Drawing.Point(708, 106);
+            this.btn_ver_detalle.Name = "btn_ver_detalle";
+            this.btn_ver_detalle.Size = new System.Drawing.Size(105, 78);
+            this.btn_ver_detalle.TabIndex = 18;
+            this.btn_ver_detalle.Text = "Ver detalle";
+            this.btn_ver_detalle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_ver_detalle.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(370, 64);
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(629, 112);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 48);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Consultar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Size = new System.Drawing.Size(105, 78);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Ver recetas";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // dgv_detalle
             // 
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(565, 109);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(385, 178);
-            this.groupBox2.TabIndex = 7;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Información del BOM";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(17, 132);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 17);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Versión BOM:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(16, 90);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 17);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Fecha creación:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(17, 47);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 17);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Descripción:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(121, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 25);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(142, 88);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(208, 25);
-            this.textBox2.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(129, 130);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(221, 25);
-            this.textBox3.TabIndex = 5;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(18, 298);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(932, 238);
-            this.groupBox3.TabIndex = 8;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Materiales del BOM";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(894, 181);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.textBox6);
-            this.groupBox4.Controls.Add(this.textBox4);
-            this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.textBox5);
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(18, 550);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(932, 124);
-            this.groupBox4.TabIndex = 9;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Validación de Factibilidad";
-            // 
-            // textBox4
-            // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(150, 84);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(229, 25);
-            this.textBox4.TabIndex = 10;
-            // 
-            // textBox5
-            // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(150, 41);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(229, 25);
-            this.textBox5.TabIndex = 9;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Rockwell", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(595, 40);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 21);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Resultado:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(13, 86);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(131, 17);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Días disponibles:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(14, 43);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(131, 17);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Lead Time (días):";
-            // 
-            // textBox6
-            // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.Font = new System.Drawing.Font("Rockwell", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(599, 65);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(229, 29);
-            this.textBox6.TabIndex = 11;
-            // 
-            // button2
-            // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(896, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(54, 53);
-            this.button2.TabIndex = 10;
-            this.button2.UseVisualStyleBackColor = true;
+            this.dgv_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_detalle.Location = new System.Drawing.Point(6, 190);
+            this.dgv_detalle.Name = "dgv_detalle";
+            this.dgv_detalle.RowHeadersWidth = 51;
+            this.dgv_detalle.RowTemplate.Height = 24;
+            this.dgv_detalle.Size = new System.Drawing.Size(818, 179);
+            this.dgv_detalle.TabIndex = 19;
             // 
             // Frm_Recetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 689);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(866, 587);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_reporte);
+            this.Controls.Add(this.btn_produccion);
+            this.Controls.Add(this.btn_cancelar);
+            this.Controls.Add(this.btn_ayuda);
+            this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_consultar);
+            this.Controls.Add(this.btn_guardar);
+            this.Controls.Add(this.btn_editar);
+            this.Controls.Add(this.btn_salir);
+            this.Controls.Add(this.btn_ingresar);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Frm_Recetas";
             this.Text = "Frm_Recetas";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_detalle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,31 +396,30 @@ namespace Capa_Vista_CVRecetas
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_consultar;
+        private System.Windows.Forms.ComboBox Cbo_estado;
+        private System.Windows.Forms.ComboBox Cbo_producto;
+        private System.Windows.Forms.Label lbl_fecha_creacion;
+        private System.Windows.Forms.Label lbl_producto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox Txt_versionBOM;
+        private System.Windows.Forms.TextBox Txt_descripcion;
+        private System.Windows.Forms.Label lbl_estado;
+        private System.Windows.Forms.Button btn_salir;
+        private System.Windows.Forms.Button btn_ingresar;
+        private System.Windows.Forms.DateTimePicker dtp_fecha;
+        private System.Windows.Forms.Label lbl_bom;
+        private System.Windows.Forms.Label lbl_descripcion;
+        private System.Windows.Forms.Button btn_eliminar;
+        private System.Windows.Forms.Button btn_editar;
+        private System.Windows.Forms.Button btn_guardar;
+        private System.Windows.Forms.Button btn_ayuda;
+        private System.Windows.Forms.Button btn_produccion;
+        private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.Button btn_ver_detalle;
+        private System.Windows.Forms.Button btn_reporte;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgv_detalle;
     }
 }
