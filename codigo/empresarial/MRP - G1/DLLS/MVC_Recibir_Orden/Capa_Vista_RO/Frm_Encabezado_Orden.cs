@@ -13,31 +13,58 @@ namespace Capa_Vista_RO
 {
     public partial class Frm_Encabezado_Orden : Form
     {
-
-        //Cls_Sentencias modelo = new Cls_Sentencias();
+        // ------ KEVIN NATARENO - 0901-21-635, 28/04/2026 --------
+       
         Cls_Controlador_Orden controlador = new  Cls_Controlador_Orden ();
         public Frm_Encabezado_Orden()
         {
             InitializeComponent();
-            dgvOrdenes.CellClick += dgvOrdenes_CellClick;
+            this.Load += Frm_Encabezado_Orden_Load;
         }
         private void Frm_Encabezado_Orden_Load(object sender, EventArgs e)
         {
             CargarGrid();
+            CargarEstadosCombo();
+            dgvOrdenes.CellClick += dgvOrdenes_CellClick;
+            txtID.TextChanged += Filtrar;
+            cmbEstado.SelectedIndexChanged += Filtrar;
+        }
+        private void CargarEstadosCombo()
+        {
+            var estados = controlador.ObtenerEstados();
+
+            // Agregar opción "Todos" al inicio
+            DataRow todos = estados.NewRow();
+            todos["Pk_Id_Estado_Orden_Recibida"] = 0;
+            todos["Nombre_Estado_Orden_Recibida"] = "Todos";
+            estados.Rows.InsertAt(todos, 0);
+
+            cmbEstado.DataSource = estados;
+            cmbEstado.DisplayMember = "Nombre_Estado_Orden_Recibida";
+            cmbEstado.ValueMember = "Pk_Id_Estado_Orden_Recibida";
+            cmbEstado.SelectedIndex = 0;
         }
 
-        // 🔹 Evento Load
-      
+        private void Filtrar(object sender, EventArgs e)
+        {
+            string idExterno = txtID.Text.Trim();
+            int idEstado = Convert.ToInt32(cmbEstado.SelectedValue);
 
-        // 🔹 Cargar datos al grid
+            dgvOrdenes.DataSource = controlador.FiltrarOrdenes(idExterno, idEstado);
+            ConfigurarGrid();
+            AgregarBotonVer();
+        }
         private void CargarGrid()
         {
+            var datos = controlador.ObtenerOrdenes();
+
+            MessageBox.Show("Filas: " + datos.Rows.Count); // 👈 PRUEBA
             dgvOrdenes.DataSource = controlador.ObtenerOrdenes();
             ConfigurarGrid();
             AgregarBotonVer();
         }
 
-        // 🔹 Configuración del DataGrid
+      
         private void ConfigurarGrid()
         {
             if (dgvOrdenes.Columns.Count == 0) return;
@@ -59,14 +86,14 @@ namespace Capa_Vista_RO
             if (dgvOrdenes.Columns.Contains("Estado"))
                 dgvOrdenes.Columns["Estado"].HeaderText = "Estado";
 
-            // Estilo
+           
             dgvOrdenes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvOrdenes.ReadOnly = true;
             dgvOrdenes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvOrdenes.MultiSelect = false;
         }
 
-        // 🔹 Agregar botón "Ver"
+        
         private void AgregarBotonVer()
         {
             if (!dgvOrdenes.Columns.Contains("Ver"))
@@ -81,24 +108,27 @@ namespace Capa_Vista_RO
             }
         }
 
-        // 🔹 Evento click en el grid
+
         private void dgvOrdenes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
             if (dgvOrdenes.Columns[e.ColumnIndex].Name == "Ver")
             {
-                int idOrden = Convert.ToInt32(
-                    dgvOrdenes.Rows[e.RowIndex].Cells["Pk_Id_Orden_Recibida"].Value
-                );
+                var valor = dgvOrdenes.Rows[e.RowIndex].Cells["Pk_Id_Orden_Recibida"].Value;
 
-             
-                MessageBox.Show("Abrir detalle de orden ID: " + idOrden);
+                if (valor != DBNull.Value && valor != null)
+                {
+                    int idOrden = Convert.ToInt32(valor);
 
-                // Cuando tengas el form de detalle:
-                // FrmDetalleOrden frm = new FrmDetalleOrden(idOrden);
-                // frm.ShowDialog();
+                    Frm_Detalle_Orden frm = new Frm_Detalle_Orden(idOrden); 
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("La celda está vacía o no existe");
+                }
             }
         }
     }
-}
+}  // ------ KEVIN NATARENO - 0901-21-635, 28/04/2026 --------

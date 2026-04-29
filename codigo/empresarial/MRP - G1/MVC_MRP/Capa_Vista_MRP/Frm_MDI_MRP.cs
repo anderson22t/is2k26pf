@@ -201,7 +201,7 @@ namespace Capa_Vista_MRP
 
         private void recibirOrdenDeLogísticaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_Recibir_Orden m = new Frm_Recibir_Orden();
+            Frm_Encabezado_Orden m = new Frm_Encabezado_Orden();
             m.MdiParent = this;
             m.Show();
         }

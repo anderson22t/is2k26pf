@@ -78,12 +78,6 @@
     <Compile Include="Frm_Orden_Recibida.Designer.cs">
       <DependentUpon>Frm_Orden_Recibida.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Recibir_Orden.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Recibir_Orden.Designer.cs">
-      <DependentUpon>Frm_Recibir_Orden.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -106,9 +100,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Orden_Recibida.resx">
       <DependentUpon>Frm_Orden_Recibida.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Recibir_Orden.resx">
-      <DependentUpon>Frm_Recibir_Orden.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

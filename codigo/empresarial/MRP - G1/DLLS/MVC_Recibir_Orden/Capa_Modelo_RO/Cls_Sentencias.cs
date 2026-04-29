@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Odbc;
 
+// ------ KEVIN NATARENO - 0901-21-635, 28/04/2026 --------
 namespace Capa_Modelo_RO
 {
     public class Cls_Sentencias
@@ -26,7 +27,7 @@ namespace Capa_Modelo_RO
                         o.Id_Externo_Logistica AS Orden,
                         o.Fecha_Recepcion,
                         o.Fecha_Requerida,
-                        e.Nombre_Estado AS Estado
+                        e.Nombre_Estado_Orden_Recibida AS Estado
                     FROM Tbl_Orden_Recibida o
                     INNER JOIN Tbl_Estado_Orden_Recibida e 
                         ON o.Fk_Id_Estado_Orden_Recibida = e.Pk_Id_Estado_Orden_Recibida";
@@ -37,36 +38,21 @@ namespace Capa_Modelo_RO
 
             return dt;
         }
-
-        public DataTable ObtenerDetalleOrden(int idOrden)
+        public DataTable ObtenerEstados()
         {
             DataTable dt = new DataTable();
             using (OdbcConnection conn = conexion.AbrirConexion())
             {
                 string query = @"
-            SELECT 
-                d.Pk_Id_Detalle,
-                m.Codigo_Material                       AS Material,
-                m.Nombre_Material                       AS Descripcion,
-                u.Abreviatura_Unidad_Medida             AS [Unidad Medida],
-                d.Cantidad_Solicitada                   AS [Cantidad Solicitada]
-            FROM Tbl_Orden_Recibida_Detalle d
-            INNER JOIN Tbl_Materiales m 
-                ON d.Fk_Id_Material = m.Pk_Id_Materiales
-            INNER JOIN Tbl_Unidad_Medida u
-                ON m.Fk_Id_Unidad_Medida = u.Pk_Id_Unidad_Medida
-            WHERE d.Fk_Id_Orden_Recibida = ?";
-
-                OdbcCommand cmd = new OdbcCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", idOrden);
-
-                OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            SELECT Pk_Id_Estado_Orden_Recibida, Nombre_Estado_Orden_Recibida
+            FROM Tbl_Estado_Orden_Recibida";
+                OdbcDataAdapter da = new OdbcDataAdapter(query, conn);
                 da.Fill(dt);
             }
             return dt;
         }
 
-        public DataTable ObtenerOrdenesCombo()
+        public DataTable FiltrarOrdenes(string idExterno, int idEstado)
         {
             DataTable dt = new DataTable();
             using (OdbcConnection conn = conexion.AbrirConexion())
@@ -74,14 +60,33 @@ namespace Capa_Modelo_RO
                 string query = @"
             SELECT 
                 o.Pk_Id_Orden_Recibida,
-                o.Id_Externo_Logistica AS Orden
+                o.Id_Externo_Logistica AS Orden,
+                o.Fecha_Recepcion,
+                o.Fecha_Requerida,
+                e.Nombre_Estado_Orden_Recibida AS Estado
             FROM Tbl_Orden_Recibida o
-            ORDER BY o.Id_Externo_Logistica";
+            INNER JOIN Tbl_Estado_Orden_Recibida e 
+                ON o.Fk_Id_Estado_Orden_Recibida = e.Pk_Id_Estado_Orden_Recibida
+            WHERE (o.Id_Externo_Logistica LIKE ? OR ? = '')
+              AND (o.Fk_Id_Estado_Orden_Recibida = ? OR ? = 0)";
 
                 OdbcDataAdapter da = new OdbcDataAdapter(query, conn);
+                da.SelectCommand.Parameters.AddWithValue("?", "%" + idExterno + "%");
+                da.SelectCommand.Parameters.AddWithValue("?", idExterno);
+                da.SelectCommand.Parameters.AddWithValue("?", idEstado);
+                da.SelectCommand.Parameters.AddWithValue("?", idEstado);
                 da.Fill(dt);
             }
             return dt;
         }
+
+
+
+
+
+        // ------ KEVIN NATARENO - 0901-21-635, 28/04/2026 --------
+
+
+
     }
 }
