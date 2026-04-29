@@ -57,24 +57,22 @@ namespace Capa_Modelo_Recetas
         }
 
         // 🔹 3. Detalle BOM
-        public DataTable obtenerDetalleBOM(int idProducto)
+        public DataTable obtenerBOMGrid(int idProducto)
         {
             DataTable tabla = new DataTable();
 
             using (OdbcConnection conn = cn.AbrirConexion())
             {
                 string sql = @"
-                SELECT 
-                    d.Fk_Id_Materiales,
-                    m.Nombre_Material,
-                    d.Cantidad_Requerida_BOM_Detalle,
-                    u.Nombre_Unidad_Medida,
-                    d.Porcentaje_Merma_BOM_Detalle
-                FROM Tbl_BOM b
-                JOIN Tbl_BOM_Detalle d ON b.Pk_Id_BOM = d.Fk_Id_BOM
-                JOIN Tbl_Materiales m ON d.Fk_Id_Materiales = m.Pk_Id_Materiales
-                JOIN Tbl_Unidad_Medida u ON d.Fk_Id_Unidad_Medida = u.Pk_Id_Unidad_Medida
-                WHERE b.Fk_Id_Material = ?;";
+        SELECT 
+            b.Pk_Id_BOM AS ID,
+            b.Descripcion_BOM AS Descripcion,
+            b.Version_BOM AS Version,
+            b.Fecha_Creacion_BOM AS Fecha,
+            e.Nombre_Estado_BOM AS Estado
+        FROM Tbl_BOM b
+        JOIN Tbl_Estado_BOM e ON b.Fk_Id_Estado_BOM = e.Pk_Id_Estado_BOM
+        WHERE b.Fk_Id_Material = ?;";
 
                 OdbcCommand cmd = new OdbcCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", idProducto);
@@ -100,6 +98,51 @@ namespace Capa_Modelo_Recetas
             }
 
             return tabla;
+        }
+
+        // cesar santizo 0901-22-5215 boton guardar//
+        public void insertarBOM(string descripcion, string version, DateTime fecha, int estado, int material)
+        {
+            using (OdbcConnection conn = cn.AbrirConexion())
+            {
+                string sql = @"INSERT INTO Tbl_BOM
+        (Descripcion_BOM, Version_BOM, Fecha_Creacion_BOM, Fk_Id_Estado_BOM, Fk_Id_Material)
+        VALUES (?, ?, ?, ?, ?)";
+
+                OdbcCommand cmd = new OdbcCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@descripcion", descripcion);
+                cmd.Parameters.AddWithValue("@version", version);
+                cmd.Parameters.AddWithValue("@fecha", fecha);
+                cmd.Parameters.AddWithValue("@estado", estado);
+                cmd.Parameters.AddWithValue("@material", material);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // cesar santizo 0901-22-5215 boton editar//
+        public void editarBOM(int idBOM, string descripcion, string version, DateTime fecha, int estado)
+        {
+            using (OdbcConnection conn = cn.AbrirConexion())
+            {
+                string sql = @"UPDATE Tbl_BOM SET
+        Descripcion_BOM = ?,
+        Version_BOM = ?,
+        Fecha_Creacion_BOM = ?,
+        Fk_Id_Estado_BOM = ?
+        WHERE Pk_Id_BOM = ?";
+
+                OdbcCommand cmd = new OdbcCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@descripcion", descripcion);
+                cmd.Parameters.AddWithValue("@version", version);
+                cmd.Parameters.AddWithValue("@fecha", fecha);
+                cmd.Parameters.AddWithValue("@estado", estado);
+                cmd.Parameters.AddWithValue("@id", idBOM);
+
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

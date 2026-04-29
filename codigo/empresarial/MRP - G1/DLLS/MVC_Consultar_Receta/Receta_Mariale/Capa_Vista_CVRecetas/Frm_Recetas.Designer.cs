@@ -88,12 +88,13 @@ namespace Capa_Vista_CVRecetas
             // 
             this.dgv_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_detalle.Location = new System.Drawing.Point(4, 154);
-            this.dgv_detalle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_detalle.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_detalle.Name = "dgv_detalle";
             this.dgv_detalle.RowHeadersWidth = 51;
             this.dgv_detalle.RowTemplate.Height = 24;
             this.dgv_detalle.Size = new System.Drawing.Size(614, 145);
             this.dgv_detalle.TabIndex = 19;
+            this.dgv_detalle.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_detalle_CellContentClick);
             this.dgv_detalle.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_detalle_CellContentClick);
             // 
             // btn_ver_detalle
@@ -102,7 +103,7 @@ namespace Capa_Vista_CVRecetas
             this.btn_ver_detalle.Image = ((System.Drawing.Image)(resources.GetObject("btn_ver_detalle.Image")));
             this.btn_ver_detalle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_ver_detalle.Location = new System.Drawing.Point(531, 86);
-            this.btn_ver_detalle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_ver_detalle.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ver_detalle.Name = "btn_ver_detalle";
             this.btn_ver_detalle.Size = new System.Drawing.Size(79, 63);
             this.btn_ver_detalle.TabIndex = 18;
@@ -126,7 +127,7 @@ namespace Capa_Vista_CVRecetas
             this.Txt_versionBOM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Txt_versionBOM.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_versionBOM.Location = new System.Drawing.Point(444, 59);
-            this.Txt_versionBOM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Txt_versionBOM.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_versionBOM.Name = "Txt_versionBOM";
             this.Txt_versionBOM.Size = new System.Drawing.Size(166, 22);
             this.Txt_versionBOM.TabIndex = 5;
@@ -147,7 +148,7 @@ namespace Capa_Vista_CVRecetas
             this.dtp_fecha.CalendarFont = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_fecha.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_fecha.Location = new System.Drawing.Point(112, 93);
-            this.dtp_fecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtp_fecha.Margin = new System.Windows.Forms.Padding(2);
             this.dtp_fecha.Name = "dtp_fecha";
             this.dtp_fecha.Size = new System.Drawing.Size(151, 20);
             this.dtp_fecha.TabIndex = 5;
@@ -157,7 +158,7 @@ namespace Capa_Vista_CVRecetas
             this.Txt_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Txt_descripcion.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_descripcion.Location = new System.Drawing.Point(438, 24);
-            this.Txt_descripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Txt_descripcion.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_descripcion.Name = "Txt_descripcion";
             this.Txt_descripcion.Size = new System.Drawing.Size(172, 22);
             this.Txt_descripcion.TabIndex = 3;
@@ -167,7 +168,7 @@ namespace Capa_Vista_CVRecetas
             this.Cbo_estado.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cbo_estado.FormattingEnabled = true;
             this.Cbo_estado.Location = new System.Drawing.Point(97, 59);
-            this.Cbo_estado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Cbo_estado.Margin = new System.Windows.Forms.Padding(2);
             this.Cbo_estado.Name = "Cbo_estado";
             this.Cbo_estado.Size = new System.Drawing.Size(167, 22);
             this.Cbo_estado.TabIndex = 4;
@@ -177,7 +178,7 @@ namespace Capa_Vista_CVRecetas
             this.Cbo_producto.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cbo_producto.FormattingEnabled = true;
             this.Cbo_producto.Location = new System.Drawing.Point(74, 24);
-            this.Cbo_producto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Cbo_producto.Margin = new System.Windows.Forms.Padding(2);
             this.Cbo_producto.Name = "Cbo_producto";
             this.Cbo_producto.Size = new System.Drawing.Size(189, 22);
             this.Cbo_producto.TabIndex = 3;
@@ -221,7 +222,7 @@ namespace Capa_Vista_CVRecetas
             this.btn_consultar.Image = ((System.Drawing.Image)(resources.GetObject("btn_consultar.Image")));
             this.btn_consultar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_consultar.Location = new System.Drawing.Point(362, 14);
-            this.btn_consultar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_consultar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_consultar.Name = "btn_consultar";
             this.btn_consultar.Size = new System.Drawing.Size(65, 52);
             this.btn_consultar.TabIndex = 6;
@@ -246,7 +247,7 @@ namespace Capa_Vista_CVRecetas
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Highlight;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(-2, 78);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(654, 8);
             this.flowLayoutPanel1.TabIndex = 2;
@@ -257,7 +258,7 @@ namespace Capa_Vista_CVRecetas
             this.btn_produccion.Image = ((System.Drawing.Image)(resources.GetObject("btn_produccion.Image")));
             this.btn_produccion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_produccion.Location = new System.Drawing.Point(555, 91);
-            this.btn_produccion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_produccion.Margin = new System.Windows.Forms.Padding(2);
             this.btn_produccion.Name = "btn_produccion";
             this.btn_produccion.Size = new System.Drawing.Size(81, 63);
             this.btn_produccion.TabIndex = 19;
@@ -272,7 +273,7 @@ namespace Capa_Vista_CVRecetas
             this.btn_salir.Image = ((System.Drawing.Image)(resources.GetObject("btn_salir.Image")));
             this.btn_salir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_salir.Location = new System.Drawing.Point(571, 13);
-            this.btn_salir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_salir.Margin = new System.Windows.Forms.Padding(2);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(65, 51);
             this.btn_salir.TabIndex = 10;
@@ -286,7 +287,7 @@ namespace Capa_Vista_CVRecetas
             this.btn_ingresar.Image = ((System.Drawing.Image)(resources.GetObject("btn_ingresar.Image")));
             this.btn_ingresar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_ingresar.Location = new System.Drawing.Point(9, 14);
-            this.btn_ingresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_ingresar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ingresar.Name = "btn_ingresar";
             this.btn_ingresar.Size = new System.Drawing.Size(65, 50);
             this.btn_ingresar.TabIndex = 7;
@@ -300,13 +301,14 @@ namespace Capa_Vista_CVRecetas
             this.btn_guardar.Image = ((System.Drawing.Image)(resources.GetObject("btn_guardar.Image")));
             this.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_guardar.Location = new System.Drawing.Point(148, 15);
-            this.btn_guardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_guardar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(65, 50);
             this.btn_guardar.TabIndex = 16;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_editar
             // 
@@ -314,13 +316,14 @@ namespace Capa_Vista_CVRecetas
             this.btn_editar.Image = ((System.Drawing.Image)(resources.GetObject("btn_editar.Image")));
             this.btn_editar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_editar.Location = new System.Drawing.Point(79, 14);
-            this.btn_editar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_editar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_editar.Name = "btn_editar";
             this.btn_editar.Size = new System.Drawing.Size(65, 50);
             this.btn_editar.TabIndex = 17;
             this.btn_editar.Text = "Editar";
             this.btn_editar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_eliminar
             // 
@@ -328,7 +331,7 @@ namespace Capa_Vista_CVRecetas
             this.btn_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.Image")));
             this.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_eliminar.Location = new System.Drawing.Point(292, 14);
-            this.btn_eliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_eliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(65, 52);
             this.btn_eliminar.TabIndex = 18;
@@ -342,7 +345,7 @@ namespace Capa_Vista_CVRecetas
             this.btn_ayuda.Image = ((System.Drawing.Image)(resources.GetObject("btn_ayuda.Image")));
             this.btn_ayuda.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_ayuda.Location = new System.Drawing.Point(501, 12);
-            this.btn_ayuda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_ayuda.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ayuda.Name = "btn_ayuda";
             this.btn_ayuda.Size = new System.Drawing.Size(65, 52);
             this.btn_ayuda.TabIndex = 11;
@@ -356,7 +359,7 @@ namespace Capa_Vista_CVRecetas
             this.btn_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("btn_cancelar.Image")));
             this.btn_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_cancelar.Location = new System.Drawing.Point(218, 15);
-            this.btn_cancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_cancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(65, 52);
             this.btn_cancelar.TabIndex = 19;
@@ -370,7 +373,7 @@ namespace Capa_Vista_CVRecetas
             this.btn_reporte.Image = ((System.Drawing.Image)(resources.GetObject("btn_reporte.Image")));
             this.btn_reporte.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_reporte.Location = new System.Drawing.Point(431, 13);
-            this.btn_reporte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_reporte.Margin = new System.Windows.Forms.Padding(2);
             this.btn_reporte.Name = "btn_reporte";
             this.btn_reporte.Size = new System.Drawing.Size(65, 52);
             this.btn_reporte.TabIndex = 20;
@@ -384,7 +387,7 @@ namespace Capa_Vista_CVRecetas
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.Location = new System.Drawing.Point(472, 91);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(79, 63);
             this.button1.TabIndex = 19;
@@ -411,7 +414,7 @@ namespace Capa_Vista_CVRecetas
             this.Controls.Add(this.btn_ingresar);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Frm_Recetas";
             this.Text = "Frm_Recetas";
             this.groupBox1.ResumeLayout(false);
