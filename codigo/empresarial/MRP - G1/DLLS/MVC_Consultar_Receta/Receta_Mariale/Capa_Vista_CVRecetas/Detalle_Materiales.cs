@@ -7,24 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Capa_Vista_Fases;
 
 namespace Capa_Vista_CVRecetas
 {
-    public partial class Frm_Recetas : Form
+    public partial class Detalle_Materiales : Form
     {
-        public Frm_Recetas()
+        public Detalle_Materiales()
         {
             InitializeComponent();
-
-        }
-
-      
-
-        private void btn_produccion_Click_1(object sender, EventArgs e)
-        {
-            Frm_Fases_Produccion m = new Frm_Fases_Produccion();
-            m.Show();
         }
     }
 }
