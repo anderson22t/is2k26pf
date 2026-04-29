@@ -72,6 +72,7 @@ namespace Capa_Vista_RO
             CargarDatosOrden(idOrden);
         }
 
+
         private void CargarMateriales(int idOrden)
         {
             DataTable dt = _controlador.ObtenerDetalleOrden(idOrden);
@@ -79,17 +80,17 @@ namespace Capa_Vista_RO
             if (dt.Rows.Count == 0)
             {
                 Dgv_Materiales.DataSource = null;
+                label10.Text = "0.00";
                 return;
             }
 
-            // ✅ Manejar nulls en todas las columnas antes de mostrar
+            // Manejar nulls en todas las columnas antes de mostrar
             foreach (DataRow row in dt.Rows)
             {
                 foreach (DataColumn col in dt.Columns)
                 {
                     if (row[col] == DBNull.Value)
                     {
-                        // Si es numérica asigna 0, si es texto asigna vacío
                         if (col.DataType == typeof(decimal) ||
                             col.DataType == typeof(int) ||
                             col.DataType == typeof(double))
@@ -107,15 +108,25 @@ namespace Capa_Vista_RO
 
             dt.Columns["Numero"].SetOrdinal(0);
 
-            Dgv_Materiales.AutoGenerateColumns = true;//
+            Dgv_Materiales.AutoGenerateColumns = true;
             Dgv_Materiales.DataSource = dt;
 
             // Encabezados en español
             Dgv_Materiales.Columns["Numero"].HeaderText = "#";
-            Dgv_Materiales.Columns["Id_Material"].HeaderText = "ID Material";       
-            Dgv_Materiales.Columns["Nombre_Material"].HeaderText = "Nombre Material";  
+            Dgv_Materiales.Columns["Id_Material"].HeaderText = "ID Material";
+            Dgv_Materiales.Columns["Nombre_Material"].HeaderText = "Nombre Material";
             Dgv_Materiales.Columns["UnidadMedida"].HeaderText = "Unidad de Medida";
             Dgv_Materiales.Columns["CantidadSolicitada"].HeaderText = "Cantidad Solicitada";
+
+            // ✅ Hacer la columna Nombre_Material más ancha
+            Dgv_Materiales.Columns["Nombre_Material"].Width = 200;
+
+            // ✅ Sumar CantidadSolicitada y mostrarlo en label10
+            decimal total = 0;
+            foreach (DataRow row in dt.Rows)
+                total += Convert.ToDecimal(row["CantidadSolicitada"]);
+
+            label10.Text = $"{total:N2}";
         }
 
         private void CargarDatosOrden(int idOrden)

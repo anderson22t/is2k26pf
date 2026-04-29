@@ -128,9 +128,9 @@
             this.label10.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label10.Location = new System.Drawing.Point(687, 430);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 19);
+            this.label10.Size = new System.Drawing.Size(41, 19);
             this.label10.TabIndex = 29;
-            this.label10.Text = "Q0.00";
+            this.label10.Text = "0.00";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label9
