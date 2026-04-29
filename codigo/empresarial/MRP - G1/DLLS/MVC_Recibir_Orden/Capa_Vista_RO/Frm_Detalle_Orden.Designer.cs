@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Detalle_Orden));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Dgv_Materiales = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Rtxt_Observaciones = new System.Windows.Forms.RichTextBox();
+            this.Dtp_Requerida = new System.Windows.Forms.DateTimePicker();
+            this.Dtp_Recepcion = new System.Windows.Forms.DateTimePicker();
+            this.Cmb_Estado = new System.Windows.Forms.ComboBox();
+            this.Cmb_ID = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -68,9 +68,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Materiales)).BeginInit();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -86,6 +86,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1139, 528);
             this.panel1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.flowLayoutPanel3);
+            this.panel3.Controls.Add(this.label10);
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.Dgv_Materiales);
+            this.panel3.Location = new System.Drawing.Point(351, 20);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(769, 476);
+            this.panel3.TabIndex = 14;
             // 
             // flowLayoutPanel3
             // 
@@ -109,18 +121,6 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Materiales de la Orden";
             // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.flowLayoutPanel3);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Location = new System.Drawing.Point(351, 20);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(769, 476);
-            this.panel3.TabIndex = 14;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -128,9 +128,10 @@
             this.label10.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label10.Location = new System.Drawing.Point(687, 430);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 19);
+            this.label10.Size = new System.Drawing.Size(41, 19);
             this.label10.TabIndex = 29;
-            this.label10.Text = "Q0.00";
+            this.label10.Text = "0.00";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label9
             // 
@@ -142,22 +143,26 @@
             this.label9.TabIndex = 28;
             this.label9.Text = "Total:";
             // 
-            // dataGridView1
+            // Dgv_Materiales
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 75);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(713, 319);
-            this.dataGridView1.TabIndex = 0;
+            this.Dgv_Materiales.AllowUserToAddRows = false;
+            this.Dgv_Materiales.AllowUserToDeleteRows = false;
+            this.Dgv_Materiales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_Materiales.Location = new System.Drawing.Point(28, 75);
+            this.Dgv_Materiales.Name = "Dgv_Materiales";
+            this.Dgv_Materiales.ReadOnly = true;
+            this.Dgv_Materiales.Size = new System.Drawing.Size(713, 319);
+            this.Dgv_Materiales.TabIndex = 0;
+            this.Dgv_Materiales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Materiales_CellContentClick);
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.richTextBox1);
-            this.panel2.Controls.Add(this.dateTimePicker2);
-            this.panel2.Controls.Add(this.dateTimePicker1);
-            this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.Rtxt_Observaciones);
+            this.panel2.Controls.Add(this.Dtp_Requerida);
+            this.panel2.Controls.Add(this.Dtp_Recepcion);
+            this.panel2.Controls.Add(this.Cmb_Estado);
+            this.panel2.Controls.Add(this.Cmb_ID);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
@@ -169,43 +174,45 @@
             this.panel2.Size = new System.Drawing.Size(309, 476);
             this.panel2.TabIndex = 13;
             // 
-            // richTextBox1
+            // Rtxt_Observaciones
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(18, 307);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(273, 87);
-            this.richTextBox1.TabIndex = 27;
-            this.richTextBox1.Text = "";
+            this.Rtxt_Observaciones.Location = new System.Drawing.Point(18, 307);
+            this.Rtxt_Observaciones.Name = "Rtxt_Observaciones";
+            this.Rtxt_Observaciones.Size = new System.Drawing.Size(273, 87);
+            this.Rtxt_Observaciones.TabIndex = 27;
+            this.Rtxt_Observaciones.Text = "";
             // 
-            // dateTimePicker2
+            // Dtp_Requerida
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(18, 245);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(273, 20);
-            this.dateTimePicker2.TabIndex = 25;
+            this.Dtp_Requerida.Location = new System.Drawing.Point(18, 245);
+            this.Dtp_Requerida.Name = "Dtp_Requerida";
+            this.Dtp_Requerida.Size = new System.Drawing.Size(273, 20);
+            this.Dtp_Requerida.TabIndex = 25;
             // 
-            // dateTimePicker1
+            // Dtp_Recepcion
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(18, 196);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(273, 20);
-            this.dateTimePicker1.TabIndex = 24;
+            this.Dtp_Recepcion.Location = new System.Drawing.Point(18, 196);
+            this.Dtp_Recepcion.Name = "Dtp_Recepcion";
+            this.Dtp_Recepcion.Size = new System.Drawing.Size(273, 20);
+            this.Dtp_Recepcion.TabIndex = 24;
             // 
-            // comboBox2
+            // Cmb_Estado
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(18, 147);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(273, 21);
-            this.comboBox2.TabIndex = 23;
+            this.Cmb_Estado.FormattingEnabled = true;
+            this.Cmb_Estado.Location = new System.Drawing.Point(18, 147);
+            this.Cmb_Estado.Name = "Cmb_Estado";
+            this.Cmb_Estado.Size = new System.Drawing.Size(273, 21);
+            this.Cmb_Estado.TabIndex = 23;
+            this.Cmb_Estado.SelectedIndexChanged += new System.EventHandler(this.label2_Click);
             // 
-            // comboBox1
+            // Cmb_ID
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(18, 98);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(273, 21);
-            this.comboBox1.TabIndex = 22;
+            this.Cmb_ID.FormattingEnabled = true;
+            this.Cmb_ID.Location = new System.Drawing.Point(18, 98);
+            this.Cmb_ID.Name = "Cmb_ID";
+            this.Cmb_ID.Size = new System.Drawing.Size(273, 21);
+            this.Cmb_ID.TabIndex = 22;
+            this.Cmb_ID.SelectedIndexChanged += new System.EventHandler(this.Cmb_ID_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -505,13 +512,14 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Name = "Frm_Detalle_Orden";
-            this.Text = "Frm_Detalle_Orden";
+            this.Text = "Detalle de Orden Recibidas - 714";
+            this.Load += new System.EventHandler(this.Frm_Detalle_Orden_Load);
             this.panel1.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Materiales)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -536,12 +544,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView Dgv_Materiales;
+        private System.Windows.Forms.RichTextBox Rtxt_Observaciones;
+        private System.Windows.Forms.DateTimePicker Dtp_Requerida;
+        private System.Windows.Forms.DateTimePicker Dtp_Recepcion;
+        private System.Windows.Forms.ComboBox Cmb_Estado;
+        private System.Windows.Forms.ComboBox Cmb_ID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
