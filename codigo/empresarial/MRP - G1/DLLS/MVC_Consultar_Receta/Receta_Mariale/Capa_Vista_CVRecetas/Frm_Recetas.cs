@@ -79,5 +79,10 @@ namespace Capa_Vista_CVRecetas
             DataTable dtDetalle = con.cargarDetalleBOM(idProducto);
             dgv_detalle.DataSource = dtDetalle;
         }
+
+        private void dgv_detalle_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
