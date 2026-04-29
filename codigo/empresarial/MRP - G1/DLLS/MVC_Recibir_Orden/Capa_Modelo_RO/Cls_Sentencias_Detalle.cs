@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Odbc;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Odbc;
 using Capa_Modelo_Seguridad;
 
 namespace Capa_Modelo_RO
 {
+    // ------ LETICIA SONTAY - 9959-21-9664, 28/04/2026 --------
     public class Cls_Sentencias_Detalle
     {
         private readonly Cls_Conexion conexion = new Cls_Conexion();
+
         public DataTable ObtenerDetalleOrden(int idOrden)
         {
             DataTable dt = new DataTable();
@@ -19,11 +17,10 @@ namespace Capa_Modelo_RO
             {
                 string query = @"
             SELECT 
-                d.Pk_Id_Detalle,
-                m.Codigo_Material                       AS Material,
-                m.Nombre_Material                       AS Descripcion,
-                u.Abreviatura_Unidad_Medida             AS [Unidad Medida],
-                d.Cantidad_Solicitada                   AS [Cantidad Solicitada]
+                m.Codigo_Material               AS Id_Material,
+                m.Nombre_Material               AS Nombre_Material,
+                u.Abreviatura_Unidad_Medida     AS UnidadMedida,
+                d.Cantidad_Solicitada           AS CantidadSolicitada
             FROM Tbl_Orden_Recibida_Detalle d
             INNER JOIN Tbl_Materiales m 
                 ON d.Fk_Id_Material = m.Pk_Id_Materiales
@@ -32,26 +29,69 @@ namespace Capa_Modelo_RO
             WHERE d.Fk_Id_Orden_Recibida = ?";
 
                 OdbcCommand cmd = new OdbcCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", idOrden);
-
+                cmd.Parameters.AddWithValue("?", idOrden);
                 OdbcDataAdapter da = new OdbcDataAdapter(cmd);
                 da.Fill(dt);
             }
             return dt;
         }
 
-
         public DataTable ObtenerOrdenesCombo()
         {
             DataTable dt = new DataTable();
             using (OdbcConnection conn = conexion.AbrirConexion())
             {
+                // ✅ Aliases limpios
                 string query = @"
-            SELECT 
-                o.Pk_Id_Orden_Recibida,
-                o.Id_Externo_Logistica AS Orden
-            FROM Tbl_Orden_Recibida o
-            ORDER BY o.Id_Externo_Logistica";
+                    SELECT 
+                        o.Pk_Id_Orden_Recibida  AS IdOrden,
+                        o.Id_Externo_Logistica  AS Orden
+                    FROM Tbl_Orden_Recibida o
+                    ORDER BY o.Id_Externo_Logistica";
+
+                OdbcDataAdapter da = new OdbcDataAdapter(query, conn);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
+        public DataTable ObtenerOrdenPorId(int idOrden)
+        {
+            DataTable dt = new DataTable();
+            using (OdbcConnection conn = conexion.AbrirConexion())
+            {
+                // ✅ Aliases limpios
+                string query = @"
+                    SELECT 
+                        o.Pk_Id_Orden_Recibida              AS IdOrden,
+                        o.Id_Externo_Logistica              AS Orden,
+                        o.Fk_Id_Estado_Orden_Recibida       AS IdEstado,
+                        o.Fecha_Recepcion                   AS FechaRecepcion,
+                        o.Fecha_Requerida                   AS FechaRequerida,
+                        o.Observacion                       AS Observacion
+                    FROM Tbl_Orden_Recibida o
+                    WHERE o.Pk_Id_Orden_Recibida = ?";
+
+                OdbcCommand cmd = new OdbcCommand(query, conn);
+                cmd.Parameters.AddWithValue("?", idOrden); // ✅ ODBC usa ?
+                OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
+        // ✅ Nuevo: cargar estados para el Cmb_Estado
+        public DataTable ObtenerEstadosOrden()
+        {
+            DataTable dt = new DataTable();
+            using (OdbcConnection conn = conexion.AbrirConexion())
+            {
+                string query = @"
+                    SELECT 
+                        e.Pk_Id_Estado_Orden_Recibida   AS IdEstado,
+                        e.Nombre_Estado_Orden_Recibida  AS NombreEstado
+                    FROM Tbl_Estado_Orden_Recibida e
+                    ORDER BY e.Nombre_Estado_Orden_Recibida";
 
                 OdbcDataAdapter da = new OdbcDataAdapter(query, conn);
                 da.Fill(dt);
@@ -59,4 +99,5 @@ namespace Capa_Modelo_RO
             return dt;
         }
     }
+    // ------ LETICIA SONTAY - 9959-21-9664, 28/04/2026 --------
 }
