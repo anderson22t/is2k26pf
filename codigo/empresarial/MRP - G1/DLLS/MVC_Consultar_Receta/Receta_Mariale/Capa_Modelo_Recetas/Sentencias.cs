@@ -8,7 +8,7 @@ namespace Capa_Modelo_Recetas
     {
         Conexion cn = new Conexion();
 
-        // 🔹 1. Productos terminados
+       
         public DataTable obtenerProductosTerminados()
         {
             DataTable tabla = new DataTable();
@@ -29,7 +29,7 @@ namespace Capa_Modelo_Recetas
             return tabla;
         }
 
-        // 🔹 2. Cabecera BOM
+        
         public DataTable obtenerBOM(int idProducto)
         {
             DataTable tabla = new DataTable();
@@ -56,7 +56,7 @@ namespace Capa_Modelo_Recetas
             return tabla;
         }
 
-        // 🔹 3. Detalle BOM
+
         public DataTable obtenerBOMGrid(int idProducto)
         {
             DataTable tabla = new DataTable();
@@ -84,7 +84,7 @@ namespace Capa_Modelo_Recetas
             return tabla;
         }
 
-        // 🔹 4. Estados
+       
         public DataTable obtenerEstados()
         {
             DataTable tabla = new DataTable();
@@ -144,5 +144,39 @@ namespace Capa_Modelo_Recetas
                 cmd.ExecuteNonQuery();
             }
         }
+
+        // maria morales 0901-22-1226 boton eliminar
+        public void eliminarBOM(int idBOM)
+        {
+            using (OdbcConnection conn = cn.AbrirConexion())
+            {
+                
+                OdbcTransaction trans = conn.BeginTransaction();
+
+                try
+                {
+                    
+                    string sqlDetalle = "DELETE FROM Tbl_BOM_Detalle WHERE Fk_Id_BOM = ?";
+                    OdbcCommand cmdDetalle = new OdbcCommand(sqlDetalle, conn, trans);
+                    cmdDetalle.Parameters.AddWithValue("@id", idBOM);
+                    cmdDetalle.ExecuteNonQuery();
+
+                 
+                    string sqlBOM = "DELETE FROM Tbl_BOM WHERE Pk_Id_BOM = ?";
+                    OdbcCommand cmdBOM = new OdbcCommand(sqlBOM, conn, trans);
+                    cmdBOM.Parameters.AddWithValue("@id", idBOM);
+                    cmdBOM.ExecuteNonQuery();
+
+                   
+                    trans.Commit();
+                }
+                catch (Exception)
+                {
+                    trans.Rollback();
+                    throw;
+                }
+            }
+        }
+
     }
 }

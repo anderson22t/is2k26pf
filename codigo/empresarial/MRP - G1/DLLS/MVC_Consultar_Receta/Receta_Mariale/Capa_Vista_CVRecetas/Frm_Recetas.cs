@@ -19,7 +19,7 @@ namespace Capa_Vista_CVRecetas
             cargarCombos();
         }
 
-        // 🔹 Cargar combos
+       
         public void cargarCombos()
         {
             // Productos terminados
@@ -54,7 +54,7 @@ namespace Capa_Vista_CVRecetas
             if (!int.TryParse(Cbo_producto.SelectedValue.ToString(), out idProducto))
                 return;
 
-            // 🔹 1. CABECERA BOM
+         
             DataTable dtBOM = con.cargarBOM(idProducto);
 
             if (dtBOM.Rows.Count == 0)
@@ -71,7 +71,7 @@ namespace Capa_Vista_CVRecetas
                 return;
             }
 
-            // 🔹 llenar cabecera
+            
             idBOM = Convert.ToInt32(dtBOM.Rows[0]["Pk_Id_BOM"]);
 
             Txt_descripcion.Text = dtBOM.Rows[0]["Descripcion_BOM"].ToString();
@@ -79,7 +79,7 @@ namespace Capa_Vista_CVRecetas
             dtp_fecha.Value = Convert.ToDateTime(dtBOM.Rows[0]["Fecha_Creacion_BOM"]);
             Cbo_estado.SelectedValue = dtBOM.Rows[0]["Fk_Id_Estado_BOM"];
 
-            // 🔹 2. DETALLE
+        
             DataTable dtGrid = con.cargarBOMGrid(idProducto);
             dgv_detalle.DataSource = dtGrid;
         }
@@ -173,9 +173,57 @@ namespace Capa_Vista_CVRecetas
             }
         }
 
-        private void dgv_detalle_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btn_ver_detalle_Click(object sender, EventArgs e)
         {
+            Detalle_Materiales m = new Detalle_Materiales();
+            m.Show();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Ver_Recetas m = new Ver_Recetas();
+            m.Show();
+        }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (idBOM == 0)
+                {
+                    MessageBox.Show("Seleccione una receta para eliminar");
+                    return;
+                }
+
+                DialogResult resp = MessageBox.Show(
+                    "¿Está seguro que desea eliminar esta receta?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (resp == DialogResult.Yes)
+                {
+                    con.eliminarBOM(idBOM);
+
+                    MessageBox.Show("Receta eliminada correctamente");
+
+                    // limpiar campos
+                    Txt_descripcion.Clear();
+                    Txt_versionBOM.Clear();
+                    dtp_fecha.Value = DateTime.Now;
+                    Cbo_estado.SelectedIndex = -1;
+                    dgv_detalle.DataSource = null;
+
+                    idBOM = 0;
+
+                    recargarDatos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar: " + ex.Message);
+            }
         }
     }
 }
