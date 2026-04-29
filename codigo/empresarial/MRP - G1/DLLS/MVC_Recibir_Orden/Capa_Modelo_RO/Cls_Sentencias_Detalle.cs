@@ -41,7 +41,7 @@ namespace Capa_Modelo_RO
             DataTable dt = new DataTable();
             using (OdbcConnection conn = conexion.AbrirConexion())
             {
-                // ✅ Aliases limpios
+                
                 string query = @"
                     SELECT 
                         o.Pk_Id_Orden_Recibida  AS IdOrden,
@@ -60,7 +60,7 @@ namespace Capa_Modelo_RO
             DataTable dt = new DataTable();
             using (OdbcConnection conn = conexion.AbrirConexion())
             {
-                // ✅ Aliases limpios
+                
                 string query = @"
                     SELECT 
                         o.Pk_Id_Orden_Recibida              AS IdOrden,
@@ -73,14 +73,14 @@ namespace Capa_Modelo_RO
                     WHERE o.Pk_Id_Orden_Recibida = ?";
 
                 OdbcCommand cmd = new OdbcCommand(query, conn);
-                cmd.Parameters.AddWithValue("?", idOrden); // ✅ ODBC usa ?
+                cmd.Parameters.AddWithValue("?", idOrden); 
                 OdbcDataAdapter da = new OdbcDataAdapter(cmd);
                 da.Fill(dt);
             }
             return dt;
         }
 
-        // ✅ Nuevo: cargar estados para el Cmb_Estado
+        
         public DataTable ObtenerEstadosOrden()
         {
             DataTable dt = new DataTable();

@@ -46,7 +46,6 @@ namespace Capa_Controlador_RO
             return detalle.ObtenerOrdenPorId(idOrden);
         }
 
-        // ✅ Método nuevo
         public DataTable ObtenerEstadosOrden()
         {
             return detalle.ObtenerEstadosOrden();
