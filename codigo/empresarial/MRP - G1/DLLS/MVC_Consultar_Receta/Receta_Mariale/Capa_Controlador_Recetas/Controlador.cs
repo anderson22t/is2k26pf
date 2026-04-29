@@ -39,5 +39,11 @@ namespace Capa_Controlador_Recetas
         {
             sen.editarBOM(idBOM, descripcion, version, fecha, estado);
         }
+
+        // eliminar maria morales 0901-22-1226
+        public void eliminarBOM(int idBOM)
+        {
+            sen.eliminarBOM(idBOM);
+        }
     }
 }
