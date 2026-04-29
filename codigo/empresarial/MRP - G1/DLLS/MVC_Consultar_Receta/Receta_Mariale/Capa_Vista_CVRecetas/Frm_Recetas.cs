@@ -11,6 +11,8 @@ namespace Capa_Vista_CVRecetas
     {
         Controlador con = new Controlador();
 
+        //Variables Goblas cesar santizo 0901-22-5215
+        int idBOM = 0;
         public Frm_Recetas()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace Capa_Vista_CVRecetas
             Cbo_estado.SelectedIndex = -1;
         }
 
-        
+
         private void btn_produccion_Click_1(object sender, EventArgs e)
         {
             Frm_Fases_Produccion m = new Frm_Fases_Produccion();
@@ -70,14 +72,105 @@ namespace Capa_Vista_CVRecetas
             }
 
             // 🔹 llenar cabecera
+            idBOM = Convert.ToInt32(dtBOM.Rows[0]["Pk_Id_BOM"]);
+
             Txt_descripcion.Text = dtBOM.Rows[0]["Descripcion_BOM"].ToString();
             Txt_versionBOM.Text = dtBOM.Rows[0]["Version_BOM"].ToString();
             dtp_fecha.Value = Convert.ToDateTime(dtBOM.Rows[0]["Fecha_Creacion_BOM"]);
             Cbo_estado.SelectedValue = dtBOM.Rows[0]["Fk_Id_Estado_BOM"];
 
             // 🔹 2. DETALLE
-            DataTable dtDetalle = con.cargarDetalleBOM(idProducto);
-            dgv_detalle.DataSource = dtDetalle;
+            DataTable dtGrid = con.cargarBOMGrid(idProducto);
+            dgv_detalle.DataSource = dtGrid;
+        }
+
+        //boton de guardar cesar santizo 0901-22-5215
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idProducto = Convert.ToInt32(Cbo_producto.SelectedValue);
+                string descripcion = Txt_descripcion.Text;
+                string version = Txt_versionBOM.Text;
+                DateTime fecha = dtp_fecha.Value;
+                int estado = Convert.ToInt32(Cbo_estado.SelectedValue);
+
+                con.guardarBOM(descripcion, version, fecha, estado, idProducto);
+
+                MessageBox.Show("Receta guardada correctamente");
+                recargarDatos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar: " + ex.Message);
+            }
+        }
+        //boton editar Cesar santizo 0901-22-5215
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (idBOM == 0)
+                {
+                    MessageBox.Show("Primero consulte una receta");
+                    return;
+                }
+
+                string descripcion = Txt_descripcion.Text;
+                string version = Txt_versionBOM.Text;
+                DateTime fecha = dtp_fecha.Value;
+                int estado = Convert.ToInt32(Cbo_estado.SelectedValue);
+
+                con.editarBOM(idBOM, descripcion, version, fecha, estado);
+
+                MessageBox.Show("Receta actualizada correctamente");
+                recargarDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar: " + ex.Message);
+            }
+        }
+
+        //Recargar los datos Cesar Santizo 0901-22-5215
+        public void recargarDatos()
+        {
+            if (Cbo_producto.SelectedValue == null)
+                return;
+
+            int idProducto = Convert.ToInt32(Cbo_producto.SelectedValue);
+
+       
+            DataTable dtBOM = con.cargarBOM(idProducto);
+
+            if (dtBOM.Rows.Count > 0)
+            {
+                idBOM = Convert.ToInt32(dtBOM.Rows[0]["Pk_Id_BOM"]);
+
+                Txt_descripcion.Text = dtBOM.Rows[0]["Descripcion_BOM"].ToString();
+                Txt_versionBOM.Text = dtBOM.Rows[0]["Version_BOM"].ToString();
+                dtp_fecha.Value = Convert.ToDateTime(dtBOM.Rows[0]["Fecha_Creacion_BOM"]);
+                Cbo_estado.SelectedValue = dtBOM.Rows[0]["Fk_Id_Estado_BOM"];
+            }
+
+            dgv_detalle.DataSource = con.cargarBOMGrid(idProducto);
+        }
+        // selecionar dato en la dgv para que se carguen en los cobo box Cesar Santizo 0901-22-5215
+        private void dgv_detalle_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgv_detalle.Rows[e.RowIndex];
+
+                idBOM = Convert.ToInt32(fila.Cells["ID"].Value);
+
+                Txt_descripcion.Text = fila.Cells["Descripcion"].Value.ToString();
+                Txt_versionBOM.Text = fila.Cells["Version"].Value.ToString();
+                dtp_fecha.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
+
+                Cbo_estado.Text = fila.Cells["Estado"].Value.ToString();
+            }
         }
     }
 }
