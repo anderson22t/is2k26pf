@@ -133,7 +133,7 @@ namespace Capa_Vista_CVRecetas
             }
         }
 
-        //Recargar los datos Cesar santizo 0901-22-5215
+        //Recargar los datos Cesar Santizo 0901-22-5215
         public void recargarDatos()
         {
             if (Cbo_producto.SelectedValue == null)
@@ -156,7 +156,7 @@ namespace Capa_Vista_CVRecetas
 
             dgv_detalle.DataSource = con.cargarBOMGrid(idProducto);
         }
-        // selecionar dato en la dgv para que se carguen en los cobo box Cesar_santizo 0901-22-5215
+        // selecionar dato en la dgv para que se carguen en los cobo box Cesar Santizo 0901-22-5215
         private void dgv_detalle_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
