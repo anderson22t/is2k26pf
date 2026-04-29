@@ -34,7 +34,7 @@ namespace Capa_Vista_CVRecetas
             this.lbl_bom = new System.Windows.Forms.Label();
             this.Txt_versionBOM = new System.Windows.Forms.TextBox();
             this.lbl_descripcion = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
             this.Txt_descripcion = new System.Windows.Forms.TextBox();
             this.Cbo_estado = new System.Windows.Forms.ComboBox();
             this.Cbo_producto = new System.Windows.Forms.ComboBox();
@@ -55,19 +55,19 @@ namespace Capa_Vista_CVRecetas
             this.btn_reporte = new System.Windows.Forms.Button();
             this.btn_ver_detalle = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_detalle = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_detalle)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgv_detalle);
             this.groupBox1.Controls.Add(this.btn_ver_detalle);
             this.groupBox1.Controls.Add(this.lbl_bom);
             this.groupBox1.Controls.Add(this.Txt_versionBOM);
             this.groupBox1.Controls.Add(this.lbl_descripcion);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtp_fecha);
             this.groupBox1.Controls.Add(this.Txt_descripcion);
             this.groupBox1.Controls.Add(this.Cbo_estado);
             this.groupBox1.Controls.Add(this.Cbo_producto);
@@ -111,14 +111,14 @@ namespace Capa_Vista_CVRecetas
             this.lbl_descripcion.TabIndex = 8;
             this.lbl_descripcion.Text = "Descripcion:";
             // 
-            // dateTimePicker1
+            // dtp_fecha
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(150, 114);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dtp_fecha.CalendarFont = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_fecha.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_fecha.Location = new System.Drawing.Point(150, 114);
+            this.dtp_fecha.Name = "dtp_fecha";
+            this.dtp_fecha.Size = new System.Drawing.Size(200, 23);
+            this.dtp_fecha.TabIndex = 5;
             // 
             // Txt_descripcion
             // 
@@ -189,6 +189,7 @@ namespace Capa_Vista_CVRecetas
             this.btn_consultar.Text = "Consultar";
             this.btn_consultar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_consultar.UseVisualStyleBackColor = true;
+            this.btn_consultar.Click += new System.EventHandler(this.btn_consultar_Click_1);
             // 
             // label1
             // 
@@ -353,15 +354,15 @@ namespace Capa_Vista_CVRecetas
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgv_detalle
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 190);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(818, 179);
-            this.dataGridView1.TabIndex = 19;
+            this.dgv_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_detalle.Location = new System.Drawing.Point(6, 190);
+            this.dgv_detalle.Name = "dgv_detalle";
+            this.dgv_detalle.RowHeadersWidth = 51;
+            this.dgv_detalle.RowTemplate.Height = 24;
+            this.dgv_detalle.Size = new System.Drawing.Size(818, 179);
+            this.dgv_detalle.TabIndex = 19;
             // 
             // Frm_Recetas
             // 
@@ -386,7 +387,7 @@ namespace Capa_Vista_CVRecetas
             this.Text = "Frm_Recetas";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_detalle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,7 +408,7 @@ namespace Capa_Vista_CVRecetas
         private System.Windows.Forms.Label lbl_estado;
         private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.Button btn_ingresar;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp_fecha;
         private System.Windows.Forms.Label lbl_bom;
         private System.Windows.Forms.Label lbl_descripcion;
         private System.Windows.Forms.Button btn_eliminar;
@@ -419,6 +420,6 @@ namespace Capa_Vista_CVRecetas
         private System.Windows.Forms.Button btn_ver_detalle;
         private System.Windows.Forms.Button btn_reporte;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_detalle;
     }
 }
