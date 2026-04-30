@@ -570,6 +570,7 @@
             this.Btn_inicio.Text = "Inicio";
             this.Btn_inicio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_inicio.UseVisualStyleBackColor = true;
+            this.Btn_inicio.Click += new System.EventHandler(this.Btn_inicio_Click);
             // 
             // Btn_anterior
             // 
@@ -583,6 +584,7 @@
             this.Btn_anterior.Text = "Anterior";
             this.Btn_anterior.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_anterior.UseVisualStyleBackColor = true;
+            this.Btn_anterior.Click += new System.EventHandler(this.Btn_anterior_Click);
             // 
             // Btn_sig
             // 
@@ -596,6 +598,7 @@
             this.Btn_sig.Text = "Siguiente";
             this.Btn_sig.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_sig.UseVisualStyleBackColor = true;
+            this.Btn_sig.Click += new System.EventHandler(this.Btn_sig_Click);
             // 
             // Btn_fin
             // 
@@ -609,6 +612,7 @@
             this.Btn_fin.Text = "Fin";
             this.Btn_fin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_fin.UseVisualStyleBackColor = true;
+            this.Btn_fin.Click += new System.EventHandler(this.Btn_fin_Click);
             // 
             // Btn_ayuda
             // 
@@ -622,6 +626,7 @@
             this.Btn_ayuda.Text = "Ayuda";
             this.Btn_ayuda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_ayuda.UseVisualStyleBackColor = true;
+            this.Btn_ayuda.Click += new System.EventHandler(this.Btn_ayuda_Click);
             // 
             // Btn_salir
             // 
@@ -635,6 +640,7 @@
             this.Btn_salir.Text = "Salir";
             this.Btn_salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_salir.UseVisualStyleBackColor = true;
+            this.Btn_salir.Click += new System.EventHandler(this.Btn_salir_Click);
             // 
             // panel4
             // 
