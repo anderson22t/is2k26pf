@@ -15,7 +15,45 @@ namespace Capa_Vista_RO
         public Frm_Detalle_Orden()
         {
             InitializeComponent();
+            Btn_ingresar.Enabled = true;
+            EstadoControles(false);
         }
+
+        // ------ DANI - 0901-22-9136, 29/04/2026 --------
+
+        // Método para bloquear o desbloquear componentes
+        private void EstadoControles(bool habilitar)
+        {
+            panel2.Enabled = habilitar;
+            panel3.Enabled = habilitar;
+
+            Btn_modificar.Enabled = habilitar;
+            Btn_eliminar.Enabled = habilitar;
+            Btn_consultar.Enabled = habilitar;
+            Btn_refrescar.Enabled = habilitar;
+            Btn_imprimir.Enabled = habilitar;
+            Btn_inicio.Enabled = habilitar;
+            Btn_anterior.Enabled = habilitar;
+            Btn_sig.Enabled = habilitar;
+            Btn_fin.Enabled = habilitar;
+            Btn_ayuda.Enabled = habilitar;
+
+            Btn_guardar.Enabled = habilitar;
+            Btn_cancelar.Enabled = habilitar;
+
+            Btn_ingresar.Enabled = !habilitar;
+
+            Btn_salir.Enabled = true;
+        }
+
+        private void LimpiarCampos()
+        {
+            Cmb_ID.SelectedIndex = -1;
+            Rtxt_Observaciones.Clear();
+            Nud_Cantidad.Value = 0;
+        }
+        // ------ DANI - 0901-22-9136, 29/04/2026 --------
+
 
         public Frm_Detalle_Orden(int idOrden)
         {
@@ -39,6 +77,7 @@ namespace Capa_Vista_RO
             }
         }
 
+        // ------ DANI - 0901-22-9136, 29/04/2026 --------
         private void CargarComboEstados()
         {
             DataTable dt = _controlador.ObtenerEstadosOrden();
@@ -47,6 +86,8 @@ namespace Capa_Vista_RO
             Cmb_Estado.ValueMember = "IdEstado";
             Cmb_Estado.SelectedIndex = -1;
         }
+
+        // ------ DANI - 0901-22-9136, 29/04/2026 --------
 
         private void CargarComboOrdenes()
         {
@@ -331,5 +372,122 @@ namespace Capa_Vista_RO
         private void Dgv_Materiales_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
         private void label10_Click(object sender, EventArgs e) { }
+
+
+        // ------ DANI - 0901-22-9136, 29/04/2026 --------
+
+        private void Btn_ingresar_Click(object sender, EventArgs e)
+        {
+            EstadoControles(true);
+            Cmb_ID.Focus();
+        }
+
+        private void Btn_cancelar_Click(object sender, EventArgs e)
+        {
+
+            DialogResult resp = MessageBox.Show("¿Desea cancelar la operación?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resp == DialogResult.Yes)
+            {
+                EstadoControles(false);
+            }
+        }
+
+        private void Btn_guardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Cmb_Estado.SelectedValue == null)
+                {
+                    MessageBox.Show("Debe seleccionar un estado.");
+                    return;
+                }
+
+                string idLogistica = Cmb_ID.Text;
+                int estado = Convert.ToInt32(Cmb_Estado.SelectedValue);
+                DateTime fechaReq = Dtp_Requerida.Value;
+                string obs = Rtxt_Observaciones.Text;
+
+                DataTable dtDetalle = new DataTable();
+                dtDetalle.Columns.Add("Fk_Id_Material", typeof(int));
+                dtDetalle.Columns.Add("Cantidad_Solicitada", typeof(decimal));
+
+                foreach (DataGridViewRow fila in Dgv_Materiales.Rows)
+                {
+                    if (fila.Cells["Codigo_Material"].Value != null)
+                    {
+                        DataRow dr = dtDetalle.NewRow();
+
+                        int idMaterial = _controlador.ObtenerIdPorCodigo(fila.Cells["Codigo_Material"].Value.ToString());
+
+                        dr["Fk_Id_Material"] = idMaterial;
+                        dr["Cantidad_Solicitada"] = Convert.ToDecimal(fila.Cells["Cantidad"].Value);
+                        dtDetalle.Rows.Add(dr);
+                    }
+                }
+
+                if (dtDetalle.Rows.Count == 0)
+                {
+                    MessageBox.Show("Debe agregar al menos un material al detalle.");
+                    return;
+                }
+
+                bool exito = _controlador.GuardarOrdenCompleta(idLogistica, estado, fechaReq, obs, dtDetalle);
+
+                if (exito)
+                {
+                    MessageBox.Show("Orden guardada exitosamente en la base de datos.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    EstadoControles(false);
+                    LimpiarCampos();
+                    Dgv_Materiales.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Error al intentar guardar la orden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
+            }
+        }
+
+        private void Btn_modificar_Click(object sender, EventArgs e)
+        {
+            EstadoControles(true);
+
+            Cmb_ID.Enabled = false;
+        }
+
+        private void Btn_eliminar_Click(object sender, EventArgs e)
+        {
+            if (Cmb_ID.SelectedValue == null)
+            {
+                MessageBox.Show("Seleccione una orden para eliminar.");
+                return;
+            }
+
+            DialogResult confirm = MessageBox.Show("¿Seguro que desea eliminar esta orden y sus detalles?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirm == DialogResult.Yes)
+            {
+                int idOrden = Convert.ToInt32(Cmb_ID.SelectedValue);
+                if (_controlador.BorrarOrden(idOrden))
+                {
+                    MessageBox.Show("Registro eliminado correctamente.");
+                    CargarComboOrdenes(); 
+                    LimpiarCampos();
+                    EstadoControles(false);
+                }
+            }
+        }
+
+        private void Btn_refrescar_Click(object sender, EventArgs e)
+        {
+            CargarComboOrdenes();
+            CargarComboEstados();
+            CargarCombosMateriales();
+            MessageBox.Show("Catálogos actualizados.");
+        }
+        // ------ DANI - 0901-22-9136, 29/04/2026 --------
+
     }
 }
