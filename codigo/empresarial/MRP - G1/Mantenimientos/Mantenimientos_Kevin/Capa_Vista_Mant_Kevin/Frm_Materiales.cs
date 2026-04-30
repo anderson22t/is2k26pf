@@ -36,7 +36,6 @@ namespace Capa_Vista_Mant_Kevin
                 "Fk_Id_Categoria",
                 "Fk_Id_Unidad_Medida",
                 "Stock_Minimo",
-                "Stock_Seguridad",
                 "Lote_Minimo_Compra",
                 "Lead_Time_Produccion_Dias",
                 "Activo"
@@ -51,7 +50,6 @@ namespace Capa_Vista_Mant_Kevin
                 "ID Categoria",
                 "ID Unidad",
                 "Stock Minimo ",
-                "Stock Seguridad",
                 "Lote Minimo Compra",
                 "Tiempo de produccion",
                 "Activo"
