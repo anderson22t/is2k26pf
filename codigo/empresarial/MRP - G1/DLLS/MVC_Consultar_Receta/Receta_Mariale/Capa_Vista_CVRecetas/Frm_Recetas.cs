@@ -225,5 +225,16 @@ namespace Capa_Vista_CVRecetas
                 MessageBox.Show("Error al eliminar: " + ex.Message);
             }
         }
+
+        private void btn_reporte_Click(object sender, EventArgs e)
+        {
+            BOM_Reporte m = new BOM_Reporte();
+            m.Show();
+        }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+            this.FindForm()?.Close();
+        }
     }
 }
