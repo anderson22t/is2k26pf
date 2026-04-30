@@ -275,6 +275,7 @@ namespace Capa_Vista_CVRecetas
             this.btn_salir.Text = "Salir";
             this.btn_salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_salir.UseVisualStyleBackColor = true;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // btn_ingresar
             // 
@@ -376,6 +377,7 @@ namespace Capa_Vista_CVRecetas
             this.btn_reporte.Text = "Reporte";
             this.btn_reporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_reporte.UseVisualStyleBackColor = true;
+            this.btn_reporte.Click += new System.EventHandler(this.btn_reporte_Click);
             // 
             // button1
             // 
