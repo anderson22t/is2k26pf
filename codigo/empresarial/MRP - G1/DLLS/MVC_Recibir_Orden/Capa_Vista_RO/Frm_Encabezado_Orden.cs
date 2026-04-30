@@ -58,7 +58,6 @@ namespace Capa_Vista_RO
         {
             var datos = controlador.ObtenerOrdenes();
 
-            MessageBox.Show("Filas: " + datos.Rows.Count); // 👈 PRUEBA
             dgvOrdenes.DataSource = controlador.ObtenerOrdenes();
             ConfigurarGrid();
             AgregarBotonVer();
