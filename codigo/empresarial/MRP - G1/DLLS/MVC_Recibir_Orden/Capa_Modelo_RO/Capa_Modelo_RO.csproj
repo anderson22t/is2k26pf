@@ -90,6 +90,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cls_Consultas_Ordenes.cs" />
     <Compile Include="Cls_Sentencias.cs" />
     <Compile Include="Cls_Sentencias_Detalle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
