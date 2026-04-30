@@ -571,41 +571,16 @@ namespace Capa_Vista_RO
         {
             try
             {
-                // Ruta relativa donde está tu archivo CHM (igual que tu compañero)
-                const string subRutaAyuda = @"Ayuda\Ayuda_de_Recibir_Orden.chm";
+                string rutaBase = Path.Combine(Application.StartupPath, "Ayuda_de_Recibir_Orden.chm");
 
-                string rutaEncontrada = null;
-                DirectoryInfo dir = new DirectoryInfo(Application.StartupPath);
-
-                // Busca la carpeta hacia arriba (10 niveles)
-                for (int i = 0; i < 10 && dir != null; i++, dir = dir.Parent)
+                if (File.Exists(rutaBase))
                 {
-                    string candidata = Path.Combine(dir.FullName, subRutaAyuda);
-                    if (File.Exists(candidata))
-                    {
-                        rutaEncontrada = candidata;
-                        break;
-                    }
-                }
-
-                // Ruta de respaldo (opcional)
-                string rutaAbsolutaRespaldo =
-                    @"C:\Users\arone\OneDrive\Escritorio\is2k26pf\codigo\empresarial\MRP - G1\DLLS\MVC_Recibir_Orden\Ayuda\Ayuda_de_Recibir_Orden.chm";
-
-                if (rutaEncontrada == null && File.Exists(rutaAbsolutaRespaldo))
-                    rutaEncontrada = rutaAbsolutaRespaldo;
-
-                if (rutaEncontrada != null)
-                {
-                    // Esta es la ruta INTERNA del archivo dentro del CHM
-                    string rutaInterna = @"ayuda-RecibirOrden.html";
-
-                    Help.ShowHelp(this, rutaEncontrada, HelpNavigator.Topic, rutaInterna);
+                    Help.ShowHelp(this, rutaBase, HelpNavigator.Topic, "ayuda-RecibirOrden.html");
                 }
                 else
                 {
-                    MessageBox.Show("No se encontró el archivo de ayuda.", "Advertencia",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se encontró el archivo de ayuda.\nRuta buscada: " + rutaBase,
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
