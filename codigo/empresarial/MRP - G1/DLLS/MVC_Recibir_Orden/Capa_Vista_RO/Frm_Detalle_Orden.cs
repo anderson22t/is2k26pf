@@ -11,17 +11,20 @@ namespace Capa_Vista_RO
         private readonly Cls_Controlador_Orden _controlador = new Cls_Controlador_Orden();
         private int _idOrden;
         private bool _cargando = false;
+        private bool _cargandoMat = false;
 
-        public Frm_Detalle_Orden()
+        // Constructor sin parámetros llama al principal
+        public Frm_Detalle_Orden() : this(0) { }
+
+        public Frm_Detalle_Orden(int idOrden)
         {
             InitializeComponent();
+            _idOrden = idOrden;
             Btn_ingresar.Enabled = true;
             EstadoControles(false);
         }
 
         // ------ DANI - 0901-22-9136, 29/04/2026 --------
-
-        // Método para bloquear o desbloquear componentes
         private void EstadoControles(bool habilitar)
         {
             panel2.Enabled = habilitar;
@@ -42,7 +45,6 @@ namespace Capa_Vista_RO
             Btn_cancelar.Enabled = habilitar;
 
             Btn_ingresar.Enabled = !habilitar;
-
             Btn_salir.Enabled = true;
         }
 
@@ -54,27 +56,18 @@ namespace Capa_Vista_RO
         }
         // ------ DANI - 0901-22-9136, 29/04/2026 --------
 
-
-        public Frm_Detalle_Orden(int idOrden)
-        {
-            InitializeComponent();
-            _idOrden = idOrden;
-        }
-
         private void Frm_Detalle_Orden_Load(object sender, EventArgs e)
         {
             CargarComboEstados();
             CargarComboOrdenes();
 
             // ------ PAULA DANIELA LEONARDO - 0901-22-9580, 28/04/2026 --------
-            InicializarColumnasMateriales();
+            InicializarColumnasMateriales(); // columnas para ingreso manual
             CargarCombosMateriales();
             // ------ PAULA DANIELA LEONARDO - 0901-22-9580, 28/04/2026 --------
 
             if (_idOrden > 0)
-            {
                 Cmb_ID.SelectedValue = _idOrden;
-            }
         }
 
         // ------ DANI - 0901-22-9136, 29/04/2026 --------
@@ -86,7 +79,6 @@ namespace Capa_Vista_RO
             Cmb_Estado.ValueMember = "IdEstado";
             Cmb_Estado.SelectedIndex = -1;
         }
-
         // ------ DANI - 0901-22-9136, 29/04/2026 --------
 
         private void CargarComboOrdenes()
@@ -118,12 +110,18 @@ namespace Capa_Vista_RO
 
         private void CargarMateriales(int idOrden)
         {
+            
+            Dgv_Materiales.DataSource = null;
+            Dgv_Materiales.Columns.Clear();
+            Dgv_Materiales.AutoGenerateColumns = true;
+
             DataTable dt = _controlador.ObtenerDetalleOrden(idOrden);
 
             if (dt.Rows.Count == 0)
             {
-                Dgv_Materiales.DataSource = null;
                 label10.Text = "0.00";
+                
+                InicializarColumnasMateriales();
                 return;
             }
 
@@ -146,10 +144,8 @@ namespace Capa_Vista_RO
             dt.Columns.Add("Numero", typeof(int));
             for (int i = 0; i < dt.Rows.Count; i++)
                 dt.Rows[i]["Numero"] = i + 1;
-
             dt.Columns["Numero"].SetOrdinal(0);
 
-            Dgv_Materiales.AutoGenerateColumns = true;
             Dgv_Materiales.DataSource = dt;
 
             Dgv_Materiales.Columns["Numero"].HeaderText = "#";
@@ -157,13 +153,11 @@ namespace Capa_Vista_RO
             Dgv_Materiales.Columns["Nombre_Material"].HeaderText = "Nombre Material";
             Dgv_Materiales.Columns["UnidadMedida"].HeaderText = "Unidad de Medida";
             Dgv_Materiales.Columns["CantidadSolicitada"].HeaderText = "Cantidad Solicitada";
-
             Dgv_Materiales.Columns["Nombre_Material"].Width = 200;
 
             decimal total = 0;
             foreach (DataRow row in dt.Rows)
                 total += Convert.ToDecimal(row["CantidadSolicitada"]);
-
             label10.Text = $"{total:N2}";
         }
 
@@ -190,9 +184,6 @@ namespace Capa_Vista_RO
 
 
         // ------ PAULA DANIELA LEONARDO - 0901-22-9580, 28/04/2026 --------
-
-        private bool _cargandoMat = false;
-
         private void InicializarColumnasMateriales()
         {
             Dgv_Materiales.AutoGenerateColumns = false;
@@ -204,21 +195,18 @@ namespace Capa_Vista_RO
                 HeaderText = "ID Material",
                 Width = 100
             });
-
             Dgv_Materiales.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "Nombre_Material",
                 HeaderText = "Nombre Material",
                 Width = 200
             });
-
             Dgv_Materiales.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "UnidadMedida",
                 HeaderText = "Unidad de Medida",
                 Width = 120
             });
-
             Dgv_Materiales.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "Cantidad",
@@ -244,7 +232,6 @@ namespace Capa_Vista_RO
             Cmb_NombreMat.SelectedIndex = -1;
 
             _cargandoMat = false;
-
             txt_UnidadDeMedida.Text = "";
         }
 
@@ -286,15 +273,9 @@ namespace Capa_Vista_RO
             _cargandoMat = false;
         }
 
-        private void txt_UnidadDeMedida_TextChanged(object sender, EventArgs e)
-        {
-            // Se carga automáticamente, no requiere lógica adicional
-        }
+        private void txt_UnidadDeMedida_TextChanged(object sender, EventArgs e) { }
 
-        private void Nud_Cantidad_ValueChanged(object sender, EventArgs e)
-        {
-            // El usuario elige la cantidad, no requiere lógica adicional
-        }
+        private void Nud_Cantidad_ValueChanged(object sender, EventArgs e) { }
 
         private void Btn_agregarMat_Click(object sender, EventArgs e)
         {
@@ -312,7 +293,6 @@ namespace Capa_Vista_RO
                 return;
             }
 
-            // Verificar si el material ya fue agregado
             foreach (DataGridViewRow fila in Dgv_Materiales.Rows)
             {
                 if (fila.Cells["Codigo_Material"] != null &&
@@ -334,7 +314,6 @@ namespace Capa_Vista_RO
 
             ActualizarTotal();
 
-            // Limpiar para el siguiente material
             Cmb_IDMat.SelectedIndex = -1;
             Cmb_NombreMat.SelectedIndex = -1;
             txt_UnidadDeMedida.Text = "";
@@ -364,31 +343,29 @@ namespace Capa_Vista_RO
             }
             label10.Text = total.ToString("N2");
         }
-
         // ------ PAULA DANIELA LEONARDO - 0901-22-9580, 28/04/2026 --------
 
         private void label2_Click(object sender, EventArgs e) { }
-
         private void Dgv_Materiales_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
-
         private void label10_Click(object sender, EventArgs e) { }
 
-
         // ------ DANI - 0901-22-9136, 29/04/2026 --------
-
         private void Btn_ingresar_Click(object sender, EventArgs e)
         {
             EstadoControles(true);
+            InicializarColumnasMateriales(); // 👈 resetea el grid al ingresar
             Cmb_ID.Focus();
         }
 
         private void Btn_cancelar_Click(object sender, EventArgs e)
         {
-
-            DialogResult resp = MessageBox.Show("¿Desea cancelar la operación?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult resp = MessageBox.Show("¿Desea cancelar la operación?", "Confirmar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (resp == DialogResult.Yes)
             {
                 EstadoControles(false);
+                LimpiarCampos();
+                InicializarColumnasMateriales(); // 👈 limpia el grid al cancelar
             }
         }
 
@@ -416,9 +393,8 @@ namespace Capa_Vista_RO
                     if (fila.Cells["Codigo_Material"].Value != null)
                     {
                         DataRow dr = dtDetalle.NewRow();
-
-                        int idMaterial = _controlador.ObtenerIdPorCodigo(fila.Cells["Codigo_Material"].Value.ToString());
-
+                        int idMaterial = _controlador.ObtenerIdPorCodigo(
+                            fila.Cells["Codigo_Material"].Value.ToString());
                         dr["Fk_Id_Material"] = idMaterial;
                         dr["Cantidad_Solicitada"] = Convert.ToDecimal(fila.Cells["Cantidad"].Value);
                         dtDetalle.Rows.Add(dr);
@@ -435,14 +411,16 @@ namespace Capa_Vista_RO
 
                 if (exito)
                 {
-                    MessageBox.Show("Orden guardada exitosamente en la base de datos.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Orden guardada exitosamente.", "Éxito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     EstadoControles(false);
                     LimpiarCampos();
-                    Dgv_Materiales.Rows.Clear();
+                    InicializarColumnasMateriales(); 
                 }
                 else
                 {
-                    MessageBox.Show("Error al intentar guardar la orden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al intentar guardar la orden.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -454,7 +432,6 @@ namespace Capa_Vista_RO
         private void Btn_modificar_Click(object sender, EventArgs e)
         {
             EstadoControles(true);
-
             Cmb_ID.Enabled = false;
         }
 
@@ -466,15 +443,19 @@ namespace Capa_Vista_RO
                 return;
             }
 
-            DialogResult confirm = MessageBox.Show("¿Seguro que desea eliminar esta orden y sus detalles?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult confirm = MessageBox.Show(
+                "¿Seguro que desea eliminar esta orden y sus detalles?", "Confirmar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
             if (confirm == DialogResult.Yes)
             {
                 int idOrden = Convert.ToInt32(Cmb_ID.SelectedValue);
                 if (_controlador.BorrarOrden(idOrden))
                 {
                     MessageBox.Show("Registro eliminado correctamente.");
-                    CargarComboOrdenes(); 
+                    CargarComboOrdenes();
                     LimpiarCampos();
+                    InicializarColumnasMateriales(); // 👈 limpia el grid al eliminar
                     EstadoControles(false);
                 }
             }
@@ -488,6 +469,5 @@ namespace Capa_Vista_RO
             MessageBox.Show("Catálogos actualizados.");
         }
         // ------ DANI - 0901-22-9136, 29/04/2026 --------
-
     }
 }
