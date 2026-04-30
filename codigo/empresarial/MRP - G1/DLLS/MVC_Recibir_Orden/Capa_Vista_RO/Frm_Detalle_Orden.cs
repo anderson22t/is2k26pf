@@ -29,6 +29,7 @@ namespace Capa_Vista_RO
             CargarComboOrdenes();
 
             // ------ PAULA DANIELA LEONARDO - 0901-22-9580, 28/04/2026 --------
+            InicializarColumnasMateriales();
             CargarCombosMateriales();
             // ------ PAULA DANIELA LEONARDO - 0901-22-9580, 28/04/2026 --------
 
@@ -151,6 +152,40 @@ namespace Capa_Vista_RO
 
         private bool _cargandoMat = false;
 
+        private void InicializarColumnasMateriales()
+        {
+            Dgv_Materiales.AutoGenerateColumns = false;
+            Dgv_Materiales.Columns.Clear();
+
+            Dgv_Materiales.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Codigo_Material",
+                HeaderText = "ID Material",
+                Width = 100
+            });
+
+            Dgv_Materiales.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Nombre_Material",
+                HeaderText = "Nombre Material",
+                Width = 200
+            });
+
+            Dgv_Materiales.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "UnidadMedida",
+                HeaderText = "Unidad de Medida",
+                Width = 120
+            });
+
+            Dgv_Materiales.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Cantidad",
+                HeaderText = "Cantidad",
+                Width = 80
+            });
+        }
+
         private void CargarCombosMateriales()
         {
             DataTable dt = _controlador.ObtenerMateriales();
@@ -239,9 +274,9 @@ namespace Capa_Vista_RO
             // Verificar si el material ya fue agregado
             foreach (DataGridViewRow fila in Dgv_Materiales.Rows)
             {
-                if (fila.Cells["Id_Material"] != null &&
-                    fila.Cells["Id_Material"].Value != null &&
-                    Convert.ToInt32(fila.Cells["Id_Material"].Value) == Convert.ToInt32(Cmb_IDMat.SelectedValue))
+                if (fila.Cells["Codigo_Material"] != null &&
+                    fila.Cells["Codigo_Material"].Value != null &&
+                    fila.Cells["Codigo_Material"].Value.ToString() == Cmb_IDMat.Text)
                 {
                     MessageBox.Show("Este material ya fue agregado.", "Advertencia",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);

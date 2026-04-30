@@ -31,6 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Detalle_Orden));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txt_UnidadDeMedida = new System.Windows.Forms.TextBox();
+            this.Lbl_Cantidad = new System.Windows.Forms.Label();
+            this.Lbl_Udm = new System.Windows.Forms.Label();
+            this.Lbl_Material = new System.Windows.Forms.Label();
+            this.Lbl_IDMaterial = new System.Windows.Forms.Label();
+            this.Nud_Cantidad = new System.Windows.Forms.NumericUpDown();
+            this.Cmb_IDMat = new System.Windows.Forms.ComboBox();
+            this.Cmb_NombreMat = new System.Windows.Forms.ComboBox();
+            this.Btn_eliminarMat = new System.Windows.Forms.Button();
+            this.Btn_agregarMat = new System.Windows.Forms.Button();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -66,26 +76,16 @@
             this.Btn_salir = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.Btn_agregarMat = new System.Windows.Forms.Button();
-            this.Btn_eliminarMat = new System.Windows.Forms.Button();
-            this.Cmb_NombreMat = new System.Windows.Forms.ComboBox();
-            this.Cmb_IDMat = new System.Windows.Forms.ComboBox();
-            this.Nud_Cantidad = new System.Windows.Forms.NumericUpDown();
-            this.Lbl_IDMaterial = new System.Windows.Forms.Label();
-            this.Lbl_Material = new System.Windows.Forms.Label();
-            this.Lbl_Udm = new System.Windows.Forms.Label();
-            this.Lbl_Cantidad = new System.Windows.Forms.Label();
-            this.txt_UnidadDeMedida = new System.Windows.Forms.TextBox();
             this.Btn_imprimir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).BeginInit();
             this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Materiales)).BeginInit();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -94,7 +94,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(16, 247);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1517, 738);
             this.panel1.TabIndex = 0;
@@ -117,10 +117,120 @@
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.Dgv_Materiales);
             this.panel3.Location = new System.Drawing.Point(468, 25);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1024, 667);
             this.panel3.TabIndex = 14;
+            // 
+            // txt_UnidadDeMedida
+            // 
+            this.txt_UnidadDeMedida.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_UnidadDeMedida.Enabled = false;
+            this.txt_UnidadDeMedida.Location = new System.Drawing.Point(868, 92);
+            this.txt_UnidadDeMedida.Name = "txt_UnidadDeMedida";
+            this.txt_UnidadDeMedida.Size = new System.Drawing.Size(120, 22);
+            this.txt_UnidadDeMedida.TabIndex = 37;
+            this.txt_UnidadDeMedida.TextChanged += new System.EventHandler(this.txt_UnidadDeMedida_TextChanged);
+            // 
+            // Lbl_Cantidad
+            // 
+            this.Lbl_Cantidad.AutoSize = true;
+            this.Lbl_Cantidad.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Cantidad.Location = new System.Drawing.Point(758, 150);
+            this.Lbl_Cantidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_Cantidad.Name = "Lbl_Cantidad";
+            this.Lbl_Cantidad.Size = new System.Drawing.Size(102, 22);
+            this.Lbl_Cantidad.TabIndex = 36;
+            this.Lbl_Cantidad.Text = "Cantidad:";
+            // 
+            // Lbl_Udm
+            // 
+            this.Lbl_Udm.AutoSize = true;
+            this.Lbl_Udm.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Udm.Location = new System.Drawing.Point(670, 92);
+            this.Lbl_Udm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_Udm.Name = "Lbl_Udm";
+            this.Lbl_Udm.Size = new System.Drawing.Size(190, 22);
+            this.Lbl_Udm.TabIndex = 35;
+            this.Lbl_Udm.Text = "Unidad de Medida:";
+            // 
+            // Lbl_Material
+            // 
+            this.Lbl_Material.AutoSize = true;
+            this.Lbl_Material.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Material.Location = new System.Drawing.Point(254, 150);
+            this.Lbl_Material.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_Material.Name = "Lbl_Material";
+            this.Lbl_Material.Size = new System.Drawing.Size(172, 22);
+            this.Lbl_Material.TabIndex = 34;
+            this.Lbl_Material.Text = "Nombre Material:";
+            // 
+            // Lbl_IDMaterial
+            // 
+            this.Lbl_IDMaterial.AutoSize = true;
+            this.Lbl_IDMaterial.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_IDMaterial.Location = new System.Drawing.Point(307, 94);
+            this.Lbl_IDMaterial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_IDMaterial.Name = "Lbl_IDMaterial";
+            this.Lbl_IDMaterial.Size = new System.Drawing.Size(119, 22);
+            this.Lbl_IDMaterial.TabIndex = 28;
+            this.Lbl_IDMaterial.Text = "ID Material:";
+            // 
+            // Nud_Cantidad
+            // 
+            this.Nud_Cantidad.Location = new System.Drawing.Point(868, 151);
+            this.Nud_Cantidad.Name = "Nud_Cantidad";
+            this.Nud_Cantidad.Size = new System.Drawing.Size(120, 22);
+            this.Nud_Cantidad.TabIndex = 33;
+            this.Nud_Cantidad.ValueChanged += new System.EventHandler(this.Nud_Cantidad_ValueChanged);
+            // 
+            // Cmb_IDMat
+            // 
+            this.Cmb_IDMat.FormattingEnabled = true;
+            this.Cmb_IDMat.Location = new System.Drawing.Point(444, 94);
+            this.Cmb_IDMat.Margin = new System.Windows.Forms.Padding(4);
+            this.Cmb_IDMat.Name = "Cmb_IDMat";
+            this.Cmb_IDMat.Size = new System.Drawing.Size(157, 24);
+            this.Cmb_IDMat.TabIndex = 30;
+            this.Cmb_IDMat.SelectedIndexChanged += new System.EventHandler(this.Cmb_IDMat_SelectedIndexChanged);
+            // 
+            // Cmb_NombreMat
+            // 
+            this.Cmb_NombreMat.FormattingEnabled = true;
+            this.Cmb_NombreMat.Location = new System.Drawing.Point(444, 148);
+            this.Cmb_NombreMat.Margin = new System.Windows.Forms.Padding(4);
+            this.Cmb_NombreMat.Name = "Cmb_NombreMat";
+            this.Cmb_NombreMat.Size = new System.Drawing.Size(288, 24);
+            this.Cmb_NombreMat.TabIndex = 28;
+            this.Cmb_NombreMat.SelectedIndexChanged += new System.EventHandler(this.Cmb_NombreMat_SelectedIndexChanged);
+            // 
+            // Btn_eliminarMat
+            // 
+            this.Btn_eliminarMat.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_eliminarMat.Image = ((System.Drawing.Image)(resources.GetObject("Btn_eliminarMat.Image")));
+            this.Btn_eliminarMat.Location = new System.Drawing.Point(144, 80);
+            this.Btn_eliminarMat.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_eliminarMat.Name = "Btn_eliminarMat";
+            this.Btn_eliminarMat.Size = new System.Drawing.Size(99, 107);
+            this.Btn_eliminarMat.TabIndex = 14;
+            this.Btn_eliminarMat.Text = "Eliminar";
+            this.Btn_eliminarMat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_eliminarMat.UseVisualStyleBackColor = true;
+            this.Btn_eliminarMat.Click += new System.EventHandler(this.Btn_eliminarMat_Click);
+            // 
+            // Btn_agregarMat
+            // 
+            this.Btn_agregarMat.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_agregarMat.Image = ((System.Drawing.Image)(resources.GetObject("Btn_agregarMat.Image")));
+            this.Btn_agregarMat.Location = new System.Drawing.Point(37, 80);
+            this.Btn_agregarMat.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_agregarMat.Name = "Btn_agregarMat";
+            this.Btn_agregarMat.Size = new System.Drawing.Size(99, 107);
+            this.Btn_agregarMat.TabIndex = 14;
+            this.Btn_agregarMat.Text = "Agregar";
+            this.Btn_agregarMat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_agregarMat.UseVisualStyleBackColor = true;
+            this.Btn_agregarMat.Click += new System.EventHandler(this.Btn_agregarMat_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -128,7 +238,7 @@
             this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel3.Controls.Add(this.label3);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(-1, 0);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(27, 18, 20, 18);
             this.flowLayoutPanel3.Size = new System.Drawing.Size(1023, 72);
@@ -176,7 +286,7 @@
             this.Dgv_Materiales.AllowUserToDeleteRows = false;
             this.Dgv_Materiales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_Materiales.Location = new System.Drawing.Point(37, 194);
-            this.Dgv_Materiales.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Dgv_Materiales.Margin = new System.Windows.Forms.Padding(4);
             this.Dgv_Materiales.Name = "Dgv_Materiales";
             this.Dgv_Materiales.ReadOnly = true;
             this.Dgv_Materiales.RowHeadersWidth = 51;
@@ -200,7 +310,7 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.flowLayoutPanel2);
             this.panel2.Location = new System.Drawing.Point(28, 25);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(411, 667);
             this.panel2.TabIndex = 13;
@@ -208,7 +318,7 @@
             // Rtxt_Observaciones
             // 
             this.Rtxt_Observaciones.Location = new System.Drawing.Point(24, 378);
-            this.Rtxt_Observaciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Rtxt_Observaciones.Margin = new System.Windows.Forms.Padding(4);
             this.Rtxt_Observaciones.Name = "Rtxt_Observaciones";
             this.Rtxt_Observaciones.Size = new System.Drawing.Size(363, 106);
             this.Rtxt_Observaciones.TabIndex = 27;
@@ -217,7 +327,7 @@
             // Dtp_Requerida
             // 
             this.Dtp_Requerida.Location = new System.Drawing.Point(24, 302);
-            this.Dtp_Requerida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Dtp_Requerida.Margin = new System.Windows.Forms.Padding(4);
             this.Dtp_Requerida.Name = "Dtp_Requerida";
             this.Dtp_Requerida.Size = new System.Drawing.Size(363, 22);
             this.Dtp_Requerida.TabIndex = 25;
@@ -225,7 +335,7 @@
             // Dtp_Recepcion
             // 
             this.Dtp_Recepcion.Location = new System.Drawing.Point(24, 241);
-            this.Dtp_Recepcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Dtp_Recepcion.Margin = new System.Windows.Forms.Padding(4);
             this.Dtp_Recepcion.Name = "Dtp_Recepcion";
             this.Dtp_Recepcion.Size = new System.Drawing.Size(363, 22);
             this.Dtp_Recepcion.TabIndex = 24;
@@ -234,7 +344,7 @@
             // 
             this.Cmb_Estado.FormattingEnabled = true;
             this.Cmb_Estado.Location = new System.Drawing.Point(24, 181);
-            this.Cmb_Estado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Cmb_Estado.Margin = new System.Windows.Forms.Padding(4);
             this.Cmb_Estado.Name = "Cmb_Estado";
             this.Cmb_Estado.Size = new System.Drawing.Size(363, 24);
             this.Cmb_Estado.TabIndex = 23;
@@ -244,7 +354,7 @@
             // 
             this.Cmb_ID.FormattingEnabled = true;
             this.Cmb_ID.Location = new System.Drawing.Point(24, 121);
-            this.Cmb_ID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Cmb_ID.Margin = new System.Windows.Forms.Padding(4);
             this.Cmb_ID.Name = "Cmb_ID";
             this.Cmb_ID.Size = new System.Drawing.Size(363, 24);
             this.Cmb_ID.TabIndex = 22;
@@ -311,7 +421,7 @@
             this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel2.Controls.Add(this.label2);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(27, 18, 20, 18);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(409, 72);
@@ -333,7 +443,7 @@
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Highlight;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(27, 53);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1424, 14);
             this.flowLayoutPanel1.TabIndex = 12;
@@ -354,7 +464,7 @@
             this.Btn_ingresar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_ingresar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ingresar.Image")));
             this.Btn_ingresar.Location = new System.Drawing.Point(4, 4);
-            this.Btn_ingresar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_ingresar.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_ingresar.Name = "Btn_ingresar";
             this.Btn_ingresar.Size = new System.Drawing.Size(99, 107);
             this.Btn_ingresar.TabIndex = 0;
@@ -368,7 +478,7 @@
             this.Btn_modificar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_modificar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_modificar.Image")));
             this.Btn_modificar.Location = new System.Drawing.Point(111, 4);
-            this.Btn_modificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_modificar.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_modificar.Name = "Btn_modificar";
             this.Btn_modificar.Size = new System.Drawing.Size(99, 107);
             this.Btn_modificar.TabIndex = 1;
@@ -381,7 +491,7 @@
             this.Btn_guardar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_guardar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_guardar.Image")));
             this.Btn_guardar.Location = new System.Drawing.Point(217, 4);
-            this.Btn_guardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_guardar.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_guardar.Name = "Btn_guardar";
             this.Btn_guardar.Size = new System.Drawing.Size(99, 107);
             this.Btn_guardar.TabIndex = 2;
@@ -394,7 +504,7 @@
             this.Btn_cancelar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_cancelar.Image")));
             this.Btn_cancelar.Location = new System.Drawing.Point(324, 4);
-            this.Btn_cancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_cancelar.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_cancelar.Name = "Btn_cancelar";
             this.Btn_cancelar.Size = new System.Drawing.Size(99, 107);
             this.Btn_cancelar.TabIndex = 3;
@@ -407,7 +517,7 @@
             this.Btn_eliminar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_eliminar.Image")));
             this.Btn_eliminar.Location = new System.Drawing.Point(431, 4);
-            this.Btn_eliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_eliminar.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_eliminar.Name = "Btn_eliminar";
             this.Btn_eliminar.Size = new System.Drawing.Size(99, 107);
             this.Btn_eliminar.TabIndex = 4;
@@ -420,7 +530,7 @@
             this.Btn_consultar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_consultar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_consultar.Image")));
             this.Btn_consultar.Location = new System.Drawing.Point(537, 4);
-            this.Btn_consultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_consultar.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_consultar.Name = "Btn_consultar";
             this.Btn_consultar.Size = new System.Drawing.Size(99, 107);
             this.Btn_consultar.TabIndex = 5;
@@ -433,7 +543,7 @@
             this.Btn_refrescar.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_refrescar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_refrescar.Image")));
             this.Btn_refrescar.Location = new System.Drawing.Point(751, 4);
-            this.Btn_refrescar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_refrescar.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_refrescar.Name = "Btn_refrescar";
             this.Btn_refrescar.Size = new System.Drawing.Size(99, 107);
             this.Btn_refrescar.TabIndex = 7;
@@ -446,7 +556,7 @@
             this.Btn_inicio.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_inicio.Image = ((System.Drawing.Image)(resources.GetObject("Btn_inicio.Image")));
             this.Btn_inicio.Location = new System.Drawing.Point(857, 4);
-            this.Btn_inicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_inicio.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_inicio.Name = "Btn_inicio";
             this.Btn_inicio.Size = new System.Drawing.Size(99, 107);
             this.Btn_inicio.TabIndex = 8;
@@ -459,7 +569,7 @@
             this.Btn_anterior.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_anterior.Image = ((System.Drawing.Image)(resources.GetObject("Btn_anterior.Image")));
             this.Btn_anterior.Location = new System.Drawing.Point(964, 4);
-            this.Btn_anterior.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_anterior.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_anterior.Name = "Btn_anterior";
             this.Btn_anterior.Size = new System.Drawing.Size(99, 107);
             this.Btn_anterior.TabIndex = 9;
@@ -472,7 +582,7 @@
             this.Btn_sig.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_sig.Image = ((System.Drawing.Image)(resources.GetObject("Btn_sig.Image")));
             this.Btn_sig.Location = new System.Drawing.Point(1071, 4);
-            this.Btn_sig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_sig.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_sig.Name = "Btn_sig";
             this.Btn_sig.Size = new System.Drawing.Size(99, 107);
             this.Btn_sig.TabIndex = 10;
@@ -485,7 +595,7 @@
             this.Btn_fin.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_fin.Image = ((System.Drawing.Image)(resources.GetObject("Btn_fin.Image")));
             this.Btn_fin.Location = new System.Drawing.Point(1177, 4);
-            this.Btn_fin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_fin.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_fin.Name = "Btn_fin";
             this.Btn_fin.Size = new System.Drawing.Size(99, 107);
             this.Btn_fin.TabIndex = 11;
@@ -498,7 +608,7 @@
             this.Btn_ayuda.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_ayuda.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ayuda.Image")));
             this.Btn_ayuda.Location = new System.Drawing.Point(1284, 4);
-            this.Btn_ayuda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_ayuda.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_ayuda.Name = "Btn_ayuda";
             this.Btn_ayuda.Size = new System.Drawing.Size(99, 107);
             this.Btn_ayuda.TabIndex = 12;
@@ -511,7 +621,7 @@
             this.Btn_salir.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_salir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_salir.Image")));
             this.Btn_salir.Location = new System.Drawing.Point(1391, 4);
-            this.Btn_salir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_salir.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_salir.Name = "Btn_salir";
             this.Btn_salir.Size = new System.Drawing.Size(99, 107);
             this.Btn_salir.TabIndex = 13;
@@ -526,7 +636,7 @@
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.flowLayoutPanel1);
             this.panel4.Location = new System.Drawing.Point(16, 15);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1517, 224);
             this.panel4.TabIndex = 6;
@@ -548,120 +658,10 @@
             this.panel5.Controls.Add(this.Btn_modificar);
             this.panel5.Controls.Add(this.Btn_ingresar);
             this.panel5.Location = new System.Drawing.Point(4, 85);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1499, 126);
             this.panel5.TabIndex = 7;
-            // 
-            // Btn_agregarMat
-            // 
-            this.Btn_agregarMat.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_agregarMat.Image = ((System.Drawing.Image)(resources.GetObject("Btn_agregarMat.Image")));
-            this.Btn_agregarMat.Location = new System.Drawing.Point(37, 80);
-            this.Btn_agregarMat.Margin = new System.Windows.Forms.Padding(4);
-            this.Btn_agregarMat.Name = "Btn_agregarMat";
-            this.Btn_agregarMat.Size = new System.Drawing.Size(99, 107);
-            this.Btn_agregarMat.TabIndex = 14;
-            this.Btn_agregarMat.Text = "Agregar";
-            this.Btn_agregarMat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Btn_agregarMat.UseVisualStyleBackColor = true;
-            this.Btn_agregarMat.Click += new System.EventHandler(this.Btn_agregarMat_Click);
-            // 
-            // Btn_eliminarMat
-            // 
-            this.Btn_eliminarMat.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_eliminarMat.Image = ((System.Drawing.Image)(resources.GetObject("Btn_eliminarMat.Image")));
-            this.Btn_eliminarMat.Location = new System.Drawing.Point(144, 80);
-            this.Btn_eliminarMat.Margin = new System.Windows.Forms.Padding(4);
-            this.Btn_eliminarMat.Name = "Btn_eliminarMat";
-            this.Btn_eliminarMat.Size = new System.Drawing.Size(99, 107);
-            this.Btn_eliminarMat.TabIndex = 14;
-            this.Btn_eliminarMat.Text = "Eliminar";
-            this.Btn_eliminarMat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Btn_eliminarMat.UseVisualStyleBackColor = true;
-            this.Btn_eliminarMat.Click += new System.EventHandler(this.Btn_eliminarMat_Click);
-            // 
-            // Cmb_NombreMat
-            // 
-            this.Cmb_NombreMat.FormattingEnabled = true;
-            this.Cmb_NombreMat.Location = new System.Drawing.Point(434, 148);
-            this.Cmb_NombreMat.Margin = new System.Windows.Forms.Padding(4);
-            this.Cmb_NombreMat.Name = "Cmb_NombreMat";
-            this.Cmb_NombreMat.Size = new System.Drawing.Size(288, 24);
-            this.Cmb_NombreMat.TabIndex = 28;
-            this.Cmb_NombreMat.SelectedIndexChanged += new System.EventHandler(this.Cmb_NombreMat_SelectedIndexChanged);
-            // 
-            // Cmb_IDMat
-            // 
-            this.Cmb_IDMat.FormattingEnabled = true;
-            this.Cmb_IDMat.Location = new System.Drawing.Point(434, 94);
-            this.Cmb_IDMat.Margin = new System.Windows.Forms.Padding(4);
-            this.Cmb_IDMat.Name = "Cmb_IDMat";
-            this.Cmb_IDMat.Size = new System.Drawing.Size(157, 24);
-            this.Cmb_IDMat.TabIndex = 30;
-            this.Cmb_IDMat.SelectedIndexChanged += new System.EventHandler(this.Cmb_IDMat_SelectedIndexChanged);
-            // 
-            // Nud_Cantidad
-            // 
-            this.Nud_Cantidad.Location = new System.Drawing.Point(868, 151);
-            this.Nud_Cantidad.Name = "Nud_Cantidad";
-            this.Nud_Cantidad.Size = new System.Drawing.Size(120, 22);
-            this.Nud_Cantidad.TabIndex = 33;
-            this.Nud_Cantidad.ValueChanged += new System.EventHandler(this.Nud_Cantidad_ValueChanged);
-            // 
-            // Lbl_IDMaterial
-            // 
-            this.Lbl_IDMaterial.AutoSize = true;
-            this.Lbl_IDMaterial.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_IDMaterial.Location = new System.Drawing.Point(307, 94);
-            this.Lbl_IDMaterial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Lbl_IDMaterial.Name = "Lbl_IDMaterial";
-            this.Lbl_IDMaterial.Size = new System.Drawing.Size(119, 22);
-            this.Lbl_IDMaterial.TabIndex = 28;
-            this.Lbl_IDMaterial.Text = "ID Material:";
-            // 
-            // Lbl_Material
-            // 
-            this.Lbl_Material.AutoSize = true;
-            this.Lbl_Material.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Material.Location = new System.Drawing.Point(254, 150);
-            this.Lbl_Material.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Lbl_Material.Name = "Lbl_Material";
-            this.Lbl_Material.Size = new System.Drawing.Size(172, 22);
-            this.Lbl_Material.TabIndex = 34;
-            this.Lbl_Material.Text = "Nombre Material:";
-            // 
-            // Lbl_Udm
-            // 
-            this.Lbl_Udm.AutoSize = true;
-            this.Lbl_Udm.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Udm.Location = new System.Drawing.Point(670, 92);
-            this.Lbl_Udm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Lbl_Udm.Name = "Lbl_Udm";
-            this.Lbl_Udm.Size = new System.Drawing.Size(190, 22);
-            this.Lbl_Udm.TabIndex = 35;
-            this.Lbl_Udm.Text = "Unidad de Medida:";
-            // 
-            // Lbl_Cantidad
-            // 
-            this.Lbl_Cantidad.AutoSize = true;
-            this.Lbl_Cantidad.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Cantidad.Location = new System.Drawing.Point(758, 150);
-            this.Lbl_Cantidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Lbl_Cantidad.Name = "Lbl_Cantidad";
-            this.Lbl_Cantidad.Size = new System.Drawing.Size(102, 22);
-            this.Lbl_Cantidad.TabIndex = 36;
-            this.Lbl_Cantidad.Text = "Cantidad:";
-            // 
-            // txt_UnidadDeMedida
-            // 
-            this.txt_UnidadDeMedida.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_UnidadDeMedida.Enabled = false;
-            this.txt_UnidadDeMedida.Location = new System.Drawing.Point(868, 92);
-            this.txt_UnidadDeMedida.Name = "txt_UnidadDeMedida";
-            this.txt_UnidadDeMedida.Size = new System.Drawing.Size(120, 22);
-            this.txt_UnidadDeMedida.TabIndex = 37;
-            this.txt_UnidadDeMedida.TextChanged += new System.EventHandler(this.txt_UnidadDeMedida_TextChanged);
             // 
             // Btn_imprimir
             // 
@@ -683,13 +683,14 @@
             this.ClientSize = new System.Drawing.Size(1551, 998);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Frm_Detalle_Orden";
             this.Text = "Detalle de Orden Recibidas - 714";
             this.Load += new System.EventHandler(this.Frm_Detalle_Orden_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).EndInit();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Materiales)).EndInit();
@@ -700,7 +701,6 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).EndInit();
             this.ResumeLayout(false);
 
         }
