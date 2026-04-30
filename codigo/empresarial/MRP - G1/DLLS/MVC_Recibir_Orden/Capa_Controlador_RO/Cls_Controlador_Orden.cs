@@ -53,5 +53,28 @@ namespace Capa_Controlador_RO
         // ------ LETICIA SONTAY - 9959-21-9664, 28/04/2026 --------
 
 
+
+        // ------ PAULA DANIELA LEONARDO - 0901-22-9580, 28/04/2026 --------
+        public DataTable ObtenerMateriales()
+        {
+            return detalle.ObtenerMateriales();
+        }
+
+        public DataTable ObtenerMaterialPorId(int idMaterial)
+        {
+            return detalle.ObtenerMaterialPorId(idMaterial);
+        }
+
+        public DataTable ObtenerMaterialPorCodigo(string codigoMaterial)
+        {
+            return detalle.ObtenerMaterialPorCodigo(codigoMaterial);
+        }
+
+        public DataTable ObtenerMaterialPorNombre(string nombreMaterial)
+        {
+            return detalle.ObtenerMaterialPorNombre(nombreMaterial);
+        }
+        // ------ PAULA DANIELA LEONARDO - 0901-22-9580, 28/04/2026 --------
+
     }
 }
