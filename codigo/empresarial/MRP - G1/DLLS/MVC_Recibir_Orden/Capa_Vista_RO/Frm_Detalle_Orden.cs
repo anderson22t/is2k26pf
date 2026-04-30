@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using Capa_Controlador_RO;
+using System.IO;
 
 namespace Capa_Vista_RO
 {
@@ -12,6 +13,10 @@ namespace Capa_Vista_RO
         private int _idOrden;
         private bool _cargando = false;
         private bool _cargandoMat = false;
+        // Arón Ricardo Esquit - 0901-22-13036 - 30/04/26
+        private bool editandoDetalle = false;
+
+
 
         // Constructor sin parámetros llama al principal
         public Frm_Detalle_Orden() : this(0) { }
@@ -110,55 +115,28 @@ namespace Capa_Vista_RO
 
         private void CargarMateriales(int idOrden)
         {
-            
             Dgv_Materiales.DataSource = null;
-            Dgv_Materiales.Columns.Clear();
-            Dgv_Materiales.AutoGenerateColumns = true;
+            InicializarColumnasMateriales();
 
             DataTable dt = _controlador.ObtenerDetalleOrden(idOrden);
 
             if (dt.Rows.Count == 0)
             {
                 label10.Text = "0.00";
-                
-                InicializarColumnasMateriales();
                 return;
             }
 
             foreach (DataRow row in dt.Rows)
             {
-                foreach (DataColumn col in dt.Columns)
-                {
-                    if (row[col] == DBNull.Value)
-                    {
-                        if (col.DataType == typeof(decimal) ||
-                            col.DataType == typeof(int) ||
-                            col.DataType == typeof(double))
-                            row[col] = 0;
-                        else
-                            row[col] = string.Empty;
-                    }
-                }
+                Dgv_Materiales.Rows.Add(
+                    row["Id_Material"],
+                    row["Nombre_Material"],
+                    row["UnidadMedida"],
+                    row["CantidadSolicitada"]
+                );
             }
 
-            dt.Columns.Add("Numero", typeof(int));
-            for (int i = 0; i < dt.Rows.Count; i++)
-                dt.Rows[i]["Numero"] = i + 1;
-            dt.Columns["Numero"].SetOrdinal(0);
-
-            Dgv_Materiales.DataSource = dt;
-
-            Dgv_Materiales.Columns["Numero"].HeaderText = "#";
-            Dgv_Materiales.Columns["Id_Material"].HeaderText = "ID Material";
-            Dgv_Materiales.Columns["Nombre_Material"].HeaderText = "Nombre Material";
-            Dgv_Materiales.Columns["UnidadMedida"].HeaderText = "Unidad de Medida";
-            Dgv_Materiales.Columns["CantidadSolicitada"].HeaderText = "Cantidad Solicitada";
-            Dgv_Materiales.Columns["Nombre_Material"].Width = 200;
-
-            decimal total = 0;
-            foreach (DataRow row in dt.Rows)
-                total += Convert.ToDecimal(row["CantidadSolicitada"]);
-            label10.Text = $"{total:N2}";
+            ActualizarTotal();
         }
 
         private void CargarDatosOrden(int idOrden)
@@ -191,7 +169,7 @@ namespace Capa_Vista_RO
 
             Dgv_Materiales.Columns.Add(new DataGridViewTextBoxColumn()
             {
-                Name = "Codigo_Material",
+                Name = "Id_Material",
                 HeaderText = "ID Material",
                 Width = 100
             });
@@ -279,6 +257,7 @@ namespace Capa_Vista_RO
 
         private void Btn_agregarMat_Click(object sender, EventArgs e)
         {
+
             if (Cmb_IDMat.SelectedValue == null)
             {
                 MessageBox.Show("Seleccione un material.", "Advertencia",
@@ -295,9 +274,10 @@ namespace Capa_Vista_RO
 
             foreach (DataGridViewRow fila in Dgv_Materiales.Rows)
             {
-                if (fila.Cells["Codigo_Material"] != null &&
-                    fila.Cells["Codigo_Material"].Value != null &&
-                    fila.Cells["Codigo_Material"].Value.ToString() == Cmb_IDMat.Text)
+                if (fila.IsNewRow) continue;
+
+                if (fila.Cells["Id_Material"].Value != null &&
+                    fila.Cells["Id_Material"].Value.ToString() == Cmb_IDMat.SelectedValue.ToString())
                 {
                     MessageBox.Show("Este material ya fue agregado.", "Advertencia",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -306,11 +286,12 @@ namespace Capa_Vista_RO
             }
 
             Dgv_Materiales.Rows.Add(
-                Cmb_IDMat.Text,
+                Cmb_IDMat.SelectedValue,
                 Cmb_NombreMat.Text,
                 txt_UnidadDeMedida.Text,
                 Nud_Cantidad.Value
             );
+            
 
             ActualizarTotal();
 
@@ -353,19 +334,27 @@ namespace Capa_Vista_RO
         private void Btn_ingresar_Click(object sender, EventArgs e)
         {
             EstadoControles(true);
-            InicializarColumnasMateriales(); // 👈 resetea el grid al ingresar
+            InicializarColumnasMateriales(); // resetea el grid al ingresar
             Cmb_ID.Focus();
         }
 
+
+        // Arón Ricardo Esquit - 0901-22-13036 - 30/04/26
         private void Btn_cancelar_Click(object sender, EventArgs e)
         {
             DialogResult resp = MessageBox.Show("¿Desea cancelar la operación?", "Confirmar",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
             if (resp == DialogResult.Yes)
             {
                 EstadoControles(false);
                 LimpiarCampos();
-                InicializarColumnasMateriales(); // 👈 limpia el grid al cancelar
+                InicializarColumnasMateriales();
+
+                editandoDetalle = false;
+                Cmb_ID.Enabled = true;
+
+                Btn_guardar.Enabled = true; 
             }
         }
 
@@ -390,13 +379,15 @@ namespace Capa_Vista_RO
 
                 foreach (DataGridViewRow fila in Dgv_Materiales.Rows)
                 {
-                    if (fila.Cells["Codigo_Material"].Value != null)
+                    if (fila.IsNewRow) continue;
+
+                    if (fila.Cells["Id_Material"].Value != null)
                     {
                         DataRow dr = dtDetalle.NewRow();
-                        int idMaterial = _controlador.ObtenerIdPorCodigo(
-                            fila.Cells["Codigo_Material"].Value.ToString());
-                        dr["Fk_Id_Material"] = idMaterial;
+
+                        dr["Fk_Id_Material"] = Convert.ToInt32(fila.Cells["Id_Material"].Value);
                         dr["Cantidad_Solicitada"] = Convert.ToDecimal(fila.Cells["Cantidad"].Value);
+
                         dtDetalle.Rows.Add(dr);
                     }
                 }
@@ -407,11 +398,20 @@ namespace Capa_Vista_RO
                     return;
                 }
 
-                bool exito = _controlador.GuardarOrdenCompleta(idLogistica, estado, fechaReq, obs, dtDetalle);
+                // Arón Ricardo Esquit - 0901-22-13036 - 30/04/26
+                if (Cmb_ID.SelectedValue == null)
+                {
+                    MessageBox.Show("Debe seleccionar una orden.");
+                    return;
+                }
+
+                int idOrden = Convert.ToInt32(Cmb_ID.SelectedValue);
+
+                bool exito = _controlador.GuardarDetalleOrden(idOrden, dtDetalle);
 
                 if (exito)
                 {
-                    MessageBox.Show("Orden guardada exitosamente.", "Éxito",
+                    MessageBox.Show("Materiales agregados correctamente.", "Éxito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     EstadoControles(false);
                     LimpiarCampos();
@@ -429,10 +429,33 @@ namespace Capa_Vista_RO
             }
         }
 
+        // Arón Ricardo Esquit - 0901-22-13036 - 30/04/26
         private void Btn_modificar_Click(object sender, EventArgs e)
         {
-            EstadoControles(true);
-            Cmb_ID.Enabled = false;
+            if (Cmb_ID.SelectedValue == null)
+            {
+                MessageBox.Show("Seleccione una orden primero.");
+                return;
+            }
+
+            if (!editandoDetalle)
+            {
+                // Entrar en modo edición
+                EstadoControles(true);
+                Cmb_ID.Enabled = false;
+                Btn_guardar.Enabled = false; 
+                editandoDetalle = true;
+
+                MessageBox.Show("Modo edición activado.");
+                return;
+            }
+
+            // Guardar cambios (segunda vez)
+            Btn_guardar_Click(sender, e);
+
+            editandoDetalle = false;
+            Cmb_ID.Enabled = true;
+            Btn_guardar.Enabled = true;
         }
 
         private void Btn_eliminar_Click(object sender, EventArgs e)
@@ -455,7 +478,7 @@ namespace Capa_Vista_RO
                     MessageBox.Show("Registro eliminado correctamente.");
                     CargarComboOrdenes();
                     LimpiarCampos();
-                    InicializarColumnasMateriales(); // 👈 limpia el grid al eliminar
+                    InicializarColumnasMateriales(); // limpia el grid al eliminar
                     EstadoControles(false);
                 }
             }
@@ -466,8 +489,130 @@ namespace Capa_Vista_RO
             CargarComboOrdenes();
             CargarComboEstados();
             CargarCombosMateriales();
+
+            LimpiarCampos();
+
+            Cmb_Estado.SelectedIndex = -1;
+            Cmb_IDMat.SelectedIndex = -1;
+            Cmb_NombreMat.SelectedIndex = -1;
+            txt_UnidadDeMedida.Text = "";
+            Nud_Cantidad.Value = 0;
+
+            Dgv_Materiales.DataSource = null;
+            InicializarColumnasMateriales();
+
+            label10.Text = "0.00";
+
             MessageBox.Show("Catálogos actualizados.");
         }
         // ------ DANI - 0901-22-9136, 29/04/2026 --------
+
+
+
+        // Arón Ricardo Esquit - 0901-22-13036 - 30/04/26
+        private void Btn_inicio_Click(object sender, EventArgs e)
+        {
+            if (Dgv_Materiales.Rows.Count > 0)
+            {
+                Dgv_Materiales.ClearSelection();
+                Dgv_Materiales.Rows[0].Selected = true;
+                Dgv_Materiales.CurrentCell = Dgv_Materiales.Rows[0].Cells[0];
+            }
+        }
+
+        private void Btn_fin_Click(object sender, EventArgs e)
+        {
+            if (Dgv_Materiales.Rows.Count > 0)
+            {
+                int ultimaFila = Dgv_Materiales.Rows.Count - 1;
+
+                Dgv_Materiales.ClearSelection();
+                Dgv_Materiales.Rows[ultimaFila].Selected = true;
+                Dgv_Materiales.CurrentCell = Dgv_Materiales.Rows[ultimaFila].Cells[0];
+            }
+        }
+
+        private void Btn_anterior_Click(object sender, EventArgs e)
+        {
+            if (Dgv_Materiales.Rows.Count > 0 && Dgv_Materiales.CurrentRow != null)
+            {
+                int filaActual = Dgv_Materiales.CurrentRow.Index;
+
+                if (filaActual > 0)
+                {
+                    Dgv_Materiales.ClearSelection();
+                    Dgv_Materiales.Rows[filaActual - 1].Selected = true;
+                    Dgv_Materiales.CurrentCell = Dgv_Materiales.Rows[filaActual - 1].Cells[0];
+                }
+            }
+        }
+
+        private void Btn_sig_Click(object sender, EventArgs e)
+        {
+            if (Dgv_Materiales.Rows.Count > 0 && Dgv_Materiales.CurrentRow != null)
+            {
+                int filaActual = Dgv_Materiales.CurrentRow.Index;
+
+                if (filaActual < Dgv_Materiales.Rows.Count - 1)
+                {
+                    Dgv_Materiales.ClearSelection();
+                    Dgv_Materiales.Rows[filaActual + 1].Selected = true;
+                    Dgv_Materiales.CurrentCell = Dgv_Materiales.Rows[filaActual + 1].Cells[0];
+                }
+            }
+        }
+
+        private void Btn_salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Btn_ayuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Ruta relativa donde está tu archivo CHM (igual que tu compañero)
+                const string subRutaAyuda = @"Ayuda\Ayuda_de_Recibir_Orden.chm";
+
+                string rutaEncontrada = null;
+                DirectoryInfo dir = new DirectoryInfo(Application.StartupPath);
+
+                // Busca la carpeta hacia arriba (10 niveles)
+                for (int i = 0; i < 10 && dir != null; i++, dir = dir.Parent)
+                {
+                    string candidata = Path.Combine(dir.FullName, subRutaAyuda);
+                    if (File.Exists(candidata))
+                    {
+                        rutaEncontrada = candidata;
+                        break;
+                    }
+                }
+
+                // Ruta de respaldo (opcional)
+                string rutaAbsolutaRespaldo =
+                    @"C:\Users\arone\OneDrive\Escritorio\is2k26pf\codigo\empresarial\MRP - G1\DLLS\MVC_Recibir_Orden\Ayuda\Ayuda_de_Recibir_Orden.chm";
+
+                if (rutaEncontrada == null && File.Exists(rutaAbsolutaRespaldo))
+                    rutaEncontrada = rutaAbsolutaRespaldo;
+
+                if (rutaEncontrada != null)
+                {
+                    // Esta es la ruta INTERNA del archivo dentro del CHM
+                    string rutaInterna = @"ayuda-RecibirOrden.html";
+
+                    Help.ShowHelp(this, rutaEncontrada, HelpNavigator.Topic, rutaInterna);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el archivo de ayuda.", "Advertencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir la ayuda:\n" + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

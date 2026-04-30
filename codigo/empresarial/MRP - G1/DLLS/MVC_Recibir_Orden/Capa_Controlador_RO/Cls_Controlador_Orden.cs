@@ -100,6 +100,11 @@ namespace Capa_Controlador_RO
             return 1; 
         }
 
+        // Arón Ricardo Esquit - 0901-22-13036 - 30/04/26
+        public bool GuardarDetalleOrden(int idOrden, DataTable detalle)
+        {
+            return _modelo.GuardarDetalleOrden(idOrden, detalle);
+        }
 
 
     }

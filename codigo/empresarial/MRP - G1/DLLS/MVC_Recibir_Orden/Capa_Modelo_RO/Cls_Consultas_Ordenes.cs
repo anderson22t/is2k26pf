@@ -113,5 +113,40 @@ namespace Capa_Modelo_RO
             catch (Exception ex) { Console.WriteLine("Error ODBC (Leer): " + ex.Message); }
             return dt;
         }
+
+        // Arón Ricardo Esquit - 0901-22-13036 - 30/04/26
+        public bool GuardarDetalleOrden(int idOrden, DataTable detalle)
+        {
+            OdbcConnection conn = conexion.AbrirConexion();
+            OdbcTransaction transaccion = conn.BeginTransaction();
+
+            try
+            {
+                foreach (DataRow fila in detalle.Rows)
+                {
+                    OdbcCommand cmdDetalle = new OdbcCommand(
+                        "INSERT INTO Tbl_Orden_Recibida_Detalle (Fk_Id_Orden_Recibida, Fk_Id_Material, Cantidad_Solicitada) VALUES (?, ?, ?)",
+                        conn
+                    );
+
+                    cmdDetalle.Transaction = transaccion;
+
+                    cmdDetalle.Parameters.Add("?", OdbcType.Int).Value = idOrden;
+                    cmdDetalle.Parameters.Add("?", OdbcType.Int).Value = fila["Fk_Id_Material"];
+                    cmdDetalle.Parameters.Add("?", OdbcType.Decimal).Value = fila["Cantidad_Solicitada"];
+
+                    cmdDetalle.ExecuteNonQuery();
+                }
+
+                transaccion.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaccion.Rollback();
+                Console.WriteLine("Error ODBC (Guardar Detalle): " + ex.Message);
+                return false;
+            }
+        }
     }
 }
