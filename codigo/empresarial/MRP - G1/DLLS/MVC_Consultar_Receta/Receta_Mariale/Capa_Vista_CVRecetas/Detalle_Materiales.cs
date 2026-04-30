@@ -1,155 +1,265 @@
 ﻿using System;
 using System.Data;
-using System.Data.Odbc;
 using System.Windows.Forms;
+using Capa_Controlador_Recetas;
 
 namespace Capa_Vista_CVRecetas
 {
     public partial class Detalle_Materiales : Form
     {
-        string conexion = "DSN=bd_SIG;";
+        // Diego Monterroso
+        Controlador_detalle_Materiales controlador = new Controlador_detalle_Materiales();
 
+        int idDetalleSeleccionado = -1;
+        bool modoEdicion = false;
+
+        // Diego Monterroso
         public Detalle_Materiales()
         {
             InitializeComponent();
             configurarDGV();
             cargarCombos();
+            cargarDatos();
+
+            estadoInicial();
         }
 
-        private void cargarCombos()
+        private void estadoInicial()
         {
-            cargarProductos();
-            cargarMateriales();
-            cargarUnidades();
+            habilitarControles(false);
+
+            btn_guardar.Enabled = false;
+            btn_cancelar.Enabled = false;
+            btn_eliminar.Enabled = true;
         }
 
-        private void cargarProductos()
+        private void modoIngreso()
         {
-            using (OdbcConnection con = new OdbcConnection(conexion))
-            {
-                con.Open();
+            habilitarControles(true);
 
-                string query = @"
-                SELECT m.Pk_Id_Materiales, m.Nombre_Material
-                FROM Tbl_Materiales m
-                INNER JOIN Tbl_Categoria_Material c 
-                    ON m.Fk_Id_Categoria = c.Pk_Id_Categoria_Material
-                INNER JOIN Tbl_Tipo_Material t 
-                    ON c.Fk_Tipo_Material = t.Pk_Id_Tipo_Material
-                WHERE t.Nombre_Tipo_Material = 'Producto Terminado';";
+            btn_guardar.Enabled = true;
+            btn_cancelar.Enabled = true;
 
-                OdbcDataAdapter da = new OdbcDataAdapter(query, con);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+            btn_ingresar.Enabled = false;
+            btn_editar.Enabled = false;
 
-                Cbo_Producto.DataSource = dt;
-                Cbo_Producto.DisplayMember = "Nombre_Material";
-                Cbo_Producto.ValueMember = "Pk_Id_Materiales";
-                Cbo_Producto.SelectedIndex = -1;
-            }
+            btn_eliminar.Enabled = true;
         }
 
-        private void cargarMateriales()
+        private void modoNormal()
         {
-            using (OdbcConnection con = new OdbcConnection(conexion))
-            {
-                con.Open();
+            habilitarControles(false);
 
-                string query = @"
-                SELECT m.Pk_Id_Materiales, m.Nombre_Material
-                FROM Tbl_Materiales m
-                INNER JOIN Tbl_Categoria_Material c 
-                    ON m.Fk_Id_Categoria = c.Pk_Id_Categoria_Material
-                INNER JOIN Tbl_Tipo_Material t 
-                    ON c.Fk_Tipo_Material = t.Pk_Id_Tipo_Material
-                WHERE t.Nombre_Tipo_Material = 'Materia Prima';";
+            btn_guardar.Enabled = false;
+            btn_cancelar.Enabled = false;
 
-                OdbcDataAdapter da = new OdbcDataAdapter(query, con);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+            btn_ingresar.Enabled = true;
+            btn_editar.Enabled = true;
 
-                Cbo_Material.DataSource = dt;
-                Cbo_Material.DisplayMember = "Nombre_Material";
-                Cbo_Material.ValueMember = "Pk_Id_Materiales";
-                Cbo_Material.SelectedIndex = -1;
-            }
+            btn_eliminar.Enabled = true;
         }
 
-        private void cargarUnidades()
+        private void habilitarControles(bool estado)
         {
-            using (OdbcConnection con = new OdbcConnection(conexion))
-            {
-                con.Open();
-
-                string query = "SELECT Pk_Id_Unidad_Medida, Nombre_Unidad_Medida FROM Tbl_Unidad_Medida;";
-
-                OdbcDataAdapter da = new OdbcDataAdapter(query, con);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                Cbo_Unidad.DataSource = dt;
-                Cbo_Unidad.DisplayMember = "Nombre_Unidad_Medida";
-                Cbo_Unidad.ValueMember = "Pk_Id_Unidad_Medida";
-                Cbo_Unidad.SelectedIndex = -1;
-            }
+            Cbo_Producto.Enabled = estado;
+            Cbo_Material.Enabled = estado;
+            Cbo_Unidad.Enabled = estado;
+            Nud_Cantidad.Enabled = estado;
         }
+
+        // Diego Monterroso
 
         private void configurarDGV()
         {
             Dgv_Recetas.Columns.Clear();
+            Dgv_Recetas.ColumnCount = 7;
 
-            Dgv_Recetas.ColumnCount = 6;
-
-            Dgv_Recetas.Columns[0].Name = "IdProducto";
-            Dgv_Recetas.Columns[1].Name = "Producto";
-            Dgv_Recetas.Columns[2].Name = "IdMaterial";
-            Dgv_Recetas.Columns[3].Name = "Material";
-            Dgv_Recetas.Columns[4].Name = "Unidad";
-            Dgv_Recetas.Columns[5].Name = "Cantidad";
+            Dgv_Recetas.Columns[0].Name = "IdDetalle";
+            Dgv_Recetas.Columns[1].Name = "IdProducto";
+            Dgv_Recetas.Columns[2].Name = "Producto";
+            Dgv_Recetas.Columns[3].Name = "IdMaterial";
+            Dgv_Recetas.Columns[4].Name = "Material";
+            Dgv_Recetas.Columns[5].Name = "Unidad";
+            Dgv_Recetas.Columns[6].Name = "Cantidad";
 
             Dgv_Recetas.Columns[0].Visible = false;
-            Dgv_Recetas.Columns[2].Visible = false;
+            Dgv_Recetas.Columns[1].Visible = false;
+            Dgv_Recetas.Columns[3].Visible = false;
 
-            Dgv_Recetas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Dgv_Recetas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            Dgv_Recetas.ReadOnly = true;
-            Dgv_Recetas.AllowUserToAddRows = false;
         }
 
-        private void Btn_Ingresar_Click(object sender, EventArgs e)
+        // Diego Monterroso
+        private void cargarCombos()
         {
-            if (Cbo_Producto.SelectedIndex == -1)
+            Cbo_Producto.DataSource = controlador.getProductos();
+            Cbo_Producto.DisplayMember = "Nombre_Material";
+            Cbo_Producto.ValueMember = "Pk_Id_Materiales";
+            Cbo_Producto.SelectedIndex = -1;
+
+            Cbo_Material.DataSource = controlador.getMateriales();
+            Cbo_Material.DisplayMember = "Nombre_Material";
+            Cbo_Material.ValueMember = "Pk_Id_Materiales";
+            Cbo_Material.SelectedIndex = -1;
+
+            Cbo_Unidad.DataSource = controlador.getUnidades();
+            Cbo_Unidad.DisplayMember = "Nombre_Unidad_Medida";
+            Cbo_Unidad.ValueMember = "Pk_Id_Unidad_Medida";
+            Cbo_Unidad.SelectedIndex = -1;
+        }
+
+        // Diego Monterroso
+        private void cargarDatos()
+        {
+            Dgv_Recetas.Rows.Clear();
+            DataTable dt = controlador.getDetalles();
+
+            foreach (DataRow row in dt.Rows)
             {
-                MessageBox.Show("Seleccione un producto");
+                Dgv_Recetas.Rows.Add(
+                    row[0], row[1], row[2],
+                    row[3], row[4], row[5], row[6]
+                );
+            }
+        }
+
+        // Ruben Lopez 0901-20-4620
+        // INGRESAR
+
+        private void btn_ingresar_Click(object sender, EventArgs e)
+        {
+            limpiar();
+            idDetalleSeleccionado = -1;
+            modoEdicion = false;
+
+            modoIngreso();
+        }
+
+        // Ruben Lopez 0901-20-4620
+        // GUARDAR
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            if (Cbo_Producto.SelectedValue == null ||
+                Cbo_Material.SelectedValue == null ||
+                Cbo_Unidad.SelectedValue == null ||
+                Nud_Cantidad.Value <= 0)
+            {
+                MessageBox.Show("Complete todos los campos");
                 return;
             }
 
-            if (Cbo_Material.SelectedIndex == -1)
+            int p = Convert.ToInt32(Cbo_Producto.SelectedValue);
+            int m = Convert.ToInt32(Cbo_Material.SelectedValue);
+            int u = Convert.ToInt32(Cbo_Unidad.SelectedValue);
+            decimal c = Nud_Cantidad.Value;
+
+            if (!modoEdicion)
             {
-                MessageBox.Show("Seleccione un material");
+                controlador.guardarDetalle(p, m, u, c);
+                MessageBox.Show("Guardado correctamente");
+            }
+            else
+            {
+                controlador.actualizarDetalle(idDetalleSeleccionado, p, m, u, c);
+                MessageBox.Show("Actualizado correctamente");
+            }
+
+            cargarDatos();
+            limpiar();
+            modoNormal();
+        }
+
+        // Ruben Lopez 0901-20-4620
+        // EDITAR
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            if (Dgv_Recetas.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un registro");
                 return;
             }
 
-            if (Cbo_Unidad.SelectedIndex == -1)
+            DataGridViewRow fila = Dgv_Recetas.SelectedRows[0];
+
+            idDetalleSeleccionado = Convert.ToInt32(fila.Cells[0].Value);
+            modoEdicion = true;
+
+            Cbo_Producto.SelectedValue = fila.Cells[1].Value;
+            Cbo_Material.SelectedValue = fila.Cells[3].Value;
+            Cbo_Unidad.Text = fila.Cells[5].Value.ToString();
+            Nud_Cantidad.Value = Convert.ToDecimal(fila.Cells[6].Value);
+
+            modoIngreso();
+        }
+        // Ruben Lopez 0901-20-4620
+        // ELIMINAR (SIEMPRE ACTIVO)
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            if (Dgv_Recetas.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Seleccione una unidad");
+                MessageBox.Show("Seleccione un registro para eliminar");
                 return;
             }
 
-            if (Nud_Cantidad.Value <= 0)
-            {
-                MessageBox.Show("Ingrese cantidad válida");
-                return;
-            }
+            var confirm = MessageBox.Show(
+                "¿Seguro que desea eliminar este registro?",
+                "Confirmar",
+                MessageBoxButtons.YesNo);
 
-            Dgv_Recetas.Rows.Add(
-                Cbo_Producto.SelectedValue,
-                Cbo_Producto.Text,
-                Cbo_Material.SelectedValue,
-                Cbo_Material.Text,
-                Cbo_Unidad.Text,
-                Nud_Cantidad.Value
-            );
+            if (confirm == DialogResult.Yes)
+            {
+                DataGridViewRow fila = Dgv_Recetas.SelectedRows[0];
+                int id = Convert.ToInt32(fila.Cells[0].Value);
+
+                controlador.eliminarDetalle(id);
+
+                cargarDatos();
+                limpiar();
+                MessageBox.Show("Eliminado correctamente");
+            }
+        }
+
+        // Ruben Lopez 0901-20-4620
+        // CANCELAR
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            limpiar();
+            modoNormal();
+        }
+
+        // Ruben Lopez 0901-20-4620
+        // GRID CLICK
+
+        private void Dgv_Recetas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = Dgv_Recetas.Rows[e.RowIndex];
+                idDetalleSeleccionado = Convert.ToInt32(fila.Cells[0].Value);
+            }
+        }
+
+        // Ruben Lopez 0901-20-4620
+        // LIMPIAR
+
+        private void limpiar()
+        {
+            Cbo_Producto.SelectedIndex = -1;
+            Cbo_Material.SelectedIndex = -1;
+            Cbo_Unidad.SelectedIndex = -1;
+            Nud_Cantidad.Value = 0;
+
+            idDetalleSeleccionado = -1;
+            modoEdicion = false;
+        }
+        // Ruben Lopez 0901-20-4620
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
