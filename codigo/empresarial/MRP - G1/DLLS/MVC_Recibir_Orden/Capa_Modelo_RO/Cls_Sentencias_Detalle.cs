@@ -17,7 +17,7 @@ namespace Capa_Modelo_RO
             {
                 string query = @"
             SELECT 
-                m.Codigo_Material               AS Id_Material,
+                m.Pk_Id_Materiales                AS Id_Material,
                 m.Nombre_Material               AS Nombre_Material,
                 u.Abreviatura_Unidad_Medida     AS UnidadMedida,
                 d.Cantidad_Solicitada           AS CantidadSolicitada
