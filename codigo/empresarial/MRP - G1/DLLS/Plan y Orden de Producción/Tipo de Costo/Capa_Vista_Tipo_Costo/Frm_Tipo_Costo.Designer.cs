@@ -1,7 +1,7 @@
 ﻿
-namespace Capa_Vista_Plan
+namespace Capa_Vista_Tipo_Costo
 {
-    partial class Frm_Plan_Produccion
+    partial class Frm_Tipo_Costo
     {
         /// <summary>
         /// Required designer variable.
@@ -36,24 +36,22 @@ namespace Capa_Vista_Plan
             // 
             this.navegador1.IPkId_Aplicacion = 0;
             this.navegador1.IPkId_Modulo = 0;
-            this.navegador1.Location = new System.Drawing.Point(-1, 0);
+            this.navegador1.Location = new System.Drawing.Point(-4, -2);
             this.navegador1.Name = "navegador1";
             this.navegador1.SAlias = null;
-            this.navegador1.SConfiguracionFK = null;
             this.navegador1.SEtiquetas = null;
-            this.navegador1.Size = new System.Drawing.Size(1125, 734);
+            this.navegador1.Size = new System.Drawing.Size(1180, 488);
             this.navegador1.SNombreTabla = null;
             this.navegador1.TabIndex = 0;
             // 
-            // Frm_Plan_Produccion
+            // Frm_Tipo_Costo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1147, 562);
+            this.ClientSize = new System.Drawing.Size(1129, 591);
             this.Controls.Add(this.navegador1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Frm_Plan_Produccion";
-            this.Text = "Frm_Plan_Produccion";
+            this.Name = "Frm_Tipo_Costo";
+            this.Text = "Frm_Tipo_Costo";
             this.ResumeLayout(false);
 
         }
