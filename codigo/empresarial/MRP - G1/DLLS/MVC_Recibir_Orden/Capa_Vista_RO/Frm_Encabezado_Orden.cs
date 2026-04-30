@@ -129,5 +129,11 @@ namespace Capa_Vista_RO
                 }
             }
         }
+
+        private void Btn_CrearOrdenN_Click(object sender, EventArgs e)
+        {
+            Frm_Detalle_Orden frm = new Frm_Detalle_Orden();
+            frm.ShowDialog();
+        }
     }
 }  // ------ KEVIN NATARENO - 0901-21-635, 28/04/2026 --------

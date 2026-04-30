@@ -39,6 +39,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dgvOrdenes = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Btn_CrearOrdenN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,17 +47,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(367, 29);
+            this.label1.Size = new System.Drawing.Size(460, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "Listado de Ordenes Recibidas";
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(18, 170);
+            this.txtID.Location = new System.Drawing.Point(24, 209);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(130, 20);
+            this.txtID.Size = new System.Drawing.Size(172, 22);
             this.txtID.TabIndex = 1;
             this.txtID.Text = "Buscar por ID";
             // 
@@ -64,51 +67,57 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(156, 166);
+            this.label2.Location = new System.Drawing.Point(208, 204);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 23);
+            this.label2.Size = new System.Drawing.Size(101, 29);
             this.label2.TabIndex = 2;
             this.label2.Text = "Estado:";
             // 
             // cmbEstado
             // 
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(235, 170);
+            this.cmbEstado.Location = new System.Drawing.Point(313, 209);
+            this.cmbEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(134, 21);
+            this.cmbEstado.Size = new System.Drawing.Size(177, 24);
             this.cmbEstado.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(391, 167);
+            this.label3.Location = new System.Drawing.Point(521, 206);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 23);
+            this.label3.Size = new System.Drawing.Size(86, 29);
             this.label3.TabIndex = 4;
             this.label3.Text = "Fecha";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(545, 171);
+            this.dateTimePicker1.Location = new System.Drawing.Point(727, 210);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker1.TabIndex = 5;
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(832, 171);
+            this.dateTimePicker2.Location = new System.Drawing.Point(1109, 210);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker2.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(464, 168);
+            this.label4.Location = new System.Drawing.Point(619, 207);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 23);
+            this.label4.Size = new System.Drawing.Size(102, 29);
             this.label4.TabIndex = 7;
             this.label4.Text = "Desde: ";
             // 
@@ -116,34 +125,48 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(761, 167);
+            this.label5.Location = new System.Drawing.Point(1015, 206);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 23);
+            this.label5.Size = new System.Drawing.Size(88, 29);
             this.label5.TabIndex = 8;
             this.label5.Text = "Hasta:";
             // 
             // dgvOrdenes
             // 
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrdenes.Location = new System.Drawing.Point(15, 197);
+            this.dgvOrdenes.Location = new System.Drawing.Point(20, 242);
+            this.dgvOrdenes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvOrdenes.Name = "dgvOrdenes";
             this.dgvOrdenes.RowHeadersWidth = 51;
-            this.dgvOrdenes.Size = new System.Drawing.Size(1262, 391);
+            this.dgvOrdenes.Size = new System.Drawing.Size(1683, 481);
             this.dgvOrdenes.TabIndex = 9;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 41);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(23, 50);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1016, 10);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1355, 12);
             this.flowLayoutPanel1.TabIndex = 10;
+            // 
+            // Btn_CrearOrdenN
+            // 
+            this.Btn_CrearOrdenN.Location = new System.Drawing.Point(20, 80);
+            this.Btn_CrearOrdenN.Name = "Btn_CrearOrdenN";
+            this.Btn_CrearOrdenN.Size = new System.Drawing.Size(409, 94);
+            this.Btn_CrearOrdenN.TabIndex = 11;
+            this.Btn_CrearOrdenN.Text = "Crear Orden Nueva";
+            this.Btn_CrearOrdenN.UseVisualStyleBackColor = true;
+            this.Btn_CrearOrdenN.Click += new System.EventHandler(this.Btn_CrearOrdenN_Click);
             // 
             // Frm_Encabezado_Orden
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1289, 648);
+            this.ClientSize = new System.Drawing.Size(1719, 798);
+            this.Controls.Add(this.Btn_CrearOrdenN);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.dgvOrdenes);
             this.Controls.Add(this.label5);
@@ -155,6 +178,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Frm_Encabezado_Orden";
             this.Text = "Ordenes Recibidas - 714";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
@@ -176,5 +200,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvOrdenes;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button Btn_CrearOrdenN;
     }
 }

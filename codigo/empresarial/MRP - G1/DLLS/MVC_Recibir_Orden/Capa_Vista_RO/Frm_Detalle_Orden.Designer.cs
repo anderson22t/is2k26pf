@@ -284,6 +284,7 @@
             // 
             this.Dgv_Materiales.AllowUserToAddRows = false;
             this.Dgv_Materiales.AllowUserToDeleteRows = false;
+            this.Dgv_Materiales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dgv_Materiales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_Materiales.Location = new System.Drawing.Point(37, 194);
             this.Dgv_Materiales.Margin = new System.Windows.Forms.Padding(4);
