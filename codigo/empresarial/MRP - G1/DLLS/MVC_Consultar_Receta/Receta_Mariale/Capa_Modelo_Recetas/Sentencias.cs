@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Data;
 using System.Data.Odbc;
-
+using Capa_Modelo_Seguridad;
 namespace Capa_Modelo_Recetas
 {
     public class Sentencias
     {
-        Conexion cn = new Conexion();
+        private readonly Cls_Conexion conexion = new Cls_Conexion();
 
-       
         public DataTable obtenerProductosTerminados()
         {
             DataTable tabla = new DataTable();
+            using (OdbcConnection conn = conexion.AbrirConexion())
 
-            using (OdbcConnection conn = cn.AbrirConexion())
             {
                 string sql = @"
                 SELECT m.Pk_Id_Materiales, m.Nombre_Material
@@ -28,13 +27,16 @@ namespace Capa_Modelo_Recetas
 
             return tabla;
         }
+    
 
+
+        
         
         public DataTable obtenerBOM(int idProducto)
         {
             DataTable tabla = new DataTable();
 
-            using (OdbcConnection conn = cn.AbrirConexion())
+            using (OdbcConnection conn = conexion.AbrirConexion())
             {
                 string sql = @"
                 SELECT 
@@ -61,7 +63,7 @@ namespace Capa_Modelo_Recetas
         {
             DataTable tabla = new DataTable();
 
-            using (OdbcConnection conn = cn.AbrirConexion())
+            using (OdbcConnection conn = conexion.AbrirConexion())
             {
                 string sql = @"
         SELECT 
@@ -88,8 +90,7 @@ namespace Capa_Modelo_Recetas
         public DataTable obtenerEstados()
         {
             DataTable tabla = new DataTable();
-
-            using (OdbcConnection conn = cn.AbrirConexion())
+            using (OdbcConnection conn = conexion.AbrirConexion())
             {
                 string sql = "SELECT * FROM Tbl_Estado_BOM";
 
@@ -103,7 +104,7 @@ namespace Capa_Modelo_Recetas
         // cesar santizo 0901-22-5215 boton guardar//
         public void insertarBOM(string descripcion, string version, DateTime fecha, int estado, int material)
         {
-            using (OdbcConnection conn = cn.AbrirConexion())
+            using (OdbcConnection conn = conexion.AbrirConexion())
             {
                 string sql = @"INSERT INTO Tbl_BOM
         (Descripcion_BOM, Version_BOM, Fecha_Creacion_BOM, Fk_Id_Estado_BOM, Fk_Id_Material)
@@ -124,7 +125,7 @@ namespace Capa_Modelo_Recetas
         // cesar santizo 0901-22-5215 boton editar//
         public void editarBOM(int idBOM, string descripcion, string version, DateTime fecha, int estado)
         {
-            using (OdbcConnection conn = cn.AbrirConexion())
+            using (OdbcConnection conn = conexion.AbrirConexion())
             {
                 string sql = @"UPDATE Tbl_BOM SET
         Descripcion_BOM = ?,
@@ -148,7 +149,7 @@ namespace Capa_Modelo_Recetas
         // maria morales 0901-22-1226 boton eliminar
         public void eliminarBOM(int idBOM)
         {
-            using (OdbcConnection conn = cn.AbrirConexion())
+            using (OdbcConnection conn = conexion.AbrirConexion())
             {
                 
                 OdbcTransaction trans = conn.BeginTransaction();
@@ -177,6 +178,8 @@ namespace Capa_Modelo_Recetas
                 }
             }
         }
+
+
 
     }
 }
