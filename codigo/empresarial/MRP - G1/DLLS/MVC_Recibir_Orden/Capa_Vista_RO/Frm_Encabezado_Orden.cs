@@ -57,7 +57,6 @@ namespace Capa_Vista_RO
         private void CargarGrid()
         {
             var datos = controlador.ObtenerOrdenes();
-
             dgvOrdenes.DataSource = controlador.ObtenerOrdenes();
             ConfigurarGrid();
             AgregarBotonVer();
@@ -122,6 +121,7 @@ namespace Capa_Vista_RO
 
                     Frm_Detalle_Orden frm = new Frm_Detalle_Orden(idOrden); 
                     frm.ShowDialog();
+                    CargarGrid();
                 }
                 else
                 {
@@ -134,6 +134,7 @@ namespace Capa_Vista_RO
         {
             Frm_Detalle_Orden frm = new Frm_Detalle_Orden();
             frm.ShowDialog();
+            CargarGrid();
         }
     }
 }  // ------ KEVIN NATARENO - 0901-21-635, 28/04/2026 --------
