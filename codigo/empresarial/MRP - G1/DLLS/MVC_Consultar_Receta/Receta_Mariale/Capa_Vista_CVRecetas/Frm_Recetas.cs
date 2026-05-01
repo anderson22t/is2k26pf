@@ -218,6 +218,6 @@ namespace Capa_Vista_CVRecetas
             // dgv_detalle.DataSource = dtGrid;
         }
 
-
+        
     }
 }
