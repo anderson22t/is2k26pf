@@ -183,6 +183,33 @@ namespace Capa_Modelo_Recetas
                 return filas > 0;
             }
         }
+
+        // Realizado por: Anderson Trigueros
+
+        public DataTable fun_ObtenerFasesProducción(int iCodigoBOM)
+        {
+            DataTable tabla = new DataTable();
+            try
+            {
+                using (OdbcConnection con = conexion.conexion())
+                {
+                    string sConsultaFase = @"SELECT f.Pk_Id_Fase_Producto as CodigoFase, f.Nombre_Fase_Produccion as Fase, 
+                                                f.Descripcion_Fase_Produccion AS Descripcion, f.Horas_Hombre as Horas
+                                                FROM Tbl_Fases_Produccion f
+                                                WHERE f.Fk_Id_BOM = ?";
+                    OdbcCommand cmd = new OdbcCommand(sConsultaFase, con);
+                    cmd.Parameters.AddWithValue("", iCodigoBOM);
+                    OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+                    da.Fill(tabla);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener las fases del producto: " + ex.Message, ex);
+            }
+            return tabla;
+        }
+        // ------------------- Sentencias para realizar una sola transacción en la base de datos ----------------- //
     }
 }
 
