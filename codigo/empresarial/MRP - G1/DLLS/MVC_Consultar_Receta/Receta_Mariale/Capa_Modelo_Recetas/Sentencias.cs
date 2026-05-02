@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Odbc;
 using Capa_Modelo_Seguridad;
@@ -179,7 +180,109 @@ namespace Capa_Modelo_Recetas
             }
         }
 
+        // ----------------------------- Sentencias para realizar una sola transacción en la base de datos ----------------- //
+
+        // Método para guardar nuevos materiales o fases de producción. Anderson Trigueros
+        public void agregarDatosNuevos(int iCodigoBOM, /*datosBOM*//*listaDetalle*/ List<(string sFase, string sDescripcion, int iHoras)> listaFases)
+        {
+            using (OdbcConnection con = conexion.conexion())
+            {
+                using (OdbcTransaction transaccion = con.BeginTransaction())
+                {
+                    try
+                    {
+                        // Guardar nuevas fases
+                        if (listaFases != null && listaFases.Count > 0)
+                        {
+                            string sIngresarFase = @"INSERT INTO Tbl_Fases_Produccion
+                                                    (Fk_Id_BOM, Nombre_Fase_Produccion, Descripcion_Fase_Produccion, Horas_Hombre) 
+                                                    VALUES (?, ?, ?, ?)";
+
+                            OdbcCommand cmdGuardar = new OdbcCommand(sIngresarFase, con, transaccion);
+
+                            foreach (var fase in listaFases)
+                            {
+                                cmdGuardar.Parameters.Clear();
+
+                                cmdGuardar.Parameters.AddWithValue("", iCodigoBOM);
+                                cmdGuardar.Parameters.AddWithValue("", fase.sFase);
+                                cmdGuardar.Parameters.AddWithValue("", fase.sDescripcion);
+                                cmdGuardar.Parameters.AddWithValue("", fase.iHoras);
+
+                                cmdGuardar.ExecuteNonQuery();
+                            }
+                        }
+
+                        // Guardar nuevos detalles
 
 
+                        transaccion.Commit();
+                    }
+                    catch
+                    {
+                        transaccion.Rollback();
+                        throw;
+                    }
+                }
+            }
+        }
+
+        // Método para crear el proceso completo desde la creación de BOM, Detalle y Fases. Anderson Trigueros
+        public void creaciónCompleta(/*datosBOM*//*listaDetalle*/ List<(string sFase, string sDescripcion, int iHoras)> listaFases)
+        {
+            try
+            {
+                using (OdbcConnection con = conexion.conexion())
+                {
+                    OdbcTransaction transaccion = con.BeginTransaction();
+                    try
+                    {
+                        //Código para crear el BOM
+
+
+                        //Obtener el id del BOM
+                        OdbcCommand cmdLastId = new OdbcCommand("SELECT LAST_INSERT_ID();", con, transaccion);
+                        int idBOM = Convert.ToInt32(cmdLastId.ExecuteScalar());
+
+                        //Ingresar detalle
+
+
+                        if (listaFases != null && listaFases.Count > 0)
+                        {
+                            //Ingresar fases de producción
+                            string sIngresarFase = @"INSERT INTO Tbl_Fases_Produccion
+                                                (Fk_Id_BOM, Nombre_Fase_Produccion, Descripcion_Fase_Produccion, Horas_Hombre) 
+                                                VALUES (?, ?, ?, ?)";
+
+                            OdbcCommand cmdGuardar = new OdbcCommand(sIngresarFase, con, transaccion);
+
+                            foreach (var fase in listaFases)
+                            {
+                                cmdGuardar.Parameters.Clear();
+
+                                cmdGuardar.Parameters.AddWithValue("", idBOM);
+                                cmdGuardar.Parameters.AddWithValue("", fase.sFase);
+                                cmdGuardar.Parameters.AddWithValue("", fase.sDescripcion);
+                                cmdGuardar.Parameters.AddWithValue("", fase.iHoras);
+
+                                cmdGuardar.ExecuteNonQuery();
+                            }
+                        }
+
+
+                        transaccion.Commit();
+                    }
+                    catch
+                    {
+                        transaccion.Rollback();
+                        throw;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al guardar receta: " + ex.Message);
+            }
+        }
     }
 }

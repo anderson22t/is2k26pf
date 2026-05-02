@@ -10,17 +10,34 @@ namespace Capa_Vista_CVRecetas
     public partial class Frm_Recetas : Form
     {
 
-
         Controlador con = new Controlador();
+        Controlador_Fases controlador = new Controlador_Fases();
 
         //Variables Goblas cesar santizo 0901-22-5215
         int idBOM = 0;
+        int idBOMExistente = 0;
+
         public Frm_Recetas()
         {
             InitializeComponent();
             cargarCombos();
 
         }
+
+        private void Frm_Recetas_Load(object sender, EventArgs e)
+        {
+            Dgv_Fases.Columns.Clear();
+            Dgv_Fases.Columns.Add("idFase", "Id Fase");
+            Dgv_Fases.Columns.Add("faseProduccion", "Fase de Producción");
+            Dgv_Fases.Columns.Add("descripcionFase", "Descripción de la Fase");
+            Dgv_Fases.Columns.Add("horasHombres", "Horas Hombre");
+
+            Dgv_Fases.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            Dgv_Fases.ReadOnly = true;
+            Dgv_Fases.AllowUserToAddRows = false;
+
+            pro_ObtenerFases(idBOMExistente);
+        } 
 
 
         public void cargarCombos()
@@ -54,7 +71,7 @@ namespace Capa_Vista_CVRecetas
         public void recargarDatos()
         {
             if (Cbo_producto.SelectedValue == null)
-                return;
+            return;
 
             int idProducto = Convert.ToInt32(Cbo_producto.SelectedValue);
 
@@ -86,6 +103,28 @@ namespace Capa_Vista_CVRecetas
         //boton de guardar cesar santizo 0901-22-5215 (para guardar receta)
         private void Btn_guardar_Click_1(object sender, EventArgs e)
         {
+            // Verificar si idBomExistente es igual a 0
+            // Si es igual a 0, se debe crear el BOM completo
+            try
+            {
+                if (idBOMExistente == 0)
+                {
+                    con.guardarBOMCompleto(fasesNuevas);
+                    MessageBox.Show("Receta guardada correctamente");
+                }
+                // En caso contrario, se guardan solo datos nuevos de detalle o fases
+                else
+                {
+                    con.guardarDatosNuevos(idBOMExistente, fasesNuevas);
+                    MessageBox.Show("Receta guardada correctamente");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar: " + ex.Message);
+            }
+
+            ////
             try
             {
                 int idProducto = Convert.ToInt32(Cbo_producto.SelectedValue);
@@ -194,6 +233,7 @@ namespace Capa_Vista_CVRecetas
             if (dtBOM.Rows.Count == 0)
             {
                 MessageBox.Show("Este producto no tiene BOM registrada");
+                idBOMExistente = 0;
 
                 // limpiar campos
                 Txt_descripcion.Clear();
@@ -207,6 +247,7 @@ namespace Capa_Vista_CVRecetas
 
 
             idBOM = Convert.ToInt32(dtBOM.Rows[0]["Pk_Id_BOM"]);
+            idBOMExistente = idBOM;
 
             Txt_descripcion.Text = dtBOM.Rows[0]["Descripcion_BOM"].ToString();
             Txt_versionBOM.Text = dtBOM.Rows[0]["Version_BOM"].ToString();
@@ -218,6 +259,97 @@ namespace Capa_Vista_CVRecetas
             // dgv_detalle.DataSource = dtGrid;
         }
 
-        
+        //-------------------- Funciones para el proceso de Fases de Producción ----------------------------//
+        // Anderson Trigueros
+
+        List<(string nombre, string descripcion, int horas)> datosFases = new List<(string, string, int)>();
+        List<(string sFase, string sDescripcion, int iHoras)> fasesNuevas = new List<(string, string, int)>();
+
+        private void pro_ObtenerFases(int iCodigoBOM)
+        {
+            try
+            {
+                DataTable tabla = controlador.fun_DatosFase(iCodigoBOM);
+                Dgv_Fases.Rows.Clear();
+
+                foreach (DataRow fila in tabla.Rows)
+                {
+                    int iIndice = Dgv_Fases.Rows.Add();
+
+                    Dgv_Fases.Rows[iIndice].Cells["idFase"].Value = fila["CodigoFase"];
+                    Dgv_Fases.Rows[iIndice].Cells["faseProduccion"].Value = fila["Fase"];
+                    Dgv_Fases.Rows[iIndice].Cells["descripcionFase"].Value = fila["Descripcion"];
+                    Dgv_Fases.Rows[iIndice].Cells["horasHombres"].Value = fila["Horas"];
+                    Dgv_Fases.Rows[iIndice].Tag = fila["CodigoFase"];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ActualizarGridFases()
+        {
+            var ultimaFase = fasesNuevas[fasesNuevas.Count - 1];
+
+            int iIndice = Dgv_Fases.Rows.Add();
+
+            Dgv_Fases.Rows[iIndice].Cells["idFase"].Value = null;
+            Dgv_Fases.Rows[iIndice].Cells["faseProduccion"].Value = ultimaFase.sFase;
+            Dgv_Fases.Rows[iIndice].Cells["descripcionFase"].Value = ultimaFase.sDescripcion;
+            Dgv_Fases.Rows[iIndice].Cells["horasHombres"].Value = ultimaFase.iHoras;
+        }
+
+        private void Btn_agregar_fases_Click(object sender, EventArgs e)
+        {
+            string sFase = Txt_Fase.Text.Trim();
+            string sDescripcion = Txt_Descripcion_fases.Text.Trim();
+            string sHorasTexto = Txt_Horas.Text.Trim();
+
+            // Validar campos vacíos
+            if (string.IsNullOrEmpty(sFase) ||
+                string.IsNullOrEmpty(sDescripcion) ||
+                string.IsNullOrEmpty(sHorasTexto))
+            {
+                MessageBox.Show("Debe completar todos los campos");
+                return;
+            }
+
+            // Validar que la hora ingresada sea valida
+            int iHoras;
+            if (!int.TryParse(sHorasTexto, out iHoras) || iHoras <= 0)
+            {
+                MessageBox.Show("El campo Horas debe ser un número entero positivo mayor a 0.");
+                return;
+            }
+
+            fasesNuevas.Add((sFase, sDescripcion, iHoras));
+            Txt_Fase.Clear();
+            Txt_Descripcion_fases.Clear();
+            Txt_Horas.Clear();
+            ActualizarGridFases();
+
+        }
+
+        private void Dgv_Fases_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            DataGridViewRow fila = Dgv_Fases.Rows[e.RowIndex];
+            if (fila == null) return;
+
+            string sFase = fila.Cells["faseProduccion"].Value?.ToString() ?? "";
+            string sDescripcion = fila.Cells["descripcionFase"].Value?.ToString() ?? "";
+            string sHoras = fila.Cells["horasHombres"].Value?.ToString() ?? "";
+
+            Txt_Fase.Text = sFase;
+            Txt_Descripcion_fases.Text = sDescripcion;
+            Txt_Horas.Text = sHoras;
+        }
+
+        private void btn_eliminar_fases_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
