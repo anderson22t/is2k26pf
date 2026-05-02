@@ -472,6 +472,7 @@
             this.Btn_ingresar.Text = "Ingresar";
             this.Btn_ingresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_ingresar.UseVisualStyleBackColor = true;
+            this.Btn_ingresar.Click += new System.EventHandler(this.Btn_ingresar_Click);
             // 
             // Btn_modificar
             // 
@@ -486,6 +487,7 @@
             this.Btn_modificar.Text = "Modificar";
             this.Btn_modificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_modificar.UseVisualStyleBackColor = true;
+            this.Btn_modificar.Click += new System.EventHandler(this.Btn_modificar_Click);
             // 
             // Btn_guardar
             // 
@@ -499,6 +501,7 @@
             this.Btn_guardar.Text = "Guardar";
             this.Btn_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_guardar.UseVisualStyleBackColor = true;
+            this.Btn_guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
             // 
             // Btn_cancelar
             // 
@@ -512,6 +515,7 @@
             this.Btn_cancelar.Text = "Cancelar";
             this.Btn_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_cancelar.UseVisualStyleBackColor = true;
+            this.Btn_cancelar.Click += new System.EventHandler(this.Btn_cancelar_Click);
             // 
             // Btn_eliminar
             // 
@@ -525,6 +529,7 @@
             this.Btn_eliminar.Text = "Eliminar";
             this.Btn_eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_eliminar.UseVisualStyleBackColor = true;
+            this.Btn_eliminar.Click += new System.EventHandler(this.Btn_eliminar_Click);
             // 
             // Btn_consultar
             // 
@@ -551,6 +556,7 @@
             this.Btn_refrescar.Text = "Refrescar";
             this.Btn_refrescar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_refrescar.UseVisualStyleBackColor = true;
+            this.Btn_refrescar.Click += new System.EventHandler(this.Btn_refrescar_Click);
             // 
             // Btn_inicio
             // 
@@ -564,6 +570,7 @@
             this.Btn_inicio.Text = "Inicio";
             this.Btn_inicio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_inicio.UseVisualStyleBackColor = true;
+            this.Btn_inicio.Click += new System.EventHandler(this.Btn_inicio_Click);
             // 
             // Btn_anterior
             // 
@@ -577,6 +584,7 @@
             this.Btn_anterior.Text = "Anterior";
             this.Btn_anterior.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_anterior.UseVisualStyleBackColor = true;
+            this.Btn_anterior.Click += new System.EventHandler(this.Btn_anterior_Click);
             // 
             // Btn_sig
             // 
@@ -590,6 +598,7 @@
             this.Btn_sig.Text = "Siguiente";
             this.Btn_sig.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_sig.UseVisualStyleBackColor = true;
+            this.Btn_sig.Click += new System.EventHandler(this.Btn_sig_Click);
             // 
             // Btn_fin
             // 
@@ -603,6 +612,7 @@
             this.Btn_fin.Text = "Fin";
             this.Btn_fin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_fin.UseVisualStyleBackColor = true;
+            this.Btn_fin.Click += new System.EventHandler(this.Btn_fin_Click);
             // 
             // Btn_ayuda
             // 
@@ -616,6 +626,7 @@
             this.Btn_ayuda.Text = "Ayuda";
             this.Btn_ayuda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_ayuda.UseVisualStyleBackColor = true;
+            this.Btn_ayuda.Click += new System.EventHandler(this.Btn_ayuda_Click);
             // 
             // Btn_salir
             // 
@@ -629,6 +640,7 @@
             this.Btn_salir.Text = "Salir";
             this.Btn_salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_salir.UseVisualStyleBackColor = true;
+            this.Btn_salir.Click += new System.EventHandler(this.Btn_salir_Click);
             // 
             // panel4
             // 

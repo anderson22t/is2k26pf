@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using Capa_Modelo_Recetas;
 
@@ -44,6 +45,17 @@ namespace Capa_Controlador_Recetas
         public void eliminarBOM(int idBOM)
         {
             sen.eliminarBOM(idBOM);
+        }
+
+        //Método para transacción completa. Anderson Trigueros
+        public void guardarBOMCompleto(/*datosBOM*//*listaDetalle*/ List<(string sFase, string sDescripcion, int iHoras)> listaFases)
+        {
+            sen.creaciónCompleta(listaFases);
+        }
+        //Método para transacción datos nuevos con BOM existente. Anderson Trigueros
+        public void guardarDatosNuevos(int iCodigoBOM, /*datosBOM*//*listaDetalle*/ List<(string sFase, string sDescripcion, int iHoras)> listaFases)
+        {
+            sen.agregarDatosNuevos(iCodigoBOM, listaFases);
         }
     }
 }

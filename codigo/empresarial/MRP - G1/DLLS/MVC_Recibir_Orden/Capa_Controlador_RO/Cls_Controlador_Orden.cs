@@ -12,6 +12,7 @@ namespace Capa_Controlador_RO
     {
 
         private Cls_Sentencias modelo = new Cls_Sentencias();
+        private Cls_Consultas_Ordenes _modelo = new Cls_Consultas_Ordenes();
         private Cls_Sentencias_Detalle detalle = new Cls_Sentencias_Detalle();
 
         // ------ KEVIN NATARENO - 0901-21-635, 28/04/2026 --------
@@ -75,6 +76,36 @@ namespace Capa_Controlador_RO
             return detalle.ObtenerMaterialPorNombre(nombreMaterial);
         }
         // ------ PAULA DANIELA LEONARDO - 0901-22-9580, 28/04/2026 --------
+
+
+        public bool GuardarOrdenCompleta(string idLog, int estado, DateTime req, string obs, DataTable detalle)
+        {
+            return _modelo.GuardarOrden(idLog, estado, req, obs, detalle);
+        }
+
+        // Método para modificar
+        public bool ActualizarOrden(int pk, string idLog, int estado, DateTime req, string obs)
+        {
+            return _modelo.ModificarOrden(pk, idLog, estado, req, obs);
+        }
+
+        // Método para eliminar
+        public bool BorrarOrden(int pk)
+        {
+            return _modelo.EliminarOrden(pk);
+        }
+
+        public int ObtenerIdPorCodigo(string codigo)
+        {
+            return 1; 
+        }
+
+        // Arón Ricardo Esquit - 0901-22-13036 - 30/04/26
+        public bool GuardarDetalleOrden(int idOrden, DataTable detalle)
+        {
+            return _modelo.GuardarDetalleOrden(idOrden, detalle);
+        }
+
 
     }
 }

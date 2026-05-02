@@ -37,21 +37,21 @@ namespace Capa_Vista_Plan
             this.navegador1.IPkId_Aplicacion = 0;
             this.navegador1.IPkId_Modulo = 0;
             this.navegador1.Location = new System.Drawing.Point(-1, 0);
-            this.navegador1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.navegador1.Name = "navegador1";
             this.navegador1.SAlias = null;
             this.navegador1.SConfiguracionFK = null;
             this.navegador1.SEtiquetas = null;
-            this.navegador1.Size = new System.Drawing.Size(1500, 903);
+            this.navegador1.Size = new System.Drawing.Size(1125, 734);
             this.navegador1.SNombreTabla = null;
             this.navegador1.TabIndex = 0;
             // 
             // Frm_Plan_Produccion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1529, 692);
+            this.ClientSize = new System.Drawing.Size(1147, 562);
             this.Controls.Add(this.navegador1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Frm_Plan_Produccion";
             this.Text = "Frm_Plan_Produccion";
             this.ResumeLayout(false);

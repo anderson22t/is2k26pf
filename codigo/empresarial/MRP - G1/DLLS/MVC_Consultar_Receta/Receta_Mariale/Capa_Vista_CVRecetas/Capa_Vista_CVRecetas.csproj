@@ -31,15 +31,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Capa_Controlador_Recetas">
       <HintPath>..\Capa_Controlador_Recetas\bin\Debug\Capa_Controlador_Recetas.dll</HintPath>
     </Reference>
     <Reference Include="Capa_Vista_Fases">
       <HintPath>..\..\..\Plan y Orden de Producción\Fases de Produccion\Capa_Vista_Fases\bin\Debug\Capa_Vista_Fases.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,12 +56,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BOM_Reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BOM_Reporte.Designer.cs">
+      <DependentUpon>BOM_Reporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="Detalle_Materiales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Detalle_Materiales.Designer.cs">
       <DependentUpon>Detalle_Materiales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Encabezado_BOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Encabezado_BOM.Designer.cs">
+      <DependentUpon>Frm_Encabezado_BOM.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Recetas.cs">
       <SubType>Form</SubType>
@@ -68,6 +87,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Reporte_BOM1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporte_BOM.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Ver_Recetas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,8 +101,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BOM_Reporte.resx">
+      <DependentUpon>BOM_Reporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Detalle_Materiales.resx">
       <DependentUpon>Detalle_Materiales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Encabezado_BOM.resx">
+      <DependentUpon>Frm_Encabezado_BOM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Recetas.resx">
       <DependentUpon>Frm_Recetas.cs</DependentUpon>
@@ -86,9 +117,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte_BOM.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Reporte_BOM1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ver_Recetas.resx">
       <DependentUpon>Ver_Recetas.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
