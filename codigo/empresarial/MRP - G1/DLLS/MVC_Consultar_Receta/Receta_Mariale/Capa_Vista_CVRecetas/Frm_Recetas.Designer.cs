@@ -68,12 +68,10 @@ namespace Capa_Vista_CVRecetas
             this.panel3 = new System.Windows.Forms.Panel();
             this.Btn_eliminarMat = new System.Windows.Forms.Button();
             this.Btn_agregarMat = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Cbo_Cantridad = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.Dgv_Recetas = new System.Windows.Forms.DataGridView();
             this.Cbo_Unidad = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.lbl_unidad = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.lbl_detalleBOM = new System.Windows.Forms.Label();
@@ -115,7 +113,7 @@ namespace Capa_Vista_CVRecetas
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cbo_Cantridad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Recetas)).BeginInit();
             this.flowLayoutPanel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -144,7 +142,7 @@ namespace Capa_Vista_CVRecetas
             this.Txt_versionBOM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Txt_versionBOM.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_versionBOM.Location = new System.Drawing.Point(18, 262);
-            this.Txt_versionBOM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Txt_versionBOM.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_versionBOM.Name = "Txt_versionBOM";
             this.Txt_versionBOM.Size = new System.Drawing.Size(273, 22);
             this.Txt_versionBOM.TabIndex = 5;
@@ -154,7 +152,7 @@ namespace Capa_Vista_CVRecetas
             this.dtp_fecha.CalendarFont = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_fecha.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_fecha.Location = new System.Drawing.Point(18, 323);
-            this.dtp_fecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtp_fecha.Margin = new System.Windows.Forms.Padding(2);
             this.dtp_fecha.Name = "dtp_fecha";
             this.dtp_fecha.Size = new System.Drawing.Size(273, 20);
             this.dtp_fecha.TabIndex = 5;
@@ -164,7 +162,7 @@ namespace Capa_Vista_CVRecetas
             this.Cbo_estado.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cbo_estado.FormattingEnabled = true;
             this.Cbo_estado.Location = new System.Drawing.Point(18, 209);
-            this.Cbo_estado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Cbo_estado.Margin = new System.Windows.Forms.Padding(2);
             this.Cbo_estado.Name = "Cbo_estado";
             this.Cbo_estado.Size = new System.Drawing.Size(273, 22);
             this.Cbo_estado.TabIndex = 4;
@@ -196,7 +194,7 @@ namespace Capa_Vista_CVRecetas
             this.Txt_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Txt_descripcion.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_descripcion.Location = new System.Drawing.Point(18, 151);
-            this.Txt_descripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Txt_descripcion.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_descripcion.Name = "Txt_descripcion";
             this.Txt_descripcion.Size = new System.Drawing.Size(273, 22);
             this.Txt_descripcion.TabIndex = 3;
@@ -206,7 +204,7 @@ namespace Capa_Vista_CVRecetas
             this.Cbo_producto.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cbo_producto.FormattingEnabled = true;
             this.Cbo_producto.Location = new System.Drawing.Point(18, 101);
-            this.Cbo_producto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Cbo_producto.Margin = new System.Windows.Forms.Padding(2);
             this.Cbo_producto.Name = "Cbo_producto";
             this.Cbo_producto.Size = new System.Drawing.Size(273, 22);
             this.Cbo_producto.TabIndex = 3;
@@ -536,7 +534,7 @@ namespace Capa_Vista_CVRecetas
             this.tabPage1.Controls.Add(this.panel3);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(793, 530);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Detalle BOM";
@@ -547,12 +545,10 @@ namespace Capa_Vista_CVRecetas
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.Btn_eliminarMat);
             this.panel3.Controls.Add(this.Btn_agregarMat);
-            this.panel3.Controls.Add(this.numericUpDown1);
-            this.panel3.Controls.Add(this.comboBox1);
+            this.panel3.Controls.Add(this.Cbo_Cantridad);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.Dgv_Recetas);
             this.panel3.Controls.Add(this.Cbo_Unidad);
-            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.lbl_unidad);
             this.panel3.Controls.Add(this.flowLayoutPanel3);
             this.panel3.Controls.Add(this.Cbo_Material);
@@ -573,6 +569,7 @@ namespace Capa_Vista_CVRecetas
             this.Btn_eliminarMat.Text = "Eliminar";
             this.Btn_eliminarMat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_eliminarMat.UseVisualStyleBackColor = true;
+            this.Btn_eliminarMat.Click += new System.EventHandler(this.Btn_eliminarMat_Click);
             // 
             // Btn_agregarMat
             // 
@@ -585,31 +582,22 @@ namespace Capa_Vista_CVRecetas
             this.Btn_agregarMat.Text = "Agregar";
             this.Btn_agregarMat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_agregarMat.UseVisualStyleBackColor = true;
+            this.Btn_agregarMat.Click += new System.EventHandler(this.Btn_agregarMat_Click);
             // 
-            // numericUpDown1
+            // Cbo_Cantridad
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(561, 121);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(189, 22);
-            this.numericUpDown1.TabIndex = 16;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(269, 77);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(189, 22);
-            this.comboBox1.TabIndex = 18;
+            this.Cbo_Cantridad.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cbo_Cantridad.Location = new System.Drawing.Point(253, 116);
+            this.Cbo_Cantridad.Margin = new System.Windows.Forms.Padding(2);
+            this.Cbo_Cantridad.Name = "Cbo_Cantridad";
+            this.Cbo_Cantridad.Size = new System.Drawing.Size(189, 22);
+            this.Cbo_Cantridad.TabIndex = 16;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Rockwell", 12F);
-            this.label6.Location = new System.Drawing.Point(475, 121);
+            this.label6.Location = new System.Drawing.Point(162, 119);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 19);
@@ -619,8 +607,8 @@ namespace Capa_Vista_CVRecetas
             // Dgv_Recetas
             // 
             this.Dgv_Recetas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_Recetas.Location = new System.Drawing.Point(28, 165);
-            this.Dgv_Recetas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Dgv_Recetas.Location = new System.Drawing.Point(29, 165);
+            this.Dgv_Recetas.Margin = new System.Windows.Forms.Padding(2);
             this.Dgv_Recetas.Name = "Dgv_Recetas";
             this.Dgv_Recetas.RowHeadersWidth = 51;
             this.Dgv_Recetas.RowTemplate.Height = 24;
@@ -631,28 +619,17 @@ namespace Capa_Vista_CVRecetas
             // 
             this.Cbo_Unidad.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cbo_Unidad.FormattingEnabled = true;
-            this.Cbo_Unidad.Location = new System.Drawing.Point(561, 76);
-            this.Cbo_Unidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Cbo_Unidad.Location = new System.Drawing.Point(253, 71);
+            this.Cbo_Unidad.Margin = new System.Windows.Forms.Padding(2);
             this.Cbo_Unidad.Name = "Cbo_Unidad";
             this.Cbo_Unidad.Size = new System.Drawing.Size(189, 22);
             this.Cbo_Unidad.TabIndex = 13;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Rockwell", 12F);
-            this.label5.Location = new System.Drawing.Point(185, 79);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 19);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Producto:";
             // 
             // lbl_unidad
             // 
             this.lbl_unidad.AutoSize = true;
             this.lbl_unidad.Font = new System.Drawing.Font("Rockwell", 12F);
-            this.lbl_unidad.Location = new System.Drawing.Point(490, 80);
+            this.lbl_unidad.Location = new System.Drawing.Point(162, 74);
             this.lbl_unidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_unidad.Name = "lbl_unidad";
             this.lbl_unidad.Size = new System.Drawing.Size(67, 19);
@@ -685,8 +662,8 @@ namespace Capa_Vista_CVRecetas
             // 
             this.Cbo_Material.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cbo_Material.FormattingEnabled = true;
-            this.Cbo_Material.Location = new System.Drawing.Point(269, 122);
-            this.Cbo_Material.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Cbo_Material.Location = new System.Drawing.Point(538, 75);
+            this.Cbo_Material.Margin = new System.Windows.Forms.Padding(2);
             this.Cbo_Material.Name = "Cbo_Material";
             this.Cbo_Material.Size = new System.Drawing.Size(189, 22);
             this.Cbo_Material.TabIndex = 11;
@@ -695,7 +672,7 @@ namespace Capa_Vista_CVRecetas
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Rockwell", 12F);
-            this.label7.Location = new System.Drawing.Point(185, 121);
+            this.label7.Location = new System.Drawing.Point(454, 74);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 19);
@@ -709,7 +686,7 @@ namespace Capa_Vista_CVRecetas
             this.tabPage2.Controls.Add(this.flowLayoutPanel5);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(793, 530);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Fase de Produccion ";
@@ -722,7 +699,7 @@ namespace Capa_Vista_CVRecetas
             this.Dgv_Fases.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.Dgv_Fases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_Fases.Location = new System.Drawing.Point(18, 228);
-            this.Dgv_Fases.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Dgv_Fases.Margin = new System.Windows.Forms.Padding(2);
             this.Dgv_Fases.Name = "Dgv_Fases";
             this.Dgv_Fases.ReadOnly = true;
             this.Dgv_Fases.RowHeadersWidth = 51;
@@ -743,9 +720,9 @@ namespace Capa_Vista_CVRecetas
             this.Gpb_Datos.Controls.Add(this.Lbl_Fase);
             this.Gpb_Datos.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Gpb_Datos.Location = new System.Drawing.Point(3, 68);
-            this.Gpb_Datos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Gpb_Datos.Margin = new System.Windows.Forms.Padding(2);
             this.Gpb_Datos.Name = "Gpb_Datos";
-            this.Gpb_Datos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Gpb_Datos.Padding = new System.Windows.Forms.Padding(2);
             this.Gpb_Datos.Size = new System.Drawing.Size(794, 132);
             this.Gpb_Datos.TabIndex = 30;
             this.Gpb_Datos.TabStop = false;
@@ -755,7 +732,7 @@ namespace Capa_Vista_CVRecetas
             // 
             this.Txt_Descripcion_fases.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_Descripcion_fases.Location = new System.Drawing.Point(592, 41);
-            this.Txt_Descripcion_fases.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Txt_Descripcion_fases.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_Descripcion_fases.Name = "Txt_Descripcion_fases";
             this.Txt_Descripcion_fases.Size = new System.Drawing.Size(174, 23);
             this.Txt_Descripcion_fases.TabIndex = 24;
@@ -764,7 +741,7 @@ namespace Capa_Vista_CVRecetas
             // 
             this.Txt_Fase.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_Fase.Location = new System.Drawing.Point(290, 36);
-            this.Txt_Fase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Txt_Fase.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_Fase.Name = "Txt_Fase";
             this.Txt_Fase.Size = new System.Drawing.Size(151, 23);
             this.Txt_Fase.TabIndex = 23;
@@ -786,7 +763,7 @@ namespace Capa_Vista_CVRecetas
             // 
             this.Txt_Horas.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_Horas.Location = new System.Drawing.Point(290, 86);
-            this.Txt_Horas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Txt_Horas.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_Horas.Name = "Txt_Horas";
             this.Txt_Horas.Size = new System.Drawing.Size(154, 23);
             this.Txt_Horas.TabIndex = 9;
@@ -866,7 +843,7 @@ namespace Capa_Vista_CVRecetas
             this.tabPage3.Controls.Add(this.flowLayoutPanel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(793, 530);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Costos";
@@ -878,7 +855,7 @@ namespace Capa_Vista_CVRecetas
             this.Dgv_Costo_Fase.AllowUserToDeleteRows = false;
             this.Dgv_Costo_Fase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_Costo_Fase.Location = new System.Drawing.Point(23, 240);
-            this.Dgv_Costo_Fase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Dgv_Costo_Fase.Margin = new System.Windows.Forms.Padding(2);
             this.Dgv_Costo_Fase.Name = "Dgv_Costo_Fase";
             this.Dgv_Costo_Fase.ReadOnly = true;
             this.Dgv_Costo_Fase.RowHeadersWidth = 51;
@@ -900,9 +877,9 @@ namespace Capa_Vista_CVRecetas
             this.Gpb_Costo.Controls.Add(this.Lbl_Id_Costo);
             this.Gpb_Costo.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Gpb_Costo.Location = new System.Drawing.Point(5, 67);
-            this.Gpb_Costo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Gpb_Costo.Margin = new System.Windows.Forms.Padding(2);
             this.Gpb_Costo.Name = "Gpb_Costo";
-            this.Gpb_Costo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Gpb_Costo.Padding = new System.Windows.Forms.Padding(2);
             this.Gpb_Costo.Size = new System.Drawing.Size(776, 154);
             this.Gpb_Costo.TabIndex = 30;
             this.Gpb_Costo.TabStop = false;
@@ -936,7 +913,7 @@ namespace Capa_Vista_CVRecetas
             // 
             this.Txt_Costos.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_Costos.Location = new System.Drawing.Point(593, 89);
-            this.Txt_Costos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Txt_Costos.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_Costos.Name = "Txt_Costos";
             this.Txt_Costos.Size = new System.Drawing.Size(146, 23);
             this.Txt_Costos.TabIndex = 8;
@@ -957,7 +934,7 @@ namespace Capa_Vista_CVRecetas
             this.Cbo_Tipo_Costo.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cbo_Tipo_Costo.FormattingEnabled = true;
             this.Cbo_Tipo_Costo.Location = new System.Drawing.Point(319, 93);
-            this.Cbo_Tipo_Costo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Cbo_Tipo_Costo.Margin = new System.Windows.Forms.Padding(2);
             this.Cbo_Tipo_Costo.Name = "Cbo_Tipo_Costo";
             this.Cbo_Tipo_Costo.Size = new System.Drawing.Size(146, 24);
             this.Cbo_Tipo_Costo.TabIndex = 6;
@@ -978,7 +955,7 @@ namespace Capa_Vista_CVRecetas
             this.Cbo_Fase.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cbo_Fase.FormattingEnabled = true;
             this.Cbo_Fase.Location = new System.Drawing.Point(593, 45);
-            this.Cbo_Fase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Cbo_Fase.Margin = new System.Windows.Forms.Padding(2);
             this.Cbo_Fase.Name = "Cbo_Fase";
             this.Cbo_Fase.Size = new System.Drawing.Size(146, 24);
             this.Cbo_Fase.TabIndex = 3;
@@ -998,7 +975,7 @@ namespace Capa_Vista_CVRecetas
             // 
             this.Txt_Costo.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_Costo.Location = new System.Drawing.Point(319, 46);
-            this.Txt_Costo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Txt_Costo.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_Costo.Name = "Txt_Costo";
             this.Txt_Costo.Size = new System.Drawing.Size(146, 23);
             this.Txt_Costo.TabIndex = 1;
@@ -1043,7 +1020,7 @@ namespace Capa_Vista_CVRecetas
             this.ClientSize = new System.Drawing.Size(1151, 781);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Frm_Recetas";
             this.Text = "Frm_Recetas";
             this.Load += new System.EventHandler(this.Frm_Recetas_Load);
@@ -1059,7 +1036,7 @@ namespace Capa_Vista_CVRecetas
             this.tabPage1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cbo_Cantridad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Recetas)).EndInit();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
@@ -1117,9 +1094,7 @@ namespace Capa_Vista_CVRecetas
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView Dgv_Recetas;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown Cbo_Cantridad;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox Cbo_Unidad;
         private System.Windows.Forms.Label lbl_unidad;
