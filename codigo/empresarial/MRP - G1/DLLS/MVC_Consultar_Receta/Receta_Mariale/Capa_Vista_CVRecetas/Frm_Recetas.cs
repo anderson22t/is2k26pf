@@ -32,9 +32,22 @@ namespace Capa_Vista_CVRecetas
             Dgv_Fases.Columns.Add("descripcionFase", "Descripción de la Fase");
             Dgv_Fases.Columns.Add("horasHombres", "Horas Hombre");
 
+            //Ruben Lopez 0901-20-4620
+            Dgv_Recetas.Columns.Clear();
+            Dgv_Recetas.Columns.Add("idMaterial", "ID Material");
+            Dgv_Recetas.Columns.Add("material", "Material");
+            Dgv_Recetas.Columns.Add("idUnidad", "ID Unidad");
+            Dgv_Recetas.Columns.Add("unidad", "Unidad");
+            Dgv_Recetas.Columns.Add("cantidad", "Cantidad");
+
+            // Ocultar las columnas de IDs (opcional pero recomendado para que el usuario solo vea nombres)
+            Dgv_Recetas.Columns["idMaterial"].Visible = false;
+            Dgv_Recetas.Columns["idUnidad"].Visible = false;
+
             Dgv_Fases.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Dgv_Fases.ReadOnly = true;
             Dgv_Fases.AllowUserToAddRows = false;
+            Dgv_Recetas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             pro_ObtenerFases(idBOMExistente);
         } 
@@ -47,6 +60,21 @@ namespace Capa_Vista_CVRecetas
             Cbo_producto.DisplayMember = "Nombre_Material";
             Cbo_producto.ValueMember = "Pk_Id_Materiales";
             Cbo_producto.SelectedIndex = -1;
+
+            //Ruben Lopez 0901-20-4620
+            // Cargar Materiales (Asegúrate de tener este método en tu Controlador)
+            Controlador_detalle_Materiales conDetalle = new Controlador_detalle_Materiales();
+            Cbo_Material.DataSource = conDetalle.getMateriales(); // Llama al modelo obtenerMateriales()
+            Cbo_Material.DisplayMember = "Nombre_Material";
+            Cbo_Material.ValueMember = "Pk_Id_Materiales";
+            Cbo_Material.SelectedIndex = -1;
+
+            //Ruben Lopez 0901-20-4620
+            // Cargar Unidades
+            Cbo_Unidad.DataSource = conDetalle.getUnidades(); // Llama al modelo obtenerUnidades()
+            Cbo_Unidad.DisplayMember = "Nombre_Unidad_Medida";
+            Cbo_Unidad.ValueMember = "Pk_Id_Unidad_Medida";
+            Cbo_Unidad.SelectedIndex = -1;
 
             // Estados
             Cbo_estado.DataSource = con.cargarEstados();
@@ -100,27 +128,80 @@ namespace Capa_Vista_CVRecetas
         {
             this.FindForm()?.Close();
         }
+
         //boton de guardar cesar santizo 0901-22-5215 (para guardar receta)
         private void Btn_guardar_Click_1(object sender, EventArgs e)
         {
+            //Ruben Lopez 0901-20-4620
+            //Validacion de datos de la consulta
+            if (Cbo_producto.SelectedValue == null || Cbo_estado.SelectedValue == null ||
+                string.IsNullOrWhiteSpace(Txt_descripcion.Text) || string.IsNullOrWhiteSpace(Txt_versionBOM.Text))
+            {
+                MessageBox.Show("Debe completar todos los campos de la pestaña 'Datos de la consulta'.", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            //Ruben Lopez 0901-20-4620
+            //Validacion de detalle BOM
+            int filasRealesMateriales = 0;
+            foreach (DataGridViewRow row in Dgv_Recetas.Rows)
+            {
+                if (!row.IsNewRow) filasRealesMateriales++;
+            }
+            if (filasRealesMateriales == 0)
+            {
+                MessageBox.Show("No puede guardar una receta sin materiales. Agregue al menos un material en 'Detalle BOM'.", "Detalle Vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (fasesNuevas.Count == 0 && Dgv_Fases.Rows.Count == 0)
+            {
+                MessageBox.Show("No puede guardar una receta sin fases de producción.", "Fases Vacías", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //Ruben Lopez 0901-20-4620
+            //Validacion fases de produccion
+            if (Dgv_Fases.Rows.Count == 0)
+            {
+                MessageBox.Show("No puede guardar una receta sin fases de producción. Agregue al menos una fase.", "Fases Vacías", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             int idProducto = Convert.ToInt32(Cbo_producto.SelectedValue);
             string descripcion = Txt_descripcion.Text;
             string version = Txt_versionBOM.Text;
             DateTime fecha = dtp_fecha.Value;
             int estado = Convert.ToInt32(Cbo_estado.SelectedValue);
+
+            //Ruben Lopez 0901-20-4620
+            // Extraer los materiales de Dgv_Recetas
+            List<(int idMaterial, int idUnidad, decimal cantidad)> detallesNuevos = new List<(int, int, decimal)>();
+            foreach (DataGridViewRow row in Dgv_Recetas.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    int idMat = Convert.ToInt32(row.Cells["idMaterial"].Value);
+                    int idUni = Convert.ToInt32(row.Cells["idUnidad"].Value);
+                    decimal cant = Convert.ToDecimal(row.Cells["cantidad"].Value);
+                    detallesNuevos.Add((idMat, idUni, cant));
+                }
+            }
+
             try
             {
                 // Verificar si idBomExistente es igual a 0
                 // Si es igual a 0, se debe crear el BOM completo
                 if (idBOMExistente == 0)
                 {
-                    con.guardarBOMCompleto(descripcion, version, fecha, estado, idProducto, fasesNuevas);
+                    con.guardarBOMCompleto(descripcion, version, fecha, estado, idProducto, detallesNuevos, fasesNuevas);
                     MessageBox.Show("Receta guardada correctamente");
                 }
                 // En caso contrario, se guardan solo datos nuevos de detalle o fases
                 else
                 {
-                    con.guardarDatosNuevos(idBOMExistente, fasesNuevas);
+                    con.guardarDatosNuevos(idBOMExistente, detallesNuevos, fasesNuevas);
                     MessageBox.Show("Receta guardada correctamente");
                 }
             }
@@ -368,6 +449,53 @@ namespace Capa_Vista_CVRecetas
                                 "Ayuda",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
+            }
+        }
+
+        //Ruben Lopez 0901-20-4620
+        private void Btn_agregarMat_Click(object sender, EventArgs e)
+        {
+            //Validar que no haya campos vacios
+            if (Cbo_Material.SelectedValue == null || Cbo_Unidad.SelectedValue == null || string.IsNullOrWhiteSpace(Cbo_Cantridad.Text))
+            {
+                MessageBox.Show("Por favor, seleccione un Material, una Unidad y digite la Cantidad.", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Extraer los datos de los controles
+            int idMaterial = Convert.ToInt32(Cbo_Material.SelectedValue);
+            string nombreMaterial = Cbo_Material.Text;
+            int idUnidad = Convert.ToInt32(Cbo_Unidad.SelectedValue);
+            string nombreUnidad = Cbo_Unidad.Text;
+
+            decimal cantidad = Convert.ToDecimal(Cbo_Cantridad.Text);
+
+            if (cantidad <= 0)
+            {
+                MessageBox.Show("La cantidad debe ser mayor a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //Agregar la fila al DataGridView
+            Dgv_Recetas.Rows.Add(idMaterial, nombreMaterial, idUnidad, nombreUnidad, cantidad);
+
+            //Limpiar los controles para el siguiente ingreso
+            Cbo_Material.SelectedIndex = -1;
+            Cbo_Unidad.SelectedIndex = -1;
+            Cbo_Cantridad.Text = "0";
+        }
+
+        //Ruben Lopez 0901-20-4620
+        private void Btn_eliminarMat_Click(object sender, EventArgs e)
+        {
+            // Validar que exista una fila seleccionada
+            if (Dgv_Recetas.CurrentRow != null)
+            {
+                Dgv_Recetas.Rows.Remove(Dgv_Recetas.CurrentRow);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila del listado de materiales para eliminarla.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

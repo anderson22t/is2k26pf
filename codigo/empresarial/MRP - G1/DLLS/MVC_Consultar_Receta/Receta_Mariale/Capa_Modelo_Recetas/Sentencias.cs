@@ -29,10 +29,6 @@ namespace Capa_Modelo_Recetas
             return tabla;
         }
     
-
-
-        
-        
         public DataTable obtenerBOM(int idProducto)
         {
             DataTable tabla = new DataTable();
@@ -183,7 +179,9 @@ namespace Capa_Modelo_Recetas
         // ----------------------------- Sentencias para realizar una sola transacción en la base de datos ----------------- //
 
         // Método para guardar nuevos materiales o fases de producción. Anderson Trigueros
-        public void agregarDatosNuevos(int iCodigoBOM, /*datosBOM*//*listaDetalle*/ List<(string sFase, string sDescripcion, int iHoras)> listaFases)
+        public void agregarDatosNuevos(int iCodigoBOM, /*datosBOM*/
+            List<(int idMaterial, int idUnidad, decimal cantidad)> listaDetalles, //Ruben Lopez 0901-20-4620
+            List<(string sFase, string sDescripcion, int iHoras)> listaFases)
         {
             using (OdbcConnection con = conexion.conexion())
             {
@@ -213,8 +211,26 @@ namespace Capa_Modelo_Recetas
                             }
                         }
 
+                        //Ruben Lopez 0901-20-4620
                         // Guardar nuevos detalles
+                        if (listaDetalles != null && listaDetalles.Count > 0)
+                        {
+                            string sIngresarDetalle = @"INSERT INTO Tbl_BOM_Detalle
+                                                        (Fk_Id_BOM, Fk_Id_Materiales, Fk_Id_Unidad_Medida, Cantidad_Requerida_BOM_Detalle)
+                                                        VALUES (?, ?, ?, ?)";
 
+                            OdbcCommand cmdGuardarDetalle = new OdbcCommand(sIngresarDetalle, con, transaccion);
+
+                            foreach (var detalle in listaDetalles)
+                            {
+                                cmdGuardarDetalle.Parameters.Clear();
+                                cmdGuardarDetalle.Parameters.AddWithValue("", iCodigoBOM);
+                                cmdGuardarDetalle.Parameters.AddWithValue("", detalle.idMaterial);
+                                cmdGuardarDetalle.Parameters.AddWithValue("", detalle.idUnidad);
+                                cmdGuardarDetalle.Parameters.AddWithValue("", detalle.cantidad);
+                                cmdGuardarDetalle.ExecuteNonQuery();
+                            }
+                        }
 
                         transaccion.Commit();
                     }
@@ -229,7 +245,8 @@ namespace Capa_Modelo_Recetas
 
         // Método para crear el proceso completo desde la creación de BOM, Detalle y Fases. Anderson Trigueros
         public void creaciónCompleta(string descripcion, string version, DateTime fecha, int estado, int material,
-            /*listaDetalle*/ List<(string sFase, string sDescripcion, int iHoras)> listaFases)
+            List<(int idMaterial, int idUnidad, decimal cantidad)> listaDetalle, //Ruben Lopez 0901-20-4620
+            List<(string sFase, string sDescripcion, int iHoras)> listaFases)
         {
             try
             {
@@ -255,7 +272,26 @@ namespace Capa_Modelo_Recetas
                         OdbcCommand cmdLastId = new OdbcCommand("SELECT LAST_INSERT_ID();", con, transaccion);
                         int idBOM = Convert.ToInt32(cmdLastId.ExecuteScalar());
 
+                        //Ruben Lopez 0901-20-4620
                         //Ingresar detalle
+                        if (listaDetalle != null && listaDetalle.Count > 0)
+                        {
+                            string sIngresarDetalle = @"INSERT INTO Tbl_BOM_Detalle
+                                                        (Fk_Id_BOM, Fk_Id_Materiales, Fk_Id_Unidad_Medida, Cantidad_Requerida_BOM_Detalle)
+                                                        VALUES (?, ?, ?, ?)";
+
+                            OdbcCommand cmdGuardarDetalle = new OdbcCommand(sIngresarDetalle, con, transaccion);
+
+                            foreach (var detalle in listaDetalle)
+                            {
+                                cmdGuardarDetalle.Parameters.Clear();
+                                cmdGuardarDetalle.Parameters.AddWithValue("", idBOM);
+                                cmdGuardarDetalle.Parameters.AddWithValue("", detalle.idMaterial);
+                                cmdGuardarDetalle.Parameters.AddWithValue("", detalle.idUnidad);
+                                cmdGuardarDetalle.Parameters.AddWithValue("", detalle.cantidad);
+                                cmdGuardarDetalle.ExecuteNonQuery();
+                            }
+                        }
 
                         //Ingresar fases de producción
                         if (listaFases != null && listaFases.Count > 0)
