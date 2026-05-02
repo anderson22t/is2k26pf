@@ -4,7 +4,7 @@ using System.Data;
 using System.Windows.Forms;
 using Capa_Controlador_Recetas;
 using Capa_Vista_Fases;
-
+using System.IO;
 namespace Capa_Vista_CVRecetas
 {
     public partial class Frm_Recetas : Form
@@ -336,6 +336,39 @@ namespace Capa_Vista_CVRecetas
         private void btn_eliminar_fases_Click(object sender, EventArgs e)
         {
 
+        }
+
+        // Diego Monterroso - Boton Ayuda
+        private void Btn_ayuda_Click(object sender, EventArgs e)
+        {
+            string carpeta = Application.StartupPath;
+
+            while (!Directory.Exists(Path.Combine(carpeta, "ayuda")) &&
+                   Directory.GetParent(carpeta) != null)
+            {
+                carpeta = Directory.GetParent(carpeta).FullName;
+            }
+
+            string rutaAyuda = Path.Combine(
+                carpeta,
+                "ayuda",
+                "MRP",
+                "Ayudas_BOM",
+                "Ayuda_CrearBom",
+                "Ayuda_BOM.chm"
+            );
+
+            if (File.Exists(rutaAyuda))
+            {
+                Help.ShowHelp(this, rutaAyuda, "Cliente.html");
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el archivo de ayuda:\n" + rutaAyuda,
+                                "Ayuda",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+            }
         }
     }
 }
