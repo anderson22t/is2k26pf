@@ -329,5 +329,83 @@ namespace Capa_Modelo_Recetas
                 throw new Exception("Error al guardar receta: " + ex.Message);
             }
         }
+
+        // Hecho por: Maria Morales 0901-22-1226
+        // SENTENCIAS PARA CARGAR RECETAS YA INGRESADAS
+        public DataTable obtenerTodosBOM()
+        {
+            DataTable tabla = new DataTable();
+
+            using (OdbcConnection conn = conexion.AbrirConexion())
+            {
+                string sql = @"
+                    SELECT 
+                        b.Pk_Id_BOM AS ID,
+                        m.Nombre_Material AS Producto,
+                        b.Descripcion_BOM AS Descripcion,
+                        b.Version_BOM AS Version,
+                        b.Fecha_Creacion_BOM AS Fecha,
+                        e.Nombre_Estado_BOM AS Estado
+                    FROM Tbl_BOM b
+                    JOIN Tbl_Materiales m ON b.Fk_Id_Material = m.Pk_Id_Materiales
+                    JOIN Tbl_Estado_BOM e ON b.Fk_Id_Estado_BOM = e.Pk_Id_Estado_BOM;";
+
+                OdbcDataAdapter da = new OdbcDataAdapter(sql, conn);
+                da.Fill(tabla);
+            }
+
+            return tabla;
+        }
+
+        public DataTable obtenerBOMPorID(int idBOM)
+        {
+            DataTable tabla = new DataTable();
+
+            using (OdbcConnection conn = conexion.AbrirConexion())
+            {
+                string sql = @"
+        SELECT *
+        FROM Tbl_BOM
+        WHERE Pk_Id_BOM = ?";
+
+                OdbcCommand cmd = new OdbcCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", idBOM);
+
+                OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+                da.Fill(tabla);
+            }
+
+            return tabla;
+        }
+
+        public DataTable obtenerDetalleBOM(int idBOM)
+        {
+            DataTable tabla = new DataTable();
+
+            using (OdbcConnection conn = conexion.AbrirConexion())
+            {
+                string sql = @"
+        SELECT 
+            d.Fk_Id_Materiales,
+            m.Nombre_Material AS Material,
+            d.Fk_Id_Unidad_Medida,
+            u.Nombre_Unidad_Medida AS Unidad,
+            d.Cantidad_Requerida_BOM_Detalle AS Cantidad
+        FROM Tbl_BOM_Detalle d
+        JOIN Tbl_Materiales m ON d.Fk_Id_Materiales = m.Pk_Id_Materiales
+        JOIN Tbl_Unidad_Medida u ON d.Fk_Id_Unidad_Medida = u.Pk_Id_Unidad_Medida
+        WHERE d.Fk_Id_BOM = ?";
+
+                OdbcCommand cmd = new OdbcCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", idBOM);
+
+                OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+                da.Fill(tabla);
+            }
+
+            return tabla;
+        }
+
+
     }
 }

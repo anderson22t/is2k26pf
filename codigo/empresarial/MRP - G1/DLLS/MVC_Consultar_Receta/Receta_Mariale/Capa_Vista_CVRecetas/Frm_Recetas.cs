@@ -21,10 +21,12 @@ namespace Capa_Vista_CVRecetas
         {
             InitializeComponent();
             cargarCombos();
-
+            // Hecho por: Maria Morales 0901-22-1226
+            inicializarColumnas();
         }
 
-        private void Frm_Recetas_Load(object sender, EventArgs e)
+        // Hecho por: Maria Morales 0901-22-1226
+        private void inicializarColumnas()
         {
             Dgv_Fases.Columns.Clear();
             Dgv_Fases.Columns.Add("idFase", "Id Fase");
@@ -40,7 +42,6 @@ namespace Capa_Vista_CVRecetas
             Dgv_Recetas.Columns.Add("unidad", "Unidad");
             Dgv_Recetas.Columns.Add("cantidad", "Cantidad");
 
-            // Ocultar las columnas de IDs (opcional pero recomendado para que el usuario solo vea nombres)
             Dgv_Recetas.Columns["idMaterial"].Visible = false;
             Dgv_Recetas.Columns["idUnidad"].Visible = false;
 
@@ -48,7 +49,11 @@ namespace Capa_Vista_CVRecetas
             Dgv_Fases.ReadOnly = true;
             Dgv_Fases.AllowUserToAddRows = false;
             Dgv_Recetas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
 
+        private void Frm_Recetas_Load(object sender, EventArgs e)
+        {
+           
             pro_ObtenerFases(idBOMExistente);
         } 
 
@@ -498,5 +503,52 @@ namespace Capa_Vista_CVRecetas
                 MessageBox.Show("Seleccione una fila del listado de materiales para eliminarla.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+
+        // Hecho por: Maria Morales 0901-22-1226
+        // PARA LAS RECETAS YA CARGADAS EN EL BOM
+
+        public void cargarDesdeListado(int idBOMSeleccionado)
+        {
+            idBOM = idBOMSeleccionado;
+            idBOMExistente = idBOMSeleccionado;
+
+            // cargado de encabezado
+            DataTable dt = con.obtenerBOMPorID(idBOM);
+
+            if (dt.Rows.Count > 0)
+            {
+                Txt_descripcion.Text = dt.Rows[0]["Descripcion_BOM"].ToString();
+                Txt_versionBOM.Text = dt.Rows[0]["Version_BOM"].ToString();
+                dtp_fecha.Value = Convert.ToDateTime(dt.Rows[0]["Fecha_Creacion_BOM"]);
+                Cbo_estado.SelectedValue = dt.Rows[0]["Fk_Id_Estado_BOM"];
+                Cbo_producto.SelectedValue = dt.Rows[0]["Fk_Id_Material"];
+            }
+
+            // cargado de materiales
+            Dgv_Recetas.Rows.Clear();
+
+            DataTable dtDetalle = con.obtenerDetalleBOM(idBOM);
+
+            foreach (DataRow row in dtDetalle.Rows)
+            {
+                Dgv_Recetas.Rows.Add(
+                    row["Fk_Id_Materiales"],
+                    row["Material"],
+                    row["Fk_Id_Unidad_Medida"],
+                    row["Unidad"],
+                    row["Cantidad"]
+                );
+            }
+
+            // cargado de fases
+            pro_ObtenerFases(idBOM);
+        }
+
+
+
+
+
+
     }
 }
