@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using Capa_Controlador_RO;
 using System.IO;
+using Capa_Vista_Reporteador;
 
 namespace Capa_Vista_RO
 {
@@ -624,6 +625,19 @@ namespace Capa_Vista_RO
             {
                 MessageBox.Show("Error al abrir la ayuda:\n" + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Btn_imprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Reporte_Ordenes_RecibidasV1 rpt = new Reporte_Ordenes_RecibidasV1();
+                rpt.Show();
+            }
+            catch
+            {
+                MessageBox.Show("Ha ocurrido un error conectando a reporteadors");
             }
         }
     }
