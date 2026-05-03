@@ -44,7 +44,45 @@ namespace Capa_Vista_CVRecetas
 
                 Dg_BOM.Columns.Add(btn);
             }
+            EstilizarGrid();
         }
+
+        private void EstilizarGrid()
+        {
+            // Encabezado
+            Dg_BOM.EnableHeadersVisualStyles = false;
+            Dg_BOM.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(24, 95, 165);
+            Dg_BOM.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(230, 241, 251);
+            Dg_BOM.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            Dg_BOM.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            Dg_BOM.ColumnHeadersHeight = 38;
+            Dg_BOM.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+
+            // Filas
+            Dg_BOM.DefaultCellStyle.BackColor = Color.White;
+            Dg_BOM.DefaultCellStyle.ForeColor = Color.FromArgb(44, 44, 42);
+            Dg_BOM.DefaultCellStyle.Font = new Font("Segoe UI", 9F);
+            Dg_BOM.DefaultCellStyle.SelectionBackColor = Color.FromArgb(55, 138, 221);
+            Dg_BOM.DefaultCellStyle.SelectionForeColor = Color.White;
+            Dg_BOM.DefaultCellStyle.Padding = new Padding(4, 0, 4, 0);
+            Dg_BOM.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(230, 241, 251);
+
+            // Bordes y grilla
+            Dg_BOM.GridColor = Color.FromArgb(181, 212, 244);
+            Dg_BOM.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            Dg_BOM.BorderStyle = BorderStyle.FixedSingle;
+
+            // Filas y columnas
+            Dg_BOM.RowHeadersVisible = false;
+            Dg_BOM.RowTemplate.Height = 32;
+            Dg_BOM.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            Dg_BOM.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Dg_BOM.ReadOnly = false; // el botón de Acciones necesita interacción
+            Dg_BOM.AllowUserToAddRows = false;
+            Dg_BOM.AllowUserToDeleteRows = false;
+        }
+
+
 
         private void Frm_Encabezado_BOM_Load(object sender, EventArgs e)
         {

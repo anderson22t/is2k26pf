@@ -60,7 +60,7 @@ namespace Capa_Vista_CVRecetas
             // Dg_BOM
             // 
             this.Dg_BOM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dg_BOM.Location = new System.Drawing.Point(16, 265);
+            this.Dg_BOM.Location = new System.Drawing.Point(23, 165);
             this.Dg_BOM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Dg_BOM.Name = "Dg_BOM";
             this.Dg_BOM.RowHeadersWidth = 51;
@@ -71,7 +71,7 @@ namespace Capa_Vista_CVRecetas
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1016, 203);
+            this.label5.Location = new System.Drawing.Point(1014, 106);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 29);
@@ -82,7 +82,7 @@ namespace Capa_Vista_CVRecetas
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(620, 204);
+            this.label4.Location = new System.Drawing.Point(618, 107);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 29);
@@ -91,7 +91,7 @@ namespace Capa_Vista_CVRecetas
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(1111, 208);
+            this.dateTimePicker2.Location = new System.Drawing.Point(1109, 111);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(265, 22);
@@ -99,7 +99,7 @@ namespace Capa_Vista_CVRecetas
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(728, 208);
+            this.dateTimePicker1.Location = new System.Drawing.Point(726, 111);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
@@ -109,7 +109,7 @@ namespace Capa_Vista_CVRecetas
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(523, 203);
+            this.label3.Location = new System.Drawing.Point(521, 106);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 29);
@@ -149,12 +149,13 @@ namespace Capa_Vista_CVRecetas
             // 
             // Btn_crear
             // 
-            this.Btn_crear.Location = new System.Drawing.Point(23, 81);
+            this.Btn_crear.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_crear.Location = new System.Drawing.Point(1390, 106);
             this.Btn_crear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_crear.Name = "Btn_crear";
-            this.Btn_crear.Size = new System.Drawing.Size(409, 94);
+            this.Btn_crear.Size = new System.Drawing.Size(187, 30);
             this.Btn_crear.TabIndex = 26;
-            this.Btn_crear.Text = "Crear Receta  Nueva";
+            this.Btn_crear.Text = "Crear Nueva Receta";
             this.Btn_crear.UseVisualStyleBackColor = true;
             this.Btn_crear.Click += new System.EventHandler(this.Btn_crear_Click);
             // 
@@ -164,7 +165,7 @@ namespace Capa_Vista_CVRecetas
             this.flowLayoutPanel2.Location = new System.Drawing.Point(23, 50);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1355, 12);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1676, 12);
             this.flowLayoutPanel2.TabIndex = 25;
             // 
             // Lbl_listado
@@ -181,7 +182,7 @@ namespace Capa_Vista_CVRecetas
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(315, 207);
+            this.comboBox1.Location = new System.Drawing.Point(313, 110);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(177, 24);
@@ -191,7 +192,7 @@ namespace Capa_Vista_CVRecetas
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(209, 202);
+            this.label6.Location = new System.Drawing.Point(207, 105);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 29);
@@ -200,7 +201,7 @@ namespace Capa_Vista_CVRecetas
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(25, 207);
+            this.textBox1.Location = new System.Drawing.Point(23, 110);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(172, 22);
@@ -211,7 +212,7 @@ namespace Capa_Vista_CVRecetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1719, 798);
+            this.ClientSize = new System.Drawing.Size(1851, 703);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox1);
