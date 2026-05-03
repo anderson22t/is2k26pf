@@ -61,5 +61,26 @@ namespace Capa_Controlador_Recetas
         {
             sen.agregarDatosNuevos(iCodigoBOM, listaDetalle, listaFases);
         }
+
+
+        // SENTENCIAS PARA RECETAS YA INGRESADAS 
+
+        // Hecho por: Maria Morales 0901-22-1226
+        public DataTable obtenerListadoBOM()
+        {
+            return sen.obtenerTodosBOM();
+        }
+
+        public DataTable obtenerBOMPorID(int id)
+        {
+            return sen.obtenerBOMPorID(id);
+        }
+
+        public DataTable obtenerDetalleBOM(int id)
+        {
+            return sen.obtenerDetalleBOM(id);
+        }
+
+
     }
 }
