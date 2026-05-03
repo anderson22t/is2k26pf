@@ -90,21 +90,6 @@ namespace Capa_Vista_CVRecetas
             this.Lbl_Fase = new System.Windows.Forms.Label();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.Lbl_Fases = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.Dgv_Costo_Fase = new System.Windows.Forms.DataGridView();
-            this.Gpb_Costo = new System.Windows.Forms.GroupBox();
-            this.btn_eliminar_costo = new System.Windows.Forms.Button();
-            this.Btn_agregar_costo = new System.Windows.Forms.Button();
-            this.Txt_Costos = new System.Windows.Forms.TextBox();
-            this.Lbl_costo = new System.Windows.Forms.Label();
-            this.Cbo_Tipo_Costo = new System.Windows.Forms.ComboBox();
-            this.Lbl_Tipo_Costo = new System.Windows.Forms.Label();
-            this.Cbo_Fase = new System.Windows.Forms.ComboBox();
-            this.Lbl_fases_costo = new System.Windows.Forms.Label();
-            this.Txt_Costo = new System.Windows.Forms.TextBox();
-            this.Lbl_Id_Costo = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Lbl_Costos = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -120,10 +105,6 @@ namespace Capa_Vista_CVRecetas
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Fases)).BeginInit();
             this.Gpb_Datos.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Costo_Fase)).BeginInit();
-            this.Gpb_Costo.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_bom
@@ -522,7 +503,6 @@ namespace Capa_Vista_CVRecetas
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(336, 22);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -836,183 +816,6 @@ namespace Capa_Vista_CVRecetas
             this.Lbl_Fases.TabIndex = 15;
             this.Lbl_Fases.Text = "Fases de Produccion";
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.Dgv_Costo_Fase);
-            this.tabPage3.Controls.Add(this.Gpb_Costo);
-            this.tabPage3.Controls.Add(this.flowLayoutPanel1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(793, 530);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Costos";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // Dgv_Costo_Fase
-            // 
-            this.Dgv_Costo_Fase.AllowUserToAddRows = false;
-            this.Dgv_Costo_Fase.AllowUserToDeleteRows = false;
-            this.Dgv_Costo_Fase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_Costo_Fase.Location = new System.Drawing.Point(23, 240);
-            this.Dgv_Costo_Fase.Margin = new System.Windows.Forms.Padding(2);
-            this.Dgv_Costo_Fase.Name = "Dgv_Costo_Fase";
-            this.Dgv_Costo_Fase.ReadOnly = true;
-            this.Dgv_Costo_Fase.RowHeadersWidth = 51;
-            this.Dgv_Costo_Fase.RowTemplate.Height = 24;
-            this.Dgv_Costo_Fase.Size = new System.Drawing.Size(757, 275);
-            this.Dgv_Costo_Fase.TabIndex = 31;
-            // 
-            // Gpb_Costo
-            // 
-            this.Gpb_Costo.Controls.Add(this.btn_eliminar_costo);
-            this.Gpb_Costo.Controls.Add(this.Btn_agregar_costo);
-            this.Gpb_Costo.Controls.Add(this.Txt_Costos);
-            this.Gpb_Costo.Controls.Add(this.Lbl_costo);
-            this.Gpb_Costo.Controls.Add(this.Cbo_Tipo_Costo);
-            this.Gpb_Costo.Controls.Add(this.Lbl_Tipo_Costo);
-            this.Gpb_Costo.Controls.Add(this.Cbo_Fase);
-            this.Gpb_Costo.Controls.Add(this.Lbl_fases_costo);
-            this.Gpb_Costo.Controls.Add(this.Txt_Costo);
-            this.Gpb_Costo.Controls.Add(this.Lbl_Id_Costo);
-            this.Gpb_Costo.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Gpb_Costo.Location = new System.Drawing.Point(5, 67);
-            this.Gpb_Costo.Margin = new System.Windows.Forms.Padding(2);
-            this.Gpb_Costo.Name = "Gpb_Costo";
-            this.Gpb_Costo.Padding = new System.Windows.Forms.Padding(2);
-            this.Gpb_Costo.Size = new System.Drawing.Size(776, 154);
-            this.Gpb_Costo.TabIndex = 30;
-            this.Gpb_Costo.TabStop = false;
-            this.Gpb_Costo.Text = "Datos de costo";
-            // 
-            // btn_eliminar_costo
-            // 
-            this.btn_eliminar_costo.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar_costo.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminar_costo.Image")));
-            this.btn_eliminar_costo.Location = new System.Drawing.Point(98, 32);
-            this.btn_eliminar_costo.Name = "btn_eliminar_costo";
-            this.btn_eliminar_costo.Size = new System.Drawing.Size(74, 87);
-            this.btn_eliminar_costo.TabIndex = 23;
-            this.btn_eliminar_costo.Text = "Eliminar";
-            this.btn_eliminar_costo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_eliminar_costo.UseVisualStyleBackColor = true;
-            // 
-            // Btn_agregar_costo
-            // 
-            this.Btn_agregar_costo.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_agregar_costo.Image = ((System.Drawing.Image)(resources.GetObject("Btn_agregar_costo.Image")));
-            this.Btn_agregar_costo.Location = new System.Drawing.Point(18, 32);
-            this.Btn_agregar_costo.Name = "Btn_agregar_costo";
-            this.Btn_agregar_costo.Size = new System.Drawing.Size(74, 87);
-            this.Btn_agregar_costo.TabIndex = 24;
-            this.Btn_agregar_costo.Text = "Agregar";
-            this.Btn_agregar_costo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Btn_agregar_costo.UseVisualStyleBackColor = true;
-            // 
-            // Txt_Costos
-            // 
-            this.Txt_Costos.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_Costos.Location = new System.Drawing.Point(593, 89);
-            this.Txt_Costos.Margin = new System.Windows.Forms.Padding(2);
-            this.Txt_Costos.Name = "Txt_Costos";
-            this.Txt_Costos.Size = new System.Drawing.Size(146, 23);
-            this.Txt_Costos.TabIndex = 8;
-            // 
-            // Lbl_costo
-            // 
-            this.Lbl_costo.AutoSize = true;
-            this.Lbl_costo.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_costo.Location = new System.Drawing.Point(478, 96);
-            this.Lbl_costo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Lbl_costo.Name = "Lbl_costo";
-            this.Lbl_costo.Size = new System.Drawing.Size(46, 16);
-            this.Lbl_costo.TabIndex = 7;
-            this.Lbl_costo.Text = "Costo:";
-            // 
-            // Cbo_Tipo_Costo
-            // 
-            this.Cbo_Tipo_Costo.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cbo_Tipo_Costo.FormattingEnabled = true;
-            this.Cbo_Tipo_Costo.Location = new System.Drawing.Point(319, 93);
-            this.Cbo_Tipo_Costo.Margin = new System.Windows.Forms.Padding(2);
-            this.Cbo_Tipo_Costo.Name = "Cbo_Tipo_Costo";
-            this.Cbo_Tipo_Costo.Size = new System.Drawing.Size(146, 24);
-            this.Cbo_Tipo_Costo.TabIndex = 6;
-            // 
-            // Lbl_Tipo_Costo
-            // 
-            this.Lbl_Tipo_Costo.AutoSize = true;
-            this.Lbl_Tipo_Costo.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Tipo_Costo.Location = new System.Drawing.Point(224, 99);
-            this.Lbl_Tipo_Costo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Lbl_Tipo_Costo.Name = "Lbl_Tipo_Costo";
-            this.Lbl_Tipo_Costo.Size = new System.Drawing.Size(74, 16);
-            this.Lbl_Tipo_Costo.TabIndex = 4;
-            this.Lbl_Tipo_Costo.Text = "Tipo Costo:";
-            // 
-            // Cbo_Fase
-            // 
-            this.Cbo_Fase.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cbo_Fase.FormattingEnabled = true;
-            this.Cbo_Fase.Location = new System.Drawing.Point(593, 45);
-            this.Cbo_Fase.Margin = new System.Windows.Forms.Padding(2);
-            this.Cbo_Fase.Name = "Cbo_Fase";
-            this.Cbo_Fase.Size = new System.Drawing.Size(146, 24);
-            this.Cbo_Fase.TabIndex = 3;
-            // 
-            // Lbl_fases_costo
-            // 
-            this.Lbl_fases_costo.AutoSize = true;
-            this.Lbl_fases_costo.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_fases_costo.Location = new System.Drawing.Point(478, 48);
-            this.Lbl_fases_costo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Lbl_fases_costo.Name = "Lbl_fases_costo";
-            this.Lbl_fases_costo.Size = new System.Drawing.Size(107, 16);
-            this.Lbl_fases_costo.TabIndex = 2;
-            this.Lbl_fases_costo.Text = "Fase Producción:";
-            // 
-            // Txt_Costo
-            // 
-            this.Txt_Costo.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_Costo.Location = new System.Drawing.Point(319, 46);
-            this.Txt_Costo.Margin = new System.Windows.Forms.Padding(2);
-            this.Txt_Costo.Name = "Txt_Costo";
-            this.Txt_Costo.Size = new System.Drawing.Size(146, 23);
-            this.Txt_Costo.TabIndex = 1;
-            // 
-            // Lbl_Id_Costo
-            // 
-            this.Lbl_Id_Costo.AutoSize = true;
-            this.Lbl_Id_Costo.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Id_Costo.Location = new System.Drawing.Point(224, 51);
-            this.Lbl_Id_Costo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Lbl_Id_Costo.Name = "Lbl_Id_Costo";
-            this.Lbl_Id_Costo.Size = new System.Drawing.Size(91, 16);
-            this.Lbl_Id_Costo.TabIndex = 0;
-            this.Lbl_Id_Costo.Text = "Id Costo Fase:";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Controls.Add(this.Lbl_Costos);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 15, 15, 15);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(789, 59);
-            this.flowLayoutPanel1.TabIndex = 17;
-            // 
-            // Lbl_Costos
-            // 
-            this.Lbl_Costos.AutoSize = true;
-            this.Lbl_Costos.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Costos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Lbl_Costos.Location = new System.Drawing.Point(23, 15);
-            this.Lbl_Costos.Name = "Lbl_Costos";
-            this.Lbl_Costos.Size = new System.Drawing.Size(200, 29);
-            this.Lbl_Costos.TabIndex = 15;
-            this.Lbl_Costos.Text = "Costos por Fase";
-            // 
             // Frm_Recetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1046,12 +849,6 @@ namespace Capa_Vista_CVRecetas
             this.Gpb_Datos.PerformLayout();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Costo_Fase)).EndInit();
-            this.Gpb_Costo.ResumeLayout(false);
-            this.Gpb_Costo.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1103,7 +900,6 @@ namespace Capa_Vista_CVRecetas
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button Btn_eliminarMat;
         private System.Windows.Forms.Button Btn_agregarMat;
         private System.Windows.Forms.GroupBox Gpb_Datos;
@@ -1118,19 +914,5 @@ namespace Capa_Vista_CVRecetas
         private System.Windows.Forms.TextBox Txt_Descripcion_fases;
         private System.Windows.Forms.TextBox Txt_Fase;
         private System.Windows.Forms.DataGridView Dgv_Fases;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label Lbl_Costos;
-        private System.Windows.Forms.DataGridView Dgv_Costo_Fase;
-        private System.Windows.Forms.GroupBox Gpb_Costo;
-        private System.Windows.Forms.Button btn_eliminar_costo;
-        private System.Windows.Forms.Button Btn_agregar_costo;
-        private System.Windows.Forms.TextBox Txt_Costos;
-        private System.Windows.Forms.Label Lbl_costo;
-        private System.Windows.Forms.ComboBox Cbo_Tipo_Costo;
-        private System.Windows.Forms.Label Lbl_Tipo_Costo;
-        private System.Windows.Forms.ComboBox Cbo_Fase;
-        private System.Windows.Forms.Label Lbl_fases_costo;
-        private System.Windows.Forms.TextBox Txt_Costo;
-        private System.Windows.Forms.Label Lbl_Id_Costo;
     }
 }
