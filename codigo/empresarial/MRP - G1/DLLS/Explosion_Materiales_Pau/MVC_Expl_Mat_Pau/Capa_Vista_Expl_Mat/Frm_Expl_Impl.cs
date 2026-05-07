@@ -199,7 +199,7 @@ namespace Capa_Vista_Expl_Mat
             DataTable dt = controlador.ObtenerOrdenesRecibidas();
             Cmb_OrdenProduccion.DataSource = dt;
             Cmb_OrdenProduccion.DisplayMember = "No_Orden";  
-            Cmb_OrdenProduccion.ValueMember = "Pk_Id_Orden_Produccion";
+            Cmb_OrdenProduccion.ValueMember = "Pk_Id_Orden_Recibida";
             Cmb_OrdenProduccion.SelectedIndex = -1;
         }
 
