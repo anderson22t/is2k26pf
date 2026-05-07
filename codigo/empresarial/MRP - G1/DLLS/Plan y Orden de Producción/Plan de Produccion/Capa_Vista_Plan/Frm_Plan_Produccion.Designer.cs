@@ -48,6 +48,26 @@ namespace Capa_Vista_Plan
             this.Lbl_Titulo = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.OrdenProduccion = new System.Windows.Forms.TabPage();
+            this.Cronograma = new System.Windows.Forms.TabPage();
+            this.Btn_Actualizar = new System.Windows.Forms.Button();
+            this.Dtp_FechaFin = new System.Windows.Forms.DateTimePicker();
+            this.Dtp_FechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.Btn_agregar_fases = new System.Windows.Forms.Button();
+            this.Cbo_EstadoFase = new System.Windows.Forms.ComboBox();
+            this.Lbl_EstadoFase = new System.Windows.Forms.Label();
+            this.Cbo_Empleados = new System.Windows.Forms.ComboBox();
+            this.Lbl_Encargado = new System.Windows.Forms.Label();
+            this.Txt_CantidadPersonal = new System.Windows.Forms.TextBox();
+            this.Lbl_CantidadEmpleados = new System.Windows.Forms.Label();
+            this.Cbo_Fases = new System.Windows.Forms.ComboBox();
+            this.Lbl_Fase = new System.Windows.Forms.Label();
+            this.Cbo_NoOrden = new System.Windows.Forms.ComboBox();
+            this.Lbl_NoOrden = new System.Windows.Forms.Label();
+            this.Lbl_FechaFin = new System.Windows.Forms.Label();
+            this.Lbl_FechaInicio = new System.Windows.Forms.Label();
+            this.Txt_ProductoC = new System.Windows.Forms.TextBox();
+            this.Lbl_ProductoC = new System.Windows.Forms.Label();
+            this.Dgv_Cronograma = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -59,8 +79,9 @@ namespace Capa_Vista_Plan
             this.Lbl_Fecha = new System.Windows.Forms.Label();
             this.Cbo_OrdenRecibida = new System.Windows.Forms.ComboBox();
             this.Lbl_Orden = new System.Windows.Forms.Label();
-            this.Cronograma = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
+            this.Cronograma.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Cronograma)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -220,6 +241,7 @@ namespace Capa_Vista_Plan
             this.Btn_guardar.Text = "Guardar";
             this.Btn_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_guardar.UseVisualStyleBackColor = true;
+            this.Btn_guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
             // 
             // Btn_modificar
             // 
@@ -278,6 +300,7 @@ namespace Capa_Vista_Plan
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1113, 507);
             this.tabControl1.TabIndex = 30;
+            this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
             // 
             // OrdenProduccion
             // 
@@ -289,6 +312,226 @@ namespace Capa_Vista_Plan
             this.OrdenProduccion.TabIndex = 0;
             this.OrdenProduccion.Text = "Orden de Producción";
             this.OrdenProduccion.UseVisualStyleBackColor = true;
+            // 
+            // Cronograma
+            // 
+            this.Cronograma.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Cronograma.Controls.Add(this.Btn_Actualizar);
+            this.Cronograma.Controls.Add(this.Dtp_FechaFin);
+            this.Cronograma.Controls.Add(this.Dtp_FechaInicio);
+            this.Cronograma.Controls.Add(this.Btn_agregar_fases);
+            this.Cronograma.Controls.Add(this.Cbo_EstadoFase);
+            this.Cronograma.Controls.Add(this.Lbl_EstadoFase);
+            this.Cronograma.Controls.Add(this.Cbo_Empleados);
+            this.Cronograma.Controls.Add(this.Lbl_Encargado);
+            this.Cronograma.Controls.Add(this.Txt_CantidadPersonal);
+            this.Cronograma.Controls.Add(this.Lbl_CantidadEmpleados);
+            this.Cronograma.Controls.Add(this.Cbo_Fases);
+            this.Cronograma.Controls.Add(this.Lbl_Fase);
+            this.Cronograma.Controls.Add(this.Cbo_NoOrden);
+            this.Cronograma.Controls.Add(this.Lbl_NoOrden);
+            this.Cronograma.Controls.Add(this.Lbl_FechaFin);
+            this.Cronograma.Controls.Add(this.Lbl_FechaInicio);
+            this.Cronograma.Controls.Add(this.Txt_ProductoC);
+            this.Cronograma.Controls.Add(this.Lbl_ProductoC);
+            this.Cronograma.Controls.Add(this.Dgv_Cronograma);
+            this.Cronograma.Location = new System.Drawing.Point(4, 29);
+            this.Cronograma.Name = "Cronograma";
+            this.Cronograma.Padding = new System.Windows.Forms.Padding(3);
+            this.Cronograma.Size = new System.Drawing.Size(1105, 474);
+            this.Cronograma.TabIndex = 1;
+            this.Cronograma.Text = "Cronograma Fases";
+            this.Cronograma.UseVisualStyleBackColor = true;
+            // 
+            // Btn_Actualizar
+            // 
+            this.Btn_Actualizar.BackColor = System.Drawing.Color.White;
+            this.Btn_Actualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Actualizar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Actualizar.Image")));
+            this.Btn_Actualizar.Location = new System.Drawing.Point(8, 92);
+            this.Btn_Actualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Actualizar.Name = "Btn_Actualizar";
+            this.Btn_Actualizar.Size = new System.Drawing.Size(57, 56);
+            this.Btn_Actualizar.TabIndex = 31;
+            this.Btn_Actualizar.UseVisualStyleBackColor = false;
+            // 
+            // Dtp_FechaFin
+            // 
+            this.Dtp_FechaFin.CalendarFont = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dtp_FechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Dtp_FechaFin.Location = new System.Drawing.Point(337, 119);
+            this.Dtp_FechaFin.Name = "Dtp_FechaFin";
+            this.Dtp_FechaFin.Size = new System.Drawing.Size(224, 27);
+            this.Dtp_FechaFin.TabIndex = 30;
+            // 
+            // Dtp_FechaInicio
+            // 
+            this.Dtp_FechaInicio.CalendarFont = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dtp_FechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Dtp_FechaInicio.Location = new System.Drawing.Point(81, 119);
+            this.Dtp_FechaInicio.Name = "Dtp_FechaInicio";
+            this.Dtp_FechaInicio.Size = new System.Drawing.Size(224, 27);
+            this.Dtp_FechaInicio.TabIndex = 29;
+            // 
+            // Btn_agregar_fases
+            // 
+            this.Btn_agregar_fases.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_agregar_fases.Image = ((System.Drawing.Image)(resources.GetObject("Btn_agregar_fases.Image")));
+            this.Btn_agregar_fases.Location = new System.Drawing.Point(8, 13);
+            this.Btn_agregar_fases.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_agregar_fases.Name = "Btn_agregar_fases";
+            this.Btn_agregar_fases.Size = new System.Drawing.Size(57, 54);
+            this.Btn_agregar_fases.TabIndex = 27;
+            this.Btn_agregar_fases.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Btn_agregar_fases.UseVisualStyleBackColor = true;
+            this.Btn_agregar_fases.Click += new System.EventHandler(this.Btn_agregar_fases_Click);
+            // 
+            // Cbo_EstadoFase
+            // 
+            this.Cbo_EstadoFase.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cbo_EstadoFase.FormattingEnabled = true;
+            this.Cbo_EstadoFase.Location = new System.Drawing.Point(827, 119);
+            this.Cbo_EstadoFase.Name = "Cbo_EstadoFase";
+            this.Cbo_EstadoFase.Size = new System.Drawing.Size(224, 28);
+            this.Cbo_EstadoFase.TabIndex = 26;
+            // 
+            // Lbl_EstadoFase
+            // 
+            this.Lbl_EstadoFase.AutoSize = true;
+            this.Lbl_EstadoFase.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_EstadoFase.Location = new System.Drawing.Point(823, 92);
+            this.Lbl_EstadoFase.Name = "Lbl_EstadoFase";
+            this.Lbl_EstadoFase.Size = new System.Drawing.Size(126, 20);
+            this.Lbl_EstadoFase.TabIndex = 25;
+            this.Lbl_EstadoFase.Text = "Estado de Fase";
+            // 
+            // Cbo_Empleados
+            // 
+            this.Cbo_Empleados.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cbo_Empleados.FormattingEnabled = true;
+            this.Cbo_Empleados.Location = new System.Drawing.Point(827, 42);
+            this.Cbo_Empleados.Name = "Cbo_Empleados";
+            this.Cbo_Empleados.Size = new System.Drawing.Size(224, 28);
+            this.Cbo_Empleados.TabIndex = 24;
+            // 
+            // Lbl_Encargado
+            // 
+            this.Lbl_Encargado.AutoSize = true;
+            this.Lbl_Encargado.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Encargado.Location = new System.Drawing.Point(823, 15);
+            this.Lbl_Encargado.Name = "Lbl_Encargado";
+            this.Lbl_Encargado.Size = new System.Drawing.Size(158, 20);
+            this.Lbl_Encargado.TabIndex = 23;
+            this.Lbl_Encargado.Text = "Encargado de Fase";
+            // 
+            // Txt_CantidadPersonal
+            // 
+            this.Txt_CantidadPersonal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Txt_CantidadPersonal.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_CantidadPersonal.Location = new System.Drawing.Point(584, 119);
+            this.Txt_CantidadPersonal.Name = "Txt_CantidadPersonal";
+            this.Txt_CantidadPersonal.Size = new System.Drawing.Size(224, 27);
+            this.Txt_CantidadPersonal.TabIndex = 22;
+            // 
+            // Lbl_CantidadEmpleados
+            // 
+            this.Lbl_CantidadEmpleados.AutoSize = true;
+            this.Lbl_CantidadEmpleados.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_CantidadEmpleados.Location = new System.Drawing.Point(580, 92);
+            this.Lbl_CantidadEmpleados.Name = "Lbl_CantidadEmpleados";
+            this.Lbl_CantidadEmpleados.Size = new System.Drawing.Size(177, 20);
+            this.Lbl_CantidadEmpleados.TabIndex = 21;
+            this.Lbl_CantidadEmpleados.Text = "Cantidad de Personal";
+            // 
+            // Cbo_Fases
+            // 
+            this.Cbo_Fases.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cbo_Fases.FormattingEnabled = true;
+            this.Cbo_Fases.Location = new System.Drawing.Point(584, 42);
+            this.Cbo_Fases.Name = "Cbo_Fases";
+            this.Cbo_Fases.Size = new System.Drawing.Size(224, 28);
+            this.Cbo_Fases.TabIndex = 20;
+            // 
+            // Lbl_Fase
+            // 
+            this.Lbl_Fase.AutoSize = true;
+            this.Lbl_Fase.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Fase.Location = new System.Drawing.Point(580, 15);
+            this.Lbl_Fase.Name = "Lbl_Fase";
+            this.Lbl_Fase.Size = new System.Drawing.Size(171, 20);
+            this.Lbl_Fase.TabIndex = 19;
+            this.Lbl_Fase.Text = "Fases de Producción";
+            // 
+            // Cbo_NoOrden
+            // 
+            this.Cbo_NoOrden.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cbo_NoOrden.FormattingEnabled = true;
+            this.Cbo_NoOrden.Location = new System.Drawing.Point(81, 42);
+            this.Cbo_NoOrden.Name = "Cbo_NoOrden";
+            this.Cbo_NoOrden.Size = new System.Drawing.Size(224, 28);
+            this.Cbo_NoOrden.TabIndex = 18;
+            this.Cbo_NoOrden.SelectedIndexChanged += new System.EventHandler(this.Cbo_NoOrden_SelectedIndexChanged);
+            // 
+            // Lbl_NoOrden
+            // 
+            this.Lbl_NoOrden.AutoSize = true;
+            this.Lbl_NoOrden.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_NoOrden.Location = new System.Drawing.Point(77, 15);
+            this.Lbl_NoOrden.Name = "Lbl_NoOrden";
+            this.Lbl_NoOrden.Size = new System.Drawing.Size(185, 20);
+            this.Lbl_NoOrden.TabIndex = 17;
+            this.Lbl_NoOrden.Text = "No. Orden Producción";
+            // 
+            // Lbl_FechaFin
+            // 
+            this.Lbl_FechaFin.AutoSize = true;
+            this.Lbl_FechaFin.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_FechaFin.Location = new System.Drawing.Point(333, 89);
+            this.Lbl_FechaFin.Name = "Lbl_FechaFin";
+            this.Lbl_FechaFin.Size = new System.Drawing.Size(162, 20);
+            this.Lbl_FechaFin.TabIndex = 15;
+            this.Lbl_FechaFin.Text = "Fecha Final de Fase";
+            // 
+            // Lbl_FechaInicio
+            // 
+            this.Lbl_FechaInicio.AutoSize = true;
+            this.Lbl_FechaInicio.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_FechaInicio.Location = new System.Drawing.Point(77, 89);
+            this.Lbl_FechaInicio.Name = "Lbl_FechaInicio";
+            this.Lbl_FechaInicio.Size = new System.Drawing.Size(168, 20);
+            this.Lbl_FechaInicio.TabIndex = 13;
+            this.Lbl_FechaInicio.Text = "Fecha Inicio de Fase";
+            // 
+            // Txt_ProductoC
+            // 
+            this.Txt_ProductoC.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Txt_ProductoC.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_ProductoC.Location = new System.Drawing.Point(337, 42);
+            this.Txt_ProductoC.Name = "Txt_ProductoC";
+            this.Txt_ProductoC.ReadOnly = true;
+            this.Txt_ProductoC.Size = new System.Drawing.Size(224, 27);
+            this.Txt_ProductoC.TabIndex = 12;
+            // 
+            // Lbl_ProductoC
+            // 
+            this.Lbl_ProductoC.AutoSize = true;
+            this.Lbl_ProductoC.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_ProductoC.Location = new System.Drawing.Point(333, 15);
+            this.Lbl_ProductoC.Name = "Lbl_ProductoC";
+            this.Lbl_ProductoC.Size = new System.Drawing.Size(80, 20);
+            this.Lbl_ProductoC.TabIndex = 11;
+            this.Lbl_ProductoC.Text = "Producto";
+            // 
+            // Dgv_Cronograma
+            // 
+            this.Dgv_Cronograma.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.Dgv_Cronograma.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_Cronograma.Location = new System.Drawing.Point(7, 167);
+            this.Dgv_Cronograma.Name = "Dgv_Cronograma";
+            this.Dgv_Cronograma.RowHeadersWidth = 51;
+            this.Dgv_Cronograma.RowTemplate.Height = 24;
+            this.Dgv_Cronograma.Size = new System.Drawing.Size(1077, 296);
+            this.Dgv_Cronograma.TabIndex = 3;
             // 
             // panel2
             // 
@@ -402,16 +645,6 @@ namespace Capa_Vista_Plan
             this.Lbl_Orden.TabIndex = 4;
             this.Lbl_Orden.Text = "No. Orden:";
             // 
-            // Cronograma
-            // 
-            this.Cronograma.Location = new System.Drawing.Point(4, 29);
-            this.Cronograma.Name = "Cronograma";
-            this.Cronograma.Padding = new System.Windows.Forms.Padding(3);
-            this.Cronograma.Size = new System.Drawing.Size(1497, 474);
-            this.Cronograma.TabIndex = 1;
-            this.Cronograma.Text = "Cronograma Fases";
-            this.Cronograma.UseVisualStyleBackColor = true;
-            // 
             // Frm_Plan_Produccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -440,7 +673,11 @@ namespace Capa_Vista_Plan
             this.Name = "Frm_Plan_Produccion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plan y Orden de Produccion - 718";
+            this.Load += new System.EventHandler(this.Frm_Plan_Produccion_Load);
             this.tabControl1.ResumeLayout(false);
+            this.Cronograma.ResumeLayout(false);
+            this.Cronograma.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Cronograma)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -482,5 +719,24 @@ namespace Capa_Vista_Plan
         private System.Windows.Forms.Label Lbl_Fecha;
         private System.Windows.Forms.ComboBox Cbo_OrdenRecibida;
         private System.Windows.Forms.Label Lbl_Orden;
+        private System.Windows.Forms.ComboBox Cbo_Fases;
+        private System.Windows.Forms.Label Lbl_Fase;
+        private System.Windows.Forms.ComboBox Cbo_NoOrden;
+        private System.Windows.Forms.Label Lbl_NoOrden;
+        private System.Windows.Forms.Label Lbl_FechaFin;
+        private System.Windows.Forms.Label Lbl_FechaInicio;
+        private System.Windows.Forms.TextBox Txt_ProductoC;
+        private System.Windows.Forms.Label Lbl_ProductoC;
+        private System.Windows.Forms.DataGridView Dgv_Cronograma;
+        private System.Windows.Forms.ComboBox Cbo_EstadoFase;
+        private System.Windows.Forms.Label Lbl_EstadoFase;
+        private System.Windows.Forms.ComboBox Cbo_Empleados;
+        private System.Windows.Forms.Label Lbl_Encargado;
+        private System.Windows.Forms.TextBox Txt_CantidadPersonal;
+        private System.Windows.Forms.Label Lbl_CantidadEmpleados;
+        private System.Windows.Forms.Button Btn_agregar_fases;
+        private System.Windows.Forms.DateTimePicker Dtp_FechaFin;
+        private System.Windows.Forms.DateTimePicker Dtp_FechaInicio;
+        private System.Windows.Forms.Button Btn_Actualizar;
     }
 }
