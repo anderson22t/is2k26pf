@@ -218,7 +218,7 @@ namespace Capa_Vista_MRP
 
         private void explosiónDeMaterialesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_Expl_Mat m = new Frm_Expl_Mat();
+            Frm_Expl_Impl m = new Frm_Expl_Impl();
             m.MdiParent = this;
             m.Show();
 
