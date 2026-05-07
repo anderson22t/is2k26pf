@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Capa_Vista_recepcion
 {
-    public partial class Frm_reporte : Form
+    public partial class Frm_reportes : Form
     {
-        public Frm_reporte()
+        public Frm_reportes()
         {
             InitializeComponent();
         }
