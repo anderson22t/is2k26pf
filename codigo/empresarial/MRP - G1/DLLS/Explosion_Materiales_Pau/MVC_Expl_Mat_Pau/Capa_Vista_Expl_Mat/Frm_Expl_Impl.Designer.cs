@@ -1,5 +1,4 @@
-﻿
-namespace Capa_Vista_Expl_Mat
+﻿namespace Capa_Vista_Expl_Mat
 {
     partial class Frm_Expl_Impl
     {
@@ -40,9 +39,15 @@ namespace Capa_Vista_Expl_Mat
             this.Txt_BuscarOrden = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ImplPage = new System.Windows.Forms.TabPage();
+            this.Lbl_EstadoImplosion = new System.Windows.Forms.Label();
+            this.Btn_GenerarOrdenLogistica = new System.Windows.Forms.Button();
+            this.Dgv_Implosion = new System.Windows.Forms.DataGridView();
+            this.Cmb_OrdenProduccion = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.ExplPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_InformacionExplosion)).BeginInit();
+            this.ImplPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Implosion)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -163,6 +168,10 @@ namespace Capa_Vista_Expl_Mat
             // 
             // ImplPage
             // 
+            this.ImplPage.Controls.Add(this.Lbl_EstadoImplosion);
+            this.ImplPage.Controls.Add(this.Btn_GenerarOrdenLogistica);
+            this.ImplPage.Controls.Add(this.Dgv_Implosion);
+            this.ImplPage.Controls.Add(this.Cmb_OrdenProduccion);
             this.ImplPage.Location = new System.Drawing.Point(4, 32);
             this.ImplPage.Name = "ImplPage";
             this.ImplPage.Padding = new System.Windows.Forms.Padding(3);
@@ -170,6 +179,44 @@ namespace Capa_Vista_Expl_Mat
             this.ImplPage.TabIndex = 1;
             this.ImplPage.Text = "Implosión";
             this.ImplPage.UseVisualStyleBackColor = true;
+            this.ImplPage.Click += new System.EventHandler(this.ImplPage_Click);
+            // 
+            // Lbl_EstadoImplosion
+            // 
+            this.Lbl_EstadoImplosion.AutoSize = true;
+            this.Lbl_EstadoImplosion.Location = new System.Drawing.Point(411, 29);
+            this.Lbl_EstadoImplosion.Name = "Lbl_EstadoImplosion";
+            this.Lbl_EstadoImplosion.Size = new System.Drawing.Size(177, 20);
+            this.Lbl_EstadoImplosion.TabIndex = 3;
+            this.Lbl_EstadoImplosion.Text = "Analizando orden...";
+            // 
+            // Btn_GenerarOrdenLogistica
+            // 
+            this.Btn_GenerarOrdenLogistica.Location = new System.Drawing.Point(32, 60);
+            this.Btn_GenerarOrdenLogistica.Name = "Btn_GenerarOrdenLogistica";
+            this.Btn_GenerarOrdenLogistica.Size = new System.Drawing.Size(208, 35);
+            this.Btn_GenerarOrdenLogistica.TabIndex = 2;
+            this.Btn_GenerarOrdenLogistica.Text = "Generar Orden ";
+            this.Btn_GenerarOrdenLogistica.UseVisualStyleBackColor = true;
+            this.Btn_GenerarOrdenLogistica.Click += new System.EventHandler(this.Btn_GenerarOrdenLogistica_Click_1);
+            // 
+            // Dgv_Implosion
+            // 
+            this.Dgv_Implosion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_Implosion.Location = new System.Drawing.Point(32, 111);
+            this.Dgv_Implosion.Name = "Dgv_Implosion";
+            this.Dgv_Implosion.RowHeadersWidth = 51;
+            this.Dgv_Implosion.RowTemplate.Height = 24;
+            this.Dgv_Implosion.Size = new System.Drawing.Size(1081, 438);
+            this.Dgv_Implosion.TabIndex = 1;
+            // 
+            // Cmb_OrdenProduccion
+            // 
+            this.Cmb_OrdenProduccion.FormattingEnabled = true;
+            this.Cmb_OrdenProduccion.Location = new System.Drawing.Point(32, 26);
+            this.Cmb_OrdenProduccion.Name = "Cmb_OrdenProduccion";
+            this.Cmb_OrdenProduccion.Size = new System.Drawing.Size(363, 28);
+            this.Cmb_OrdenProduccion.TabIndex = 0;
             // 
             // Frm_Expl_Impl
             // 
@@ -185,6 +232,9 @@ namespace Capa_Vista_Expl_Mat
             this.ExplPage.ResumeLayout(false);
             this.ExplPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_InformacionExplosion)).EndInit();
+            this.ImplPage.ResumeLayout(false);
+            this.ImplPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Implosion)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,5 +252,9 @@ namespace Capa_Vista_Expl_Mat
         private System.Windows.Forms.TextBox Txt_BuscarOrden;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView Dgv_InformacionExplosion;
+        private System.Windows.Forms.Label Lbl_EstadoImplosion;
+        private System.Windows.Forms.Button Btn_GenerarOrdenLogistica;
+        private System.Windows.Forms.DataGridView Dgv_Implosion;
+        private System.Windows.Forms.ComboBox Cmb_OrdenProduccion;
     }
 }

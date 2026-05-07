@@ -73,7 +73,15 @@ namespace Capa_Controlador_Expl_Mat
 
 
         //DANIELA SALGUERO
+        public DataTable ObtenerImplosion(int idOrden)
+        {
+            return sentencias.ObtenerDetalleExplosion(idOrden);
+        }
 
+        public bool GenerarOrdenMaterial(int idOrden, DataTable faltantes)
+        {
+            return sentencias.GuardarOrdenMaterial(idOrden, faltantes);
+        }
         //DANIELA SALGUERO
 
 
