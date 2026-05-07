@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Capa_Vista_recepcion
+namespace Exe_Produccion
 {
-    public partial class Frm_reporte : Form
+    public partial class Form1 : Form
     {
-        public Frm_reporte()
+        public Form1()
         {
             InitializeComponent();
         }
