@@ -158,6 +158,24 @@ namespace Capa_Modelo_Expl_Mat
                 }
             }
         }
+
+        public bool OrdenYaGenerada(int idOrden)
+        {
+            using (OdbcConnection conn = conexion.AbrirConexion())
+            {
+                string query = @"
+            SELECT COUNT(*) 
+            FROM Encabezado_Orden_Material 
+            WHERE Fk_Id_Orden_Produccion = ?";
+
+                OdbcCommand cmd = new OdbcCommand(query, conn);
+                cmd.Parameters.AddWithValue("?", idOrden);
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count > 0;
+            }
+        }
+
+
         //DANIELA SALGUERO
     }
     }

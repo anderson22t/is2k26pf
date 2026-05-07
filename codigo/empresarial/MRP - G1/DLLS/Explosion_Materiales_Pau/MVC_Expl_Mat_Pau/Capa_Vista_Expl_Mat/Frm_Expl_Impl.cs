@@ -2,7 +2,8 @@
 using System.Data;
 using System.Windows.Forms;
 using Capa_Controlador_Expl_Mat;
-using System.Drawing; 
+using System.Drawing;
+using System.Linq;
 
 namespace Capa_Vista_Expl_Mat
 // PAULA DANIELA LEONARDO PAREDES  0901-22-9580
@@ -16,6 +17,11 @@ namespace Capa_Vista_Expl_Mat
         {
             InitializeComponent();
             this.Load += Frm_Expl_Impl_Load;
+
+            ToolTip tip = new ToolTip();
+            tip.IsBalloon = true; 
+            tip.ToolTipTitle = "Búsqueda de Órdenes";
+            tip.SetToolTip(Cmb_OrdenProduccion, "Seleccione o escriba el número de orden para realizar la implosión.");
         }
 
         private void Frm_Expl_Impl_Load(object sender, EventArgs e)
@@ -43,6 +49,12 @@ namespace Capa_Vista_Expl_Mat
             // Clic en botón Ver del grid
             Dgv_InformacionExplosion.CellContentClick
                 += Dgv_InformacionExplosion_CellContentClick;
+
+
+            SendMessage(Cmb_OrdenProduccion.Handle, 0x1703, 0, "Escriba No. de Orden...");
+
+            Cmb_OrdenProduccion.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Cmb_OrdenProduccion.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void CargarGrid()
@@ -175,14 +187,11 @@ namespace Capa_Vista_Expl_Mat
         // PAULA DANIELA LEONARDO PAREDES  0901-22-9580
 
 
+        //DANIELA
 
+        [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+        private static extern int SendMessage(IntPtr hWnd, int msg, int wParam, [System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPWStr)] string lParam);
 
-
-
-
-
-
-        //DANIELA SALGUERO
         private DataTable _datosImplosion;
 
         private void CargarOrdenesProduccion()
@@ -266,9 +275,21 @@ namespace Capa_Vista_Expl_Mat
 
         private void Btn_GenerarOrdenLogistica_Click_1(object sender, EventArgs e)
         {
-        if (_datosImplosion == null) return;
+            if (_datosImplosion == null) return;
 
-        int idOrden = Convert.ToInt32(Cmb_OrdenProduccion.SelectedValue);
+            int idOrden = Convert.ToInt32(Cmb_OrdenProduccion.SelectedValue);
+
+            // Validación antes de guardar
+            if (controlador.OrdenYaGenerada(idOrden))
+            {
+                MessageBox.Show(
+                    "Ya existe una orden de material para esta orden de producción.",
+                    "Orden duplicada",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                Btn_GenerarOrdenLogistica.Enabled = false;
+                return;
+            }
         bool ok = controlador.GenerarOrdenMaterial(idOrden, _datosImplosion);
 
         if (ok)
@@ -285,9 +306,41 @@ namespace Capa_Vista_Expl_Mat
         }
 
         }
+
+        private void Dgv_Implosion_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Cmb_OrdenProduccion_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (Cmb_OrdenProduccion.SelectedValue != null && Cmb_OrdenProduccion.ValueMember != "")
+            {
+                Cmb_OrdenProduccion_SelectedIndexChanged(sender, e);
+            }
+        }
+
+        private void Txt_BuscarOrden_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_BuscarOtraOrden_Click(object sender, EventArgs e)
+        {
+            Cmb_OrdenProduccion.SelectedIndex = -1;
+            Dgv_Implosion.DataSource = null;
+            _datosImplosion = null;
+            Btn_GenerarOrdenLogistica.Enabled = false;
+            Lbl_EstadoImplosion.Text = "";
+            Cmb_OrdenProduccion.Focus();
+        }
+
+        private void Btn_Refrescar_Click(object sender, EventArgs e)
+        {
+            if (Cmb_OrdenProduccion.SelectedValue == null) return;
+            Cmb_OrdenProduccion_SelectedIndexChanged(null, null);
+        }
+
         //DANIELA SALGUERO
-
-
-
     }
 }

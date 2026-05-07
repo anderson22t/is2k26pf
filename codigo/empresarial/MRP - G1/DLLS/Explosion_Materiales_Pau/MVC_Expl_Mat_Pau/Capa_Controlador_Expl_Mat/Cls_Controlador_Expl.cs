@@ -82,8 +82,12 @@ namespace Capa_Controlador_Expl_Mat
         {
             return sentencias.GuardarOrdenMaterial(idOrden, faltantes);
         }
+
+        public bool OrdenYaGenerada(int idOrden)
+        {
+            return sentencias.OrdenYaGenerada(idOrden);
+        }
+
         //DANIELA SALGUERO
-
-
     }
 }
