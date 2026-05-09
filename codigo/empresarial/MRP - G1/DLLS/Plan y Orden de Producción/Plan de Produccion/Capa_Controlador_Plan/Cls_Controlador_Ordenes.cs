@@ -37,5 +37,24 @@ namespace Capa_Controlador_Plan
             return modelo.obtenerOrdenesProduccionPorOrden(
                 idOrden);
         }
+
+        public void modificarOrdenProduccion(
+    int idOrden,
+    int idMaterial,
+    int idEstado,
+    decimal cantidad,
+    DateTime fechaInicio,
+    DateTime fechaFin)
+        {
+            modelo.modificarOrdenProduccion(
+                idOrden,
+                idMaterial,
+                idEstado,
+                cantidad,
+                fechaInicio,
+                fechaFin);
+        }
+
+
     }
 }

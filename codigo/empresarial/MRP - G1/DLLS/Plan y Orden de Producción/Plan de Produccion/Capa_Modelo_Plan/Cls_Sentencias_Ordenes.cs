@@ -139,5 +139,42 @@ namespace Capa_Modelo_Plan
 
             return tabla;
         }
+
+        public void modificarOrdenProduccion(
+    int idOrden,
+    int idMaterial,
+    int idEstado,
+    decimal cantidad,
+    DateTime fechaInicio,
+    DateTime fechaFin)
+        {
+            using (OdbcConnection conn =
+                conexion.AbrirConexion())
+            {
+                string sql = @"
+        UPDATE Tbl_Orden_Produccion
+        SET
+            Fk_Id_Material = ?,
+            Fk_Id_Estado_Orden_Produccion = ?,
+            Cantidad_Programada_Orden_Produccion = ?,
+            Fecha_Inicio_Orden_Produccion = ?,
+            Fecha_Fin_Orden_Produccion = ?
+        WHERE Pk_Id_Orden_Produccion = ?";
+
+                OdbcCommand cmd =
+                    new OdbcCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("", idMaterial);
+                cmd.Parameters.AddWithValue("", idEstado);
+                cmd.Parameters.AddWithValue("", cantidad);
+                cmd.Parameters.AddWithValue("", fechaInicio);
+                cmd.Parameters.AddWithValue("", fechaFin);
+                cmd.Parameters.AddWithValue("", idOrden);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
     }
 }
