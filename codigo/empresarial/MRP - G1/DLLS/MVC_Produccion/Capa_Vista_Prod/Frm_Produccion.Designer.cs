@@ -129,9 +129,7 @@ namespace Capa_Vista_Prod
             this.txtMotivoMerma = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvMermas = new System.Windows.Forms.DataGridView();
-            this.label11 = new System.Windows.Forms.Label();
             this.lblTotalMermas = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabMaterial.SuspendLayout();
@@ -434,7 +432,6 @@ namespace Capa_Vista_Prod
             // 
             // tabMerma
             // 
-            this.tabMerma.Controls.Add(this.label12);
             this.tabMerma.Controls.Add(this.lblTotalMermas);
             this.tabMerma.Controls.Add(this.dgvMermas);
             this.tabMerma.Controls.Add(this.label7);
@@ -476,61 +473,67 @@ namespace Capa_Vista_Prod
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(632, 170);
+            this.label10.Font = new System.Drawing.Font("Rockwell", 10.2F);
+            this.label10.Location = new System.Drawing.Point(719, 182);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(82, 17);
+            this.label10.Size = new System.Drawing.Size(104, 20);
             this.label10.TabIndex = 16;
             this.label10.Text = "Descripción";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(352, 169);
+            this.label9.Font = new System.Drawing.Font("Rockwell", 10.2F);
+            this.label9.Location = new System.Drawing.Point(405, 183);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 17);
+            this.label9.Size = new System.Drawing.Size(59, 20);
             this.label9.TabIndex = 15;
             this.label9.Text = "Monto";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(23, 165);
+            this.label8.Font = new System.Drawing.Font("Rockwell", 10.2F);
+            this.label8.Location = new System.Drawing.Point(22, 182);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 17);
+            this.label8.Size = new System.Drawing.Size(86, 20);
             this.label8.TabIndex = 14;
             this.label8.Text = "Concepto";
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(724, 166);
+            this.txtDescripcion.Font = new System.Drawing.Font("Rockwell", 10.2F);
+            this.txtDescripcion.Location = new System.Drawing.Point(831, 179);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(132, 22);
+            this.txtDescripcion.Size = new System.Drawing.Size(192, 27);
             this.txtDescripcion.TabIndex = 13;
             // 
             // nudMonto
             // 
-            this.nudMonto.Location = new System.Drawing.Point(409, 166);
+            this.nudMonto.Font = new System.Drawing.Font("Rockwell", 10.2F);
+            this.nudMonto.Location = new System.Drawing.Point(472, 180);
             this.nudMonto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nudMonto.Name = "nudMonto";
-            this.nudMonto.Size = new System.Drawing.Size(160, 22);
+            this.nudMonto.Size = new System.Drawing.Size(160, 27);
             this.nudMonto.TabIndex = 12;
             // 
             // txtConcepto
             // 
-            this.txtConcepto.Location = new System.Drawing.Point(101, 161);
+            this.txtConcepto.Font = new System.Drawing.Font("Rockwell", 10.2F);
+            this.txtConcepto.Location = new System.Drawing.Point(116, 179);
             this.txtConcepto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtConcepto.Name = "txtConcepto";
-            this.txtConcepto.Size = new System.Drawing.Size(211, 22);
+            this.txtConcepto.Size = new System.Drawing.Size(211, 27);
             this.txtConcepto.TabIndex = 11;
             // 
             // dgvCostosIndirectos
             // 
             this.dgvCostosIndirectos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCostosIndirectos.Location = new System.Drawing.Point(12, 273);
+            this.dgvCostosIndirectos.Location = new System.Drawing.Point(12, 234);
             this.dgvCostosIndirectos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvCostosIndirectos.Name = "dgvCostosIndirectos";
             this.dgvCostosIndirectos.RowHeadersWidth = 51;
@@ -765,11 +768,12 @@ namespace Capa_Vista_Prod
             // 
             // cboEmpleado
             // 
+            this.cboEmpleado.Font = new System.Drawing.Font("Rockwell", 10.2F);
             this.cboEmpleado.FormattingEnabled = true;
-            this.cboEmpleado.Location = new System.Drawing.Point(115, 161);
+            this.cboEmpleado.Location = new System.Drawing.Point(134, 149);
             this.cboEmpleado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboEmpleado.Name = "cboEmpleado";
-            this.cboEmpleado.Size = new System.Drawing.Size(121, 24);
+            this.cboEmpleado.Size = new System.Drawing.Size(121, 28);
             this.cboEmpleado.TabIndex = 9;
             // 
             // panel5
@@ -980,44 +984,51 @@ namespace Capa_Vista_Prod
             // 
             // nudCostoHora
             // 
-            this.nudCostoHora.Location = new System.Drawing.Point(524, 161);
+            this.nudCostoHora.Font = new System.Drawing.Font("Rockwell", 10.2F);
+            this.nudCostoHora.Location = new System.Drawing.Point(789, 150);
             this.nudCostoHora.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nudCostoHora.Name = "nudCostoHora";
-            this.nudCostoHora.Size = new System.Drawing.Size(120, 22);
+            this.nudCostoHora.Size = new System.Drawing.Size(120, 27);
             this.nudCostoHora.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(443, 166);
+            this.label2.Font = new System.Drawing.Font("Rockwell", 10.2F);
+            this.label2.Location = new System.Drawing.Point(686, 152);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 17);
+            this.label2.Size = new System.Drawing.Size(97, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Costo Hora";
             // 
             // nudHoras
             // 
-            this.nudHoras.Location = new System.Drawing.Point(299, 165);
+            this.nudHoras.Font = new System.Drawing.Font("Rockwell", 10.2F);
+            this.nudHoras.Location = new System.Drawing.Point(469, 148);
             this.nudHoras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nudHoras.Name = "nudHoras";
-            this.nudHoras.Size = new System.Drawing.Size(120, 22);
+            this.nudHoras.Size = new System.Drawing.Size(120, 27);
             this.nudHoras.TabIndex = 4;
+            this.nudHoras.ValueChanged += new System.EventHandler(this.nudHoras_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(248, 169);
+            this.label1.Font = new System.Drawing.Font("Rockwell", 10.2F);
+            this.label1.Location = new System.Drawing.Point(408, 152);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.Size = new System.Drawing.Size(55, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "Horas";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblEmpleado
             // 
             this.lblEmpleado.AutoSize = true;
-            this.lblEmpleado.Location = new System.Drawing.Point(39, 164);
+            this.lblEmpleado.Font = new System.Drawing.Font("Rockwell", 10.2F);
+            this.lblEmpleado.Location = new System.Drawing.Point(39, 152);
             this.lblEmpleado.Name = "lblEmpleado";
-            this.lblEmpleado.Size = new System.Drawing.Size(71, 17);
+            this.lblEmpleado.Size = new System.Drawing.Size(89, 20);
             this.lblEmpleado.TabIndex = 2;
             this.lblEmpleado.Text = "Empleado";
             // 
@@ -1098,18 +1109,19 @@ namespace Capa_Vista_Prod
             // 
             // btn_consumir
             // 
+            this.btn_consumir.BackColor = System.Drawing.Color.SlateGray;
             this.btn_consumir.Font = new System.Drawing.Font("Rockwell", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_consumir.ForeColor = System.Drawing.Color.White;
             this.btn_consumir.Location = new System.Drawing.Point(28, 509);
             this.btn_consumir.Name = "btn_consumir";
             this.btn_consumir.Size = new System.Drawing.Size(224, 42);
             this.btn_consumir.TabIndex = 13;
             this.btn_consumir.Text = "Confirmar consumo";
-            this.btn_consumir.UseVisualStyleBackColor = true;
+            this.btn_consumir.UseVisualStyleBackColor = false;
             this.btn_consumir.Click += new System.EventHandler(this.btn_consumir_Click);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.button27);
             this.panel3.Controls.Add(this.button28);
             this.panel3.Controls.Add(this.button29);
@@ -1317,67 +1329,75 @@ namespace Capa_Vista_Prod
             // 
             // cboMaterial
             // 
+            this.cboMaterial.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMaterial.FormattingEnabled = true;
-            this.cboMaterial.Location = new System.Drawing.Point(107, 167);
+            this.cboMaterial.Location = new System.Drawing.Point(125, 164);
             this.cboMaterial.Name = "cboMaterial";
-            this.cboMaterial.Size = new System.Drawing.Size(176, 24);
+            this.cboMaterial.Size = new System.Drawing.Size(176, 28);
             this.cboMaterial.TabIndex = 11;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(24, 167);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 17);
+            this.label4.Size = new System.Drawing.Size(97, 20);
             this.label4.TabIndex = 12;
             this.label4.Text = "Materiales:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(307, 170);
+            this.label5.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(352, 167);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 17);
+            this.label5.Size = new System.Drawing.Size(109, 20);
             this.label5.TabIndex = 14;
             this.label5.Text = "Tipo merma:";
             // 
             // cboTipoMerma
             // 
+            this.cboTipoMerma.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTipoMerma.FormattingEnabled = true;
-            this.cboTipoMerma.Location = new System.Drawing.Point(400, 167);
+            this.cboTipoMerma.Location = new System.Drawing.Point(467, 164);
             this.cboTipoMerma.Name = "cboTipoMerma";
-            this.cboTipoMerma.Size = new System.Drawing.Size(176, 24);
+            this.cboTipoMerma.Size = new System.Drawing.Size(176, 28);
             this.cboTipoMerma.TabIndex = 13;
             // 
             // nudCantidadMerma
             // 
-            this.nudCantidadMerma.Location = new System.Drawing.Point(676, 168);
+            this.nudCantidadMerma.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudCantidadMerma.Location = new System.Drawing.Point(791, 164);
             this.nudCantidadMerma.Name = "nudCantidadMerma";
-            this.nudCantidadMerma.Size = new System.Drawing.Size(120, 22);
+            this.nudCantidadMerma.Size = new System.Drawing.Size(120, 27);
             this.nudCantidadMerma.TabIndex = 15;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(602, 173);
+            this.label6.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(700, 167);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 17);
+            this.label6.Size = new System.Drawing.Size(85, 20);
             this.label6.TabIndex = 16;
             this.label6.Text = "Cantidad:";
             // 
             // txtMotivoMerma
             // 
-            this.txtMotivoMerma.Location = new System.Drawing.Point(893, 165);
+            this.txtMotivoMerma.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMotivoMerma.Location = new System.Drawing.Point(1071, 164);
             this.txtMotivoMerma.Name = "txtMotivoMerma";
-            this.txtMotivoMerma.Size = new System.Drawing.Size(162, 22);
+            this.txtMotivoMerma.Size = new System.Drawing.Size(162, 27);
             this.txtMotivoMerma.TabIndex = 17;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(834, 170);
+            this.label7.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(997, 167);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 17);
+            this.label7.Size = new System.Drawing.Size(68, 20);
             this.label7.TabIndex = 18;
             this.label7.Text = "Motivo:";
             // 
@@ -1391,15 +1411,6 @@ namespace Capa_Vista_Prod
             this.dgvMermas.Size = new System.Drawing.Size(1579, 280);
             this.dgvMermas.TabIndex = 19;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(499, 25);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 17);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "label11";
-            // 
             // lblTotalMermas
             // 
             this.lblTotalMermas.AutoSize = true;
@@ -1408,15 +1419,6 @@ namespace Capa_Vista_Prod
             this.lblTotalMermas.Size = new System.Drawing.Size(54, 17);
             this.lblTotalMermas.TabIndex = 20;
             this.lblTotalMermas.Text = "label12";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1253, 558);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(98, 17);
-            this.label12.TabIndex = 21;
-            this.label12.Text = "Total mermas:";
             // 
             // Frm_Produccion
             // 
@@ -1451,7 +1453,6 @@ namespace Capa_Vista_Prod
             this.tabCostos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCostos)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadMerma)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMermas)).EndInit();
             this.ResumeLayout(false);
@@ -1535,7 +1536,6 @@ namespace Capa_Vista_Prod
         private System.Windows.Forms.Button button25;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.Button btn_consumir;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblTotalMermas;
         private System.Windows.Forms.DataGridView dgvMermas;
         private System.Windows.Forms.Label label7;
@@ -1547,7 +1547,6 @@ namespace Capa_Vista_Prod
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboMaterial;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button27;
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.Button button29;

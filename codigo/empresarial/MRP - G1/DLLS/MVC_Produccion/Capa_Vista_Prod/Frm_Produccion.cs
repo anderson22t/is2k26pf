@@ -68,6 +68,7 @@ namespace Capa_Vista_Prod
         {
             DataTable dt = controlador.ObtenerManoObra(idOrden);
             dgvManoObra.DataSource = dt;
+            Cls_Estilos_DGV.Aplicar(dgvManoObra);
 
             if (dgvManoObra.Columns.Count == 0) return;
             dgvManoObra.Columns["Id"].Visible = false;
@@ -137,6 +138,7 @@ namespace Capa_Vista_Prod
             desglose.Rows.Add("TOTAL", total);
 
             dgvCostos.DataSource = desglose;
+            Cls_Estilos_DGV.Aplicar(dgvCostos);
             dgvCostos.Columns["Categoria"].HeaderText = "Categoría";
             dgvCostos.Columns["Monto"].HeaderText = "Monto (Q)";
             dgvCostos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -211,6 +213,7 @@ namespace Capa_Vista_Prod
         {
             DataTable dt = controlador.ObtenerCostosIndirectos(idOrden);
             dgvCostosIndirectos.DataSource = dt;
+            Cls_Estilos_DGV.Aplicar(dgvCostosIndirectos);
 
             if (dgvCostosIndirectos.Columns.Count == 0) return;
             dgvCostosIndirectos.Columns["Id"].Visible = false;
@@ -296,6 +299,7 @@ namespace Capa_Vista_Prod
         {
             DataTable dt = controlador.ObtenerMaterialesConsumidos(idOrden);
             dgvMateriales.DataSource = dt;
+            Cls_Estilos_DGV.Aplicar(dgvMateriales);
 
             if (dgvMateriales.Columns.Count == 0) return;
             dgvMateriales.Columns["Id_Material"].Visible = false;
@@ -390,6 +394,7 @@ namespace Capa_Vista_Prod
         {
             DataTable dt = controlador.ObtenerMermas(idOrden);
             dgvMermas.DataSource = dt;
+            Cls_Estilos_DGV.Aplicar(dgvMermas);
 
             if (dgvMermas.Columns.Count == 0) return;
 
@@ -510,10 +515,101 @@ namespace Capa_Vista_Prod
                 }
             }
         }
-
-
-
         // ##################### MERMAS ###############################################################
+
+        // ######################## DISEÑO DE FORMULARIOS ##############################################
+        public static class Cls_Estilos_DGV
+        {
+            // Paleta de colores — cámbiala a tu gusto
+            private static readonly Color ColorEncabezado = Color.FromArgb(34, 74, 112);   // Azul oscuro
+            private static readonly Color ColorFilaImpar = Color.FromArgb(245, 248, 252);  // Blanco azulado
+            private static readonly Color ColorFilaPar = Color.White;
+            private static readonly Color ColorSeleccion = Color.FromArgb(173, 214, 255);  // Azul claro
+            private static readonly Color ColorTextoEncabezado = Color.White;
+            private static readonly Color ColorTextoCelda = Color.FromArgb(40, 40, 40);     // Casi negro
+            private static readonly Color ColorBorde = Color.FromArgb(210, 220, 235);
+
+            public static void Aplicar(DataGridView dgv)
+            {
+                // ── Comportamiento general ──────────────────────────────
+                dgv.BorderStyle = BorderStyle.None;
+                dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+                dgv.GridColor = ColorBorde;
+                dgv.RowHeadersVisible = false;
+                dgv.AllowUserToResizeRows = false;
+                dgv.AllowUserToAddRows = false;
+                dgv.BackgroundColor = Color.White;
+
+                // ── Fuente general ──────────────────────────────────────
+                dgv.Font = new Font("Segoe UI", 9.5f, FontStyle.Regular);
+
+                // ── Encabezado ──────────────────────────────────────────
+                dgv.EnableHeadersVisualStyles = false;
+                dgv.ColumnHeadersDefaultCellStyle.BackColor = ColorEncabezado;
+                dgv.ColumnHeadersDefaultCellStyle.ForeColor = ColorTextoEncabezado;
+                dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9.5f, FontStyle.Bold);
+                dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgv.ColumnHeadersDefaultCellStyle.Padding = new Padding(4);
+                dgv.ColumnHeadersHeight = 38;
+                dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+
+                // ── Celdas ──────────────────────────────────────────────
+                dgv.DefaultCellStyle.ForeColor = ColorTextoCelda;
+                dgv.DefaultCellStyle.SelectionBackColor = ColorSeleccion;
+                dgv.DefaultCellStyle.SelectionForeColor = ColorTextoCelda;
+                dgv.DefaultCellStyle.Padding = new Padding(4, 0, 4, 0);
+                dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                dgv.RowTemplate.Height = 32;
+
+                // ── Filas alternadas ────────────────────────────────────
+                dgv.AlternatingRowsDefaultCellStyle.BackColor = ColorFilaImpar;
+                dgv.AlternatingRowsDefaultCellStyle.SelectionBackColor = ColorSeleccion;
+                dgv.RowsDefaultCellStyle.BackColor = ColorFilaPar;
+
+                // ── Evento para pintar filas en tiempo real ─────────────
+                dgv.RowPrePaint += (s, e) =>
+                {
+                    e.PaintParts &= ~DataGridViewPaintParts.Focus;
+                };
+            }
+
+            // Centra columnas específicas (para montos, cantidades, fechas)
+            public static void CentrarColumnas(DataGridView dgv, params string[] columnas)
+            {
+                foreach (string col in columnas)
+                {
+                    if (dgv.Columns.Contains(col))
+                        dgv.Columns[col].DefaultCellStyle.Alignment =
+                            DataGridViewContentAlignment.MiddleCenter;
+                }
+            }
+
+            // Alinea a la derecha (ideal para montos en Q)
+            public static void AlinearDerechaCols(DataGridView dgv, params string[] columnas)
+            {
+                foreach (string col in columnas)
+                {
+                    if (dgv.Columns.Contains(col))
+                        dgv.Columns[col].DefaultCellStyle.Alignment =
+                            DataGridViewContentAlignment.MiddleRight;
+                }
+            }
+        }
+
+        private void nudHoras_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // ######################## DISEÑO DE FORMULARIOS ##############################################
+
+
+
     }
 
 
