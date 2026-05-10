@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using Capa_Controlador_Orden_Material;
 
 namespace Capa_Vista_Orden_Material
-{
+{// ------ LETICIA SONTAY - 9959-21-9664, 09/05/2026 --------
     public partial class Frm_Detalle_Orden_Material : Form
     {
         private readonly Cls_Controlador_Orden_Material _controlador
@@ -394,3 +394,4 @@ namespace Capa_Vista_Orden_Material
         }
     }
 }
+// ------ LETICIA SONTAY - 9959-21-9664, 07/05/2026 --------
