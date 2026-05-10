@@ -13,7 +13,7 @@ namespace Capa_Modelo_Orden_Material
         public DataTable ObtenerOrdenesCombo()
         {
             DataTable dt = new DataTable();
-            using (OdbcConnection conn = conexion.AbrirConexion()) // ✅ CORREGIDO
+            using (OdbcConnection conn = conexion.AbrirConexion()) 
             {
                 string query = @"
                     SELECT 
@@ -41,7 +41,7 @@ namespace Capa_Modelo_Orden_Material
         public DataTable ObtenerOrdenPorId(int idOrden)
         {
             DataTable dt = new DataTable();
-            using (OdbcConnection conn = conexion.AbrirConexion()) // ✅ CORREGIDO
+            using (OdbcConnection conn = conexion.AbrirConexion()) 
             {
                 string query = @"
                     SELECT 
@@ -67,7 +67,7 @@ namespace Capa_Modelo_Orden_Material
         public DataTable ObtenerDetalleOrden(int idOrden)
         {
             DataTable dt = new DataTable();
-            using (OdbcConnection conn = conexion.AbrirConexion()) // ✅ CORREGIDO
+            using (OdbcConnection conn = conexion.AbrirConexion()) 
             {
                 string query = @"
                     SELECT 
@@ -98,7 +98,7 @@ namespace Capa_Modelo_Orden_Material
         public DataTable ObtenerEstadosOrden()
         {
             DataTable dt = new DataTable();
-            using (OdbcConnection conn = conexion.AbrirConexion()) // ✅ CORREGIDO
+            using (OdbcConnection conn = conexion.AbrirConexion()) 
             {
                 string query = @"
                     SELECT 
@@ -115,9 +115,9 @@ namespace Capa_Modelo_Orden_Material
 
         public bool ModificarOrden(int idOrden, int idEstado, DateTime? fechaRecibida)
         {
-            using (OdbcConnection conn = conexion.AbrirConexion()) // ✅ CORREGIDO
+            using (OdbcConnection conn = conexion.AbrirConexion()) 
             {
-                conn.Open(); // ✅ AGREGADO — obligatorio para ExecuteNonQuery
+                conn.Open(); 
 
                 string query = @"
                     UPDATE Encabezado_Orden_Material

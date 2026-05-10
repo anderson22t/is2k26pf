@@ -19,13 +19,6 @@ namespace Capa_Vista_Orden_Material
             InitializeComponent();
         }
 
-        // Este queda vacío o lo puedes borrar
-        private void Frm_Detalle_Orden_Material_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        // ✅ Toda la carga va aquí
         private void Frm_Detalle_Orden_Material_Shown(object sender, EventArgs e)
         {
             _cargando = true;
@@ -53,7 +46,7 @@ namespace Capa_Vista_Orden_Material
 
             Cmb_Estado.Enabled = editando;
             Dtp_Recibida.Enabled = editando;
-            Dtp_Solicitud.Enabled = false; // fecha solicitud nunca se edita
+            Dtp_Solicitud.Enabled = false; 
 
             Dgv_Materiales.ReadOnly = true;
 
@@ -73,7 +66,7 @@ namespace Capa_Vista_Orden_Material
 
         private void CargarComboOrdenes()
         {
-            _cargando = true; // ✅ bloquear el evento antes de tocar el combo
+            _cargando = true; 
             try
             {
                 DataTable dt = _controlador.ObtenerOrdenesCombo();
@@ -89,7 +82,7 @@ namespace Capa_Vista_Orden_Material
             }
             finally
             {
-                _cargando = false; // ✅ desbloquear al terminar
+                _cargando = false; 
             }
         }
 
@@ -156,10 +149,10 @@ namespace Capa_Vista_Orden_Material
             });
         }
 
-        // ✅ CLAVE: solo actúa si _cargando es false
+      
         private void Cmb_ID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_cargando) return;                                    // ✅ bloquea durante carga
+            if (_cargando) return;                                    
             if (Cmb_ID.SelectedValue == null) return;
             if (Cmb_ID.SelectedIndex < 0) return;
 
@@ -178,7 +171,6 @@ namespace Capa_Vista_Orden_Material
 
                 DataRow row = dt.Rows[0];
 
-                // ✅ bloquear para que cambiar estado no dispare eventos
                 _cargando = true;
                 Cmb_Estado.SelectedValue = row["IdEstado"];
                 _cargando = false;
@@ -274,7 +266,6 @@ namespace Capa_Vista_Orden_Material
                     int idGuardado = _idOrdenActual;
                     CargarComboOrdenes();
 
-                    // ✅ reseleccionar la misma orden después de recargar
                     _cargando = true;
                     Cmb_ID.SelectedValue = idGuardado;
                     _cargando = false;
