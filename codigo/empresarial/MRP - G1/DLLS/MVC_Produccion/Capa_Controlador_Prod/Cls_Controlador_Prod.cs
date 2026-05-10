@@ -14,22 +14,13 @@ namespace Capa_Controlador_Prod
         private readonly Cls_Sentencias_Prod sentencias = new Cls_Sentencias_Prod();
         private readonly Cls_Sentencias_Prod sentenciasDetalle = new Cls_Sentencias_Prod();
         private readonly Cls_Sentencias_CI sentenciasCI = new Cls_Sentencias_CI();
+        private readonly Cls_Sentencias_Materiales sentenciasM = new Cls_Sentencias_Materiales();
 
 
         public DataTable ObtenerOrdenesProduccion()
         {
             return sentencias.ObtenerOrdenesProduccion();
         }
-
-       /* public DataTable ObtenerInfoOrdenRecibida(int idOrden)
-        {
-            return sentenciasDetalle.ObtenerInfoOrdenRecibida(idOrden);
-        }
-
-        public DataTable ObtenerProductosOrdenRecibida(int idOrden)
-        {
-            return sentenciasDetalle.ObtenerProductosOrdenRecibida(idOrden);
-        }*/
 
         public DataTable ObtenerManoObra(int idOrden)
         {
@@ -68,6 +59,11 @@ namespace Capa_Controlador_Prod
         public bool EliminarCostoIndirecto(int idCosto)
         {
             return sentenciasCI.EliminarCostoIndirecto(idCosto);
+        }
+
+        public DataTable ObtenerMaterialesConsumidos(int idOrden)
+        {
+            return sentenciasM.ObtenerMaterialesConsumidos(idOrden);
         }
     }
 }

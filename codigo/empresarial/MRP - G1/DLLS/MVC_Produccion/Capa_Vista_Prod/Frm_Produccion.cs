@@ -55,6 +55,7 @@ namespace Capa_Vista_Prod
             int idOrden = Convert.ToInt32(Cbo_Orden.SelectedValue);
             CargarManoObra(idOrden);
             CargarCostosIndirectos(idOrden);
+            CargarMaterialesConsumidos(idOrden);
             CargarCostos(idOrden);
         }
 
@@ -283,5 +284,34 @@ namespace Capa_Vista_Prod
                 }
             }
         }
+
+        // #################### COSTOS INDIRECTOS ####################################################
+
+        // ###################### MATERIAL CONSUMIDO ##################################################
+        private void CargarMaterialesConsumidos(int idOrden)
+        {
+            DataTable dt = controlador.ObtenerMaterialesConsumidos(idOrden);
+            dgvMateriales.DataSource = dt;
+
+            if (dgvMateriales.Columns.Count == 0) return;
+            dgvMateriales.Columns["Id_Material"].Visible = false;
+            dgvMateriales.Columns["Material"].HeaderText = "Material";
+            dgvMateriales.Columns["Unidad"].HeaderText = "Unidad";
+            dgvMateriales.Columns["Cantidad_Necesaria"].HeaderText = "Cantidad Necesaria";
+            dgvMateriales.Columns["Cantidad_Con_Merma"].HeaderText = "Cantidad con Merma";
+            dgvMateriales.Columns["Costo_Unitario"].HeaderText = "Costo Unitario (Q)";
+            dgvMateriales.Columns["Subtotal"].HeaderText = "Subtotal (Q)";
+            dgvMateriales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvMateriales.ReadOnly = true;
+            dgvMateriales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            // Calcular y mostrar total
+            decimal total = 0;
+            foreach (DataRow row in dt.Rows)
+                total += Convert.ToDecimal(row["Subtotal"]);
+
+            lblTotalMateriales.Text = $"Total materiales: Q {total:N2}";
+        }
+        // ###################### MATERIAL CONSUMIDO ##################################################
     }
 }

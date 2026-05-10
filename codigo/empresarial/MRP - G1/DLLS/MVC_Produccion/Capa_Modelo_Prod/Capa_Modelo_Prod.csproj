@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cls_Sentencias_CI.cs" />
+    <Compile Include="Cls_Sentencias_Materiales.cs" />
     <Compile Include="Cls_Sentencias_Prod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
