@@ -35,56 +35,7 @@ namespace Capa_Modelo_Prod
         }
 
 
-        /*public DataTable ObtenerInfoOrdenRecibida(int idOrden)
-        {
-            DataTable dt = new DataTable();
-            using (OdbcConnection conn = conexion.AbrirConexion())
-            {
-                string query = @"
-            SELECT 
-                o.Id_Externo_Logistica          AS No_Orden,
-                e.Nombre_Estado_Orden_Recibida  AS Estado,
-                DATE_FORMAT(o.Fecha_Recepcion, '%Y-%m-%d')  AS Fecha_Recepcion,
-                DATE_FORMAT(o.Fecha_Requerida, '%Y-%m-%d')  AS Fecha_Requerida,
-                o.Observacion
-            FROM Tbl_Orden_Recibida o
-            INNER JOIN Tbl_Estado_Orden_Recibida e
-                ON o.Fk_Id_Estado_Orden_Recibida = e.Pk_Id_Estado_Orden_Recibida
-            WHERE o.Pk_Id_Orden_Recibida = ?";
-
-                OdbcDataAdapter da = new OdbcDataAdapter(query, conn);
-                da.SelectCommand.Parameters.AddWithValue("?", idOrden);
-                da.Fill(dt);
-            }
-            return dt;
-        }
-
-        // Productos a fabricar (detalle de la orden recibida)
-        public DataTable ObtenerProductosOrdenRecibida(int idOrden)
-        {
-            DataTable dt = new DataTable();
-            using (OdbcConnection conn = conexion.AbrirConexion())
-            {
-                string query = @"
-            SELECT 
-                m.Codigo_Material                   AS Codigo,
-                m.Nombre_Material                   AS Producto,
-                d.Cantidad_Solicitada               AS Cantidad,
-                um.Abreviatura_Unidad_Medida        AS Unidad,
-                m.Lead_Time_Produccion_Dias         AS Lead_Time_Dias
-            FROM Tbl_Orden_Recibida_Detalle d
-            INNER JOIN Tbl_Materiales m 
-                ON d.Fk_Id_Material = m.Pk_Id_Materiales
-            INNER JOIN Tbl_Unidad_Medida um 
-                ON m.Fk_Id_Unidad_Medida = um.Pk_Id_Unidad_Medida
-            WHERE d.Fk_Id_Orden_Recibida = ?";
-
-                OdbcDataAdapter da = new OdbcDataAdapter(query, conn);
-                da.SelectCommand.Parameters.AddWithValue("?", idOrden);
-                da.Fill(dt);
-            }
-            return dt;
-        }*/
+   
 
         // ############################ METODOS PARA MANO DE OBRA #############################################
         // Mano de obra por orden de producción
@@ -169,10 +120,17 @@ namespace Capa_Modelo_Prod
                 string query = @"
             SELECT
                 COALESCE((
-                    SELECT SUM(om.Cantidad_Consumida_Orden_Material * i.Costo_Unitario)
-                    FROM Tbl_Orden_Material om
-                    INNER JOIN Tbl_Inventario i ON om.Fk_Id_Materiales = i.Fk_Id_Material
-                    WHERE om.Fk_Id_Orden_Produccion = ?
+                    SELECT SUM(emd.Cantidad_Real_Con_Merma * i.Costo_Unitario)
+                    FROM Tbl_Orden_Produccion op
+                    INNER JOIN Tbl_Plan_Produccion pp 
+                        ON op.Fk_Id_Plan_Produccion = pp.Pk_Id_Plan_Produccion
+                    INNER JOIN Tbl_Explosion_Materiales em 
+                        ON pp.Fk_Id_Orden_Recibida = em.Fk_Id_Orden_Recibida
+                    INNER JOIN Tbl_Explosion_Materiales_Detalle emd 
+                        ON em.Pk_Id_Explosion = emd.Fk_Id_Explosion
+                    INNER JOIN Tbl_Inventario i 
+                        ON emd.Fk_Id_Material = i.Fk_Id_Material
+                    WHERE op.Pk_Id_Orden_Produccion = ?
                 ), 0) AS CostoMateriales,
 
                 COALESCE((

@@ -34,6 +34,29 @@ namespace Capa_Vista_Prod
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMaterial = new System.Windows.Forms.TabPage();
             this.tabMerma = new System.Windows.Forms.TabPage();
+            this.tabCostosIndirectos = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.nudMonto = new System.Windows.Forms.NumericUpDown();
+            this.txtConcepto = new System.Windows.Forms.TextBox();
+            this.dgvCostosIndirectos = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.BtnEliminarCostoIndirecto = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.BtnGuardarCostoIndirecto = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.tab_Produccion = new System.Windows.Forms.TabPage();
             this.cboEmpleado = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -63,31 +86,31 @@ namespace Capa_Vista_Prod
             this.Lbl_Costos = new System.Windows.Forms.Label();
             this.Lbl_Orden = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabCostosIndirectos = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.BtnEliminarCostoIndirecto = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.BtnGuardarCostoIndirecto = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.dgvCostosIndirectos = new System.Windows.Forms.DataGridView();
-            this.txtConcepto = new System.Windows.Forms.TextBox();
-            this.nudMonto = new System.Windows.Forms.NumericUpDown();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.dgvMateriales = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTotalMateriales = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabMaterial.SuspendLayout();
+            this.tabCostosIndirectos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMonto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCostosIndirectos)).BeginInit();
+            this.panel1.SuspendLayout();
             this.tab_Produccion.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCostoHora)).BeginInit();
@@ -95,10 +118,8 @@ namespace Capa_Vista_Prod
             ((System.ComponentModel.ISupportInitialize)(this.dgvManoObra)).BeginInit();
             this.tabCostos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCostos)).BeginInit();
-            this.tabCostosIndirectos.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCostosIndirectos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMonto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMateriales)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -130,6 +151,10 @@ namespace Capa_Vista_Prod
             // 
             // tabMaterial
             // 
+            this.tabMaterial.Controls.Add(this.lblTotalMateriales);
+            this.tabMaterial.Controls.Add(this.label3);
+            this.tabMaterial.Controls.Add(this.panel2);
+            this.tabMaterial.Controls.Add(this.dgvMateriales);
             this.tabMaterial.Location = new System.Drawing.Point(4, 22);
             this.tabMaterial.Margin = new System.Windows.Forms.Padding(2);
             this.tabMaterial.Name = "tabMaterial";
@@ -148,6 +173,286 @@ namespace Capa_Vista_Prod
             this.tabMerma.TabIndex = 2;
             this.tabMerma.Text = "Mermas";
             this.tabMerma.UseVisualStyleBackColor = true;
+            // 
+            // tabCostosIndirectos
+            // 
+            this.tabCostosIndirectos.Controls.Add(this.label10);
+            this.tabCostosIndirectos.Controls.Add(this.label9);
+            this.tabCostosIndirectos.Controls.Add(this.label8);
+            this.tabCostosIndirectos.Controls.Add(this.txtDescripcion);
+            this.tabCostosIndirectos.Controls.Add(this.nudMonto);
+            this.tabCostosIndirectos.Controls.Add(this.txtConcepto);
+            this.tabCostosIndirectos.Controls.Add(this.dgvCostosIndirectos);
+            this.tabCostosIndirectos.Controls.Add(this.panel1);
+            this.tabCostosIndirectos.Location = new System.Drawing.Point(4, 22);
+            this.tabCostosIndirectos.Name = "tabCostosIndirectos";
+            this.tabCostosIndirectos.Size = new System.Drawing.Size(1237, 497);
+            this.tabCostosIndirectos.TabIndex = 4;
+            this.tabCostosIndirectos.Text = "Costos Indirectos";
+            this.tabCostosIndirectos.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(474, 138);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(63, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Descripción";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(264, 137);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Monto";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 134);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Concepto";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(543, 135);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.txtDescripcion.TabIndex = 13;
+            // 
+            // nudMonto
+            // 
+            this.nudMonto.Location = new System.Drawing.Point(307, 135);
+            this.nudMonto.Name = "nudMonto";
+            this.nudMonto.Size = new System.Drawing.Size(120, 20);
+            this.nudMonto.TabIndex = 12;
+            // 
+            // txtConcepto
+            // 
+            this.txtConcepto.Location = new System.Drawing.Point(76, 131);
+            this.txtConcepto.Name = "txtConcepto";
+            this.txtConcepto.Size = new System.Drawing.Size(159, 20);
+            this.txtConcepto.TabIndex = 11;
+            // 
+            // dgvCostosIndirectos
+            // 
+            this.dgvCostosIndirectos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCostosIndirectos.Location = new System.Drawing.Point(9, 222);
+            this.dgvCostosIndirectos.Name = "dgvCostosIndirectos";
+            this.dgvCostosIndirectos.Size = new System.Drawing.Size(1217, 261);
+            this.dgvCostosIndirectos.TabIndex = 10;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.button7);
+            this.panel1.Controls.Add(this.button8);
+            this.panel1.Controls.Add(this.button9);
+            this.panel1.Controls.Add(this.BtnEliminarCostoIndirecto);
+            this.panel1.Controls.Add(this.button11);
+            this.panel1.Controls.Add(this.BtnGuardarCostoIndirecto);
+            this.panel1.Controls.Add(this.button13);
+            this.panel1.Controls.Add(this.button14);
+            this.panel1.Location = new System.Drawing.Point(2, 12);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1224, 100);
+            this.panel1.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(1113, 14);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(89, 72);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Salir";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(1020, 14);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 72);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Ayuda";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(940, 14);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(76, 72);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Fin";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(856, 14);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(80, 72);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "Siguiente";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.Location = new System.Drawing.Point(786, 14);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(66, 72);
+            this.button5.TabIndex = 9;
+            this.button5.Text = "Anterior";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.Location = new System.Drawing.Point(712, 14);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(70, 72);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "Inicio";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
+            this.button7.Location = new System.Drawing.Point(619, 14);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(89, 72);
+            this.button7.TabIndex = 7;
+            this.button7.Text = "Refrescar";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
+            this.button8.Location = new System.Drawing.Point(526, 14);
+            this.button8.Margin = new System.Windows.Forms.Padding(2);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(89, 72);
+            this.button8.TabIndex = 6;
+            this.button8.Text = "Imprimir";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
+            this.button9.Location = new System.Drawing.Point(444, 14);
+            this.button9.Margin = new System.Windows.Forms.Padding(2);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(80, 72);
+            this.button9.TabIndex = 5;
+            this.button9.Text = "Consultar";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // BtnEliminarCostoIndirecto
+            // 
+            this.BtnEliminarCostoIndirecto.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEliminarCostoIndirecto.Image = ((System.Drawing.Image)(resources.GetObject("BtnEliminarCostoIndirecto.Image")));
+            this.BtnEliminarCostoIndirecto.Location = new System.Drawing.Point(368, 14);
+            this.BtnEliminarCostoIndirecto.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnEliminarCostoIndirecto.Name = "BtnEliminarCostoIndirecto";
+            this.BtnEliminarCostoIndirecto.Size = new System.Drawing.Size(72, 72);
+            this.BtnEliminarCostoIndirecto.TabIndex = 4;
+            this.BtnEliminarCostoIndirecto.Text = "Eliminar";
+            this.BtnEliminarCostoIndirecto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnEliminarCostoIndirecto.UseVisualStyleBackColor = true;
+            this.BtnEliminarCostoIndirecto.Click += new System.EventHandler(this.BtnEliminarCostoIndirecto_Click);
+            // 
+            // button11
+            // 
+            this.button11.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
+            this.button11.Location = new System.Drawing.Point(275, 14);
+            this.button11.Margin = new System.Windows.Forms.Padding(2);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(89, 72);
+            this.button11.TabIndex = 3;
+            this.button11.Text = "Cancelar";
+            this.button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // BtnGuardarCostoIndirecto
+            // 
+            this.BtnGuardarCostoIndirecto.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGuardarCostoIndirecto.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuardarCostoIndirecto.Image")));
+            this.BtnGuardarCostoIndirecto.Location = new System.Drawing.Point(191, 14);
+            this.BtnGuardarCostoIndirecto.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnGuardarCostoIndirecto.Name = "BtnGuardarCostoIndirecto";
+            this.BtnGuardarCostoIndirecto.Size = new System.Drawing.Size(80, 72);
+            this.BtnGuardarCostoIndirecto.TabIndex = 2;
+            this.BtnGuardarCostoIndirecto.Text = "Guardar";
+            this.BtnGuardarCostoIndirecto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnGuardarCostoIndirecto.UseVisualStyleBackColor = true;
+            this.BtnGuardarCostoIndirecto.Click += new System.EventHandler(this.BtnGuardarCostoIndirecto_Click);
+            // 
+            // button13
+            // 
+            this.button13.Enabled = false;
+            this.button13.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
+            this.button13.Location = new System.Drawing.Point(98, 14);
+            this.button13.Margin = new System.Windows.Forms.Padding(2);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(89, 72);
+            this.button13.TabIndex = 1;
+            this.button13.Text = "Modificar";
+            this.button13.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.Image = ((System.Drawing.Image)(resources.GetObject("button14.Image")));
+            this.button14.Location = new System.Drawing.Point(5, 14);
+            this.button14.Margin = new System.Windows.Forms.Padding(2);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(89, 72);
+            this.button14.TabIndex = 0;
+            this.button14.Text = "Ingresar";
+            this.button14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button14.UseVisualStyleBackColor = true;
             // 
             // tab_Produccion
             // 
@@ -499,285 +804,236 @@ namespace Capa_Vista_Prod
             this.flowLayoutPanel1.Size = new System.Drawing.Size(760, 11);
             this.flowLayoutPanel1.TabIndex = 12;
             // 
-            // tabCostosIndirectos
+            // dgvMateriales
             // 
-            this.tabCostosIndirectos.Controls.Add(this.label10);
-            this.tabCostosIndirectos.Controls.Add(this.label9);
-            this.tabCostosIndirectos.Controls.Add(this.label8);
-            this.tabCostosIndirectos.Controls.Add(this.txtDescripcion);
-            this.tabCostosIndirectos.Controls.Add(this.nudMonto);
-            this.tabCostosIndirectos.Controls.Add(this.txtConcepto);
-            this.tabCostosIndirectos.Controls.Add(this.dgvCostosIndirectos);
-            this.tabCostosIndirectos.Controls.Add(this.panel1);
-            this.tabCostosIndirectos.Location = new System.Drawing.Point(4, 22);
-            this.tabCostosIndirectos.Name = "tabCostosIndirectos";
-            this.tabCostosIndirectos.Size = new System.Drawing.Size(1237, 497);
-            this.tabCostosIndirectos.TabIndex = 4;
-            this.tabCostosIndirectos.Text = "Costos Indirectos";
-            this.tabCostosIndirectos.UseVisualStyleBackColor = true;
+            this.dgvMateriales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMateriales.Location = new System.Drawing.Point(21, 129);
+            this.dgvMateriales.Name = "dgvMateriales";
+            this.dgvMateriales.Size = new System.Drawing.Size(1196, 259);
+            this.dgvMateriales.TabIndex = 0;
             // 
-            // panel1
+            // panel2
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.BtnEliminarCostoIndirecto);
-            this.panel1.Controls.Add(this.button11);
-            this.panel1.Controls.Add(this.BtnGuardarCostoIndirecto);
-            this.panel1.Controls.Add(this.button13);
-            this.panel1.Controls.Add(this.button14);
-            this.panel1.Location = new System.Drawing.Point(2, 12);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1224, 100);
-            this.panel1.TabIndex = 9;
+            this.panel2.Controls.Add(this.button10);
+            this.panel2.Controls.Add(this.button12);
+            this.panel2.Controls.Add(this.button15);
+            this.panel2.Controls.Add(this.button16);
+            this.panel2.Controls.Add(this.button17);
+            this.panel2.Controls.Add(this.button18);
+            this.panel2.Controls.Add(this.button19);
+            this.panel2.Controls.Add(this.button20);
+            this.panel2.Controls.Add(this.button21);
+            this.panel2.Controls.Add(this.button22);
+            this.panel2.Controls.Add(this.button23);
+            this.panel2.Controls.Add(this.button24);
+            this.panel2.Controls.Add(this.button25);
+            this.panel2.Controls.Add(this.button26);
+            this.panel2.Location = new System.Drawing.Point(11, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1224, 100);
+            this.panel2.TabIndex = 10;
             // 
-            // button1
+            // button10
             // 
-            this.button1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1113, 14);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 72);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Salir";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
+            this.button10.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
+            this.button10.Location = new System.Drawing.Point(1113, 14);
+            this.button10.Margin = new System.Windows.Forms.Padding(2);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(89, 72);
+            this.button10.TabIndex = 13;
+            this.button10.Text = "Salir";
+            this.button10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button10.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // button12
             // 
-            this.button2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(1020, 14);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 72);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Ayuda";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
+            this.button12.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
+            this.button12.Location = new System.Drawing.Point(1020, 14);
+            this.button12.Margin = new System.Windows.Forms.Padding(2);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(89, 72);
+            this.button12.TabIndex = 12;
+            this.button12.Text = "Ayuda";
+            this.button12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button12.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // button15
             // 
-            this.button3.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(940, 14);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(76, 72);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Fin";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = true;
+            this.button15.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.Image = ((System.Drawing.Image)(resources.GetObject("button15.Image")));
+            this.button15.Location = new System.Drawing.Point(940, 14);
+            this.button15.Margin = new System.Windows.Forms.Padding(2);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(76, 72);
+            this.button15.TabIndex = 11;
+            this.button15.Text = "Fin";
+            this.button15.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button15.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // button16
             // 
-            this.button4.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(856, 14);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(80, 72);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Siguiente";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button4.UseVisualStyleBackColor = true;
+            this.button16.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button16.Image = ((System.Drawing.Image)(resources.GetObject("button16.Image")));
+            this.button16.Location = new System.Drawing.Point(856, 14);
+            this.button16.Margin = new System.Windows.Forms.Padding(2);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(80, 72);
+            this.button16.TabIndex = 10;
+            this.button16.Text = "Siguiente";
+            this.button16.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button16.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // button17
             // 
-            this.button5.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(786, 14);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(66, 72);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "Anterior";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.UseVisualStyleBackColor = true;
+            this.button17.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button17.Image = ((System.Drawing.Image)(resources.GetObject("button17.Image")));
+            this.button17.Location = new System.Drawing.Point(786, 14);
+            this.button17.Margin = new System.Windows.Forms.Padding(2);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(66, 72);
+            this.button17.TabIndex = 9;
+            this.button17.Text = "Anterior";
+            this.button17.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button17.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // button18
             // 
-            this.button6.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(712, 14);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(70, 72);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "Inicio";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button6.UseVisualStyleBackColor = true;
+            this.button18.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button18.Image = ((System.Drawing.Image)(resources.GetObject("button18.Image")));
+            this.button18.Location = new System.Drawing.Point(712, 14);
+            this.button18.Margin = new System.Windows.Forms.Padding(2);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(70, 72);
+            this.button18.TabIndex = 8;
+            this.button18.Text = "Inicio";
+            this.button18.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button18.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // button19
             // 
-            this.button7.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.Location = new System.Drawing.Point(619, 14);
-            this.button7.Margin = new System.Windows.Forms.Padding(2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(89, 72);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Refrescar";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button7.UseVisualStyleBackColor = true;
+            this.button19.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button19.Image = ((System.Drawing.Image)(resources.GetObject("button19.Image")));
+            this.button19.Location = new System.Drawing.Point(619, 14);
+            this.button19.Margin = new System.Windows.Forms.Padding(2);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(89, 72);
+            this.button19.TabIndex = 7;
+            this.button19.Text = "Refrescar";
+            this.button19.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button19.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // button20
             // 
-            this.button8.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.Location = new System.Drawing.Point(526, 14);
-            this.button8.Margin = new System.Windows.Forms.Padding(2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(89, 72);
-            this.button8.TabIndex = 6;
-            this.button8.Text = "Imprimir";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button8.UseVisualStyleBackColor = true;
+            this.button20.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button20.Image = ((System.Drawing.Image)(resources.GetObject("button20.Image")));
+            this.button20.Location = new System.Drawing.Point(526, 14);
+            this.button20.Margin = new System.Windows.Forms.Padding(2);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(89, 72);
+            this.button20.TabIndex = 6;
+            this.button20.Text = "Imprimir";
+            this.button20.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button20.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // button21
             // 
-            this.button9.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(444, 14);
-            this.button9.Margin = new System.Windows.Forms.Padding(2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(80, 72);
-            this.button9.TabIndex = 5;
-            this.button9.Text = "Consultar";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button9.UseVisualStyleBackColor = true;
+            this.button21.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button21.Image = ((System.Drawing.Image)(resources.GetObject("button21.Image")));
+            this.button21.Location = new System.Drawing.Point(444, 14);
+            this.button21.Margin = new System.Windows.Forms.Padding(2);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(80, 72);
+            this.button21.TabIndex = 5;
+            this.button21.Text = "Consultar";
+            this.button21.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button21.UseVisualStyleBackColor = true;
             // 
-            // BtnEliminarCostoIndirecto
+            // button22
             // 
-            this.BtnEliminarCostoIndirecto.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminarCostoIndirecto.Image = ((System.Drawing.Image)(resources.GetObject("BtnEliminarCostoIndirecto.Image")));
-            this.BtnEliminarCostoIndirecto.Location = new System.Drawing.Point(368, 14);
-            this.BtnEliminarCostoIndirecto.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnEliminarCostoIndirecto.Name = "BtnEliminarCostoIndirecto";
-            this.BtnEliminarCostoIndirecto.Size = new System.Drawing.Size(72, 72);
-            this.BtnEliminarCostoIndirecto.TabIndex = 4;
-            this.BtnEliminarCostoIndirecto.Text = "Eliminar";
-            this.BtnEliminarCostoIndirecto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnEliminarCostoIndirecto.UseVisualStyleBackColor = true;
-            this.BtnEliminarCostoIndirecto.Click += new System.EventHandler(this.BtnEliminarCostoIndirecto_Click);
+            this.button22.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button22.Image = ((System.Drawing.Image)(resources.GetObject("button22.Image")));
+            this.button22.Location = new System.Drawing.Point(368, 14);
+            this.button22.Margin = new System.Windows.Forms.Padding(2);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(72, 72);
+            this.button22.TabIndex = 4;
+            this.button22.Text = "Eliminar";
+            this.button22.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button22.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // button23
             // 
-            this.button11.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(275, 14);
-            this.button11.Margin = new System.Windows.Forms.Padding(2);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(89, 72);
-            this.button11.TabIndex = 3;
-            this.button11.Text = "Cancelar";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button11.UseVisualStyleBackColor = true;
+            this.button23.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button23.Image = ((System.Drawing.Image)(resources.GetObject("button23.Image")));
+            this.button23.Location = new System.Drawing.Point(275, 14);
+            this.button23.Margin = new System.Windows.Forms.Padding(2);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(89, 72);
+            this.button23.TabIndex = 3;
+            this.button23.Text = "Cancelar";
+            this.button23.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button23.UseVisualStyleBackColor = true;
             // 
-            // BtnGuardarCostoIndirecto
+            // button24
             // 
-            this.BtnGuardarCostoIndirecto.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGuardarCostoIndirecto.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuardarCostoIndirecto.Image")));
-            this.BtnGuardarCostoIndirecto.Location = new System.Drawing.Point(191, 14);
-            this.BtnGuardarCostoIndirecto.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnGuardarCostoIndirecto.Name = "BtnGuardarCostoIndirecto";
-            this.BtnGuardarCostoIndirecto.Size = new System.Drawing.Size(80, 72);
-            this.BtnGuardarCostoIndirecto.TabIndex = 2;
-            this.BtnGuardarCostoIndirecto.Text = "Guardar";
-            this.BtnGuardarCostoIndirecto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnGuardarCostoIndirecto.UseVisualStyleBackColor = true;
-            this.BtnGuardarCostoIndirecto.Click += new System.EventHandler(this.BtnGuardarCostoIndirecto_Click);
+            this.button24.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button24.Image = ((System.Drawing.Image)(resources.GetObject("button24.Image")));
+            this.button24.Location = new System.Drawing.Point(191, 14);
+            this.button24.Margin = new System.Windows.Forms.Padding(2);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(80, 72);
+            this.button24.TabIndex = 2;
+            this.button24.Text = "Guardar";
+            this.button24.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button24.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // button25
             // 
-            this.button13.Enabled = false;
-            this.button13.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
-            this.button13.Location = new System.Drawing.Point(98, 14);
-            this.button13.Margin = new System.Windows.Forms.Padding(2);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(89, 72);
-            this.button13.TabIndex = 1;
-            this.button13.Text = "Modificar";
-            this.button13.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button13.UseVisualStyleBackColor = true;
+            this.button25.Enabled = false;
+            this.button25.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button25.Image = ((System.Drawing.Image)(resources.GetObject("button25.Image")));
+            this.button25.Location = new System.Drawing.Point(98, 14);
+            this.button25.Margin = new System.Windows.Forms.Padding(2);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(89, 72);
+            this.button25.TabIndex = 1;
+            this.button25.Text = "Modificar";
+            this.button25.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button25.UseVisualStyleBackColor = true;
             // 
-            // button14
+            // button26
             // 
-            this.button14.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Image = ((System.Drawing.Image)(resources.GetObject("button14.Image")));
-            this.button14.Location = new System.Drawing.Point(5, 14);
-            this.button14.Margin = new System.Windows.Forms.Padding(2);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(89, 72);
-            this.button14.TabIndex = 0;
-            this.button14.Text = "Ingresar";
-            this.button14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button14.UseVisualStyleBackColor = true;
+            this.button26.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button26.Image = ((System.Drawing.Image)(resources.GetObject("button26.Image")));
+            this.button26.Location = new System.Drawing.Point(5, 14);
+            this.button26.Margin = new System.Windows.Forms.Padding(2);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(89, 72);
+            this.button26.TabIndex = 0;
+            this.button26.Text = "Ingresar";
+            this.button26.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button26.UseVisualStyleBackColor = true;
             // 
-            // dgvCostosIndirectos
+            // label3
             // 
-            this.dgvCostosIndirectos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCostosIndirectos.Location = new System.Drawing.Point(9, 222);
-            this.dgvCostosIndirectos.Name = "dgvCostosIndirectos";
-            this.dgvCostosIndirectos.Size = new System.Drawing.Size(1217, 261);
-            this.dgvCostosIndirectos.TabIndex = 10;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(753, 434);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Costo Total: ";
             // 
-            // txtConcepto
+            // lblTotalMateriales
             // 
-            this.txtConcepto.Location = new System.Drawing.Point(76, 131);
-            this.txtConcepto.Name = "txtConcepto";
-            this.txtConcepto.Size = new System.Drawing.Size(159, 20);
-            this.txtConcepto.TabIndex = 11;
-            // 
-            // nudMonto
-            // 
-            this.nudMonto.Location = new System.Drawing.Point(307, 135);
-            this.nudMonto.Name = "nudMonto";
-            this.nudMonto.Size = new System.Drawing.Size(120, 20);
-            this.nudMonto.TabIndex = 12;
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Location = new System.Drawing.Point(543, 135);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
-            this.txtDescripcion.TabIndex = 13;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 134);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Concepto";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(264, 137);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Monto";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(474, 138);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(63, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Descripción";
+            this.lblTotalMateriales.AutoSize = true;
+            this.lblTotalMateriales.Location = new System.Drawing.Point(826, 434);
+            this.lblTotalMateriales.Name = "lblTotalMateriales";
+            this.lblTotalMateriales.Size = new System.Drawing.Size(35, 13);
+            this.lblTotalMateriales.TabIndex = 12;
+            this.lblTotalMateriales.Text = "label4";
             // 
             // Frm_Produccion
             // 
@@ -792,6 +1048,13 @@ namespace Capa_Vista_Prod
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabMaterial.ResumeLayout(false);
+            this.tabMaterial.PerformLayout();
+            this.tabCostosIndirectos.ResumeLayout(false);
+            this.tabCostosIndirectos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMonto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCostosIndirectos)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.tab_Produccion.ResumeLayout(false);
             this.tab_Produccion.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -800,11 +1063,8 @@ namespace Capa_Vista_Prod
             ((System.ComponentModel.ISupportInitialize)(this.dgvManoObra)).EndInit();
             this.tabCostos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCostos)).EndInit();
-            this.tabCostosIndirectos.ResumeLayout(false);
-            this.tabCostosIndirectos.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCostosIndirectos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMonto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMateriales)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -867,5 +1127,23 @@ namespace Capa_Vista_Prod
         private System.Windows.Forms.NumericUpDown nudMonto;
         private System.Windows.Forms.TextBox txtConcepto;
         private System.Windows.Forms.DataGridView dgvCostosIndirectos;
+        private System.Windows.Forms.DataGridView dgvMateriales;
+        private System.Windows.Forms.Label lblTotalMateriales;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button button25;
+        private System.Windows.Forms.Button button26;
     }
 }
