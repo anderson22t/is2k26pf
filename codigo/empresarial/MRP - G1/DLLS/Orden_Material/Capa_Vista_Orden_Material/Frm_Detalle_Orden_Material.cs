@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using Capa_Controlador_Orden_Material;
+using System.IO;
 
 namespace Capa_Vista_Orden_Material
 {// ------ LETICIA SONTAY - 9959-21-9664, 09/05/2026 --------
@@ -19,6 +20,13 @@ namespace Capa_Vista_Orden_Material
             InitializeComponent();
         }
 
+        // Arón Ricardo Esquit Silva 0901-22-13036 10/05/2026
+        public Frm_Detalle_Orden_Material(int idOrden)
+        {
+            InitializeComponent();
+            _idOrdenActual = idOrden;
+        }
+
         private void Frm_Detalle_Orden_Material_Shown(object sender, EventArgs e)
         {
             _cargando = true;
@@ -27,6 +35,14 @@ namespace Capa_Vista_Orden_Material
                 InicializarColumnasDetalle();
                 CargarComboEstados();
                 CargarComboOrdenes();
+                // Arón Ricardo Esquit Silva 0901-22-13036 10/05/2026
+                if (_idOrdenActual > 0)
+                {
+                    Cmb_ID.SelectedValue = _idOrdenActual;
+                    CargarEncabezado(_idOrdenActual);
+                    CargarDetalle(_idOrdenActual);
+                }
+
                 EstadoControles(false);
             }
             catch (Exception ex)
@@ -74,6 +90,13 @@ namespace Capa_Vista_Orden_Material
                 Cmb_ID.DisplayMember = "OrdenDescripcion";
                 Cmb_ID.ValueMember = "IdOrden";
                 Cmb_ID.SelectedIndex = -1;
+
+                // Arón Ricardo Esquit Silva 0901-22-13036 10/05/2026
+                if (_idOrdenActual > 0)
+                {
+                    Cmb_ID.SelectedValue = _idOrdenActual;
+                }
+
             }
             catch (Exception ex)
             {
@@ -391,6 +414,53 @@ namespace Capa_Vista_Orden_Material
         private void Btn_salir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Btn_imprimir_Click_1(object sender, EventArgs e)
+        {
+            Frm_Reporte_Detalle frm = new Frm_Reporte_Detalle();
+            frm.ShowDialog();
+        }
+
+        // Arón Ricardo Esquit Silva 0901-22-13036 10/05/2026
+        private void Btn_ayuda_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                const string subRutaAyuda = @"DLLS\Orden_Material\Ayuda_Orden_Material\Detalle Orden Material\Ayuda_OrdMatDetall.chm";
+                string rutaEncontrada = null;
+
+                DirectoryInfo dir = new DirectoryInfo(Application.StartupPath);
+
+                for (int i = 0; i < 10 && dir != null; i++, dir = dir.Parent)
+                {
+                    string candidata = Path.Combine(dir.FullName, subRutaAyuda);
+                    if (File.Exists(candidata))
+                    {
+                        rutaEncontrada = candidata;
+                        break;
+                    }
+                }
+
+                string respaldo = @"C:\Users\arone\OneDrive\Escritorio\is2k26pf\codigo\empresarial\MRP - G1\DLLS\Orden_Material\Ayuda_Orden_Material\Detalle Orden Material\Ayuda_OrdMatDetall.chm";
+                if (rutaEncontrada == null && File.Exists(respaldo))
+                    rutaEncontrada = respaldo;
+
+                if (rutaEncontrada != null)
+                {
+                    Help.ShowHelp(this, rutaEncontrada, HelpNavigator.Topic, "index.html");
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el archivo de ayuda.", "Advertencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir la ayuda:\n" + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
