@@ -46,30 +46,30 @@ namespace Capa_Vista_Factura
             this.Btn_guardar = new System.Windows.Forms.Button();
             this.Btn_modificar = new System.Windows.Forms.Button();
             this.Btn_ingresar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Lbl_Titulo = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.Dgv_Materiales = new System.Windows.Forms.DataGridView();
+            this.Lbl_Detalle = new System.Windows.Forms.Label();
+            this.Lbl_Suma = new System.Windows.Forms.Label();
+            this.Lbl_Subtotal = new System.Windows.Forms.Label();
+            this.Dgv_Detalle = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Cmb_Estado = new System.Windows.Forms.ComboBox();
-            this.Cmb_ID = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Cmb_ID_Factura = new System.Windows.Forms.ComboBox();
+            this.Cmb_ID_Detalle = new System.Windows.Forms.ComboBox();
+            this.Lbl_Orden = new System.Windows.Forms.Label();
+            this.Lbl_IdFactura = new System.Windows.Forms.Label();
+            this.Lbl_idDetalle = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Lbl_Datos = new System.Windows.Forms.Label();
+            this.Cmb_ID_Orden = new System.Windows.Forms.ComboBox();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Materiales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Detalle)).BeginInit();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +78,7 @@ namespace Capa_Vista_Factura
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.Lbl_Titulo);
             this.panel4.Controls.Add(this.flowLayoutPanel1);
             this.panel4.Location = new System.Drawing.Point(12, 12);
             this.panel4.Name = "panel4";
@@ -275,15 +275,15 @@ namespace Capa_Vista_Factura
             this.Btn_ingresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_ingresar.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // Lbl_Titulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(327, 29);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Detalle de Orden Recibida";
+            this.Lbl_Titulo.AutoSize = true;
+            this.Lbl_Titulo.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Titulo.Location = new System.Drawing.Point(17, 11);
+            this.Lbl_Titulo.Name = "Lbl_Titulo";
+            this.Lbl_Titulo.Size = new System.Drawing.Size(282, 29);
+            this.Lbl_Titulo.TabIndex = 11;
+            this.Lbl_Titulo.Text = "Detalle de Facturacion";
             // 
             // flowLayoutPanel1
             // 
@@ -307,9 +307,9 @@ namespace Capa_Vista_Factura
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.flowLayoutPanel3);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.Dgv_Materiales);
+            this.panel3.Controls.Add(this.Lbl_Suma);
+            this.panel3.Controls.Add(this.Lbl_Subtotal);
+            this.panel3.Controls.Add(this.Dgv_Detalle);
             this.panel3.Location = new System.Drawing.Point(351, 20);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(769, 481);
@@ -319,149 +319,149 @@ namespace Capa_Vista_Factura
             // 
             this.flowLayoutPanel3.BackColor = System.Drawing.SystemColors.Highlight;
             this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel3.Controls.Add(this.label3);
+            this.flowLayoutPanel3.Controls.Add(this.Lbl_Detalle);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(-1, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(20, 15, 15, 15);
             this.flowLayoutPanel3.Size = new System.Drawing.Size(768, 59);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
-            // label3
+            // Lbl_Detalle
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(23, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(286, 29);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Materiales de la Orden";
+            this.Lbl_Detalle.AutoSize = true;
+            this.Lbl_Detalle.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Detalle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Lbl_Detalle.Location = new System.Drawing.Point(23, 15);
+            this.Lbl_Detalle.Name = "Lbl_Detalle";
+            this.Lbl_Detalle.Size = new System.Drawing.Size(231, 29);
+            this.Lbl_Detalle.TabIndex = 15;
+            this.Lbl_Detalle.Text = "Detalle de Factura";
             // 
-            // label10
+            // Lbl_Suma
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label10.Location = new System.Drawing.Point(689, 433);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 19);
-            this.label10.TabIndex = 29;
-            this.label10.Text = "0.00";
+            this.Lbl_Suma.AutoSize = true;
+            this.Lbl_Suma.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Suma.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.Lbl_Suma.Location = new System.Drawing.Point(689, 433);
+            this.Lbl_Suma.Name = "Lbl_Suma";
+            this.Lbl_Suma.Size = new System.Drawing.Size(41, 19);
+            this.Lbl_Suma.TabIndex = 29;
+            this.Lbl_Suma.Text = "0.00";
             // 
-            // label9
+            // Lbl_Subtotal
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(595, 429);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(94, 23);
-            this.label9.TabIndex = 28;
-            this.label9.Text = "Subtotal:";
+            this.Lbl_Subtotal.AutoSize = true;
+            this.Lbl_Subtotal.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Subtotal.Location = new System.Drawing.Point(595, 429);
+            this.Lbl_Subtotal.Name = "Lbl_Subtotal";
+            this.Lbl_Subtotal.Size = new System.Drawing.Size(94, 23);
+            this.Lbl_Subtotal.TabIndex = 28;
+            this.Lbl_Subtotal.Text = "Subtotal:";
             // 
-            // Dgv_Materiales
+            // Dgv_Detalle
             // 
-            this.Dgv_Materiales.AllowUserToAddRows = false;
-            this.Dgv_Materiales.AllowUserToDeleteRows = false;
-            this.Dgv_Materiales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Dgv_Materiales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_Materiales.Location = new System.Drawing.Point(28, 75);
-            this.Dgv_Materiales.Name = "Dgv_Materiales";
-            this.Dgv_Materiales.ReadOnly = true;
-            this.Dgv_Materiales.RowHeadersWidth = 51;
-            this.Dgv_Materiales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dgv_Materiales.Size = new System.Drawing.Size(713, 320);
-            this.Dgv_Materiales.TabIndex = 0;
+            this.Dgv_Detalle.AllowUserToAddRows = false;
+            this.Dgv_Detalle.AllowUserToDeleteRows = false;
+            this.Dgv_Detalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Dgv_Detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_Detalle.Location = new System.Drawing.Point(28, 75);
+            this.Dgv_Detalle.Name = "Dgv_Detalle";
+            this.Dgv_Detalle.ReadOnly = true;
+            this.Dgv_Detalle.RowHeadersWidth = 51;
+            this.Dgv_Detalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Dgv_Detalle.Size = new System.Drawing.Size(713, 320);
+            this.Dgv_Detalle.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.Cmb_Estado);
-            this.panel2.Controls.Add(this.Cmb_ID);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.Cmb_ID_Orden);
+            this.panel2.Controls.Add(this.Cmb_ID_Factura);
+            this.panel2.Controls.Add(this.Cmb_ID_Detalle);
+            this.panel2.Controls.Add(this.Lbl_Orden);
+            this.panel2.Controls.Add(this.Lbl_IdFactura);
+            this.panel2.Controls.Add(this.Lbl_idDetalle);
             this.panel2.Controls.Add(this.flowLayoutPanel2);
-            this.panel2.Location = new System.Drawing.Point(21, 20);
+            this.panel2.Location = new System.Drawing.Point(20, 22);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(309, 481);
+            this.panel2.Size = new System.Drawing.Size(309, 479);
             this.panel2.TabIndex = 13;
             // 
-            // Cmb_Estado
+            // Cmb_ID_Factura
             // 
-            this.Cmb_Estado.FormattingEnabled = true;
-            this.Cmb_Estado.Location = new System.Drawing.Point(18, 147);
-            this.Cmb_Estado.Name = "Cmb_Estado";
-            this.Cmb_Estado.Size = new System.Drawing.Size(273, 21);
-            this.Cmb_Estado.TabIndex = 23;
+            this.Cmb_ID_Factura.FormattingEnabled = true;
+            this.Cmb_ID_Factura.Location = new System.Drawing.Point(18, 147);
+            this.Cmb_ID_Factura.Name = "Cmb_ID_Factura";
+            this.Cmb_ID_Factura.Size = new System.Drawing.Size(273, 21);
+            this.Cmb_ID_Factura.TabIndex = 23;
             // 
-            // Cmb_ID
+            // Cmb_ID_Detalle
             // 
-            this.Cmb_ID.FormattingEnabled = true;
-            this.Cmb_ID.Location = new System.Drawing.Point(18, 98);
-            this.Cmb_ID.Name = "Cmb_ID";
-            this.Cmb_ID.Size = new System.Drawing.Size(273, 21);
-            this.Cmb_ID.TabIndex = 22;
+            this.Cmb_ID_Detalle.FormattingEnabled = true;
+            this.Cmb_ID_Detalle.Location = new System.Drawing.Point(18, 98);
+            this.Cmb_ID_Detalle.Name = "Cmb_ID_Detalle";
+            this.Cmb_ID_Detalle.Size = new System.Drawing.Size(273, 21);
+            this.Cmb_ID_Detalle.TabIndex = 22;
             // 
-            // label6
+            // Lbl_Orden
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(14, 173);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(192, 19);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "ID Orden de Produccion:";
+            this.Lbl_Orden.AutoSize = true;
+            this.Lbl_Orden.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Orden.Location = new System.Drawing.Point(14, 173);
+            this.Lbl_Orden.Name = "Lbl_Orden";
+            this.Lbl_Orden.Size = new System.Drawing.Size(192, 19);
+            this.Lbl_Orden.TabIndex = 19;
+            this.Lbl_Orden.Text = "ID Orden de Produccion:";
             // 
-            // label5
+            // Lbl_IdFactura
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(14, 124);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 19);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "ID Factura:";
+            this.Lbl_IdFactura.AutoSize = true;
+            this.Lbl_IdFactura.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_IdFactura.Location = new System.Drawing.Point(14, 124);
+            this.Lbl_IdFactura.Name = "Lbl_IdFactura";
+            this.Lbl_IdFactura.Size = new System.Drawing.Size(91, 19);
+            this.Lbl_IdFactura.TabIndex = 18;
+            this.Lbl_IdFactura.Text = "ID Factura:";
             // 
-            // label4
+            // Lbl_idDetalle
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(14, 75);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(177, 19);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "ID Detalle Facturacion:";
+            this.Lbl_idDetalle.AutoSize = true;
+            this.Lbl_idDetalle.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_idDetalle.Location = new System.Drawing.Point(14, 75);
+            this.Lbl_idDetalle.Name = "Lbl_idDetalle";
+            this.Lbl_idDetalle.Size = new System.Drawing.Size(177, 19);
+            this.Lbl_idDetalle.TabIndex = 17;
+            this.Lbl_idDetalle.Text = "ID Detalle Facturacion:";
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.Highlight;
             this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel2.Controls.Add(this.label2);
+            this.flowLayoutPanel2.Controls.Add(this.Lbl_Datos);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(20, 15, 15, 15);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(307, 59);
             this.flowLayoutPanel2.TabIndex = 16;
             // 
-            // label2
+            // Lbl_Datos
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(23, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(225, 29);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Datos de la Orden";
+            this.Lbl_Datos.AutoSize = true;
+            this.Lbl_Datos.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Datos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Lbl_Datos.Location = new System.Drawing.Point(23, 15);
+            this.Lbl_Datos.Name = "Lbl_Datos";
+            this.Lbl_Datos.Size = new System.Drawing.Size(264, 29);
+            this.Lbl_Datos.TabIndex = 17;
+            this.Lbl_Datos.Text = "Datos de Facturacion";
             // 
-            // comboBox1
+            // Cmb_ID_Orden
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(18, 197);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(273, 21);
-            this.comboBox1.TabIndex = 28;
+            this.Cmb_ID_Orden.FormattingEnabled = true;
+            this.Cmb_ID_Orden.Location = new System.Drawing.Point(18, 197);
+            this.Cmb_ID_Orden.Name = "Cmb_ID_Orden";
+            this.Cmb_ID_Orden.Size = new System.Drawing.Size(273, 21);
+            this.Cmb_ID_Orden.TabIndex = 28;
             // 
             // Frm_Detalle_Facturacion
             // 
@@ -471,7 +471,7 @@ namespace Capa_Vista_Factura
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Name = "Frm_Detalle_Facturacion";
-            this.Text = "Frm_Detalle_Facturacion";
+            this.Text = "Detalle de Facturacion -";
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -480,7 +480,7 @@ namespace Capa_Vista_Factura
             this.panel3.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Materiales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Detalle)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -507,23 +507,23 @@ namespace Capa_Vista_Factura
         private System.Windows.Forms.Button Btn_guardar;
         private System.Windows.Forms.Button Btn_modificar;
         private System.Windows.Forms.Button Btn_ingresar;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Lbl_Titulo;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView Dgv_Materiales;
+        private System.Windows.Forms.Label Lbl_Detalle;
+        private System.Windows.Forms.Label Lbl_Suma;
+        private System.Windows.Forms.Label Lbl_Subtotal;
+        private System.Windows.Forms.DataGridView Dgv_Detalle;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ComboBox Cmb_Estado;
-        private System.Windows.Forms.ComboBox Cmb_ID;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox Cmb_ID_Factura;
+        private System.Windows.Forms.ComboBox Cmb_ID_Detalle;
+        private System.Windows.Forms.Label Lbl_Orden;
+        private System.Windows.Forms.Label Lbl_IdFactura;
+        private System.Windows.Forms.Label Lbl_idDetalle;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label Lbl_Datos;
+        private System.Windows.Forms.ComboBox Cmb_ID_Orden;
     }
 }
