@@ -125,7 +125,11 @@ namespace Capa_Modelo_Prod
                     INNER JOIN Tbl_Plan_Produccion pp 
                         ON op.Fk_Id_Plan_Produccion = pp.Pk_Id_Plan_Produccion
                     INNER JOIN Tbl_Explosion_Materiales em 
-                        ON pp.Fk_Id_Orden_Recibida = em.Fk_Id_Orden_Recibida
+                        ON em.Pk_Id_Explosion = (
+                            SELECT MAX(Pk_Id_Explosion) 
+                            FROM Tbl_Explosion_Materiales 
+                            WHERE Fk_Id_Orden_Recibida = pp.Fk_Id_Orden_Recibida
+                        )
                     INNER JOIN Tbl_Explosion_Materiales_Detalle emd 
                         ON em.Pk_Id_Explosion = emd.Fk_Id_Explosion
                     INNER JOIN Tbl_Inventario i 
@@ -150,9 +154,26 @@ namespace Capa_Modelo_Prod
                     FROM Tbl_Merma me
                     INNER JOIN Tbl_Inventario i ON me.Fk_Id_Materiales = i.Fk_Id_Material
                     WHERE me.Fk_Id_Orden_Produccion = ?
-                ), 0) AS CostoMermas";
+                ), 0) AS CostoMermas,
+
+                COALESCE((
+                    SELECT SUM(cf.Costo)
+                    FROM Tbl_Orden_Produccion op2
+                    INNER JOIN Tbl_Plan_Produccion pp 
+                        ON op2.Fk_Id_Plan_Produccion = pp.Pk_Id_Plan_Produccion
+                    INNER JOIN Tbl_Orden_Recibida_Detalle ord
+                        ON pp.Fk_Id_Orden_Recibida = ord.Fk_Id_Orden_Recibida
+                    INNER JOIN Tbl_BOM b
+                        ON b.Fk_Id_Material = ord.Fk_Id_Material
+                    INNER JOIN Tbl_Fases_Produccion fp
+                        ON fp.Fk_Id_BOM = b.Pk_Id_BOM
+                    INNER JOIN Tbl_Costo_Fase cf
+                        ON cf.Fk_Id_Fase_Producto = fp.Pk_Id_Fase_Producto
+                    WHERE op2.Pk_Id_Orden_Produccion = ?
+                ), 0) AS CostoFases";
 
                 OdbcCommand cmd = new OdbcCommand(query, conn);
+                cmd.Parameters.AddWithValue("?", idOrden);
                 cmd.Parameters.AddWithValue("?", idOrden);
                 cmd.Parameters.AddWithValue("?", idOrden);
                 cmd.Parameters.AddWithValue("?", idOrden);
@@ -183,6 +204,76 @@ namespace Capa_Modelo_Prod
         }
         // ############################ METODOS PARA MANO DE OBRA #############################################
 
+        // ############################ Métodos para guardar factura ###########################################
+        public int ObtenerOrdenRecibidaPorOrdenProduccion(int idOrdenProduccion)
+        {
+            using (OdbcConnection conn = conexion.AbrirConexion())
+            {
+                string query = @"
+            SELECT pp.Fk_Id_Orden_Recibida
+            FROM Tbl_Orden_Produccion op
+            INNER JOIN Tbl_Plan_Produccion pp 
+                ON op.Fk_Id_Plan_Produccion = pp.Pk_Id_Plan_Produccion
+            WHERE op.Pk_Id_Orden_Produccion = ?";
 
+                OdbcCommand cmd = new OdbcCommand(query, conn);
+                cmd.Parameters.AddWithValue("?", idOrdenProduccion);
+                object result = cmd.ExecuteScalar();
+                return result != null ? Convert.ToInt32(result) : 0;
+            }
+        }
+
+        public bool GenerarFactura(int idOrdenRecibida, int idOrdenProduccion,
+            decimal totalMateriales, decimal totalManoObra, decimal totalIndirectos,
+            decimal totalMermas, decimal totalFases, decimal totalFactura)
+        {
+            OdbcConnection conn = conexion.AbrirConexion();
+            OdbcTransaction transaccion = conn.BeginTransaction();
+            try
+            {
+                // Insertar encabezado
+                OdbcCommand cmdEncabezado = new OdbcCommand(
+                    "INSERT INTO Tbl_Factura_Produccion (Fk_Id_Orden_Recibida, Total_Factura) VALUES (?, ?)",
+                    conn);
+                cmdEncabezado.Transaction = transaccion;
+                cmdEncabezado.Parameters.Add("?", OdbcType.Int).Value = idOrdenRecibida;
+                cmdEncabezado.Parameters.Add("?", OdbcType.Double).Value = totalFactura;
+                cmdEncabezado.ExecuteNonQuery();
+
+                // Obtener ID generado
+                OdbcCommand cmdId = new OdbcCommand("SELECT LAST_INSERT_ID()", conn);
+                cmdId.Transaction = transaccion;
+                int idFactura = Convert.ToInt32(cmdId.ExecuteScalar());
+
+                // Insertar detalle
+                OdbcCommand cmdDetalle = new OdbcCommand(
+                    "INSERT INTO Tbl_Factura_Produccion_Detalle (Fk_Id_Factura, Fk_Id_Orden_Produccion, Total_Materiales, Total_Mano_Obra, Total_Costos_Indirectos, Total_Mermas, Total_Fases, Subtotal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                    conn);
+                cmdDetalle.Transaction = transaccion;
+                cmdDetalle.Parameters.Add("?", OdbcType.Int).Value = idFactura;
+                cmdDetalle.Parameters.Add("?", OdbcType.Int).Value = idOrdenProduccion;
+                cmdDetalle.Parameters.Add("?", OdbcType.Double).Value = totalMateriales;
+                cmdDetalle.Parameters.Add("?", OdbcType.Double).Value = totalManoObra;
+                cmdDetalle.Parameters.Add("?", OdbcType.Double).Value = totalIndirectos;
+                cmdDetalle.Parameters.Add("?", OdbcType.Double).Value = totalMermas;
+                cmdDetalle.Parameters.Add("?", OdbcType.Double).Value = totalFases;
+                cmdDetalle.Parameters.Add("?", OdbcType.Double).Value = totalFactura;
+                cmdDetalle.ExecuteNonQuery();
+
+                transaccion.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaccion.Rollback();
+                Console.WriteLine("Error (GenerarFactura): " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        // ############################ Métodos para guardar factura ###########################################
     }
 }

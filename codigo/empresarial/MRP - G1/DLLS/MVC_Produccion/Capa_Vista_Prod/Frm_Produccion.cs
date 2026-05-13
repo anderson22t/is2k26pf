@@ -110,7 +110,6 @@ namespace Capa_Vista_Prod
         private void CargarCostos(int idOrden)
         {
             DataTable dt = controlador.ObtenerCostosProduccion(idOrden);
-
             if (dt.Rows.Count == 0) return;
 
             DataRow row = dt.Rows[0];
@@ -119,26 +118,28 @@ namespace Capa_Vista_Prod
             decimal manoObra = Convert.ToDecimal(row["CostoManoObra"]);
             decimal indirectos = Convert.ToDecimal(row["CostoIndirecto"]);
             decimal mermas = Convert.ToDecimal(row["CostoMermas"]);
-            decimal total = materiales + manoObra + indirectos + mermas;
+            decimal fases = Convert.ToDecimal(row["CostoFases"]); // 👈 nuevo
+            decimal total = materiales + manoObra + indirectos + mermas + fases;
 
             /*lblCostoMateriales.Text = $"Q {materiales:N2}";
             lblCostoManoObra.Text = $"Q {manoObra:N2}";
             lblCostoIndirecto.Text = $"Q {indirectos:N2}";
             lblCostoMermas.Text = $"Q {mermas:N2}";
+            lblCostoFases.Text = $"Q {fases:N2}";  // 👈 nuevo label
             lblCostoTotal.Text = $"Q {total:N2}";*/
 
             DataTable desglose = new DataTable();
-            desglose.Columns.Add("Categoria", typeof(string)); // 👈 sin acento
+            desglose.Columns.Add("Categoria", typeof(string));
             desglose.Columns.Add("Monto", typeof(decimal));
 
             desglose.Rows.Add("Materiales", materiales);
             desglose.Rows.Add("Mano de obra", manoObra);
             desglose.Rows.Add("Costos indirectos", indirectos);
             desglose.Rows.Add("Mermas", mermas);
+            desglose.Rows.Add("Fases", fases);  // 👈 nuevo
             desglose.Rows.Add("TOTAL", total);
 
             dgvCostos.DataSource = desglose;
-            Cls_Estilos_DGV.Aplicar(dgvCostos);
             dgvCostos.Columns["Categoria"].HeaderText = "Categoría";
             dgvCostos.Columns["Monto"].HeaderText = "Monto (Q)";
             dgvCostos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -604,6 +605,76 @@ namespace Capa_Vista_Prod
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnFactura_Click(object sender, EventArgs e)
+        {
+            if (Cbo_Orden.SelectedValue == null || Cbo_Orden.SelectedValue is DataRowView)
+            {
+                MessageBox.Show("Seleccione una orden primero.");
+                return;
+            }
+
+            int idOrdenProduccion = Convert.ToInt32(Cbo_Orden.SelectedValue);
+
+            /// En lugar de leer los labels, leer del DataGridView
+            decimal totalMateriales = 0, totalManoObra = 0, totalIndirectos = 0;
+            decimal totalMermas = 0, totalFases = 0, totalFactura = 0;
+
+            foreach (DataGridViewRow fila in dgvCostos.Rows)
+            {
+                if (fila.Cells["Categoria"].Value == null) continue;
+
+                string categoria = fila.Cells["Categoria"].Value.ToString();
+                decimal monto = Convert.ToDecimal(fila.Cells["Monto"].Value);
+
+                switch (categoria)
+                {
+                    case "Materiales": totalMateriales = monto; break;
+                    case "Mano de obra": totalManoObra = monto; break;
+                    case "Costos indirectos": totalIndirectos = monto; break;
+                    case "Mermas": totalMermas = monto; break;
+                    case "Fases": totalFases = monto; break;
+                    case "TOTAL": totalFactura = monto; break;
+                }
+            }
+
+            // Verificar que haya costos
+            if (totalFactura <= 0)
+            {
+                MessageBox.Show("La orden no tiene costos registrados.");
+                return;
+            }
+
+            // Obtener la orden recibida
+            int idOrdenRecibida = controlador.ObtenerOrdenRecibidaPorOrdenProduccion(idOrdenProduccion);
+            if (idOrdenRecibida == 0)
+            {
+                MessageBox.Show("No se encontró la orden recibida asociada.");
+                return;
+            }
+
+            DialogResult confirm = MessageBox.Show("¿Desea generar la factura para esta orden?",
+                "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                bool exito = controlador.GenerarFactura(
+                    idOrdenRecibida, idOrdenProduccion,
+                    totalMateriales, totalManoObra, totalIndirectos,
+                    totalMermas, totalFases, totalFactura);
+
+                if (exito)
+                {
+                    MessageBox.Show("Factura generada correctamente.", "Éxito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al generar la factura.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         // ######################## DISEÑO DE FORMULARIOS ##############################################
