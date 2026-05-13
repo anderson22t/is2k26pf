@@ -110,7 +110,6 @@ namespace Capa_Vista_Prod
         private void CargarCostos(int idOrden)
         {
             DataTable dt = controlador.ObtenerCostosProduccion(idOrden);
-
             if (dt.Rows.Count == 0) return;
 
             DataRow row = dt.Rows[0];
@@ -119,26 +118,28 @@ namespace Capa_Vista_Prod
             decimal manoObra = Convert.ToDecimal(row["CostoManoObra"]);
             decimal indirectos = Convert.ToDecimal(row["CostoIndirecto"]);
             decimal mermas = Convert.ToDecimal(row["CostoMermas"]);
-            decimal total = materiales + manoObra + indirectos + mermas;
+            decimal fases = Convert.ToDecimal(row["CostoFases"]); // 👈 nuevo
+            decimal total = materiales + manoObra + indirectos + mermas + fases;
 
             /*lblCostoMateriales.Text = $"Q {materiales:N2}";
             lblCostoManoObra.Text = $"Q {manoObra:N2}";
             lblCostoIndirecto.Text = $"Q {indirectos:N2}";
             lblCostoMermas.Text = $"Q {mermas:N2}";
+            lblCostoFases.Text = $"Q {fases:N2}";  // 👈 nuevo label
             lblCostoTotal.Text = $"Q {total:N2}";*/
 
             DataTable desglose = new DataTable();
-            desglose.Columns.Add("Categoria", typeof(string)); // 👈 sin acento
+            desglose.Columns.Add("Categoria", typeof(string));
             desglose.Columns.Add("Monto", typeof(decimal));
 
             desglose.Rows.Add("Materiales", materiales);
             desglose.Rows.Add("Mano de obra", manoObra);
             desglose.Rows.Add("Costos indirectos", indirectos);
             desglose.Rows.Add("Mermas", mermas);
+            desglose.Rows.Add("Fases", fases);  // 👈 nuevo
             desglose.Rows.Add("TOTAL", total);
 
             dgvCostos.DataSource = desglose;
-            Cls_Estilos_DGV.Aplicar(dgvCostos);
             dgvCostos.Columns["Categoria"].HeaderText = "Categoría";
             dgvCostos.Columns["Monto"].HeaderText = "Monto (Q)";
             dgvCostos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

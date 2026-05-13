@@ -125,7 +125,11 @@ namespace Capa_Modelo_Prod
                     INNER JOIN Tbl_Plan_Produccion pp 
                         ON op.Fk_Id_Plan_Produccion = pp.Pk_Id_Plan_Produccion
                     INNER JOIN Tbl_Explosion_Materiales em 
-                        ON pp.Fk_Id_Orden_Recibida = em.Fk_Id_Orden_Recibida
+                        ON em.Pk_Id_Explosion = (
+                            SELECT MAX(Pk_Id_Explosion) 
+                            FROM Tbl_Explosion_Materiales 
+                            WHERE Fk_Id_Orden_Recibida = pp.Fk_Id_Orden_Recibida
+                        )
                     INNER JOIN Tbl_Explosion_Materiales_Detalle emd 
                         ON em.Pk_Id_Explosion = emd.Fk_Id_Explosion
                     INNER JOIN Tbl_Inventario i 
@@ -150,9 +154,26 @@ namespace Capa_Modelo_Prod
                     FROM Tbl_Merma me
                     INNER JOIN Tbl_Inventario i ON me.Fk_Id_Materiales = i.Fk_Id_Material
                     WHERE me.Fk_Id_Orden_Produccion = ?
-                ), 0) AS CostoMermas";
+                ), 0) AS CostoMermas,
+
+                COALESCE((
+                    SELECT SUM(cf.Costo)
+                    FROM Tbl_Orden_Produccion op2
+                    INNER JOIN Tbl_Plan_Produccion pp 
+                        ON op2.Fk_Id_Plan_Produccion = pp.Pk_Id_Plan_Produccion
+                    INNER JOIN Tbl_Orden_Recibida_Detalle ord
+                        ON pp.Fk_Id_Orden_Recibida = ord.Fk_Id_Orden_Recibida
+                    INNER JOIN Tbl_BOM b
+                        ON b.Fk_Id_Material = ord.Fk_Id_Material
+                    INNER JOIN Tbl_Fases_Produccion fp
+                        ON fp.Fk_Id_BOM = b.Pk_Id_BOM
+                    INNER JOIN Tbl_Costo_Fase cf
+                        ON cf.Fk_Id_Fase_Producto = fp.Pk_Id_Fase_Producto
+                    WHERE op2.Pk_Id_Orden_Produccion = ?
+                ), 0) AS CostoFases";
 
                 OdbcCommand cmd = new OdbcCommand(query, conn);
+                cmd.Parameters.AddWithValue("?", idOrden);
                 cmd.Parameters.AddWithValue("?", idOrden);
                 cmd.Parameters.AddWithValue("?", idOrden);
                 cmd.Parameters.AddWithValue("?", idOrden);
